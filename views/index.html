@@ -10,8 +10,50 @@
 
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link rel="icon" href="images/logo.ico" />
+		
+		<style>
+		.wrapper {
+			margin-left:10%;
+			margin-right:10%;
+		}
+		</style>
 	</head>
 	<body>
+
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-content">
+						<span class="sr-only">Toggle Navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html">easyCTF</a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-content">
+					<ul class="nav navbar-nav">
+						<li><a href="javascript:void(0);">About</a></li>
+						<li><a href="javascript:void(0);">Learn</a></li>
+						<li><a href="javascript:void(0);">Scoreboard</a></li>
+						<?php if (logged_in()) { ?>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools<span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="javascript:void(0);">MD5 Hasher</a></li>
+									<li><a href="javascript:void(0);">EasyIDE</a></li>
+								</ul>
+							</li>
+						<?php } ?>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="javascript:void(0);">Register</a></li>
+						<li><a href="javascript:void(0);">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
 		<div class="wrapper">
 			<div class="main">
 				<section id="page1">

@@ -6,10 +6,15 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.1.1",
-    "morgan": "^1.0.0",
     "body-parser": "^1.0.2",
-    "method-override": "^1.0.0"
+    "emailjs": "^0.3.11",
+    "express": "^4.8.7",
+    "jade": "^1.6.0",
+    "method-override": "^1.0.0",
+    "moment": "^2.8.2",
+    "mongodb": "^1.4.9",
+    "morgan": "^1.0.0",
+    "stylus": "^0.48.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

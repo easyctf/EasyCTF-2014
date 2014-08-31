@@ -1,19 +1,130 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>ExpressJS Static Boilerplate</title>
-	
-	<!-- STYLES -->
-	<link rel="stylesheet" href="stylesheets/app.min.css">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="easy ctf easyctf high school highschool hacking computer security fun">
+		<meta name="description" content="High school hacking competition">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>easyCTF</title>
 
-	<!-- JS -->
-	<script src="javascripts/app.min.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="icon" href="images/logo.ico" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="main">
+				<section id="page1">
+					<div class="page-container">
+						<center>
+							<div class="jumbotron page-title">
+								<h1>Easy CTF</h1>
+								Fall 2014
+							</div>
+						</center>
+					</div>
+				</section>
+				<?php if (isset($_GET['logout']) && $_GET['logout'] == 'true') { ?>
+				<div class="alert alert-info">You've logged out successfully!</div>
+				<?php } ?>
+				<section id="page2">
+					<div class="page-container">
+						<div class="page-header">
+							<h2>What is a CTF?</h2>
+						</div>
+						<div class="well">
+							<p>CTF stands for <b>Capture the Flag</b>. Aside from being a popular physical activity, CTF also refers to a type of computer security competition in which certain pieces of information, called "flags", are placed on servers, encrypted, hidden, or otherwise stored somewhere difficult to access, and the participants try to reverse-engineer, break, hack, decrypt, or anything to capture that flag. When a team submits this flag to a scoring page, they will get points. The challenges are all set up with the intent of being hacked, making it an excellent, legal way to get hands on experience.</p>
+						</div>
+					</div>
+				</section>
+				<section id="page2">
+					<div class="page-container">
+						<div class="page-header">
+							<h2>Who?</h2>
+						</div>
+						<div class="well">
+							<p><b>You!</b> You, you, and you. Anyone who has access to a computer and several of the other materials listed below is encouraged to participate. <i>You don't have to have prior knowledge in computers or programming</i>, although it is recommended. We'll teach you stuff you need to know on the <a href="learn">Learn</a> page.</p>
+							<p>easyCTF is for any high school or college students may also register a team and compete online. Teams should consist of 4 or fewer students, and <i>there is no limit to the number of teams which may compete per school.</i></p>
+						</div>
+					</div>
+				</section>
+				<section id="page3">
+					<div class="page-container">
+						<div class="page-header">
+							<h2>What?</h2>
+						</div>
+						<div class="well">
+							<p>easyCTF is a CTF competition specifically targeted towards high school students. Consequently, questions range from the absolute computer science beginner level to collegiate level. Don't be frustrated if you can't answer the questions: <b>this is a contest; we don't expect you to get every question right.</b></i></p>
+						</div>
+					</div>
+				</section>
+				<section id="page4">
+					<div class="page-container">
+						<div class="page-header">
+							<h2>When?</h2>
+						</div>
+						<div class="well">
+							<p>The dates and times for easyCTF have yet to be determined, but it's probably going to be sometime in fall 2014.</p>
+						</div>
+					</div>
+				</section>
+				<section id="page5">
+					<div class="page-container">
+						<div class="page-header">
+							<h2>Where?</h2>
+						</div>
+						<div class="well">
+							<p>The entire contest will take place on the internet. Once the competition starts, contestants will be able to view challenges and submit flags for points by logging in to this website with the username and password they have chosen during registration.</p>
+						</div>
+					</div>
+				</section>
+				<section id="page6">
+					<div class="page-container">
+						<div class="page-header">
+							<h2>Why?</h2>
+						</div>
+						<div class="well">
+							<p>We love computer science and we love cybersecurity, and we want others to enjoy it too. easyCTF provides and opportunity for anyone to be able to learn all about computer science and hacking (cybersecurity). Many traditional CTFs are for college students or professionals, but this CTF (and several other CTFs) are designed to be more friendly to those who are just starting out, like in high school.</p>
+						</div>
+					</div>
+				</section>
+				<section id="page7">
+					<div class="page-container">
+						<div class="page-header">
+							<h2>How?</h2>
+						</div>
+						<div class="well">
+							<p>In order to play, we expect teams to have:</p>
+							<ul>
+								<li>A modern web browser (<a href="http://google.com/chrome" target="_blank">Google Chrome</a>, <a href="http://firefox.com" target="_blank">Firefox</a>, etc.)</li>
+								<li>A relatively speedy internet connection (so you're able to access the website easily).</li>
+								<li>The ability to install applications, as many of the challenges here will involve using third-party applications.</li>
+							</ul>
+							<p>We also recommend that participating teams have at least one member who is generally familiar with:</p>
+							<ul>
+								<li>Web languages (JavaScript, HTML, PHP, etc.)</li>
+								<li>Python</li>
+								<li>Java and C</li>
+								<li>the UNIX command-line, <b>bash</b></li>
+							</ul>
+							<p>Finally, remember that <a href="http://google.com" target="_blank"><b>Google</b></a> is your friend! We don't expect you to know everything, and we'd be surprised if you do. This contest is not closed-note, and getting information from the internet is <strike>allowed</strike> encouraged!</p>
+						</div>
+					</div>
+				</section>
+				<section id="page8">
+					<div class="page-container">
+						<div class="page-header">
+							<h2>More questions?</h2>
+						</div>
+						<div class="well">
+							Check out our <a href="about.php">FAQ</a> page.
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
 
-</head>
-<body>
-
-	<h1>ExpressJS Static Boilerplate</h1>
-	
-</body>
+		<script src="jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
 </html>

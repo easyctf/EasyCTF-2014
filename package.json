@@ -1,0 +1,28 @@
+{
+  "name": "easyctf",
+  "version": "1.0.0",
+  "description": "EasyCTF Backend (and frontend i guess)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/failedxyz/easyctf.git"
+  },
+  "keywords": [
+    "easyctf",
+    "ctf",
+    "hacking",
+    "security",
+    "high",
+    "school",
+    "easy"
+  ],
+  "author": "Michael Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/failedxyz/easyctf/issues"
+  },
+  "homepage": "https://github.com/failedxyz/easyctf"
+}

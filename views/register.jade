@@ -42,9 +42,30 @@ block content
 				url: "/register.ajax",
 				dataType: "json",
 				data: {
+					email: $("#reg-email").val(),
+					team_name: $("#reg-team-name").val(),
+					school: $("#reg-school").val(),
+					password: $("#reg-password").val(),
 				},
 				type: "POST",
 				success:function(content) {
+					console.log(content);
+					new PNotify({
+						title: "Register",
+						text: content.message,
+						type: content.errors.length == 0 ? "success" : "warning",
+						nonblock: {
+							nonblock: true,
+							nonblock_opacity: 0.25,
+						},
+					});
+					if (content.errors.length != 0) {
+						$("#reg-email, #reg-password, #reg-school, #reg-team-name, #submit-btn").removeAttr("disabled");
+					} else {
+						setTimeout(function() {
+							window.location.href = "login";
+						},2000);
+					}
 				},
 				error:function(content) {
 					new PNotify({
@@ -56,6 +77,8 @@ block content
 							nonblock_opacity: 0.25,
 						},
 					});
+					$("#reg-email, #reg-password, #reg-school, #reg-team-name, #submit-btn").removeAttr("disabled");
 				},
 			});
+			return false;
 		};

@@ -14,28 +14,28 @@ html
 		style.
 			.wrapper { margin-left:10%; margin-right:10%; }
 	body
-	block nav
-		nav(class='navbar navbar-default', role='navigation')
-			div(class='container-fluid')
-				div(class='navbar-header')
-					button(type='button', class='navbar-toggle', data-toggle='collapse', data-target='#navbar-content')
-						span(class='sr-only').
-							Toggle Navigation
-						span
-						span
-						span
-					a(class='navbar-brand', href='/') EasyCTF
-				div(class='collapse navbar-collapse', id='navbar-content')
-					ul(class='nav navbar-nav')
-						li
-							a(href='javascript:void(0);') About
-					ul(class='nav navbar-nav navbar-right')
-						li
-							a(href='register') Register
-						li
-							a(href='login') Login
-	
-	script(type='text/javascript', src='/jquery.js')
-	script(type='text/javascript', src='/bootstrap/js/bootstrap.min.js')
-	
-	block content
+		block nav
+			nav(class='navbar navbar-default', role='navigation')
+				div(class='container-fluid')
+					div(class='navbar-header')
+						button(type='button', class='navbar-toggle', data-toggle='collapse', data-target='#navbar-content')
+							span(class='sr-only').
+								Toggle Navigation
+							span
+							span
+							span
+						a(class='navbar-brand', href='/') EasyCTF
+					div(class='collapse navbar-collapse', id='navbar-content')
+						ul(class='nav navbar-nav')
+							li
+								a(href='javascript:void(0);') About
+						ul(class='nav navbar-nav navbar-right')
+							li
+								a(href='register') Register
+							li
+								a(href='login') Login
+		
+		script(type='text/javascript', src='/jquery.js')
+		script(type='text/javascript', src='/bootstrap/js/bootstrap.min.js')
+		
+		block content

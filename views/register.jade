@@ -34,5 +34,28 @@ block content
 										label(class='col-lg-3 control-label')
 										div(class='col-lg-7')
 											button(class='btn btn-default', id='submit-btn', onClick='javascript:register(); return false;') Register!
+	script(type='text/javascript', src='/bootstrap/js/pnotify.min.js')
 	script(type='text/javascript').
-		
+		var register = function() {
+			$("#reg-email, #reg-password, #reg-school, #reg-team-name, #submit-btn").attr("disabled","disabled");
+			$.ajax({
+				url: "/register.ajax",
+				dataType: "json",
+				data: {
+				},
+				type: "POST",
+				success:function(content) {
+				},
+				error:function(content) {
+					new PNotify({
+						title: "Whoops",
+						text: "Something went wrong when trying to register.",
+						type: "error",
+						nonblock: {
+							nonblock: true,
+							nonblock_opacity: 0.25,
+						},
+					});
+				},
+			});
+		};

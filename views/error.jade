@@ -1,6 +1,9 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+	div(class='wrapper')
+		h1(class='page-header').
+			#{error.status}
+			-
+			#{message}
+		pre(class='well') #{error.stack}

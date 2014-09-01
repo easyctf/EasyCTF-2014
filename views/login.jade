@@ -1,0 +1,28 @@
+extends layout
+
+block content
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					div(class='page-header')
+						h2 Login to EasyCTF 2014
+					div(class='well col-lg-7')
+						div
+							form(class='form-horizontal', action='javascript:login();')
+								fieldset
+									legend Login
+									div(class='form-group')
+										label(for='log-email' class='col-lg-3 control-label') Email
+										div(class='col-lg-8')
+											input(type='email', class='form-control', id='log-email', placeholder='Email')
+									div(class='form-group')
+										label(for='log-password' class='col-lg-3 control-label') Password
+										div(class='col-lg-8')
+											input(type='password', class='form-control', id='log-password', placeholder='Password')
+									div(class='form-group')
+										label(class='col-lg-3 control-label')
+										div(class='col-lg-7')
+											button(class='btn btn-primary', id='submit-btn', onClick='javascript:login(); return false;') Login
+									
+	

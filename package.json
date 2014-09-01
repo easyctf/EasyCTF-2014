@@ -1,28 +1,17 @@
 {
   "name": "easyctf",
-  "version": "1.0.0",
-  "description": "EasyCTF Backend (and frontend i guess)",
-  "main": "index.js",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "test": "node index.js"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/failedxyz/easyctf.git"
-  },
-  "keywords": [
-    "easyctf",
-    "ctf",
-    "hacking",
-    "security",
-    "high",
-    "school",
-    "easy"
-  ],
-  "author": "Michael Zhang",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/failedxyz/easyctf/issues"
-  },
-  "homepage": "https://github.com/failedxyz/easyctf"
+  "dependencies": {
+    "express": "~4.2.0",
+    "static-favicon": "~1.0.0",
+    "morgan": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "body-parser": "~1.0.0",
+    "debug": "~0.7.4",
+    "jade": "~1.3.0"
+  }
 }

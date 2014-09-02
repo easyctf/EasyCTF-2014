@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+var mongojs = require('mongojs');
+var db = mongojs.connect(
+    'mongodb://github_user:__temporarypassword__@kahana.mongohq.com:10071/app29067833',
+);
+
 var randomString = function(length) {
 	var str = "";
 	var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
@@ -35,7 +40,7 @@ router.post('/register.ajax', function(req, res) {
 	var errors = [];
 	
 	var teamname = htmlEntities(req.body.team_name.trim());
-	var email = req.body.email;
+	var email = req.body.email.trim();
 	var password = req.body.password;
 	var school = htmlEntities(req.body.school.trim());
 	
@@ -55,14 +60,7 @@ router.post('/register.ajax', function(req, res) {
 	}
 	
 	if (errors.length == 0) {
-		var MongoClient = require('mongodb').MongoClient, format = require('util').format;
-		MongoClient.connect('mongodb://github_user:__temporarypassword__@kahana.mongohq.com:10071/app29067833', function (err, db) {
-			if (err) {
-				throw err;
-			} else {
-			}
-			db.close();
-		});
+		
 	}
 	
 	if (errors.length == 0) {

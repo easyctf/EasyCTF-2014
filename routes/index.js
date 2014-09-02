@@ -2,9 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongojs = require('mongojs');
-var db = mongojs.connect(
-    'mongodb://github_user:__temporarypassword__@kahana.mongohq.com:10071/app29067833',
-);
+var db = mongojs.connect('github_user:__temporarypassword__@kahana.mongohq.com:10071/app29067833', ["users"]);
 
 var randomString = function(length) {
 	var str = "";
@@ -60,7 +58,7 @@ router.post('/register.ajax', function(req, res) {
 	}
 	
 	if (errors.length == 0) {
-		
+		result.find = db.users.find().count();
 	}
 	
 	if (errors.length == 0) {

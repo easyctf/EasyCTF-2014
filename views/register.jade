@@ -17,7 +17,7 @@ block content
 									div(class='form-group')
 										label(for='reg-email' class='col-lg-3 control-label') Email
 										div(class='col-lg-8')
-											input(type='email', class='form-control', id='reg-email', placeholder='Email')
+											input(type='email', class='form-control', id='reg-email', placeholder='Email', autofocus='true')
 									div(class='form-group')
 										label(for='reg-team-name' class='col-lg-3 control-label') Team Name
 										div(class='col-lg-8')
@@ -63,7 +63,7 @@ block content
 						$("#reg-email, #reg-password, #reg-school, #reg-team-name, #submit-btn").removeAttr("disabled");
 					} else {
 						setTimeout(function() {
-							window.location.href = "login";
+							// window.location.href = "login";
 						},2000);
 					}
 				},

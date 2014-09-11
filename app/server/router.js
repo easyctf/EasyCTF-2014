@@ -32,7 +32,7 @@ module.exports = function(app) {
         var school = req.param("school").trim();
         var password = req.param("pass").trim();
 
-        if (!validateEmail(email) {
+        if (!validateEmail(email)) {
             errors.push("Email address is not valid.");
         }
         if (name.length < 1) {

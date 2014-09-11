@@ -1,6 +1,6 @@
 var crypto = require("crypto");
-var mongoDB = require("mongodb").MongoClient;
-var server = require("mongodb").Server;
+var MongoDB = require("mongodb").Db;
+var Server = require("mongodb").Server;
 var moment = require("moment");
 
 var db = new MongoDB( "app29067833", new Server("kahana.mongohq.com", 10071, { auto_reconnect: true }), {w: 1});

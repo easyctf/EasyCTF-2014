@@ -24,6 +24,17 @@ module.exports = function(app) {
     });
 
     app.post("/register", function(req, res) {
-
+        AM.addNewAccount({
+            teamname: req.param("name"),
+            email: req.param("email"),
+            school: req.param("school"),
+            pass: req.param("password"),
+        }, function(e) {
+            if (e) {
+                res.send(e, 400);
+            } else {
+                res.send("ok", 200);
+            }
+        });
     });
 };

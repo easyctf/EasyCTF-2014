@@ -11,7 +11,7 @@ block content
 						Registration for <b>easyCTF</b> is free! Sign up below and verify your email to get started.
 					div(class='well col-lg-7')
 						div
-							form(class='form-horizontal', method='post')
+							form(class='form-horizontal', action='javascript:register();')
 								fieldset
 									legend Create a Team
 									div(class='form-group')
@@ -33,4 +33,49 @@ block content
 									div(class='form-group')
 										label(class='col-lg-3 control-label')
 										div(class='col-lg-7')
-											button(class='btn btn-default', id='submit-btn') Register!
+											button(class='btn btn-default', id='submit-btn', onclick='javascript:register(); return false;') Register!
+	script(type='text/javascript').
+		var register = function() {
+			$("#reg-email,#reg-password,#reg-school,#reg-team-name,#submit-btn").attr("disabled","disabled");
+			$.ajax({
+				url: "/register",
+				data: {
+					email: $("#reg-email").val(),
+					name: $("#reg-team-name").val(),
+					school: $("#reg-school").val(),
+					password: $("#reg-password").val(),
+				},
+				type: "POST",
+				success: function(content) {
+					console.dir(content);
+					new PNotify({
+						title: "Register",
+						text: content.message,
+						type: content.errors.length == 0 ? "success" : "warning",
+						nonblock: {
+							nonblock: true,
+							nonblock_opacity: 0.25,
+						},
+					});
+					if (content.errors.length != 0) {
+						$("#reg-email,#reg-password,#reg-school,#reg-team-name,#submit-btn").removeAttr("disabled");
+					} else {
+						setTimeout(function() {
+							window.location.href = "login.php";
+						},2000);
+					}
+				},
+				error: function(content) {
+					new PNotify({
+						title: "Whoops",
+						text: "Something went wrong when trying to register.",
+						type: "error",
+						nonblock: {
+							nonblock: true,
+							nonblock_opacity: 0.25,
+						},
+					});
+				}
+			});
+			return false;
+		}

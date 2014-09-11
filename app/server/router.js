@@ -14,4 +14,10 @@ module.exports = function(app) {
 
         }
     });
+
+    app.get("/register", function(req, res) {
+        res.render("register", {
+            title: "Register - EasyCTF 2014"
+        });
+    });
 };

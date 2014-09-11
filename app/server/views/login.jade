@@ -15,16 +15,13 @@ block content
 									div(class='form-group')
 										label(for='log-email' class='col-lg-3 control-label') Email
 										div(class='col-lg-8')
-											input(type='email', class='form-control', id='log-email', placeholder='Email')
+											input(type='email', class='form-control', name='log-email', id='log-email', placeholder='Email')
 									div(class='form-group')
 										label(for='log-password' class='col-lg-3 control-label') Password
 										div(class='col-lg-8')
-											input(type='password', class='form-control', id='log-password', placeholder='Password')
-									div(class='form-group')
-										label(class='col-lg-3 control-label')
-										div(class='col-lg-7')
-											label#remember-me.checkbox Remember Me
-												input(type='checkbox', checked='checked')
+											input(type='password', class='form-control', name='log-password', id='log-password', placeholder='Password')
+									label#remember-me.checkbox Remember Me
+										input(type="checkbox", checked='checked')
 									div(class='form-group')
 										label(class='col-lg-3 control-label')
 										div(class='col-lg-7')

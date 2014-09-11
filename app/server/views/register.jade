@@ -1,0 +1,36 @@
+extends layout
+
+block content
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					div(class='page-header')
+						h2 Register for EasyCTF 2014
+					div(class='alert col-lg-7 alert-info').
+						Registration for <b>easyCTF</b> is free! Sign up below and verify your email to get started.
+					div(class='well col-lg-7')
+						div
+							form(class='form-horizontal', action='javascript:login();')
+								fieldset
+									legend Create a Team
+									div(class='form-group')
+										label(for='reg-email' class='col-lg-3 control-label') Email
+										div(class='col-lg-8')
+											input(type='email', class='form-control', name='reg-email', id='reg-email', placeholder='Email', autofocus='true')
+									div(class='form-group')
+										label(for='reg-team-name' class='col-lg-3 control-label') Team Name
+										div(class='col-lg-8')
+											input(type='text', class='form-control', name='reg-team-name', id='reg-team-name', placeholder='Team Name')
+									div(class='form-group')
+										label(for='reg-school' class='col-lg-3 control-label') School
+										div(class='col-lg-8')
+											input(type='text', class='form-control', name='reg-school', id='reg-school', placeholder='School')
+									div(class='form-group')
+										label(for='reg-password' class='col-lg-3 control-label') Password
+										div(class='col-lg-8')
+											input(type='password', class='form-control', name='reg-password', id='reg-password', placeholder='Password')
+									div(class='form-group')
+										label(class='col-lg-3 control-label')
+										div(class='col-lg-7')
+											button(class='btn btn-default', id='submit-btn') Register!

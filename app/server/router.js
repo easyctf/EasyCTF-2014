@@ -31,6 +31,7 @@ module.exports = function(app) {
             pass: req.param("password"),
         }, function(e) {
             if (e) {
+                console.dir(e);
                 res.send(e, 400);
             } else {
                 res.send("ok", 200);

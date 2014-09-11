@@ -27,6 +27,17 @@ module.exports = function(app) {
         var result = {};
         var errors = [];
 
+        if (!(req.param("email") && req.param("name") && req.param("school") && req.param("pass"))) {
+            errors.push("Please fill out all fields.");
+            result.errors = errors;
+            result.message = "<p>You need to recheck the following items:</p><ul>";
+            for(var i=0; i<errors.length; i++) {
+                result.message += "<li>" + errors[i] + "</li>";
+            }
+            result.message += "</ul>";
+            res.send(result);
+        }
+
         var email = req.param("email").trim();
         var teamname = req.param("name").trim();
         var school = req.param("school").trim();
@@ -73,10 +84,11 @@ module.exports = function(app) {
             result.message += "</ul>";
             res.send(result);
         }
+        res.send(result);
     });
 };
 
 var validateEmail = function(email) { 
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
-}
+};

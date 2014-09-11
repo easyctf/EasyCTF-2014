@@ -1,3 +1,5 @@
+var AM = require("./modules/account-manager");
+
 module.exports = function(app) {
     app.get("/", function(req, res) {
         res.render("easyctf", {
@@ -19,5 +21,9 @@ module.exports = function(app) {
         res.render("register", {
             title: "Register - EasyCTF 2014"
         });
+    });
+
+    app.post("/register", function(req, res) {
+
     });
 };

@@ -43,6 +43,10 @@ var generateSalt = function() {
     return salt;
 };
 
+var md5 = function(str) {
+    return crypto.createHash('md5').update(str).digest('hex');
+};
+
 var saltAndHash = function(pass, callback) {
     var salt = generateSalt();
     callback(salt+md5(pass+salt));

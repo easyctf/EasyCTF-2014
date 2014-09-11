@@ -21,7 +21,7 @@ db.open(function(err, db) {
 var accounts = db.collection("accounts");
 
 exports.addNewAccount = function(newData, callback) {
-    accounts.findOne({user: newData.user}, function(e, o) {
+    accounts.findOne({teamname: newData.name}, function(e, o) {
         if (o) {
             callback("username-taken");
         } else {

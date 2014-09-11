@@ -27,34 +27,6 @@ module.exports = function(app) {
         var result = {};
         var errors = [];
 
-        if (!(req.param("email") && req.param("name") && req.param("school") && req.param("pass"))) {
-            errors.push("Please fill out all fields.");
-            result.errors = errors;
-            result.message = "<p>You need to recheck the following items:</p><ul>";
-            for(var i=0; i<errors.length; i++) {
-                result.message += "<li>" + errors[i] + "</li>";
-            }
-            result.message += "</ul>";
-            res.send(result);
-        }
-
-        var email = req.param("email").trim();
-        var teamname = req.param("name").trim();
-        var school = req.param("school").trim();
-        var password = req.param("pass").trim();
-
-        if (!validateEmail(email)) {
-            errors.push("Email address is not valid.");
-        }
-        if (name.length < 1) {
-            errors.push("Team name must not be empty.");
-        }
-        if (school.length < 1) {
-            errors.push("School name must not be empty.");
-        }
-        if (password.length < 6) {
-            errors.push("Password must be at least 6 characters long.");
-        }
         if (errors.length == 0) {
             AM.addNewAccount({
                 teamname: req.param("name"),
@@ -84,7 +56,6 @@ module.exports = function(app) {
             result.message += "</ul>";
             res.send(result);
         }
-        res.send(result);
     });
 };
 

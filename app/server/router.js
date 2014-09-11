@@ -24,18 +24,52 @@ module.exports = function(app) {
     });
 
     app.post("/register", function(req, res) {
-        AM.addNewAccount({
-            teamname: req.param("name"),
-            email: req.param("email"),
-            school: req.param("school"),
-            pass: req.param("password"),
-        }, function(e) {
-            if (e) {
-                console.dir(e);
-                res.send(e, 400);
-            } else {
-                res.send("ok", 200);
+        var result = {};
+        var errors = [];
+
+        var email = req.param("email").trim();
+        var teamname = req.param("name").trim();
+        var school = req.param("school").trim();
+        var password = req.param("pass").trim();
+
+        if (!validateEmail(email) {
+            errors.push("Email address is not valid.");
+        }
+        if (name.length < 1) {
+            errors.push("Team name must not be empty.");
+        }
+        if (school.length < 1) {
+            errors.push("School name must not be empty.");
+        }
+        if (password.length < 6) {
+            errors.push("Password must be at least 6 characters long.");
+        }
+        if (errors.length == 0) {
+            AM.addNewAccount({
+                teamname: req.param("name"),
+                email: req.param("email"),
+                school: req.param("school"),
+                pass: req.param("password"),
+            }, function(e) {
+                if (e) {
+                    console.dir(e);
+                    res.send(e);
+                } else {
+                    res.send("ok");
+                }
+            });
+        } else {
+            result.errors = errors;
+            result.message = "<p>You need to recheck the following items:</p><ul>";
+            for(var i=0; i<errors.length; i++) {
+                result.message += "<li>" + errors[i] + "</li>";
             }
-        });
+            result.message += "</ul>";
+        }
     });
 };
+
+var validateEmail = function(email) { 
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}

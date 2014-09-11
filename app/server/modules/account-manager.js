@@ -4,18 +4,18 @@ var Server = require("mongodb").Server;
 var moment = require("moment");
 
 var db = new MongoDB("app29067833", new Server("kahana.mongohq.com", 10071, { auto_reconnect: true }), {w: 1});
-db.authenticate("github_user", "__temporarypassword__", function(err, res) {
-    if (err) {
-        console.dir(err);
-    } else {
-        console.log("yey authenticated");
-    }
-});
 db.open(function(err, db) {
     if (err) {
         console.dir(err);
     } else {
         console.log("yey connected.");
+        db.authenticate("github_user", "__temporarypassword__", function(err, res) {
+            if (err) {
+                console.dir(err);
+            } else {
+                console.log("yey authenticated");
+            }
+        });
     }
 });
 var accounts = db.collection("accounts");

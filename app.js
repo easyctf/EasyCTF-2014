@@ -6,7 +6,7 @@ app.configure(function() {
     app.set("port", process.env.PORT || 3000);
     app.set("views", __dirname + "/app/server/views");
     app.set("view engine", "jade");
-    // app.locals.pretty = true;
+    app.locals.pretty = true;
 
     app.use(express.bodyParser());
     app.use(express.cookieParser());

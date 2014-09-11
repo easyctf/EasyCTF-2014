@@ -2,9 +2,12 @@
   "name": "easyctf",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
   "dependencies": {
+    "emailjs": "^0.3.11",
+    "express": "^4.9.0",
+    "jade": "^1.6.0",
+    "moment": "^2.8.3",
+    "mongodb": "^1.4.10",
+    "stylus": "^0.48.1"
   }
 }

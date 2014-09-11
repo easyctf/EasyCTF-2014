@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "emailjs": "^0.3.11",
-    "express": "^4.9.0",
+    "express": "^3.17.1",
     "jade": "^1.6.0",
     "moment": "^2.8.3",
     "mongodb": "^1.4.10",

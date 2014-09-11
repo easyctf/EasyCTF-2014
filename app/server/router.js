@@ -52,11 +52,17 @@ module.exports = function(app) {
                 pass: req.param("password"),
             }, function(e) {
                 if (e) {
-                    console.dir(e);
-                    res.send(e);
+                    errors.push(e);
+                    result.message = "<p>Something went wrong:</p><ul>";
+                    for(var i=0; i<errors.length; i++) {
+                        result.message += "<li>" + errors[i] + "</li>";
+                    }
+                    result.message += "</ul>";
                 } else {
-                    res.send("ok");
+                    result.message = "<p>You have registered successfully!</p>";
                 }
+                result.errors = errors;
+                res.send(result);
             });
         } else {
             result.errors = errors;
@@ -65,6 +71,7 @@ module.exports = function(app) {
                 result.message += "<li>" + errors[i] + "</li>";
             }
             result.message += "</ul>";
+            res.send(result);
         }
     });
 };

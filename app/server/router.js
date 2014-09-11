@@ -4,4 +4,14 @@ module.exports = function(app) {
             title: "EasyCTF 2014"
         });
     });
+
+    app.get("/login", function(req, res) {
+        if (req.cookies.user == undefined || req.cookies.pass == undefined) {
+            res.render("login", {
+                title: "Login - EasyCTF 2014"
+            });
+        } else {
+
+        }
+    });
 };

@@ -28,16 +28,31 @@ module.exports = function(app) {
 
     app.post("/login", function(req, res) {
         AM.manualLogin(req.param("email"), req.param("pass"), function(e, o) {
+            var result = {};
+            var errors = [];
+
             if (!o) {
-                // fucked up
+                errors.push(e);
             } else {
                 req.session.user = o;
                 if (req.param("remember") == "true") {
                     res.cookie("email", o.email, { maxAge: 900000 });
                     res.cookie("pass", o.pass, { maxAge: 900000 });
                 }
-                // yey success
             }
+
+            if (errors.length > 0) {
+                result.message = "<p>You need to recheck the following items:</p><ul>";
+                for(var i=0;i<errors.length;i++) {
+                    result.message += "<li>" + errors[i] + "</ul>";
+                }
+                result.message += "</ul>";
+            } else {
+                result.message = "<p>You have logged in successfully!</p>";
+            }
+
+            result.errors = errors;
+            res.send(result);
         });
     });
 

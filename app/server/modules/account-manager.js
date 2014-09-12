@@ -23,11 +23,11 @@ var accounts = db.collection("accounts");
 exports.addNewAccount = function(newData, callback) {
     accounts.findOne({teamname: newData.name}, function(e, o) {
         if (o) {
-            callback("username-taken");
+            callback("Username is taken.");
         } else {
             accounts.findOne({email: newData.email}, function(e, o) {
                 if (o) {
-                    callback("email-taken");
+                    callback("Email is taken.");
                 } else {
                     saltAndHash(newData.pass, function(hash){
                         newData.pass = hash;

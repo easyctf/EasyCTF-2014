@@ -20,11 +20,56 @@ block content
 										label(for='log-password' class='col-lg-3 control-label') Password
 										div(class='col-lg-8')
 											input(type='password', class='form-control', name='log-password', id='log-password', placeholder='Password')
-									div(class='form-group')
-										label(class='col-lg-3 control-label')
-										label#remember-me.checkbox Remember Me
-											input(type="checkbox", checked='checked')
+											div(class='btn-group col-lg-3', data-toggle='buttons')
+												label(class='btn btn-primary')
+													input(type='checkbox', id='log-remember')
+														Remember Me
 									div(class='form-group')
 										label(class='col-lg-3 control-label')
 										div(class='col-lg-7')
 											button(class='btn btn-primary', id='submit-btn') Login
+	script(type='text/javascript').
+		var login = function() {
+			$("#log-email,#log-password,#log-remember,#submit-btn").attr("disabled","disabled");
+			$.ajax({
+				url: "/register",
+				dataType: "json",
+				data: {
+					email: $("#log-email").val(),
+					password: $("#log-password").val(),
+					remember: $("#log-remember").is(":checked"),
+				},
+				type: "POST",
+				success: function(content) {
+					console.dir(content);
+					new PNotify({
+						title: "Login",
+						text: content.message,
+						type: content.errors.length == 0 ? "success" : "warning",
+						nonblock: {
+							nonblock: true,
+							nonblock_opacity: 0.25,
+						},
+					});
+					if (content.errors.length != 0) {
+						$("#log-email,#log-password,#log-remember,#submit-btn").removeAttr("disabled");
+					} else {
+						setTimeout(function() {
+							window.location.href = "index.php";
+						},2000);
+					}
+				},
+				error: function(content) {
+					new PNotify({
+						title: "Whoops",
+						text: "Something went wrong when trying to login.",
+						type: "error",
+						nonblock: {
+							nonblock: true,
+							nonblock_opacity: 0.25,
+						},
+					});
+				}
+			});
+			return false;
+		};

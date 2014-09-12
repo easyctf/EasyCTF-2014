@@ -27,7 +27,18 @@ module.exports = function(app) {
     });
 
     app.post("/login", function(req, res) {
-
+        AM.manualLogin(req.param("email"), req.param("pass"), function(e, o) {
+            if (!o) {
+                // fucked up
+            } else {
+                req.session.user = o;
+                if (req.param("remember") == "true") {
+                    res.cookie("email", o.email, { maxAge: 900000 });
+                    res.cookie("pass", o.pass, { maxAge: 900000 });
+                }
+                // yey success
+            }
+        });
     });
 
     app.get("/register", function(req, res) {

@@ -33,45 +33,73 @@ block content
 	script(type='text/javascript').
 		var login = function() {
 			$("#log-email,#log-password,#log-remember,#submit-btn").attr("disabled","disabled");
-			$.ajax({
-				url: "/login",
-				dataType: "json",
-				data: {
-					email: $("#log-email").val(),
-					password: $("#log-password").val(),
-					remember: $("#log-remember").is(":checked"),
-				},
-				type: "POST",
-				success: function(content) {
-					console.dir(content);
-					new PNotify({
-						title: "Login",
-						text: content.message,
-						type: content.errors.length == 0 ? "success" : "warning",
-						nonblock: {
-							nonblock: true,
-							nonblock_opacity: 0.25,
-						},
-					});
-					if (content.errors.length != 0) {
-						$("#log-email,#log-password,#log-remember,#submit-btn").removeAttr("disabled");
-					} else {
-						setTimeout(function() {
-							window.location.href = "index.php";
-						},2000);
+
+			var errors = [];
+
+			if ($("#log-password").val().length < 6) {
+				errors.push("Password must be at least 6 characters long.");
+			}
+			if ($("#log-email").val().length < 1) {
+				errors.push("Email must not be empty.");
+			}
+
+			if (errors.length == 0) {
+				$.ajax({
+					url: "/login",
+					dataType: "json",
+					data: {
+						email: $("#log-email").val(),
+						password: $("#log-password").val(),
+						remember: $("#log-remember").is(":checked"),
+					},
+					type: "POST",
+					success: function(content) {
+						console.dir(content);
+						new PNotify({
+							title: "Login",
+							text: content.message,
+							type: content.errors.length == 0 ? "success" : "warning",
+							nonblock: {
+								nonblock: true,
+								nonblock_opacity: 0.25,
+							},
+						});
+						if (content.errors.length != 0) {
+							$("#log-email,#log-password,#log-remember,#submit-btn").removeAttr("disabled");
+						} else {
+							setTimeout(function() {
+								window.location.href = "index.php";
+							},2000);
+						}
+					},
+					error: function(content) {
+						new PNotify({
+							title: "Whoops",
+							text: "Something went wrong when trying to login.",
+							type: "error",
+							nonblock: {
+								nonblock: true,
+								nonblock_opacity: 0.25,
+							},
+						});
 					}
-				},
-				error: function(content) {
-					new PNotify({
-						title: "Whoops",
-						text: "Something went wrong when trying to login.",
-						type: "error",
-						nonblock: {
-							nonblock: true,
-							nonblock_opacity: 0.25,
-						},
-					});
+				});
+			} else {
+				var message = "<p>You need to recheck the following items:</p><ul>";
+				for(var i=0;i<errors.length;i++) {
+					message += "<li>" + errors[i] + "</li>";
 				}
-			});
+				message += "</ul>";
+				new PNotify({
+					title: "Login",
+					text: message,
+					type: "warning",
+					nonblock: {
+						nonblock: true,
+						nonblock_opacity: 0.25,
+					},
+				});
+				$("#log-email,#log-password,#log-remember,#submit-btn").attr("disabled","disabled");
+			}
 			return false;
 		};

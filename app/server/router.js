@@ -8,13 +8,26 @@ module.exports = function(app) {
     });
 
     app.get("/login", function(req, res) {
-        if (req.cookies.user == undefined || req.cookies.pass == undefined) {
+        if (req.cookies.email == undefined || req.cookies.pass == undefined) {
             res.render("login", {
                 title: "Login - EasyCTF 2014"
             });
         } else {
-
+            AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
+                if (o != null) {
+                    req.session.user = o;
+                    res.redirect("/");
+                } else {
+                    res.render("login", {
+                        title: "Login - EasyCTF 2014"
+                    });
+                }
+            });
         }
+    });
+
+    app.post("/login", function(req, res) {
+
     });
 
     app.get("/register", function(req, res) {

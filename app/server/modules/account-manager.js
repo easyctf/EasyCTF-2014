@@ -20,6 +20,32 @@ db.open(function(err, db) {
 });
 var accounts = db.collection("accounts");
 
+exports.autoLogin = function(email, pass, callback) {
+    accounts.findOne({email: email}, function(e, o) {
+        if (o) {
+            o.pass == pass ? callback(o) : callback(null);
+        } else {
+            callback(null);
+        }
+    });
+};
+
+exports.manualLogin = function(email, pass, callback) {
+    accounts.findOne({email: email}, function(e, o) {
+        if (o == null) {
+            callback("User not found.");
+        } else {
+            validatePassword(pass, o.pass, function(err, res) {
+                if (res) {
+                    callback(null, o);
+                } else {
+                    callback("Invalid password.");
+                }
+            });
+        }
+    });
+};
+
 exports.addNewAccount = function(newData, callback) {
     accounts.findOne({teamname: newData.name}, function(e, o) {
         if (o) {

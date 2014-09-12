@@ -30,10 +30,14 @@ html
 							li
 								a(href='javascript:void(0);') About
 						ul(class='nav navbar-nav navbar-right')
-							li
-								a(href='register') Register
-							li
-								a(href='login') Login
+							if logged
+								li
+									a(href='logout') Logout
+							else
+								li
+									a(href='register') Register
+								li
+									a(href='login') Login
 		
 		block content
 		

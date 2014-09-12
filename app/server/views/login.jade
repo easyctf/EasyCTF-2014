@@ -15,7 +15,7 @@ block content
 									div(class='form-group')
 										label(for='log-email' class='col-lg-3 control-label') Email
 										div(class='col-lg-8')
-											input(type='email', class='form-control', name='log-email', id='log-email', placeholder='Email')
+											input(type='email', class='form-control', name='log-email', id='log-email', placeholder='Email', autofocus='on')
 									div(class='form-group')
 										label(for='log-password' class='col-lg-3 control-label') Password
 										div(class='col-lg-8')
@@ -68,7 +68,7 @@ block content
 							$("#log-email,#log-password,#log-remember,#submit-btn").removeAttr("disabled");
 						} else {
 							setTimeout(function() {
-								window.location.href = "index.php";
+								window.location.href = "/";
 							},2000);
 						}
 					},

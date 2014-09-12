@@ -2,8 +2,19 @@ var AM = require("./modules/account-manager");
 
 module.exports = function(app) {
     app.get("/", function(req, res) {
-        res.render("easyctf", {
-            title: "EasyCTF 2014"
+        AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
+            res.render("easyctf", {
+                title: "EasyCTF 2014",
+                logged: o != null
+            });
+        });
+    });
+
+    app.get("/logout", function(req, res) {
+        res.clearCookie("email");
+        res.clearCookie("pass");
+        req.session.destroy(function(e) {
+            res.redirect("/");
         });
     });
 
@@ -27,7 +38,7 @@ module.exports = function(app) {
     });
 
     app.post("/login", function(req, res) {
-        AM.manualLogin(req.param("email"), req.param("pass"), function(e, o) {
+        AM.manualLogin(req.param("email"), req.param("password"), function(e, o) {
             var result = {};
             var errors = [];
 

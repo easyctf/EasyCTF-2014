@@ -9,7 +9,7 @@ block content
 						h2 Login to EasyCTF 2014
 					div(class='well col-lg-7')
 						div
-							form(class='form-horizontal', method='post')
+							form(class='form-horizontal', action='javascript:login();')
 								fieldset
 									legend Login
 									div(class='form-group')
@@ -29,7 +29,7 @@ block content
 									div(class='form-group')
 										label(class='col-lg-3 control-label')
 										div(class='col-lg-7')
-											button(class='btn btn-primary', id='submit-btn') Login
+											button(class='btn btn-default', id='submit-btn', onClick='javascript:login(); return false;') Login
 	script(type='text/javascript').
 		var login = function() {
 			$("#log-email,#log-password,#log-remember,#submit-btn").attr("disabled","disabled");

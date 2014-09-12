@@ -82,5 +82,11 @@ var md5 = function(str) {
 
 var saltAndHash = function(pass, callback) {
     var salt = generateSalt();
-    callback(salt+md5(pass+salt));
+    callback(salt + md5(pass + salt));
+};
+
+var validatePassword = function(plain, hashed, callback) {
+    var salt = hashed.substr(0, 16);
+    var valid = salt + md5(plain + salt);
+    callback(null, hashed == valid);
 };

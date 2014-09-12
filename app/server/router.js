@@ -2,12 +2,28 @@ var AM = require("./modules/account-manager");
 
 module.exports = function(app) {
     app.get("/", function(req, res) {
-        AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
-            res.render("easyctf", {
-                title: "EasyCTF 2014",
-                logged: o != null
+        if (req.session && req.session.user) {
+            AM.autoLogin(req.session.user.email, req.session.user.pass, function(o) {
+                res.render("easyctf", {
+                    title: "EasyCTF 2014",
+                    logged: o != null
+                });
             });
-        });
+        } else {
+            if (req.cookies.email && req.cookies.pass) {
+                AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
+                    res.render("easyctf", {
+                        title: "EasyCTF 2014",
+                        logged: o != null
+                    });
+                });
+            } else {
+                res.render("easyctf", {
+                    title: "EasyCTF 2014",
+                    logged: false
+                });
+            }
+        }
     });
 
     app.get("/logout", function(req, res) {

@@ -34,7 +34,7 @@ block content
 		var login = function() {
 			$("#log-email,#log-password,#log-remember,#submit-btn").attr("disabled","disabled");
 			$.ajax({
-				url: "/register",
+				url: "/login",
 				dataType: "json",
 				data: {
 					email: $("#log-email").val(),

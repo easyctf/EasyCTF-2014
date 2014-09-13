@@ -26,6 +26,12 @@ module.exports = function(app) {
         }
     });
 
+    app.get("/scores", function(req, res) {
+        res.render("scores", {
+            title: "Scoreboard - EasyCTF 2014"
+        });
+    });
+
     app.get("/logout", function(req, res) {
         res.clearCookie("email");
         res.clearCookie("pass");

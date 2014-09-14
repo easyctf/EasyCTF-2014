@@ -1,7 +1,7 @@
 var AM = require("./modules/account-manager");
 
 module.exports = function(app) {
-    var logged = function() {
+    var logged = function(req) {
         if (req.session && req.session.user) {
             AM.autoLogin(req.session.user.email, req.session.user.pass, function(o) {
                 return o != null;
@@ -22,7 +22,7 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
         res.render("easyctf", {
             title: "EasyCTF 2014",
-            logged: logged()
+            logged: logged(req)
         });
     });
 

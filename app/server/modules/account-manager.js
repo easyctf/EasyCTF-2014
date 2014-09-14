@@ -20,6 +20,8 @@ db.open(function(err, db) {
 });
 var accounts = db.collection("accounts");
 
+exports.db = db;
+
 exports.autoLogin = function(email, pass, callback) {
     accounts.findOne({email: email}, function(e, o) {
         if (o) {
@@ -58,6 +60,9 @@ exports.addNewAccount = function(newData, callback) {
                     saltAndHash(newData.pass, function(hash){
                         newData.pass = hash;
                         newData.date = moment().format("MMMM Do YYYY, h:mm:ss a");
+                        newData.group = 1;
+                        newData.pointDisplay = 0;
+                        newData.solved = [];
                         accounts.insert(newData, { safe: true }, callback);
                     });
                 }

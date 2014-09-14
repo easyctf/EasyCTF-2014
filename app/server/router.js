@@ -1,29 +1,29 @@
 var AM = require("./modules/account-manager");
 
 module.exports = function(app) {
-    app.get("/", function(req, res) {
+    var logged = function() {
         if (req.session && req.session.user) {
             AM.autoLogin(req.session.user.email, req.session.user.pass, function(o) {
-                res.render("easyctf", {
-                    title: "EasyCTF 2014",
-                    logged: o != null
-                });
+                return o != null;
             });
         } else {
             if (req.cookies.email && req.cookies.pass) {
                 AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
-                    res.render("easyctf", {
-                        title: "EasyCTF 2014",
-                        logged: o != null
-                    });
+                    return o != null;
                 });
             } else {
-                res.render("easyctf", {
-                    title: "EasyCTF 2014",
-                    logged: false
-                });
+                return false;
             }
         }
+
+        return false;
+    };
+
+    app.get("/", function(req, res) {
+        res.render("easyctf", {
+            title: "EasyCTF 2014",
+            logged: logged()
+        });
     });
 
     app.get("/scores", function(req, res) {

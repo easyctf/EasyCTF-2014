@@ -114,6 +114,16 @@ module.exports = function(app) {
                     }
                     result.message += "</ul>";
                 } else {
+                    var sendgrid  = require('sendgrid')("app29067833@heroku.com" || process.env.SENDGRID_USERNAME, "0o6xvuek" || process.env.SENDGRID_PASSWORD);
+                    sendgrid.send({
+                        to:       'failed.down@gmail.com',
+                        from:     'michael@easyctf.com',
+                        subject:  'Hello World',
+                        text:     'My first email through SendGrid.'
+                    }, function(err, json) {
+                        if (err) { return console.error(err); }
+                        console.log(json);
+                    });
                     result.message = "<p>You have registered successfully!</p>";
                 }
                 result.errors = errors;

@@ -1,34 +1,34 @@
 var AM = require("./modules/account-manager");
 
 module.exports = function(app) {
-    var logged = function(req) {
+    app.get("/", function(req, res) {
         if (req.session && req.session.user) {
             AM.autoLogin(req.session.user.email, req.session.user.pass, function(o) {
-                return o != null;
+                res.render("easyctf", {
+                    title: "EasyCTF 2014",
+                    logged: o != null
+                });
             });
         } else {
             if (req.cookies.email && req.cookies.pass) {
                 AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
-                    return o != null;
+                    res.render("easyctf", {
+                        title: "EasyCTF 2014",
+                        logged: o != null
+                    });
                 });
             } else {
-                return false;
+                res.render("easyctf", {
+                    title: "EasyCTF 2014",
+                    logged: false
+                });
             }
         }
-
-        return false;
-    };
-
-    app.get("/", function(req, res) {
-        res.render("easyctf", {
-            title: "EasyCTF 2014",
-            logged: logged(req)
-        });
     });
 
     app.get("/scores", function(req, res) {
         res.render("scores", {
-            title: "Scoreboard - EasyCTF 2014"
+            title: "Scoreboard - EasyCTF 2014",
         });
     });
 

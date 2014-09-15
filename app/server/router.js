@@ -46,12 +46,9 @@ module.exports = function(app) {
     });
 
     app.get("/scores", function(req, res) {
-        var accounts = db.collection("accounts");
-        var objs = accounts.find();
-        console.log(objs);
+        console.log(users);
         res.render("scores", {
             title: "Scoreboard - EasyCTF 2014",
-            objs: objs,
         });
     });
 

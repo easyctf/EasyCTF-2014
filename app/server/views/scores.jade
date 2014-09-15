@@ -1,6 +1,7 @@
 extends layout
 
 block content
+	- var users = objs;
 	div(class='wrapper')
 		div(class='main')
 			section(id='page1')
@@ -13,3 +14,7 @@ block content
 							th Team Name
 							th School
 							th Points
+						- for (var i=0; i<users.length; i++) {
+							tr
+								td users[i]
+						- }

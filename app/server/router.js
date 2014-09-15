@@ -1,3 +1,22 @@
+var MongoDB = require("mongodb").Db;
+var Server = require("mongodb").Server;
+
+var db = new MongoDB("app29067833", new Server("kahana.mongohq.com", 10071, { auto_reconnect: true }), {w: 1});
+db.open(function(err, db) {
+    if (err) {
+        console.dir(err);
+    } else {
+        console.log("yey connected.");
+        db.authenticate("github_user", "__temporarypassword__", function(err, res) {
+            if (err) {
+                console.dir(err);
+            } else {
+                console.log("yey authenticated");
+            }
+        });
+    }
+});
+
 var AM = require("./modules/account-manager");
 
 module.exports = function(app) {
@@ -27,8 +46,12 @@ module.exports = function(app) {
     });
 
     app.get("/scores", function(req, res) {
+        var accounts = db.collection("accounts");
+        var objs = accounts.find();
+        console.log(objs);
         res.render("scores", {
             title: "Scoreboard - EasyCTF 2014",
+            objs: objs,
         });
     });
 
@@ -99,6 +122,10 @@ module.exports = function(app) {
         var result = {};
         var errors = [];
 
+        if (!validateEmail(req.param("email"))) {
+            errors.push("Invalid email.");
+        }
+
         if (errors.length == 0) {
             AM.addNewAccount({
                 teamname: req.param("name"),
@@ -116,10 +143,12 @@ module.exports = function(app) {
                 } else {
                     var sendgrid  = require('sendgrid')("app29067833@heroku.com" || process.env.SENDGRID_USERNAME, "0o6xvuek" || process.env.SENDGRID_PASSWORD);
                     sendgrid.send({
-                        to:       'failed.down@gmail.com',
+                        to:       req.param("email"),
                         from:     'michael@easyctf.com',
-                        subject:  'Hello World',
-                        text:     'My first email through SendGrid.'
+                        fromname: "Michael Zhang",
+                        replyto: "failed.down@gmail.com",
+                        subject:  'Welcome to EasyCTF!',
+                        text:     'Thanks for participating in EasyCTF 2014! '
                     }, function(err, json) {
                         if (err) { return console.error(err); }
                         console.log(json);
@@ -133,8 +162,8 @@ module.exports = function(app) {
             result.errors = errors;
             result.message = "<p>You need to recheck the following items:</p><ul>";
             for(var i=0; i<errors.length; i++) {
-                result.message += "<li>" + errors[i] + "</li>";
-            }
+                result.message += "<li>" + errors[i] + "</li>"
+;            }
             result.message += "</ul>";
             res.send(result);
         }

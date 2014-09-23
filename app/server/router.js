@@ -46,21 +46,12 @@ module.exports = function(app) {
     });
 
     app.get("/scores", function(req, res) {
-        var accounts = [];
-        var query = db.collection("accounts").find({}, function(e, r) {
-            function processItem(err, item) {
-                if(item === null) {
-                    return; // All done!
-                }
-
-                accounts.push(item);
-                r.nextObject(processItem);
-            }
-            r.nextObject(processItem);
-        });
-        res.render("scores", {
-            title: "Scoreboard - EasyCTF 2014",
-            accounts: accounts
+        var query = db.collection("accounts").find().sort([['points', 1]]);
+        query.toArray(function(e, d) {
+            res.render("scores", {
+                title: "Scoreboard - EasyCTF 2014",
+                accounts: d
+            });
         });
     });
 

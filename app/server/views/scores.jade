@@ -1,7 +1,6 @@
 extends layout
 
 block content
-	- var users = objs;
 	div(class='wrapper')
 		div(class='main')
 			section(id='page1')
@@ -14,4 +13,11 @@ block content
 							th Team Name
 							th School
 							th Points
-						
+						- var i = 0;
+						- each account in accounts
+							- i += 1;
+							tr
+								td #{i}
+								td #{account.teamname}
+								td #{account.school}
+								td #{account.pointDisplay}

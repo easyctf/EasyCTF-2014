@@ -165,6 +165,12 @@ module.exports = function(app) {
             res.send(result);
         }
     });
+	
+	app.get("/about", function(req, res) {
+        res.render("about", {
+            title: "About EasyCTF"
+        });
+    });
 };
 
 var validateEmail = function(email) {

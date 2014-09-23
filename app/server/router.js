@@ -46,9 +46,12 @@ module.exports = function(app) {
     });
 
     app.get("/scores", function(req, res) {
-        console.log(users);
-        res.render("scores", {
-            title: "Scoreboard - EasyCTF 2014",
+        var query = db.collection("accounts").find().sort([['points', 1]]);
+        query.toArray(function(e, d) {
+            res.render("scores", {
+                title: "Scoreboard - EasyCTF 2014",
+                accounts: d
+            });
         });
     });
 

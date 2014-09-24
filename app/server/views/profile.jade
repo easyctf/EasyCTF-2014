@@ -9,5 +9,9 @@ block content
 						div(class='page-header')
 							h2 Team
 					else
-						div(class='alert alert-danger').
-							<b>Error:</b> You must be logged in to view this page!
+						if teamID
+							div(class='page-header')
+								h2 Team <b>#{teamID}<b>
+						else
+							div(class='alert alert-danger').
+								<b>Error:</b> You must be logged in to view this page!

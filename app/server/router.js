@@ -164,7 +164,8 @@ module.exports = function(app) {
     
     app.get("/profile/:teamID", function(req, res) {
         res.render("profile", {
-            title: "Team: " + req.params.teamID + " - EasyCTF 2014"
+            title: "Team: " + req.params.teamID + " - EasyCTF 2014",
+            teamID: req.params.teamID,
         });
     });
 };

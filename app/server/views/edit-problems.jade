@@ -5,6 +5,15 @@ block content
 		div(class='main')
 			section(id='page1')
 				div(class='page-container')
-					div(class='page-header')
-						h2 Edit Problems
-					
+					if logged
+						if group == 3
+							div(class='page-header')
+								h2 Edit Problems
+						else
+							div(class='page-header')
+								div(class='alert alert-danger').
+									<b>Error:</b> You must be admin to view this page!
+					else
+						div(class='page-header')
+							div(class='alert alert-danger').
+								<b>Error:</b> You must be logged in to view this page!

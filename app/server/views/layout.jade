@@ -15,7 +15,7 @@ html
 			.wrapper { margin-left:10%; margin-right:10%; }
 
 	//
-		#{logged}
+		#{group}
 
 	body
 		block nav
@@ -35,8 +35,16 @@ html
 								a(href='about') About
 							li
 								a(href='scores') Scoreboard
+							li
+								a(href='javascript:void(0);') Sponsors
+							if logged
+								li
+									a(href='javascript:void(0);') MD5
 						ul(class='nav navbar-nav navbar-right')
 							if logged
+								if group == 3
+									li
+										a(href='edit') Edit Problems
 								li
 									a(href='javascript:void(0);') IDE
 								li

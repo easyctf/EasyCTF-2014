@@ -21,28 +21,7 @@ var AM = require("./modules/account-manager");
 
 module.exports = function(app) {
     app.get("/", function(req, res) {
-        if (req.session && req.session.user) {
-            AM.autoLogin(req.session.user.email, req.session.user.pass, function(o) {
-                res.render("easyctf", {
-                    title: "EasyCTF 2014",
-                    logged: o != null
-                });
-            });
-        } else {
-            if (req.cookies.email && req.cookies.pass) {
-                AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
-                    res.render("easyctf", {
-                        title: "EasyCTF 2014",
-                        logged: o != null
-                    });
-                });
-            } else {
-                res.render("easyctf", {
-                    title: "EasyCTF 2014",
-                    logged: false
-                });
-            }
-        }
+        render(req, res, "easyctf", "EasyCTF 2014");
     });
 
     app.get("/scores", function(req, res) {
@@ -168,12 +147,44 @@ module.exports = function(app) {
             res.send(result);
         }
     });
-	
-	app.get("/about", function(req, res) {
+    
+    app.get("/about", function(req, res) {
         res.render("about", {
             title: "About - EasyCTF 2014"
         });
     });
+    
+    app.get("/edit", function(req, res) {
+        render(req, res, "edit-problems", "Edit Problems - EasyCTF 2014");
+    });
+};
+
+var render = function(req, res, url, title) {
+    if (req.session && req.session.user) {
+        AM.autoLogin(req.session.user.email, req.session.user.pass, function(o) {
+            res.render(url, {
+                title: title,
+                logged: o != null,
+                group: o.group,
+            });
+        });
+    } else {
+        if (req.cookies.email && req.cookies.pass) {
+            AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
+                res.render(url, {
+                    title: title,
+                    logged: o != null,
+                    group: o.group,
+                });
+            });
+        } else {
+            res.render(url, {
+                title: title,
+                logged: false,
+                group: 0,
+            });
+        }
+    }
 };
 
 var validateEmail = function(email) {

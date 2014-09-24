@@ -1,6 +1,10 @@
 extends layout
 
 block content
+	style.
+		.NO_HOVER_UNDERLINE_DAMMIT, .NO_HOVER_UNDERLINE_DAMMIT:hover, .NO_HOVER_UNDERLINE_DAMMIT:active {
+			text-decoration:none;
+		}
 	div(class='wrapper')
 		div(class='main')
 			section(id='page1')
@@ -9,11 +13,44 @@ block content
 						if group == 3
 							div(class='page-header')
 								h2 Edit Problems
+							div.panel.panel-default
+								div.panel-heading
+									a.NO_HOVER_UNDERLINE_DAMMIT(style='font-size:16pt;', data-toggle='collapse', data-parent='#accordion', href='#collapse-create')
+										| Create a New Problem
+								div.panel-collapse.collapse#collapse-create
+									div.panel-body
+										form.form-horizontal(action='javascript:create_problem();')
+											table.table.table-striped(cellpadding='5')
+												tr
+													td
+														div
+															label(for='create-title') Title
+														div
+															small
+																i Keep it short
+													td
+														input.form-control#create-title(type='text', autocomplete='off')
+												tr
+													td
+														div
+															label(for='create-title') Problem Statement
+														div
+															small
+																i Use HTML formatting
+													td
+														textarea.form-control#create-text
+												tr
+													td
+														div
+															label(for='create-title') Answer
+														div
+															small
+																i Don't hash it
+													td
+														input.form-control#create-title(type='text', autocomplete='off')
 						else
-							div(class='page-header')
-								div(class='alert alert-danger').
-									<b>Error:</b> You must be admin to view this page!
-					else
-						div(class='page-header')
 							div(class='alert alert-danger').
-								<b>Error:</b> You must be logged in to view this page!
+								<b>Error:</b> You must be admin to view this page!
+					else
+						div(class='alert alert-danger').
+							<b>Error:</b> You must be logged in to view this page!

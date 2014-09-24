@@ -157,6 +157,16 @@ module.exports = function(app) {
     app.get("/edit", function(req, res) {
         render(req, res, "edit-problems", "Edit Problems - EasyCTF 2014");
     });
+    
+    app.get("/profile", function(req, res) {
+        render(req, res, "profile", "My Team - EasyCTF 2014");
+    });
+    
+    app.get("/profile/:teamID", function(req, res) {
+        res.render("profile", {
+            title: "Team: " + req.params.teamID + " - EasyCTF 2014"
+        });
+    });
 };
 
 var render = function(req, res, url, title) {
@@ -165,7 +175,7 @@ var render = function(req, res, url, title) {
             res.render(url, {
                 title: title,
                 logged: o != null,
-                group: o.group,
+                group: o ? o.group : 0,
             });
         });
     } else {
@@ -174,7 +184,7 @@ var render = function(req, res, url, title) {
                 res.render(url, {
                     title: title,
                     logged: o != null,
-                    group: o.group,
+                    group: o ? o.group : 0,
                 });
             });
         } else {

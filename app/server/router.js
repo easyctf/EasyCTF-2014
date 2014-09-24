@@ -171,7 +171,7 @@ module.exports = function(app) {
 	
 	app.get("/about", function(req, res) {
         res.render("about", {
-            title: "About EasyCTF"
+            title: "About - EasyCTF 2014"
         });
     });
 };

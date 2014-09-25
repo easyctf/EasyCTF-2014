@@ -1,0 +1,32 @@
+extends layout
+
+block content
+	style.
+		.NO_HOVER_UNDERLINE_DAMMIT:hover {
+			text-decoration:none;
+		}
+		.problem-text img {
+			box-shadow:0px 3px 5px rgba(0,0,0, 0.5);
+			margin:auto;
+			display:block;
+			height:250px;
+		}
+		.tag-default {
+			background-color:#999;
+			color: #FFF;												
+			font-size: 12px;
+			vertical-align:middle;
+		}
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					if logged
+						if group == 3
+
+						else
+							div(class='alert alert-danger').
+								<b>Error:</b> Contest hasn't started yet!
+					else
+						div(class='alert alert-danger').
+							<b>Error:</b> You must be logged in to view this page!

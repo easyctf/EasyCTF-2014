@@ -162,6 +162,10 @@ module.exports = function(app) {
         render(req, res, "profile", "My Team - EasyCTF 2014");
     });
     
+    app.get("/problems", function(req, res) {
+        render(req, res, "problems", "Problems - EasyCTF 2014");
+    });
+    
     app.get("/profile/:teamID", function(req, res) {
         res.render("profile", {
             title: "Team: " + req.params.teamID + " - EasyCTF 2014",

@@ -48,6 +48,9 @@ block content
 																i Don't hash it
 													td
 														input.form-control#create-answer(type='text', autocomplete='off')
+							script(type='text/javascript', src='/lib/ckeditor/ckeditor.js')
+							script.
+								CKEDITOR.replace("create-text")
 						else
 							div(class='alert alert-danger').
 								<b>Error:</b> You must be admin to view this page!

@@ -163,7 +163,9 @@ module.exports = function(app) {
     });
     
     app.get("/problems", function(req, res) {
-        render(req, res, "problems", "Problems - EasyCTF 2014");
+        render(req, res, "problems", "Problems - EasyCTF 2014", {
+            tags: "abcde"
+        });
     });
     
     app.get("/profile/:teamID", function(req, res) {
@@ -174,30 +176,44 @@ module.exports = function(app) {
     });
 };
 
-var render = function(req, res, url, title) {
+Object.prototype.extend = function(other) {
+    for(var attr in other) {
+        this[attr] = other[attr];
+    }
+    return this;
+};
+
+var render = function(req, res, url, title, extraparams) {
+    var p;
     if (req.session && req.session.user) {
         AM.autoLogin(req.session.user.email, req.session.user.pass, function(o) {
-            res.render(url, {
+            p = {
                 title: title,
                 logged: o != null,
                 group: o ? o.group : 0,
-            });
+            }.extend(extraparams ? extraparams : {});
+                console.dir(p);
+            res.render(url, p);
         });
     } else {
         if (req.cookies.email && req.cookies.pass) {
             AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
-                res.render(url, {
+                p = {
                     title: title,
                     logged: o != null,
                     group: o ? o.group : 0,
-                });
+                }.extend(extraparams ? extraparams : {});
+                console.dir(p);
+                res.render(url, p);
             });
         } else {
-            res.render(url, {
+            p = {
                 title: title,
                 logged: false,
                 group: 0,
-            });
+            }.extend(extraparams ? extraparams : {});
+                console.dir(p);
+            res.render(url, p);
         }
     }
 };

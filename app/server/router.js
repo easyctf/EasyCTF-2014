@@ -191,9 +191,10 @@ var render = function(req, res, url, title, extraparams) {
                 title: title,
                 logged: o != null,
                 group: o ? o.group : 0,
-            }.extend(extraparams ? extraparams : {});
-                console.dir(p);
+            };
             res.render(url, p);
+            p = p.extend(extraparams ? extraparams : {});
+            console.dir(p);
         });
     } else {
         if (req.cookies.email && req.cookies.pass) {
@@ -202,18 +203,20 @@ var render = function(req, res, url, title, extraparams) {
                     title: title,
                     logged: o != null,
                     group: o ? o.group : 0,
-                }.extend(extraparams ? extraparams : {});
-                console.dir(p);
+                };
                 res.render(url, p);
+                p = p.extend(extraparams ? extraparams : {});
+                console.dir(p);
             });
         } else {
             p = {
                 title: title,
                 logged: false,
                 group: 0,
-            }.extend(extraparams ? extraparams : {});
-                console.dir(p);
+            };
             res.render(url, p);
+            p = p.extend(extraparams ? extraparams : {});
+            console.dir(p);
         }
     }
 };

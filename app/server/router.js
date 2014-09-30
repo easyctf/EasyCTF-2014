@@ -61,11 +61,13 @@ module.exports = function(app) {
 
     app.post("/edit/create.ajax", function(req, res) {
         var result = {};
-        if (logged(req, res)) {
-            console.log("LOGGED IN LOL");
-        } else {
-            result.ret = -1;
-        }
+        logged(req, res, function(L) {
+            if (L) {
+                console.log("LOGGED IN");
+            } else {
+                console.log("NOT LOGGED IN");
+            }
+        });
         res.send(result);
     });
     
@@ -222,13 +224,13 @@ var render = function(req, res, url, title, extraparams) {
     }
 };
 
-var logged = function(req, res) {
+var logged = function(req, res, callback) {
     if (req.session && req.session.user) {
         AM.autoLogin(req.session.user.email, req.session.user.pass, function(o) {
             if (o) {
-                return true;
+                callback(true);
             } else {
-                return false;
+                callback(false);
             }
         });
     } else {
@@ -236,13 +238,13 @@ var logged = function(req, res) {
             AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
                 // console.dir(o);
                 if (o) {
-                    return true;
+                    callback(true);
                 } else {
-                    return false;
+                    callback(false);
                 }
             });
         } else {
-            return false;
+            callback(false);
         }
     }
     return false;

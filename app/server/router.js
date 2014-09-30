@@ -62,9 +62,13 @@ module.exports = function(app) {
     });
 
     app.post("/edit/create.ajax", function(req, res) {
-        if (logged()) {
+        var result = {};
+        if (logged(req, res)) {
 
+        } else {
+            result.ret = -1;
         }
+        res.send(result);
     });
     
     app.get("/problems", function(req, res) {
@@ -220,7 +224,7 @@ var render = function(req, res, url, title, extraparams) {
     }
 };
 
-var logged = function() {
+var logged = function(req, res) {
     if (req.session && req.session.user) {
         AM.autoLogin(req.session.user.email, req.session.user.pass, function(o) {
             return o != null;
@@ -228,6 +232,7 @@ var logged = function() {
     } else {
         if (req.cookies.email && req.cookies.pass) {
             AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
+                console.dir(o);
                 return o != null;
             });
         } else {
@@ -241,7 +246,15 @@ var getTags = function(callback) {
     var query = db.collection("tags").find();
     query.toArray(function(e, d) {
         if (e) callback(e);
-        callback(d);
+        else callback(d);
+    });
+};
+
+var getProblems = function(callback) {
+    var query = db.collection("problems").find();
+    query.toArray(function(e, d) {
+        if (e) callback(e);
+        else callback(d);
     });
 };
 

@@ -40,9 +40,8 @@ module.exports = function(app) {
     });
 
     app.get("/scores", function(req, res) {
-        var query = db.collection("accounts").find().sort([['points', 1]]);
-        query.toArray(function(e, d) {
-            render(req, res, "scores", "Scoreboard - EasyCTF 2014", { accounts: d });
+        getScores(function(scores) {
+            render(req, res, "scores", "Scoreboard - EasyCTF 2014", { accounts: scores });
         });
     });
     
@@ -54,7 +53,6 @@ module.exports = function(app) {
     
     app.get("/edit", function(req, res) {
         getTags(function(tags) {
-            // console.dir(tags);
             render(req, res, "edit-problems", "Edit Problems - EasyCTF 2014", {
                 tags: tags,
             });
@@ -64,7 +62,7 @@ module.exports = function(app) {
     app.post("/edit/create.ajax", function(req, res) {
         var result = {};
         if (logged(req, res)) {
-
+            console.log("LOGGED IN LOL");
         } else {
             result.ret = -1;
         }
@@ -136,8 +134,8 @@ module.exports = function(app) {
             result.errors = errors;
             result.message = "<p>You need to recheck the following items:</p><ul>";
             for(var i=0; i<errors.length; i++) {
-                result.message += "<li>" + errors[i] + "</li>"
-;            }
+                result.message += "<li>" + errors[i] + "</li>";
+            }
             result.message += "</ul>";
             res.send(result);
         }
@@ -227,20 +225,36 @@ var render = function(req, res, url, title, extraparams) {
 var logged = function(req, res) {
     if (req.session && req.session.user) {
         AM.autoLogin(req.session.user.email, req.session.user.pass, function(o) {
-            return o != null;
+            if (o) {
+                return true;
+            } else {
+                return false;
+            }
         });
     } else {
         if (req.cookies.email && req.cookies.pass) {
             AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
-                console.dir(o);
-                return o != null;
+                // console.dir(o);
+                if (o) {
+                    return true;
+                } else {
+                    return false;
+                }
             });
         } else {
-            false;
+            return false;
         }
     }
     return false;
 };
+
+var getScores = function(callback) {
+    var query = db.collection("accounts").find().sort([['points', 1]]);
+    query.toArray(function(e, d) {
+        if (e) callback(e);
+        else callback(d);
+    });
+}
 
 var getTags = function(callback) {
     var query = db.collection("tags").find();

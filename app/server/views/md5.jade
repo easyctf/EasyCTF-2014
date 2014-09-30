@@ -1,0 +1,47 @@
+extends layout
+
+block content
+	style.
+		textarea.form-control {
+			font-family: "Inconsolata", "Consolas", "Courier New", "Courier", monospace;
+		}
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					div(class='page-header')
+						h2 MD5
+					table(class='table table-bordered')
+						tr
+							td
+								| Input
+								p
+									textarea#input_textarea.form-control(rows='20', wrap='off')
+							td
+								| Output
+								p
+									textarea#output_textarea.form-control(rows='20', wrap='off')
+	script(type='text/javascript', src='/js/md5.js')
+	script.
+		function calc() {
+			var output = document.getElementById("output_textarea");
+			var input = document.getElementById("input_textarea");
+			var inputs = input.value.split("\n");
+			var outputs = [];
+			for (var i=0;i<inputs.length;i++) {
+				if (inputs[i].trim().length > 0) {
+					outputs[i] = hex_md5(inputs[i].trim());
+				}
+			}
+			var output_str = "";
+			for (var i=0;i<outputs.length;i++) {
+				if (outputs[i] != undefined) {
+					output_str += outputs[i] + "\n";
+				} else {
+					output_str += "\n";
+				}
+			}
+			output.value = output_str;
+		};
+		document.getElementById("input_textarea").addEventListener("change", calc, false);
+		document.getElementById("input_textarea").addEventListener("keyup", calc, false);

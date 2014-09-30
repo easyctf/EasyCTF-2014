@@ -1,6 +1,17 @@
 var MongoDB = require("mongodb").Db;
 var Server = require("mongodb").Server;
 
+var extend = function(o1, o2) {
+    var o = {};
+    for (var attr in o1) {
+        o[attr] = o1[attr];
+    }
+    for (var attr in o2) {
+        o[attr] = o2[attr];
+    }
+    return o;
+};
+
 var db = new MongoDB("app29067833", new Server("kahana.mongohq.com", 10071, { auto_reconnect: true }), {w: 1});
 db.open(function(err, db) {
     if (err) {
@@ -172,13 +183,6 @@ module.exports = function(app) {
             teamID: req.params.teamID,
         });
     });
-};
-
-Object.prototype.extend = function(other) {
-    for(var attr in other) {
-        this[attr] = other[attr];
-    }
-    return this;
 };
 
 var render = function(req, res, url, title) {

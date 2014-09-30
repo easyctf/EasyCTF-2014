@@ -34,56 +34,42 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
         render(req, res, "easyctf", "EasyCTF 2014");
     });
+    
+    app.get("/about", function(req, res) {
+        render(req, res, "about", "About - EasyCTF 2014");
+    });
 
     app.get("/scores", function(req, res) {
         var query = db.collection("accounts").find().sort([['points', 1]]);
         query.toArray(function(e, d) {
-            res.render("scores", {
-                title: "Scoreboard - EasyCTF 2014",
-                accounts: d
-            });
+            render(req, res, "scores", "Scoreboard - EasyCTF 2014", {accounts: d});
         });
     });
+    
+    app.get("/md5", function(req, res) {
+        render(req, res, "md5", "MD5 Calculator - EasyCTF 2014");
+    });
 
-    app.get("/logout", function(req, res) {
-        res.clearCookie("email");
-        res.clearCookie("pass");
-        req.session.destroy(function(e) {
-            res.redirect("/");
+    /***   ***/
+    
+    app.get("/edit", function(req, res) {
+        render(req, res, "edit-problems", "Edit Problems - EasyCTF 2014");
+    });
+    
+    app.get("/problems", function(req, res) {
+        render(req, res, "problems", "Problems - EasyCTF 2014", {
+
         });
     });
-
-    app.get("/login", function(req, res) {
-        render(req, res, "login", "Login - EasyCTF 2014");
+    
+    app.get("/profile", function(req, res) {
+        render(req, res, "profile", "My Team - EasyCTF 2014");
     });
-
-    app.post("/login", function(req, res) {
-        AM.manualLogin(req.param("email"), req.param("password"), function(e, o) {
-            var result = {};
-            var errors = [];
-
-            if (!o) {
-                errors.push(e);
-            } else {
-                req.session.user = o;
-                if (req.param("remember") == "true") {
-                    res.cookie("email", o.email, { maxAge: 900000 });
-                    res.cookie("pass", o.pass, { maxAge: 900000 });
-                }
-            }
-
-            if (errors.length > 0) {
-                result.message = "<p>You need to recheck the following items:</p><ul>";
-                for(var i=0;i<errors.length;i++) {
-                    result.message += "<li>" + errors[i] + "</ul>";
-                }
-                result.message += "</ul>";
-            } else {
-                result.message = "<p>You have logged in successfully!</p>";
-            }
-
-            result.errors = errors;
-            res.send(result);
+    
+    app.get("/profile/:teamID", function(req, res) {
+        res.render("profile", {
+            title: "Team: " + req.params.teamID + " - EasyCTF 2014",
+            teamID: req.params.teamID,
         });
     });
 
@@ -141,31 +127,46 @@ module.exports = function(app) {
             res.send(result);
         }
     });
-    
-    app.get("/about", function(req, res) {
-        res.render("about", {
-            title: "About - EasyCTF 2014"
-        });
-    });
-    
-    app.get("/edit", function(req, res) {
-        render(req, res, "edit-problems", "Edit Problems - EasyCTF 2014");
-    });
-    
-    app.get("/profile", function(req, res) {
-        render(req, res, "profile", "My Team - EasyCTF 2014");
-    });
-    
-    app.get("/problems", function(req, res) {
-        render(req, res, "problems", "Problems - EasyCTF 2014", {
 
+    app.get("/login", function(req, res) {
+        render(req, res, "login", "Login - EasyCTF 2014");
+    });
+
+    app.post("/login", function(req, res) {
+        AM.manualLogin(req.param("email"), req.param("password"), function(e, o) {
+            var result = {};
+            var errors = [];
+
+            if (!o) {
+                errors.push(e);
+            } else {
+                req.session.user = o;
+                if (req.param("remember") == "true") {
+                    res.cookie("email", o.email, { maxAge: 900000 });
+                    res.cookie("pass", o.pass, { maxAge: 900000 });
+                }
+            }
+
+            if (errors.length > 0) {
+                result.message = "<p>You need to recheck the following items:</p><ul>";
+                for(var i=0;i<errors.length;i++) {
+                    result.message += "<li>" + errors[i] + "</ul>";
+                }
+                result.message += "</ul>";
+            } else {
+                result.message = "<p>You have logged in successfully!</p>";
+            }
+
+            result.errors = errors;
+            res.send(result);
         });
     });
-    
-    app.get("/profile/:teamID", function(req, res) {
-        res.render("profile", {
-            title: "Team: " + req.params.teamID + " - EasyCTF 2014",
-            teamID: req.params.teamID,
+
+    app.get("/logout", function(req, res) {
+        res.clearCookie("email");
+        res.clearCookie("pass");
+        req.session.destroy(function(e) {
+            res.redirect("/");
         });
     });
 };

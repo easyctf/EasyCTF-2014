@@ -48,6 +48,28 @@ block content
 																i Don't hash it
 													td
 														input.form-control#create-answer(type='text', autocomplete='off')
+												tr
+													td
+														- each tag in tags
+															- var dname = "create-check-tag" + tag.id;
+															- var r = Math.floor(tag.color / (256 * 256));
+															- var g = Math.floor((tag.color % (256 * 256)) / 256);
+															- var b = tag.color % 256;
+															style.
+																.label-#{dname} {
+																	background-color:rgb(#{r}, #{g}, #{b});
+																	color: #FFF;
+																}
+															input(type="checkbox", name="#{dname}", id="#{dname}")
+															label(for="#{dname}", class="label label-#{dname} tag-c-label") #{tag.name}
+												tr
+													td
+													td(style='text-align:right;')
+														input(type='submit', value='Create', class='btn btn-primary')
+							script.
+								var create_problem = function() {
+									
+								};
 							script(type='text/javascript', src='/lib/ckeditor/ckeditor.js')
 							script.
 								CKEDITOR.replace("create-text")

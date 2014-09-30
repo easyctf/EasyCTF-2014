@@ -42,7 +42,7 @@ module.exports = function(app) {
     app.get("/scores", function(req, res) {
         var query = db.collection("accounts").find().sort([['points', 1]]);
         query.toArray(function(e, d) {
-            render(req, res, "scores", "Scoreboard - EasyCTF 2014", {accounts: d});
+            render(req, res, "scores", "Scoreboard - EasyCTF 2014", { accounts: d });
         });
     });
     
@@ -53,7 +53,11 @@ module.exports = function(app) {
     /***   ***/
     
     app.get("/edit", function(req, res) {
-        render(req, res, "edit-problems", "Edit Problems - EasyCTF 2014");
+        var tags = getTags();
+        console.dir(tags);
+        render(req, res, "edit-problems", "Edit Problems - EasyCTF 2014", {
+            tags: tags,
+        });
     });
     
     app.get("/problems", function(req, res) {
@@ -207,6 +211,14 @@ var render = function(req, res, url, title, extraparams) {
             // console.dir(p);
         }
     }
+};
+
+var getTags = function(callback) {
+    var query = db.collection("tags").find();
+    query.toArray(function(e, d) {
+        if (e) callback(e);
+        callback(d);
+    });
 };
 
 var validateEmail = function(email) {

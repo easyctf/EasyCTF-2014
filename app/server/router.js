@@ -60,6 +60,12 @@ module.exports = function(app) {
             });
         });
     });
+
+    app.post("/edit/create.ajax", function(req, res) {
+        if (logged()) {
+
+        }
+    });
     
     app.get("/problems", function(req, res) {
         render(req, res, "problems", "Problems - EasyCTF 2014", {
@@ -212,6 +218,23 @@ var render = function(req, res, url, title, extraparams) {
             // console.dir(p);
         }
     }
+};
+
+var logged = function() {
+    if (req.session && req.session.user) {
+        AM.autoLogin(req.session.user.email, req.session.user.pass, function(o) {
+            return o != null;
+        });
+    } else {
+        if (req.cookies.email && req.cookies.pass) {
+            AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
+                return o != null;
+            });
+        } else {
+            false;
+        }
+    }
+    return false;
 };
 
 var getTags = function(callback) {

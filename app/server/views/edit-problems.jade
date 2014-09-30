@@ -49,7 +49,7 @@ block content
 													td
 														input.form-control#create-answer(type='text', autocomplete='off')
 												tr
-													td
+													td(colspan='2')
 														- each tag in tags
 															- var dname = "create-check-tag" + tag.id;
 															- var r = Math.floor(tag.color / (256 * 256));

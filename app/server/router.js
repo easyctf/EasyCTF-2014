@@ -60,15 +60,31 @@ module.exports = function(app) {
     });
 
     app.post("/edit/create.ajax", function(req, res) {
-        var result = {};
         logged(req, res, function(L) {
+            var result = {};
             if (L) {
-                console.log("LOGGED IN");
+                var author = req.session.user.teamname;
+                var title = req.param("pTitle");
+                var text = req.param("pStatement");
+                var answer = req.param("pAnswer");
+                var value = parseInt(req.param("pValue"));
+                var tags = parseInt(req.param("pTags"));
+                db.collection("problems").insert({
+                    author: author,
+                    title: title,
+                    text: text,
+                    answer: answer,
+                    value: value,
+                    tags: tags,
+                }, { w: 1 }, function(e, d) {
+                    result.ret = 1;
+                    res.send(result);
+                });
             } else {
-                console.log("NOT LOGGED IN");
+                result.ret = -1;
+                res.send(result);
             }
         });
-        res.send(result);
     });
     
     app.get("/problems", function(req, res) {
@@ -237,6 +253,7 @@ var logged = function(req, res, callback) {
         if (req.cookies.email && req.cookies.pass) {
             AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
                 // console.dir(o);
+                req.session.user = o;
                 if (o) {
                     callback(true);
                 } else {

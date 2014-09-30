@@ -49,6 +49,15 @@ block content
 													td
 														input.form-control#create-answer(type='text', autocomplete='off')
 												tr
+													td
+														div
+															label(for='create-value') Value
+														div
+															small
+																i How much is this problem worth?
+													td
+														input.form-control#create-value(type='text', autocomplete='off')
+												tr
 													td(colspan='2')
 														- each tag in tags
 															- var dname = "create-check-tag" + tag.id;
@@ -72,6 +81,7 @@ block content
 								var create_problem = function() {
 									$("[id^=problem-create]").slideUp("fast");
 									$("[id^=create-]").attr("disabled", "disabled");
+									CKEDITOR.instances['create-text'].setReadOnly(true);
 									var tagVal = 0;
 									var totalTags = $(".tag-c-label").length;
 									for(var i=0;i<totalTags;i++) {
@@ -86,7 +96,7 @@ block content
 										type: "POST",
 										data: {
 											pTitle: $("#create-title").val(),
-											pStatement: $("#create-text").val(),
+											pStatement: CKEDITOR.instances["create-text"].getData(),
 											pAnswer: $("#create-answer").val(),
 											pValue: $("#create-value").val(),
 											pTags: tagVal,
@@ -102,12 +112,14 @@ block content
 												$("#problem-create-error").html(content.error);
 												$("#problem-create-error").slideDown("fast");
 												$("[id^=create-]").removeAttr("disabled");
+												CKEDITOR.instances['create-text'].setReadOnly(false);
 											}
 										},
 										error: function() {
 											$("#problem-create-error").html("Could not connect?");
 											$("#problem-create-error").slideDown("fast");
 											$("[id^=create-]").removeAttr("disabled");
+											CKEDITOR.instances['create-text'].setReadOnly(false);
 										}
 									});
 								};

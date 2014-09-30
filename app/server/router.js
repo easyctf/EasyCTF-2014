@@ -54,7 +54,7 @@ module.exports = function(app) {
     
     app.get("/edit", function(req, res) {
         getTags(function(tags) {
-            console.dir(tags);
+            // console.dir(tags);
             render(req, res, "edit-problems", "Edit Problems - EasyCTF 2014", {
                 tags: tags,
             });

@@ -175,7 +175,7 @@ module.exports = function(app) {
     
     app.get("/problems", function(req, res) {
         render(req, res, "problems", "Problems - EasyCTF 2014", {
-            tags: "abcde"
+            
         });
     });
     
@@ -185,13 +185,6 @@ module.exports = function(app) {
             teamID: req.params.teamID,
         });
     });
-};
-
-Object.prototype.extend = function(other) {
-    for(var attr in other) {
-        this[attr] = other[attr];
-    }
-    return this;
 };
 
 var render = function(req, res, url, title, extraparams) {
@@ -204,7 +197,7 @@ var render = function(req, res, url, title, extraparams) {
                 group: o ? o.group : 0,
             };
             res.render(url, p);
-            p = p.extend(extraparams ? extraparams : {});
+            p = extend(p, extraparams ? extraparams : {});
             console.dir(p);
         });
     } else {
@@ -216,7 +209,7 @@ var render = function(req, res, url, title, extraparams) {
                     group: o ? o.group : 0,
                 };
                 res.render(url, p);
-                p = p.extend(extraparams ? extraparams : {});
+                p = extend(p, extraparams ? extraparams : {});
                 console.dir(p);
             });
         } else {
@@ -226,7 +219,7 @@ var render = function(req, res, url, title, extraparams) {
                 group: 0,
             };
             res.render(url, p);
-            p = p.extend(extraparams ? extraparams : {});
+            p = extend(p, extraparams ? extraparams : {});
             console.dir(p);
         }
     }

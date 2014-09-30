@@ -174,6 +174,13 @@ module.exports = function(app) {
     });
 };
 
+Object.prototype.extend = function(other) {
+    for(var attr in other) {
+        this[attr] = other[attr];
+    }
+    return this;
+};
+
 var render = function(req, res, url, title) {
     if (req.session && req.session.user) {
         AM.autoLogin(req.session.user.email, req.session.user.pass, function(o) {

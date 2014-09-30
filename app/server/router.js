@@ -54,22 +54,7 @@ module.exports = function(app) {
     });
 
     app.get("/login", function(req, res) {
-        if (req.cookies.email == undefined || req.cookies.pass == undefined) {
-            res.render("login", {
-                title: "Login - EasyCTF 2014"
-            });
-        } else {
-            AM.autoLogin(req.cookies.email, req.cookies.pass, function(o) {
-                if (o != null) {
-                    req.session.user = o;
-                    res.redirect("/");
-                } else {
-                    res.render("login", {
-                        title: "Login - EasyCTF 2014"
-                    });
-                }
-            });
-        }
+        render(req, res, "login", "Login - EasyCTF 2014");
     });
 
     app.post("/login", function(req, res) {
@@ -103,9 +88,7 @@ module.exports = function(app) {
     });
 
     app.get("/register", function(req, res) {
-        res.render("register", {
-            title: "Register - EasyCTF 2014"
-        });
+        render(req, res, "register", "Register - EasyCTF 2014");
     });
 
     app.post("/register", function(req, res) {
@@ -175,7 +158,7 @@ module.exports = function(app) {
     
     app.get("/problems", function(req, res) {
         render(req, res, "problems", "Problems - EasyCTF 2014", {
-            
+
         });
     });
     
@@ -196,9 +179,9 @@ var render = function(req, res, url, title, extraparams) {
                 logged: o != null,
                 group: o ? o.group : 0,
             };
-            res.render(url, p);
             p = extend(p, extraparams ? extraparams : {});
-            console.dir(p);
+            res.render(url, p);
+            // console.dir(p);
         });
     } else {
         if (req.cookies.email && req.cookies.pass) {
@@ -208,9 +191,9 @@ var render = function(req, res, url, title, extraparams) {
                     logged: o != null,
                     group: o ? o.group : 0,
                 };
-                res.render(url, p);
                 p = extend(p, extraparams ? extraparams : {});
-                console.dir(p);
+                res.render(url, p);
+                // console.dir(p);
             });
         } else {
             p = {
@@ -218,9 +201,9 @@ var render = function(req, res, url, title, extraparams) {
                 logged: false,
                 group: 0,
             };
-            res.render(url, p);
             p = extend(p, extraparams ? extraparams : {});
-            console.dir(p);
+            res.render(url, p);
+            // console.dir(p);
         }
     }
 };

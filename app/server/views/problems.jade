@@ -41,8 +41,9 @@ block content
 																	| #{problem.tags}
 											div.panel-collapse.collapse(id='collapse-#{problem._id}')
 												div.panel-body
-													div.problem-text.
-														#{problem.text}
+													div.problem-text
+														small Written by #{problem.author}
+														p!= problem.text
 						else
 							div(class='alert alert-danger').
 								<b>Error:</b> Contest hasn't started yet!

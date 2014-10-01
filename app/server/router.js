@@ -1,5 +1,6 @@
 var MongoDB = require("mongodb").Db;
 var Server = require("mongodb").Server;
+var jsdom = require("jsdom");
 
 var extend = function(o1, o2) {
     var o = {};
@@ -90,10 +91,6 @@ module.exports = function(app) {
     app.get("/problems", function(req, res) {
         getProblems(function(problems) {
             getTags(function(tags) {
-                for (var i=0; i<problems.length; i++) {
-                    problems.text = decodeEntities(problems.text);
-                }
-                console.dir(problems);
                 render(req, res, "problems", "Problems - EasyCTF 2014", {
                     problems: problems,
                     tags: tags,
@@ -276,10 +273,15 @@ var logged = function(req, res, callback) {
     return false;
 };
 
-var decodeEntities = function(input) {
-    var y = document.createElement('textarea');
-    y.innerHTML = input;
-return y.value;
+var decodeEntities = function(input, i, callback) {
+    jsdom.env(
+        '',
+        ["http://code.jquery.com/jquery.js"],
+        function (errors, window) {
+            callback(window.$("<div/>").html(input).text(), i);
+            // console.log("contents of a.the-link:", window.$("a.the-link").text());
+        }
+    );
 }
 
 var getScores = function(callback) {

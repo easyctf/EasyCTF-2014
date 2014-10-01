@@ -7,7 +7,12 @@ block content
 				div(class='page-container')
 					if logged
 						div(class='page-header')
-							h2 Team
+							table(style='width:100%;')
+								tr
+									td
+										h2 Team
+									td(style='text-align:right;')
+										a(href='javascript:void(0);') Account Settings &raquo;
 					else
 						if teamID
 							div(class='page-header')

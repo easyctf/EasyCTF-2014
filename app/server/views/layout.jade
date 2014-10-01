@@ -32,34 +32,34 @@ html
 					div(class='collapse navbar-collapse', id='navbar-content')
 						ul(class='nav navbar-nav')
 							li
-								a(href='about') About
+								a(href='/about') About
 							li
-								a(href='scores') Scoreboard
+								a(href='/scores') Scoreboard
 							li
 								a(href='javascript:void(0);') Sponsors
 							if logged
 								li
-									a(href='md5') MD5
+									a(href='/md5') MD5
 						ul(class='nav navbar-nav navbar-right')
 							if logged
 								if group == 3
 									li
-										a(href='edit') Edit Problems
+										a(href='/edit') Edit Problems
 								li
 									a(href='javascript:void(0);') IDE
 								li
 									a(href='javascript:void(0);') Chat
 								li
-									a(href='problems') Problems
+									a(href='/problems') Problems
 								li
-									a(href='profile') My Team
+									a(href='/profile') My Team
 								li
-									a(href='logout') Logout
+									a(href='/logout') Logout
 							else
 								li
-									a(href='register') Register
+									a(href='/register') Register
 								li
-									a(href='login') Login
+									a(href='/login') Login
 		
 		block content
 		

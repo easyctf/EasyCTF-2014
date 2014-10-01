@@ -53,10 +53,19 @@ module.exports = function(app) {
     /***   ***/
     
     app.get("/edit", function(req, res) {
-        getTags(function(tags) {
-            render(req, res, "edit-problems", "Edit Problems - EasyCTF 2014", {
-                tags: tags,
-            });
+        logged(req, res, function(L) {
+            var result = {};
+            if (L && req.session.user.group == 3) {
+                getProblems(function(problems) {
+                    getTags(function(tags) {
+                        render(req, res, "edit-problems", "Edit Problems - EasyCTF 2014", {
+                            you: req.session.user.teamname,
+                            problems: problems,
+                            tags: tags,
+                        });
+                    });
+                });
+            }
         });
     });
 
@@ -84,6 +93,20 @@ module.exports = function(app) {
             } else {
                 result.ret = -1;
                 res.send(result);
+            }
+        });
+    });
+
+    app.post("/edit/retrieve.ajax", function(req, res) {
+        logged(req, res, function(L) {
+            if (L) {
+                getProblems(function(problems) {
+                    for(var i=0; i<problems.length; i++) {
+                        if (problems[i].author == req.session.user.teamname && problems[i]._id == req.param("pID")) {
+                            res.send(extend(problems[i], { ret: 1 }));
+                        }
+                    }
+                });
             }
         });
     });

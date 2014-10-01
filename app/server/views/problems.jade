@@ -42,7 +42,8 @@ block content
 											div.panel-collapse.collapse(id='collapse-#{problem._id}')
 												div.panel-body
 													div.problem-text
-														small Written by #{problem.author}
+														small
+															i Written by #{problem.author}
 														p!= problem.text
 						else
 							div(class='alert alert-danger').

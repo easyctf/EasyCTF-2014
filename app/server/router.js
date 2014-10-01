@@ -133,6 +133,7 @@ module.exports = function(app) {
                             db.collection("problems").update({
                                 _id: new ObjectID(req.param("pID"))
                             }, {
+                                author: author,
                                 title: title,
                                 text: text,
                                 answer: answer,

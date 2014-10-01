@@ -1,5 +1,6 @@
 var MongoDB = require("mongodb").Db;
 var Server = require("mongodb").Server;
+var ObjectID = require("mongodb").ObjectID;
 var jsdom = require("jsdom");
 
 var extend = function(o1, o2) {
@@ -107,6 +108,64 @@ module.exports = function(app) {
                         }
                     }
                 });
+            }
+        });
+    });
+
+    app.post("/edit/commit.ajax", function(req, res) {
+        logged(req, res, function(L) {
+            var result = {};
+            if (L) {
+                var author = req.session.user.teamname;
+                var title = req.param("pTitle");
+                var text = req.param("pStatement");
+                var answer = req.param("pAnswer");
+                var value = parseInt(req.param("pValue"));
+                var tags = parseInt(req.param("pTags"));
+                var cursor = db.collection("problems").find({ author: author, _id: new ObjectID(req.param("pID")) });
+                cursor.toArray(function(e, d) {
+                    if (e) {
+                        // console.dir(e);
+                        result.ret = -1;
+                        res.send(result);
+                    } else {
+                        if (d.length == 1) {
+                            db.collection("problems").update({
+                                _id: new ObjectID(req.param("pID"))
+                            }, {
+                                title: title,
+                                text: text,
+                                answer: answer,
+                                value: value,
+                                tags: tags,
+                            }, function(e, d) {
+                                if (e) {
+                                    result.ret = -1;
+                                    res.send(result);
+                                } else {
+                                    result.ret = 1;
+                                    res.send(result);
+                                }
+                            })
+                        }
+                    }
+                });
+                /*
+                db.collection("problems").insert({
+                    author: author,
+                    title: title,
+                    text: text,
+                    answer: answer,
+                    value: value,
+                    tags: tags,
+                }, { w: 1 }, function(e, d) {
+                    result.ret = 1;
+                    res.send(result);
+                });
+                */
+            } else {
+                result.ret = -1;
+                res.send(result);
             }
         });
     });

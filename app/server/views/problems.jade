@@ -38,7 +38,22 @@ block content
 																	| #{problem.title} 
 																	small #{problem.value} points
 																td(style='text-align:right;')
-																	| #{problem.tags}
+																	- for(var i=0; i<tags.length; i++) {
+																		- var tag = tags[i];
+																		- var k = Math.pow(2, i+1);
+																		- var dname = "asdf-" + tag.id;
+																		- var r = Math.floor(tag.color / (256 * 256));
+																		- var g = Math.floor((tag.color % (256 * 256)) / 256);
+																		- var b = tag.color % 256;
+																		- if ((problem.tags & k) == k) {
+																			span(class='label label-#{dname}') #{tag.abbreviation[0]}
+																			style.
+																				.label-#{dname} {
+																					background-color:rgb(#{r}, #{g}, #{b});
+																					color: #FFF;
+																				}
+																		- }
+																	- }
 											div.panel-collapse.collapse(id='collapse-#{problem._id}')
 												div.panel-body
 													div.problem-text

@@ -88,8 +88,17 @@ module.exports = function(app) {
     });
     
     app.get("/problems", function(req, res) {
-        render(req, res, "problems", "Problems - EasyCTF 2014", {
-
+        getProblems(function(problems) {
+            getTags(function(tags) {
+                for (var i=0; i<problems.length; i++) {
+                    problems.text = decodeEntities(problems.text);
+                }
+                console.dir(problems);
+                render(req, res, "problems", "Problems - EasyCTF 2014", {
+                    problems: problems,
+                    tags: tags,
+                });
+            });
         });
     });
     
@@ -266,6 +275,12 @@ var logged = function(req, res, callback) {
     }
     return false;
 };
+
+var decodeEntities = function(input) {
+    var y = document.createElement('textarea');
+    y.innerHTML = input;
+return y.value;
+}
 
 var getScores = function(callback) {
     var query = db.collection("accounts").find().sort([['points', 1]]);

@@ -372,7 +372,7 @@ var decodeEntities = function(input, i, callback) {
 }
 
 var getScores = function(callback) {
-    var query = db.collection("accounts").find().sort([['points', 1]]);
+    var query = db.collection("accounts").find().sort([['points', -1]]);
     query.toArray(function(e, d) {
         if (e) callback(e);
         else callback(d);
@@ -388,7 +388,7 @@ var getTags = function(callback) {
 };
 
 var getProblems = function(callback) {
-    var query = db.collection("problems").find();
+    var query = db.collection("problems").find().sort([['value', 1]]);
     query.toArray(function(e, d) {
         if (e) callback(e);
         else callback(d);

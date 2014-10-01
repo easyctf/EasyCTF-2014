@@ -289,6 +289,10 @@ module.exports = function(app) {
             res.redirect("/");
         });
     });
+
+    app.get("/forgot", function(req, res) {
+        render(req, res, "forgot", "Forgot Password - EasyCTF 2014");
+    });
 };
 
 var render = function(req, res, url, title, extraparams) {

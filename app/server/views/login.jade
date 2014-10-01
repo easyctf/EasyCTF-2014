@@ -34,6 +34,9 @@ block content
 											label(class='col-lg-3 control-label')
 											div(class='col-lg-7')
 												button(class='btn btn-default', id='submit-btn', onClick='javascript:login(); return false;') Login
+										div(class='form-group')
+											label(class='col-lg-3 control-label')
+											a(href='/forgot') Forgot Password
 	script(type='text/javascript').
 		var login = function() {
 			$("#log-email,#log-password,#log-remember,#submit-btn").attr("disabled","disabled");

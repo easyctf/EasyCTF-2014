@@ -397,6 +397,7 @@ var getProblems = function(callback) {
                 var obj = d[i];
                 p.push(obj);
             }
+            callback(p);
         }
     });
 };

@@ -391,7 +391,13 @@ var getProblems = function(callback) {
     var query = db.collection("problems").find().sort([['value', 1]]);
     query.toArray(function(e, d) {
         if (e) callback(e);
-        else callback(d);
+        else {
+            var p = [];
+            for (var i=0; i<d.length; i++) {
+                var obj = d[i];
+                p.push(obj);
+            }
+        }
     });
 };
 

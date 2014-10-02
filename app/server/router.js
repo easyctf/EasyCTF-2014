@@ -3,6 +3,7 @@ var Server = require("mongodb").Server;
 var ObjectID = require("mongodb").ObjectID;
 var jsdom = require("jsdom");
 var moment = require("moment");
+var crypto = require("crypto");
 
 var extend = function(o1, o2) {
     var o = {};
@@ -296,11 +297,43 @@ module.exports = function(app) {
     });
 
     app.post("/forgot.ajax", function(req, res) {
-
-        db.collection("reset_password").insert({
-
-        }, { w: 1 }, function(e, d) {
-
+        var result = {};
+        var salt = generateSalt();
+        var code = md5(req.param("email") + salt) + salt;
+        var expire = moment().add(48, "hours");
+        db.collection("accounts").find({
+            email: req.param("email"),
+        }).toArray(function(e, d) {
+            if (d.length > 0) {
+                db.collection("reset_password").update({
+                    email: req.param("email"),
+                    active: true,
+                }, {
+                    $set: {
+                        active: false,
+                    }
+                }, function(e, d) {
+                    db.collection("reset_password").insert({
+                        code: code,
+                        email: req.param("email"),
+                        salt: salt,
+                        expire: expire,
+                        active: true,
+                    }, { w: 1 }, function(e, d) {
+                        if (e) {
+                            // console.dir(e);
+                            result.ret = -1;
+                        } else {
+                            // console.dir(d);
+                            result.ret = 1;
+                        }
+                        res.send(result);
+                    });
+                });
+            } else {
+                result.ret = -2;
+                res.send(result);
+            }
         });
     });
 
@@ -419,4 +452,18 @@ var getProblems = function(callback) {
 var validateEmail = function(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
+};
+
+var md5 = function(str) {
+    return crypto.createHash('md5').update(str).digest('hex');
+};
+
+var generateSalt = function() {
+    var set = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ";
+    var salt = "";
+    for(var i=0; i<16; i++) {
+        var p = Math.floor(Math.random() * set.length);
+        salt += set[p];
+    }
+    return salt;
 };

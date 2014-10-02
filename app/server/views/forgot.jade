@@ -28,7 +28,7 @@ block content
 				var dispatch = function() {
 					$("[id^=forgot-]").attr("disabled", "disabled");
 					$.ajax({
-						url: "/forgot/send.ajax",
+						url: "/forgot.ajax",
 						dataType: "json",
 						data: {
 							email: $("#forgot-email").val()

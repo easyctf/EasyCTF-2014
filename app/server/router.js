@@ -2,6 +2,7 @@ var MongoDB = require("mongodb").Db;
 var Server = require("mongodb").Server;
 var ObjectID = require("mongodb").ObjectID;
 var jsdom = require("jsdom");
+var moment = require("moment");
 
 var extend = function(o1, o2) {
     var o = {};
@@ -42,7 +43,7 @@ module.exports = function(app) {
     });
 
     app.get("/scores", function(req, res) {
-        getScores(function(scores) {
+        getUsers(function(scores) {
             render(req, res, "scores", "Scoreboard - EasyCTF 2014", { accounts: scores });
         });
     });
@@ -293,6 +294,19 @@ module.exports = function(app) {
     app.get("/forgot", function(req, res) {
         render(req, res, "forgot", "Forgot Password - EasyCTF 2014");
     });
+
+    app.post("/forgot.ajax", function(req, res) {
+
+        db.collection("reset_password").insert({
+
+        }, { w: 1 }, function(e, d) {
+
+        });
+    });
+
+    app.post("/forgot/:code", function(req, res) {
+
+    });
 };
 
 var render = function(req, res, url, title, extraparams) {
@@ -371,7 +385,7 @@ var decodeEntities = function(input, i, callback) {
     );
 }
 
-var getScores = function(callback) {
+var getUsers = function(callback) {
     var query = db.collection("accounts").find().sort([['points', -1]]);
     query.toArray(function(e, d) {
         if (e) callback(e);

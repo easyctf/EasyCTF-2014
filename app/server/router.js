@@ -123,40 +123,56 @@ module.exports = function(app) {
         logged(req, res, function(L) {
             var result = {};
             if (L) {
-                var author = req.session.user.teamname;
-                var title = req.param("pTitle");
-                var text = req.param("pStatement");
-                var answer = req.param("pAnswer");
-                var value = parseInt(req.param("pValue"));
-                var tags = parseInt(req.param("pTags"));
-                var cursor = db.collection("problems").find({ author: author, _id: new ObjectID(req.param("pID")) });
-                cursor.toArray(function(e, d) {
-                    if (e) {
-                        // console.dir(e);
-                        result.ret = -1;
-                        res.send(result);
-                    } else {
-                        if (d.length == 1) {
-                            db.collection("problems").update({
-                                _id: new ObjectID(req.param("pID"))
-                            }, {
-                                author: author,
-                                title: title,
-                                text: text,
-                                answer: answer,
-                                value: value,
-                                tags: tags,
-                            }, function(e, d) {
+                getProblem(req.param("pID"), function(problem) {
+                    var diff = parseInt(req.param("pValue")) - problem.value;
+                    console.dir(diff);
+                    db.collection("accounts").update({
+                        solved: [ req.param("pID").toString() ],
+                    }, {
+                        $inc: {
+                            pointDisplay: diff,
+                        }
+                    }, function(e, d) {
+                        if (e) {
+
+                        } else {
+                            var author = req.session.user.teamname;
+                            var title = req.param("pTitle");
+                            var text = req.param("pStatement");
+                            var answer = req.param("pAnswer");
+                            var value = parseInt(req.param("pValue"));
+                            var tags = parseInt(req.param("pTags"));
+                            var cursor = db.collection("problems").find({ author: author, _id: new ObjectID(req.param("pID")) });
+                            cursor.toArray(function(e, d) {
                                 if (e) {
+                                    // console.dir(e);
                                     result.ret = -1;
                                     res.send(result);
                                 } else {
-                                    result.ret = 1;
-                                    res.send(result);
+                                    if (d.length == 1) {
+                                        db.collection("problems").update({
+                                            _id: new ObjectID(req.param("pID"))
+                                        }, {
+                                            author: author,
+                                            title: title,
+                                            text: text,
+                                            answer: answer,
+                                            value: value,
+                                            tags: tags,
+                                        }, function(e, d) {
+                                            if (e) {
+                                                result.ret = -1;
+                                                res.send(result);
+                                            } else {
+                                                result.ret = 1;
+                                                res.send(result);
+                                            }
+                                        })
+                                    }
                                 }
-                            })
+                            });
                         }
-                    }
+                    });
                 });
                 /*
                 db.collection("problems").insert({
@@ -630,6 +646,16 @@ var getProblems = function(callback) {
                 p.push(obj);
             }
             callback(p);
+        }
+    });
+};
+
+var getProblem = function(pID, callback) {
+    getProblems(function(problems) {
+        for(var i=0;i<problems.length;i++) {
+            if (problems[i]._id.toString() === pID.toString()) {
+                callback(problems[i]);
+            }
         }
     });
 };

@@ -179,9 +179,13 @@ module.exports = function(app) {
     });
     
     app.get("/problems", function(req, res) {
-        getSolved(req, function(solved) {
+        logged(req, res, function(logged) {
+            if (logged) {
+                getSolved(req, function(solved) {
 
-        });
+                });
+            }
+        })
         getProblems(function(problems) {
             getTags(function(tags) {
                 render(req, res, "problems", "Problems - EasyCTF 2014", {

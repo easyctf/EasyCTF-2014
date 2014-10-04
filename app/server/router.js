@@ -45,9 +45,13 @@ module.exports = function(app) {
     });
 
     app.get("/scores", function(req, res) {
-        getUsers(function(scores) {
-            render(req, res, "scores", "Scoreboard - EasyCTF 2014", { accounts: scores });
+        getUsers(function(users) {
+            render(req, res, "scores", "Scoreboard - EasyCTF 2014", { accounts: users });
         });
+    });
+    
+    app.get("/sponsors", function(req, res) {
+        render(req, res, "sponsors", "Sponsors - EasyCTF 2014");
     });
     
     app.get("/md5", function(req, res) {

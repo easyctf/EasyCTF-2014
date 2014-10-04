@@ -207,7 +207,7 @@ module.exports = function(app) {
     app.post("/problems/submit.ajax", function(req, res) {
         var submission = req.param("submission");
         var result = {};
-        if (submission.matches("[a-fA-F0-9]{32}")) {
+        if (submission.match("[a-fA-F0-9]{32}")) {
             result.ret = 1;
             res.send(result);
         } else {

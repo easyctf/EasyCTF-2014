@@ -62,15 +62,65 @@ block content
 														p!= problem.text
 													if problem.solved
 														div.alert.alert-success <b>Yay!</b> You've already solved this question.
-													else 
+													else
 														div
+															div.alert.alert-success(id='#{problem._id}-alert-correct', style='display:none;')
+																<b>Yay!</b> Your answer was correct.
+															div.alert.alert-warning(id='#{problem._id}-alert-incorrect', style='display:none;')
+																<b>Darn!</b> Your answer was incorrect.
+															div.alert.alert-warning(id='#{problem._id}-alert-tried', style='display:none;')
+																<b>Darn!</b> You've already tried that!
+															div.alert.alert-danger(id='#{problem._id}-alert-format', style='display:none;')
+																<b>:(</b> XSS won't work here!
+															div.alert.alert-info(id='#{problem._id}-alert-hash', style='display:none;')
+																<b>Hash your flags</b> Before you submit, hash your flags using the MD5 hash. For example, if your flag is <span style="font-family:monospace;">this_is_a_flag</span>, then submit <span style="font-family:monospace;">401e48c9a96dc219c32ab5e75204b655</span>.
+															div.alert.alert-danger(id='#{problem._id}-alert-wrong', style='display:none;')
+																<b>Whoops</b> Something went wrong here.
 														form.form-horizontal(action='javascript:checkProblem(\'#{problem._id}\');')
 															span.col-lg-3(style='display:inline-block;')
-																input.form-control(type='text', id='answer#{problem._id}')
-															input.btn.btn-success(type='submit', id='submit{#problem._id}', value='Check!')
+																input.form-control(type='text', id='#{problem._id}-form-answer')
+															input.btn.btn-success(type='submit', id='#{problem._id}-form-submit', value='Check!')
 							script.
-								var checkProblem = function(pID) {
-									
+								var checkProblem = function(pid) {
+									$("[id^="+pid+"-alert-]").slideUp("fast");
+									$("[id^="+pid+"-form-]").attr("disabled", "disabled");
+									var answer = $("#" + pid + "-form-answer").val();
+									if (answer.match("[a-fA-F0-9]{32}")) {
+										$.ajax({
+											url:"/problems/submit.ajax",
+											dataType:"json",
+											type:"POST",
+											data:{
+												pid: pid,
+												answer: $("#"+pid+"-form-answer").val(),
+											},
+											success:function(content){
+												console.dir(content);
+												if (content.ret == 1) {
+													$("#"+pid+"-alert-correct").slideDown("fast");
+													setTimeout(function() {
+														window.location.reload(true);
+													}, 2000);
+												} else if (content.ret == 0) {
+													$("#"+pid+"-alert-incorrect").slideDown("fast");
+													$("[id^="+pid+"-form-]").removeAttr("disabled");
+												} else if (content.ret == 3) {
+													$("#"+pid+"-alert-tried").slideDown("fast");
+													$("[id^="+pid+"-form-]").removeAttr("disabled");
+												} else if (content.ret == -1) {
+													$("#"+pid+"-alert-format").slideDown("fast");
+													$("[id^="+pid+"-form-]").removeAttr("disabled");
+												}
+											},
+											error:function(content){
+												$("#"+pid+"-alert-wrong").slideDown("fast");
+												$("[id^="+pid+"-form-]").removeAttr("disabled");
+											}
+										});
+									} else {
+										$("#"+pid+"-alert-hash").slideDown("fast");
+										$("[id^="+pid+"-form-]").removeAttr("disabled");
+									}
 								};
 						else
 							div(class='alert alert-danger').

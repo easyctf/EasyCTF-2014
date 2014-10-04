@@ -182,18 +182,19 @@ module.exports = function(app) {
         logged(req, res, function(logged) {
             if (logged) {
                 getSolved(req, function(solved) {
-
+                    if (solved != null) {
+                        getProblems(function(problems) {
+                            getTags(function(tags) {
+                                render(req, res, "problems", "Problems - EasyCTF 2014", {
+                                    problems: problems,
+                                    tags: tags,
+                                });
+                            });
+                        });
+                    }
                 });
             }
         })
-        getProblems(function(problems) {
-            getTags(function(tags) {
-                render(req, res, "problems", "Problems - EasyCTF 2014", {
-                    problems: problems,
-                    tags: tags,
-                });
-            });
-        });
     });
     
     app.get("/profile", function(req, res) {
@@ -401,7 +402,7 @@ module.exports = function(app) {
                                         email: obj.email,
                                     }, {
                                         $set: {
-                                            password: salted,
+                                            pass: salted,
                                         }
                                     }, function(e, d) {
                                         if (e) {
@@ -525,11 +526,14 @@ var getTags = function(callback) {
 };
 
 var getSolved = function(req, callback) {
-    console.dir(req.session.user);
-    var query = db.collection("tags").find();
+    var query = db.collection("accounts").find({
+        _id: req.session.user._id
+    });
     query.toArray(function(e, d) {
+        // console.dir(d[0].solved);
         if (e) callback(e);
-        else callback(d);
+        else if (d[0]) callback(d[0].solved);
+        else callback(null);
     });
 };
 

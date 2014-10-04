@@ -206,29 +206,21 @@ module.exports = function(app) {
 
     app.post("/problems/submit.ajax", function(req, res) {
         // 46768dc744f93817a615fcab277ed8e9
-        console.log("STEP 1");
         var result = {};
         logged(req, res, function(logged) {
-            console.log("STEP 2");
             if (logged) {
-                console.log("STEP 3");
                 var submission = req.param("submission");
                 if (submission.match("[a-fA-F0-9]{32}")) {
-                    console.log("STEP 4");
                     // check if already solved
                     if(req.session.user.solved.indexOf(req.param("pID").toString()) < 0) {
-                        console.log("STEP 4");
                         var c = false;
                         getProblems(function(problems) {
-                            console.log("STEP 5");
                             for(var i=0;i<problems.length;i++) {
                                 if (problems[i]._id == req.param("pID")) {
-                                    console.log("STEP 6");
                                     var obj = problems[i];
                                     var correct_answer = md5(obj.answer);
                                     c = correct_answer == submission;
                                     if (c) {
-                                        console.log("STEP 7");
                                         console.log(obj.value);
                                         console.log(req.session.user._id);
                                         db.collection("accounts").update({
@@ -244,7 +236,6 @@ module.exports = function(app) {
                                             if (e) {
                                                 console.dir(e);
                                             } else {
-                                                console.log("STEP 8");
                                                 result.ret = 1;
                                                 db.collection("submissions").insert({
                                                     tID: req.session.user._id,
@@ -256,7 +247,6 @@ module.exports = function(app) {
                                                     if (e) {
                                                         result.ret = -4;
                                                     } else {
-                                                        console.log("STEP 9");
                                                         res.send(result);
                                                     }
                                                 });

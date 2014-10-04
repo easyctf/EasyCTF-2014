@@ -60,6 +60,11 @@ block content
 														small
 															i Written by #{problem.author}
 														p!= problem.text
+													if problem.solved
+														div.alert.alert-success <b>Yay!</b> You've already solved this question.
+													else 
+														div
+														form.form-horizontal
 						else
 							div(class='alert alert-danger').
 								<b>Error:</b> Contest hasn't started yet!

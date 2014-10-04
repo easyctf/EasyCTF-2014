@@ -185,7 +185,7 @@ module.exports = function(app) {
                     if (solved != null) {
                         getProblems(function(problems) {
                             for(var i=0; i<problems.length; i++) {
-                                if (solved.indexOf(problems[i]._id) >= 0) {
+                                if (solved.indexOf(problems[i]._id.toString()) >= 0) {
                                     problems[i].solved = true;
                                 } else {
                                     problems[i].solved = false;
@@ -205,15 +205,96 @@ module.exports = function(app) {
     });
 
     app.post("/problems/submit.ajax", function(req, res) {
-        var submission = req.param("submission");
+        // 46768dc744f93817a615fcab277ed8e9
+        console.log("STEP 1");
         var result = {};
-        if (submission.match("[a-fA-F0-9]{32}")) {
-            result.ret = 1;
-            res.send(result);
-        } else {
-            result.ret = -1;
-            res.send(result);
-        }
+        logged(req, res, function(logged) {
+            console.log("STEP 2");
+            if (logged) {
+                console.log("STEP 3");
+                var submission = req.param("submission");
+                if (submission.match("[a-fA-F0-9]{32}")) {
+                    console.log("STEP 4");
+                    // check if already solved
+                    if(req.session.user.solved.indexOf(req.param("pID").toString()) < 0) {
+                        console.log("STEP 4");
+                        var c = false;
+                        getProblems(function(problems) {
+                            console.log("STEP 5");
+                            for(var i=0;i<problems.length;i++) {
+                                if (problems[i]._id == req.param("pID")) {
+                                    console.log("STEP 6");
+                                    var obj = problems[i];
+                                    var correct_answer = md5(obj.answer);
+                                    c = correct_answer == submission;
+                                    if (c) {
+                                        console.log("STEP 7");
+                                        console.log(obj.value);
+                                        console.log(req.session.user._id);
+                                        db.collection("accounts").update({
+                                            _id: new ObjectID(req.session.user._id)
+                                        }, {
+                                            $inc: {
+                                                pointDisplay: parseInt(obj.value),
+                                            },
+                                            $push: {
+                                                solved: obj._id.toString(),
+                                            }
+                                        }, function(e, d) {
+                                            if (e) {
+                                                console.dir(e);
+                                            } else {
+                                                console.log("STEP 8");
+                                                result.ret = 1;
+                                                db.collection("submissions").insert({
+                                                    tID: req.session.user._id,
+                                                    pID: req.param("pID"),
+                                                    content: req.param("submission"),
+                                                    correct: true,
+                                                    time: moment(),
+                                                }, { w: 1 }, function(e, d) {
+                                                    if (e) {
+                                                        result.ret = -4;
+                                                    } else {
+                                                        console.log("STEP 9");
+                                                        res.send(result);
+                                                    }
+                                                });
+                                            }
+                                        });
+                                    } else {
+                                        result.ret = 0;
+                                        db.collection("submissions").insert({
+                                            tID: req.session.user._id,
+                                            pID: req.param("pID"),
+                                            content: req.param("submission"),
+                                            correct: false,
+                                            time: moment(),
+                                        }, { w: 1 }, function(e, d) {
+                                            if (e) {
+                                                console.dir(e);
+                                                result.ret = -4;
+                                            }
+                                            res.send(result);
+                                        });
+                                    }
+                                    break;
+                                }
+                            }
+                        });
+                    } else {
+                        result.ret = -2;
+                        res.send(result);
+                    }
+                } else {
+                    result.ret = -1;
+                    res.send(result);
+                }
+            } else {
+                result.ret = -1;
+                res.send(result);
+            }
+        });
     });
     
     app.get("/profile", function(req, res) {
@@ -529,7 +610,7 @@ var decodeEntities = function(input, i, callback) {
 }
 
 var getUsers = function(callback) {
-    var query = db.collection("accounts").find().sort([['points', -1]]);
+    var query = db.collection("accounts").find().sort([['pointDisplay', -1]]);
     query.toArray(function(e, d) {
         if (e) callback(e);
         else callback(d);

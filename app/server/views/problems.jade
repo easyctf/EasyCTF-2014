@@ -38,7 +38,7 @@ block content
 																	| #{problem.title} 
 																	small #{problem.value} points
 																td(style='text-align:right;')
-																	- for(var i=0; i<tags.length; i++) {
+																	- /* for(var i=0; i<tags.length; i++) {
 																		- var tag = tags[i];
 																		- var k = Math.pow(2, i+1);
 																		- var dname = "asdf-" + tag.id;
@@ -53,7 +53,11 @@ block content
 																					color: #FFF;
 																				}
 																		- }
-																	- }
+																	- } */
+																	if problem.solved
+																		span.label.label-success Solved
+																	else
+																		span.label.label-danger Unsolved
 											div.panel-collapse.collapse(id='collapse-#{problem._id}')
 												div.panel-body
 													div.problem-text
@@ -76,9 +80,11 @@ block content
 																<b>Hash your flags</b> Before you submit, hash your flags using the MD5 hash. For example, if your flag is <span style="font-family:monospace;">this_is_a_flag</span>, then submit <span style="font-family:monospace;">401e48c9a96dc219c32ab5e75204b655</span>.
 															div.alert.alert-danger(id='#{problem._id}-alert-wrong', style='display:none;')
 																<b>Whoops</b> Something went wrong here.
+															div.alert.alert-warning(id='#{problem._id}-alert-solved', style='display:none;')
+																<b>Whoops</b> You've already solved this problem!
 														form.form-horizontal(action='javascript:checkProblem(\'#{problem._id}\');')
 															span.col-lg-3(style='display:inline-block;')
-																input.form-control(type='text', id='#{problem._id}-form-answer')
+																input.form-control(type='text', id='#{problem._id}-form-answer', value='912ec803b2ce49e4a541068d495ab570')
 															input.btn.btn-success(type='submit', id='#{problem._id}-form-submit', value='Check!')
 							script.
 								var checkProblem = function(pid) {
@@ -91,8 +97,8 @@ block content
 											dataType:"json",
 											type:"POST",
 											data:{
-												pid: pid,
-												answer: $("#"+pid+"-form-answer").val(),
+												pID: pid,
+												submission: $("#"+pid+"-form-answer").val().trim(),
 											},
 											success:function(content){
 												console.dir(content);
@@ -109,6 +115,9 @@ block content
 													$("[id^="+pid+"-form-]").removeAttr("disabled");
 												} else if (content.ret == -1) {
 													$("#"+pid+"-alert-format").slideDown("fast");
+													$("[id^="+pid+"-form-]").removeAttr("disabled");
+												} else if (content.ret == -2) {
+													$("#"+pid+"-alert-solved").slideDown("fast");
 													$("[id^="+pid+"-form-]").removeAttr("disabled");
 												}
 											},

@@ -64,7 +64,14 @@ block content
 														div.alert.alert-success <b>Yay!</b> You've already solved this question.
 													else 
 														div
-														form.form-horizontal
+														form.form-horizontal(action='javascript:checkProblem(\'#{problem._id}\');')
+															span.col-lg-3(style='display:inline-block;')
+																input.form-control(type='text', id='answer#{problem._id}')
+															input.btn.btn-success(type='submit', id='submit{#problem._id}', value='Check!')
+							script.
+								var checkProblem = function(pID) {
+									
+								};
 						else
 							div(class='alert alert-danger').
 								<b>Error:</b> Contest hasn't started yet!

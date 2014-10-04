@@ -4,6 +4,7 @@ var ObjectID = require("mongodb").ObjectID;
 var jsdom = require("jsdom");
 var moment = require("moment");
 var crypto = require("crypto");
+var sendgrid  = require('sendgrid')("app29067833@heroku.com" || process.env.SENDGRID_USERNAME, "0o6xvuek" || process.env.SENDGRID_PASSWORD);
 
 var extend = function(o1, o2) {
     var o = {};
@@ -222,7 +223,6 @@ module.exports = function(app) {
                     }
                     result.message += "</ul>";
                 } else {
-                    var sendgrid  = require('sendgrid')("app29067833@heroku.com" || process.env.SENDGRID_USERNAME, "0o6xvuek" || process.env.SENDGRID_PASSWORD);
                     sendgrid.send({
                         to:       req.param("email"),
                         from:     'michael@easyctf.com',
@@ -323,11 +323,27 @@ module.exports = function(app) {
                         if (e) {
                             // console.dir(e);
                             result.ret = -1;
+                            res.send(result);
                         } else {
                             // console.dir(d);
                             result.ret = 1;
+                            sendgrid.send({
+                                to:       req.param("email"),
+                                from:     'michael@easyctf.com',
+                                fromname: "Michael Zhang",
+                                replyto: "failed.down@gmail.com",
+                                subject:  'Password reset requested.',
+                                text:     '<p>Hey there</p>Someone (hopefully you) requested to change the password for the account with the email ' + req.param('email') + '. Obviously, we\'ll be asking for verification of identity, so if you did in fact request this, follow this link: http://easyctf.com/forgot/' + code
+                            }, function(err, json) {
+                                if (err) {
+                                    result.ret = -3;
+                                    res.send(result);
+                                } else {
+                                    result.ret = 1;
+                                    res.send(result);
+                                }
+                            });
                         }
-                        res.send(result);
                     });
                 });
             } else {
@@ -337,8 +353,71 @@ module.exports = function(app) {
         });
     });
 
-    app.post("/forgot/:code", function(req, res) {
+    app.get("/forgot/:code", function(req, res) {
+        render(req, res, "verify", "Reset Password - EasyCTF 2014", {
+            code: req.params.code,
+        });
+    });
 
+    app.post("/reset-password", function(req, res) {
+        var result = {};
+        if (req.param("p1") == req.param("p2")) {
+            db.collection("reset_password").find({
+                code: req.param("code"),
+            }).toArray(function(e, d) {
+                if (e) { console.dir(e); }
+                else {
+                    if (d.length == 1) {
+                        var obj = d[0];
+                        var now = moment();
+                        var exp = moment(obj.expire._d);
+                        if (now.isBefore(exp) && obj.active) {
+                            var salt = generateSalt();
+                            var pass = req.param("p1");
+                            var salted = salt + md5(pass + salt);
+                            db.collection("reset_password").update({
+                                code: req.param("code")
+                            }, {
+                                $set: {
+                                    active: false,
+                                }
+                            }, function(e, d) {
+                                if (e) {
+                                    result.ret = -3;
+                                    res.send(result);
+                                } else {
+                                    db.collection("accounts").update({
+                                        email: obj.email,
+                                    }, {
+                                        $set: {
+                                            password: salted,
+                                        }
+                                    }, function(e, d) {
+                                        if (e) {
+                                            result.ret = -3;
+                                            res.send(result);
+                                        }
+                                        else {
+                                            result.ret = 1;
+                                            res.send(result);
+                                        }
+                                    });
+                                }
+                            });
+                        } else {
+                            result.ret = -4;
+                            res.send(result);
+                        }
+                    } else {
+                        result.ret = -2;
+                        res.send(result);
+                    }
+                }
+            });
+        } else {
+            result.ret = -1;
+            res.send(result);
+        }
     });
 };
 

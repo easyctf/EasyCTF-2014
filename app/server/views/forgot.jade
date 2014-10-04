@@ -17,7 +17,7 @@ block content
 									fieldset
 										legend Enter the email you used to sign up.
 										div(class='form-group')
-											label(for='log-email' class='col-lg-3 control-label') Email
+											label(for='forgot-email' class='col-lg-3 control-label') Email
 											div(class='col-lg-8')
 												input(type='email', class='form-control', name='forgot-email', id='forgot-email', placeholder='Email', autofocus='on')
 										div(class='form-group')
@@ -35,7 +35,42 @@ block content
 						},
 						type: "POST",
 						success: function(content) {
-							console.dir(content);
+							if (content.ret == 1) {
+								new PNotify({
+									title: "Check your email!",
+									text: "We've emailed further instructions to your email.",
+									type: "success",
+									hide: false,
+									sticker: false,
+									nonblock: {
+										nonblock: true,
+										nonblock_opacity: 0.25,
+									},
+								});
+							} else {
+								if (content.ret == -2) {
+									new PNotify({
+										title: "Hmmmm....",
+										text: "We didn't find your email in our database. Did you make any typos?",
+										type: "warning",
+										nonblock: {
+											nonblock: true,
+											nonblock_opacity: 0.25,
+										},
+									});
+								} else if (content.ret == -1) {
+									new PNotify({
+										title: "Dang it!",
+										text: "Try again after a few minutes. If that doesn't work, email us.",
+										type: "warning",
+										nonblock: {
+											nonblock: true,
+											nonblock_opacity: 0.25,
+										},
+									});
+								}
+								$("[id^=forgot-]").removeAttr("disabled");
+							}
 						},
 						error: function() {
 							new PNotify({

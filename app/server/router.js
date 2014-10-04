@@ -179,21 +179,13 @@ module.exports = function(app) {
     });
     
     app.get("/problems", function(req, res) {
-        logged(function(logged) {
-            if (logged) {
-                getProblems(function(problems) {
-                    getTags(function(tags) {
-                        getSolved(function(solved) {
-                            render(req, res, "problems", "Problems - EasyCTF 2014", {
-                                problems: problems,
-                                tags: tags,
-                            });
-                        });
-                    });
+        getProblems(function(problems) {
+            getTags(function(tags) {
+                render(req, res, "problems", "Problems - EasyCTF 2014", {
+                    problems: problems,
+                    tags: tags,
                 });
-            } else {
-
-            }
+            });
         });
     });
     
@@ -495,7 +487,7 @@ var logged = function(req, res, callback) {
             callback(false);
         }
     }
-    callback(false);
+    return false;
 };
 
 var decodeEntities = function(input, i, callback) {
@@ -522,17 +514,6 @@ var getTags = function(callback) {
     query.toArray(function(e, d) {
         if (e) callback(e);
         else callback(d);
-    });
-};
-
-var getSolved = function(callback) {
-    console.dir(req.session.user);
-    var query = db.collection("accounts").find({
-        _id: req.session.user._id,
-    });
-    query.toArray(function(e, d) {
-        if (e) callback(e);
-        else callback(d[0].solved);
     });
 };
 

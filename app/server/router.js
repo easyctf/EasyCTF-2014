@@ -179,6 +179,9 @@ module.exports = function(app) {
     });
     
     app.get("/problems", function(req, res) {
+        getSolved(req, function(solved) {
+
+        });
         getProblems(function(problems) {
             getTags(function(tags) {
                 render(req, res, "problems", "Problems - EasyCTF 2014", {
@@ -510,6 +513,15 @@ var getUsers = function(callback) {
 }
 
 var getTags = function(callback) {
+    var query = db.collection("tags").find();
+    query.toArray(function(e, d) {
+        if (e) callback(e);
+        else callback(d);
+    });
+};
+
+var getSolved = function(req, callback) {
+    console.dir(req.session.user);
     var query = db.collection("tags").find();
     query.toArray(function(e, d) {
         if (e) callback(e);

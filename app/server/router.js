@@ -333,7 +333,7 @@ module.exports = function(app) {
                                 fromname: "Michael Zhang",
                                 replyto: "failed.down@gmail.com",
                                 subject:  'Password reset requested.',
-                                text:     '<p>Hey there</p>Someone (hopefully you) requested to change the password for the account with the email ' + req.param('email') + '. Obviously, we\'ll be asking for verification of identity, so if you did in fact request this, follow this link: http://easyctf.com/forgot/' + code
+                                html:     '<p>Hey there</p><p>Someone (hopefully you) requested to change the password for the account with the email ' + req.param('email') + '. Obviously, we\'ll be asking for verification of identity, so if you did in fact request this, follow this link: http://easyctf.com/forgot/' + code + "</p><p>Michael Zhang<br />EasyCTF</p>"
                             }, function(err, json) {
                                 if (err) {
                                     result.ret = -3;

@@ -179,17 +179,11 @@ module.exports = function(app) {
     });
     
     app.get("/problems", function(req, res) {
-        console.log("STEP 1");
         logged(req, res, function(logged) {
-            console.log("STEP 2");
             if (logged) {
-                console.log("STEP 3");
                 getSolved(req, function(solved) {
-                    console.log("STEP 4");
                     if (solved != null) {
-                        console.log("STEP 5");
                         getProblems(function(problems) {
-                            console.log("STEP 6");
                             for(var i=0; i<problems.length; i++) {
                                 if (solved.indexOf(problems[i]._id) >= 0) {
                                     problems[i].solved = true;
@@ -197,9 +191,7 @@ module.exports = function(app) {
                                     problems[i].solved = false;
                                 }
                             }
-                            console.log("STEP 7");
                             getTags(function(tags) {
-                                console.log("STEP 8");
                                 render(req, res, "problems", "Problems - EasyCTF 2014", {
                                     problems: problems,
                                     tags: tags,

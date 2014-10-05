@@ -33,5 +33,12 @@ exports.atkin = function(limit) {
 	       }
 	   }
 	}
-	return sieve;
+	var primes = [];
+	for (var i=0;i<sieve.length;i++) {
+		if (sieve[i]) {
+			primes.push(i);
+		}
+	}
+	// console.dir(primes);
+	return primes;
 };

@@ -1,4 +1,4 @@
-require("./math.js");
+var math = require("./math.js");
 
 exports.data = function() {
 	var result = [];
@@ -10,7 +10,8 @@ exports.data = function() {
 };
 
 exports.check = function(output, data) {
-	var primes = atkin(100000);
+	var primes = math.atkin(100000);
+	// console.dir(primes);
 	var solve = function(n) {
 		var s = 0;
 		for(var i=0;i<n;i++) {

@@ -38,15 +38,16 @@ html
 							li
 								a(href='/sponsors') Sponsors
 							li
+								a(href='javascript:void(0);') Learn
+							li
 								a(href='/chat') Chat
-							if logged
-								li
-									a(href='/md5') MD5
 						ul(class='nav navbar-nav navbar-right')
 							if logged
 								if group == 3
 									li
 										a(href='/edit') Edit Problems
+								li
+									a(href='/md5') MD5
 								li
 									a(href='/ide') IDE
 								li

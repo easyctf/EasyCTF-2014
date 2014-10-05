@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					div(class='page-header')
+						h2 IDE
+					if logged
+						style.
+							.CodeMirror {
+								border:1px solid #999;
+							}
+							.code {
+								background-color:#CCC;
+								padding:5px;
+								font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+							}
+						if group == 3
+						else
+							div.wrapper
+								div.alert.alert-danger <b>Darn!</b> The competition hasn't started yet!
+					else
+						div.wrapper
+							div.alert.alert-danger <b>Darn!</b> You must be logged in to view this page.

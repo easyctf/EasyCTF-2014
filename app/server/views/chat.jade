@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					div(class='page-header')
+						h2 Login to EasyCTF 2014
+					if logged
+						div(class='alert alert-info').
+							<b>LOL</b> You're already signed in, silly!
+					else
+						div.wrapper
+							div.alert.alert-danger <b>Darn!</b> You must be logged in to view this page.

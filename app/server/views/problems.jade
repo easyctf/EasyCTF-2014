@@ -62,7 +62,26 @@ block content
 												div.panel-body
 													div.problem-text
 														small
-															i Written by #{problem.author}
+															i
+																div Written by #{problem.author}. 
+																div
+																	| Tags:
+																	- for(var i=0; i<tags.length; i++) {
+																		- var tag = tags[i];
+																		- var k = Math.pow(2, i+1);
+																		- var dname = "asdf-" + tag.id;
+																		- var r = Math.floor(tag.color / (256 * 256));
+																		- var g = Math.floor((tag.color % (256 * 256)) / 256);
+																		- var b = tag.color % 256;
+																		- if ((problem.tags & k) == k) {
+																			span(class='label label-#{dname}') #{tag.name}
+																			style.
+																				.label-#{dname} {
+																					background-color:rgb(#{r}, #{g}, #{b});
+																					color: #FFF;
+																				}
+																		- }
+																	- }
 														p!= problem.text
 													if problem.solved
 														div.alert.alert-success <b>Yay!</b> You've already solved this question.
@@ -84,7 +103,7 @@ block content
 																<b>Whoops</b> You've already solved this problem!
 														form.form-horizontal(action='javascript:checkProblem(\'#{problem._id}\');')
 															span.col-lg-3(style='display:inline-block;')
-																input.form-control(type='text', id='#{problem._id}-form-answer', value='912ec803b2ce49e4a541068d495ab570')
+																input.form-control(type='text', id='#{problem._id}-form-answer')
 															input.btn.btn-success(type='submit', id='#{problem._id}-form-submit', value='Check!')
 							script.
 								var checkProblem = function(pid) {

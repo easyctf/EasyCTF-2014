@@ -194,6 +194,10 @@ module.exports = function(app) {
         });
     });
     
+    app.get("/chat", function(req, res) {
+        render(req, res, "chat", "Chat (#easyctf) - EasyCTF 2014");
+    });
+    
     app.get("/problems", function(req, res) {
         logged(req, res, function(logged) {
             if (logged) {

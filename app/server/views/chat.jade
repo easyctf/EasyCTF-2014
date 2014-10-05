@@ -7,10 +7,6 @@ block content
 				div(class='page-container')
 					div(class='page-header')
 						h2 Chat
-					if logged
-						div.jumbotron
-							center
-								iframe(width="840", height="480", style="border:1px solid #999;", src="http://widget00.mibbit.com/?channel=%23easyctf")
-					else
-						div.wrapper
-							div.alert.alert-danger <b>Darn!</b> You must be logged in to view this page.
+					div.jumbotron
+						center
+							iframe(width="840", height="480", style="border:1px solid #999;", src="http://widget00.mibbit.com/?channel=%23easyctf")

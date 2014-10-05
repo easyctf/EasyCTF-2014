@@ -46,7 +46,13 @@ module.exports = function(app) {
 
     app.get("/scores", function(req, res) {
         getUsers(function(users) {
-            render(req, res, "scores", "Scoreboard - EasyCTF 2014", { accounts: users });
+            render(req, res, "scores", "Scoreboard - EasyCTF 2014", { everyone: false, accounts: users });
+        });
+    });
+
+    app.get("/scores/everyone", function(req, res) {
+        getUsers(function(users) {
+            render(req, res, "scores", "Scoreboard - EasyCTF 2014", { everyone: true, accounts: users });
         });
     });
     

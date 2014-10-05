@@ -15,10 +15,14 @@ block content
 							th Points
 						- var i = 0;
 						- each account in accounts
-							if (account.group == 1)
+							if (everyone || account.group == 1)
 								- i += 1;
 								tr
 									td #{i}
-									td #{account.teamname}
+									td
+										if account.group == 3
+											b #{account.teamname}
+										else
+											div #{account.teamname}
 									td #{account.school}
 									td #{account.pointDisplay}

@@ -194,6 +194,48 @@ module.exports = function(app) {
         });
     });
     
+    app.get("/ide", function(req, res) {
+        render(req, res, "ide", "IDE - EasyCTF 2014");
+    });
+
+    var existing = [
+        "just-sum-numbers",
+    ];
+
+    app.post("/ide/data.ajax", function(req, res) {
+        if (req.param("problem")) {
+            var result = {};
+            var pID = req.param("problem");
+
+            if (existing.indexOf(pID) != -1) {
+                var problem = require("./ide/"+pID+".js");
+                var data = problem.data();
+                req.session.data = data;
+                res.send(data);
+            }
+        }
+    });
+
+    app.post("/ide/check.ajax", function(req, res) {
+        if (req.session.data && req.param("output") && req.param("problem")) {
+            var result = {};
+            var pID = req.param("problem");
+            var output = req.param("output");
+            var data = req.session.data;
+
+            if (existing.indexOf(pID) != -1) {
+                var problem = require("./ide/"+pID+".js");
+                if (problem.check(output, data)) {
+                    result.correct = true;
+                    result.flag = problem.flag();
+                } else {
+                    result.correct = false;
+                }
+                res.send(result);
+            }
+        }
+    });
+    
     app.get("/chat", function(req, res) {
         render(req, res, "chat", "Chat (#easyctf) - EasyCTF 2014");
     });

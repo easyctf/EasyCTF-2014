@@ -200,6 +200,7 @@ module.exports = function(app) {
 
     var existing = [
         "just-sum-numbers",
+        "project-eratosthenes"
     ];
 
     app.post("/ide/data.ajax", function(req, res) {

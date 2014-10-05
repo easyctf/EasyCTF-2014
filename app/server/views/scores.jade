@@ -15,9 +15,10 @@ block content
 							th Points
 						- var i = 0;
 						- each account in accounts
-							- i += 1;
-							tr
-								td #{i}
-								td #{account.teamname}
-								td #{account.school}
-								td #{account.pointDisplay}
+							if (account.group == 1)
+								- i += 1;
+								tr
+									td #{i}
+									td #{account.teamname}
+									td #{account.school}
+									td #{account.pointDisplay}

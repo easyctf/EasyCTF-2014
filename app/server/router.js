@@ -401,7 +401,15 @@ module.exports = function(app) {
                         result.errors = errors;
                         res.send(result);
                     } else {
-                        console.dir(o);
+                        if (nPassword && nPassword.length > 0) {
+                            if (nPassword.length < 3) {
+                                errors.push("Password must be longer than 3 characters.");
+                                result.errors = errors;
+                                res.send(result);
+                            } else {
+                                
+                            }
+                        }
                     }
                 });
             } else {

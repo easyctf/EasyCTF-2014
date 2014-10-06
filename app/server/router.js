@@ -390,9 +390,20 @@ module.exports = function(app) {
             if (logged) {
                 var nTeamname = req.param("teamname");
                 var nSchool = req.param("school");
-                var nPassword = req.param("password_changed") ? req.param("password") : undefined;
+                var nPassword = req.param("password");
 
                 var confirm = req.param("confirm");
+
+                // console.log("using email "+req.session.user.email+" and password "+confirm);
+                AM.manualLogin(req.session.user.email, confirm, function(e, o) {
+                    if (e) {
+                        errors.push("Invalid password.");
+                        result.errors = errors;
+                        res.send(result);
+                    } else {
+                        console.dir(o);
+                    }
+                });
             } else {
                 errors.push("You must be logged in.");
                 result.errors = errors;

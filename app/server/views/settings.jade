@@ -47,13 +47,16 @@ block content
 									dataType: "json",
 									data: {
 										teamname: $("#account-name").val(),
-
+										school: $("#account-school").val(),
+										password: $("#account-password").val(),
+										confirm: $("#account-confirm").val(),
 									},
 									success: function(content) {
+										console.dir(content);
 										if (content.errors.length > 0) {
 											var message = "You still need to check the following things:<ul>";
-											for(var i=0;i<errors.length;i++) {
-												message += "<li>"+errors[i]+"</li>";
+											for(var i=0;i<content.errors.length;i++) {
+												message += "<li>"+content.errors[i]+"</li>";
 											}
 											new PNotify({
 												title: "Whoops",
@@ -64,6 +67,7 @@ block content
 													nonblock_opacity: 0.25,
 												},
 											});
+											$("[id^=account-]").removeAttr("disabled");
 										} else {
 											new PNotify({
 												title: "Whoops",

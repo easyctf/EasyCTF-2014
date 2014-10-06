@@ -254,8 +254,8 @@ module.exports = function(app) {
                     if (solved != null) {
                         getProblems(function(problems) {
                             for(var i=0; i<problems.length; i++) {
-                                console.log(solved);
-                                console.log(problems[i]._id.toString());
+                                // console.log(solved);
+                                // console.log(problems[i]._id.toString());
                                 if (solved.indexOf(problems[i]._id.toString()) >= 0) {
                                     problems[i].solved = true;
                                 } else {
@@ -687,7 +687,14 @@ var getTags = function(callback) {
 };
 
 var getSolved = function(req, callback) {
-    callback(req.session.user.solved);
+    var query = db.collection("accounts").find({
+        _id: new ObjectID(req.session.user._id.toString()),
+    });
+    query.toArray(function(e, d) {
+        // console.dir(d);
+        if (e) console.dir(e);
+        else callback(d[0].solved);
+    });
 };
 
 var getProblems = function(callback) {

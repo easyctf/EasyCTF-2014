@@ -51,12 +51,41 @@ block content
 									},
 									success: function(content) {
 										if (content.errors.length > 0) {
-
+											var message = "You still need to check the following things:<ul>";
+											for(var i=0;i<errors.length;i++) {
+												message += "<li>"+errors[i]+"</li>";
+											}
+											new PNotify({
+												title: "Whoops",
+												text: message,
+												type: "warning",
+												nonblock: {
+													nonblock: true,
+													nonblock_opacity: 0.25,
+												},
+											});
 										} else {
-										
+											new PNotify({
+												title: "Whoops",
+												text: "Congratulations! Your info has been updated.",
+												type: "success",
+												nonblock: {
+													nonblock: true,
+													nonblock_opacity: 0.25,
+												},
+											});
 										}
 									},
 									error: function() {
+										new PNotify({
+											title: "Whoops",
+											text: "Something went wrong when trying to update your info.",
+											type: "error",
+											nonblock: {
+												nonblock: true,
+												nonblock_opacity: 0.25,
+											},
+										});
 										$("[id^=account-]").removeAttr("disabled");
 									}
 								});

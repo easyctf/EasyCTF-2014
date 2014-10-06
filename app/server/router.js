@@ -254,6 +254,8 @@ module.exports = function(app) {
                     if (solved != null) {
                         getProblems(function(problems) {
                             for(var i=0; i<problems.length; i++) {
+                                console.log(solved);
+                                console.log(problems[i]._id.toString());
                                 if (solved.indexOf(problems[i]._id.toString()) >= 0) {
                                     problems[i].solved = true;
                                 } else {

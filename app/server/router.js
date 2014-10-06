@@ -46,7 +46,13 @@ module.exports = function(app) {
 
     app.get("/scores", function(req, res) {
         getUsers(function(users) {
-            render(req, res, "scores", "Scoreboard - EasyCTF 2014", { accounts: users });
+            render(req, res, "scores", "Scoreboard - EasyCTF 2014", { everyone: false, accounts: users });
+        });
+    });
+
+    app.get("/scores/everyone", function(req, res) {
+        getUsers(function(users) {
+            render(req, res, "scores", "Scoreboard - EasyCTF 2014", { everyone: true, accounts: users });
         });
     });
     
@@ -194,6 +200,49 @@ module.exports = function(app) {
         });
     });
     
+    app.get("/ide", function(req, res) {
+        render(req, res, "ide", "IDE - EasyCTF 2014");
+    });
+
+    var existing = [
+        "just-sum-numbers",
+        "project-eratosthenes"
+    ];
+
+    app.post("/ide/data.ajax", function(req, res) {
+        if (req.param("problem")) {
+            var result = {};
+            var pID = req.param("problem");
+
+            if (existing.indexOf(pID) != -1) {
+                var problem = require("./ide/"+pID+".js");
+                var data = problem.data();
+                req.session.data = data;
+                res.send(data);
+            }
+        }
+    });
+
+    app.post("/ide/check.ajax", function(req, res) {
+        if (req.session.data && req.param("output") && req.param("problem")) {
+            var result = {};
+            var pID = req.param("problem");
+            var output = req.param("output");
+            var data = req.session.data;
+
+            if (existing.indexOf(pID) != -1) {
+                var problem = require("./ide/"+pID+".js");
+                if (problem.check(output, data)) {
+                    result.correct = true;
+                    result.flag = problem.flag();
+                } else {
+                    result.correct = false;
+                }
+                res.send(result);
+            }
+        }
+    });
+    
     app.get("/chat", function(req, res) {
         render(req, res, "chat", "Chat (#easyctf) - EasyCTF 2014");
     });
@@ -205,6 +254,8 @@ module.exports = function(app) {
                     if (solved != null) {
                         getProblems(function(problems) {
                             for(var i=0; i<problems.length; i++) {
+                                console.log(solved);
+                                console.log(problems[i]._id.toString());
                                 if (solved.indexOf(problems[i]._id.toString()) >= 0) {
                                     problems[i].solved = true;
                                 } else {

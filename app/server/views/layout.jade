@@ -37,18 +37,19 @@ html
 								a(href='/scores') Scoreboard
 							li
 								a(href='/sponsors') Sponsors
-							if logged
-								li
-									a(href='/md5') MD5
+							li
+								a(href='javascript:void(0);') Learn
+							li
+								a(href='/chat') Chat
 						ul(class='nav navbar-nav navbar-right')
 							if logged
 								if group == 3
 									li
 										a(href='/edit') Edit Problems
 								li
-									a(href='javascript:void(0);') IDE
+									a(href='/md5') MD5
 								li
-									a(href='javascript:void(0);') Chat
+									a(href='/ide') IDE
 								li
 									a(href='/problems') Problems
 								li
@@ -61,8 +62,9 @@ html
 								li
 									a(href='/login') Login
 		
-		block content
-		
 		script(type='text/javascript', src='/js/jquery.js')
 		script(type='text/javascript', src='/js/bootstrap.min.js')
 		script(type='text/javascript', src='/js/pnotify.min.js')
+		script(type='text/javascript', src='/js/easyctf.js')
+		
+		block content

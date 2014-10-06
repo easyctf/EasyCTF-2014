@@ -1,0 +1,199 @@
+extends layout
+
+block content
+	link(rel='stylesheet', href='/lib/codemirror/lib/codemirror.css')
+	link(rel='stylesheet', href='/lib/codemirror/theme/eclipse.css')
+	link(rel='stylesheet', href='/lib/bootstrap-select/dist/css/bootstrap-select.css')
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					div(class='page-header')
+						h2 IDE
+					if logged
+						style.
+							.CodeMirror {
+								border:1px solid #999;
+							}
+						if group == 3
+							div
+								div.container
+									div.col-md-5(style='padding:5px;')
+										| Problem:
+										select.selectpicker.form-control#problem(data-live-search='true' data-style='btn-info')
+											option(value='just-sum-numbers') Just Sum Numbers
+											option(value='project-eratosthenes') Project Eratosthenes
+								div(style='padding:5px;')
+									button.btn.btn-primary(onclick='javascript:runCode();')
+										div Run
+										small Ctrl + Enter
+								div#editor-container
+								div
+									a(name='how-to-use')
+									div.page-header
+										h3 How to Use
+									div
+										p This page is used to solve algorithm problems. Instead of submitting a number as a solution, you'll write a program in Python. We'll run your program with some test data, and if your program produces the correct answer, we'll give you the flag.
+										p The test data will be passed to you through a variable called <code>args</code>. Usually specific details about how <code>args</code> is used will be provided in the problem statement.
+										p In the dropdown box labeled Problem, you'll select the problem you're solving. This determines which set of test data you'll get and how your program will be checked. If your program keeps running incorrectly, you should check the Problem dropdown before you continue.
+										p The part of the program that is actually checked is the output. Make sure that your output matches the format of the output specified in the problem <b>exactly</b>. We'll probably allow marginal errors with capitalization or leading or trailing spaces, but concerning the content of the output, you need to make sure it's right.
+							div.modal.fade#output-div(tab-index='-1', role='dialog', aria-labelledby='modal-label' aria-hidden='true')
+								div.modal-dialog
+									div.modal-content
+										div.modal-header
+											button.close(data-dismiss='modal')
+												span(aria-hidden='true') &times;
+												span.sr-only Close
+										div.modal-body
+											pre#output(style='margin:auto; width:100%; height:240px; border:1px solid #999; text-align:left;')
+											canvas#canvas(style='display:none;')
+											div#flag(style='margin-top:10px;')
+										div.modal-footer
+											button.btn.btn-default(data-dismiss='modal') Close	
+							
+							script(type='text/javascript', src='/lib/bootstrap-select/dist/js/bootstrap-select.js')
+							script(type='text/javascript', src='/lib/codemirror/lib/codemirror.js')
+							script(type='text/javascript', src='/lib/codemirror/mode/python/python.js')
+							script(type='text/javascript', src='/lib/skulpt/skulpt.min.js')
+							script(type='text/javascript', src='/lib/skulpt/skulpt-stdlib.js')
+							
+							script.
+								var editor = CodeMirror(document.getElementById("editor-container"), {
+									mode: "python",
+									theme: "eclipse",
+									lineNumbers: true,
+								});
+								
+								function escapeRegExp(string) {
+									return string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+								}
+								function replaceAll(string, find, replace) {
+									return string.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+								}
+								
+								var outf = function(text) { 
+									var mypre = document.getElementById("output"); 
+									mypre.innerHTML = mypre.innerHTML + text; 
+								}
+								
+								var builtinRead = function(x) {
+									if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+											throw "File not found: '" + x + "'";
+									return Sk.builtinFiles["files"][x];
+								}
+								
+								var getArgs = function(ar) {
+									// console.dir(ar);
+									var res = "[";
+									for (var i=0;i<ar.length;i++) {
+										if (i != 0) {
+											res += ",";
+										}
+										if (typeof ar[i] == "number") {
+											res += ar[i];
+										} else if (typeof ar[i] == "string") {
+											res += '"' + ar + '"';
+										} else if (ar[i][0]) {
+											res += getArgs(ar[i]);
+										}
+									}
+									res += "]";
+									return res;
+								};
+		
+								var runCode = function() {
+									$("#output").html("");
+									$("#flag").html("");
+									
+									// var program = document.getElementById("editor").outerHTML;
+									// program = program.substring(198, program.lastIndexOf("</pre>"));
+									var program = editor.getValue();
+									
+									console.log("Retrieving data...");
+									$.ajax({
+										url: "/ide/data.ajax",
+										data: {
+											problem: $("#problem").val(),
+										},
+										type: "POST",
+										dataType: "json",
+										success: function(content) {
+											console.dir(content);
+											console.log("Data retrieved.");
+											var args = "args = ";
+											args += getArgs(content);
+											program = args + "\n" + program;
+											// console.log(args);
+											// console.log(program);
+											
+											var output = document.getElementById("output");
+											
+											Sk.canvas = "canvas";
+											Sk.pre = output;
+											Sk.configure({
+												output: outf,
+												read: builtinRead
+											});
+											
+											console.log("Running program...");
+											var start = new Date().getTime();
+											try {
+												var stuff = Sk.importMainWithBody("<stdin>", false, program);
+												// console.log(stuff);
+												eval(stuff);
+											} catch (e) {
+												$("#output").append("<div style='color:#F00;'>"+replaceAll(replaceAll(e.toString(),"<","&lt;"),">","&gt;")+"</div>");
+												// alert(e.toString());
+											}
+											var end = new Date().getTime();
+											var elapsed = end - start;
+											console.log("Program ran in " + elapsed + "ms");
+											
+											console.log("Checking answer...");
+											$.ajax({
+												url: "/ide/check.ajax",
+												data: {
+													problem: $("#problem").val(),
+													output: $("#output").html(),
+												},
+												type: "POST",
+												dataType: "json",
+												success:function(content) {
+													console.dir(content);
+													if (content.correct) {
+														$("#flag").html("<div class='alert alert-success'>Congratulations! the flag is <code>" + content.flag + "</code></div>");
+													} else {
+														$("#flag").html("<div class='alert alert-danger'>Incorrect!</div>");
+													}
+													console.log("Answer retrieved.\n");
+												},
+											});
+											
+											$("#output-div").modal("show");
+										}
+									});
+								};
+		
+								var ctrl = false;
+								$(document).keydown(function(e) {
+									if (e.keyCode == 17) {
+										ctrl = true;
+									}
+								});
+								$(document).keyup(function(e) {
+									if (e.keyCode == 13 && ctrl && editor.getValue().trim().length > 0) {
+										runCode();
+									} else if (e.keyCode == 17) {
+										ctrl = false;
+									}
+								});
+
+								$(document).ready(function() {
+									$(".selectpicker").selectpicker();
+								});
+						else
+							div.wrapper
+								div.alert.alert-danger <b>Darn!</b> The competition hasn't started yet!
+					else
+						div.wrapper
+							div.alert.alert-danger <b>Darn!</b> You must be logged in to view this page.

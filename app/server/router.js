@@ -368,6 +368,38 @@ module.exports = function(app) {
             teamID: req.params.teamID,
         });
     });
+    
+    app.get("/settings", function(req, res) {
+        logged(req, res, function(logged) {
+            if (logged) {
+                render(req, res, "settings", "Settings - EasyCTF 2014", {
+                    teamname: req.session.user.teamname,
+                    school: req.session.user.school,
+                    email: req.session.user.email,
+                });
+            } else {
+                render(req, res, "settings", "Settings - EasyCTF 2014");
+            }
+        })
+    });
+
+    app.post("/settings/update.ajax", function(req, res) {
+        var result = {};
+        var errors = [];
+        logged(req, res, function(logged) {
+            if (logged) {
+                var nTeamname = req.param("teamname");
+                var nSchool = req.param("school");
+                var nPassword = req.param("password_changed") ? req.param("password") : undefined;
+
+                var confirm = req.param("confirm");
+            } else {
+                errors.push("You must be logged in.");
+                result.errors = errors;
+                res.send(result);
+            }
+        });
+    });
 
     app.get("/register", function(req, res) {
         render(req, res, "register", "Register - EasyCTF 2014");

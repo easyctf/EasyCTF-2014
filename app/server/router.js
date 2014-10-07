@@ -390,9 +390,60 @@ module.exports = function(app) {
             if (logged) {
                 var nTeamname = req.param("teamname");
                 var nSchool = req.param("school");
-                var nPassword = req.param("password_changed") ? req.param("password") : undefined;
+                var nPassword = req.param("password");
 
                 var confirm = req.param("confirm");
+
+                // console.log("using email "+req.session.user.email+" and password "+confirm);
+                AM.manualLogin(req.session.user.email, confirm, function(e, o) {
+                    if (e) {
+                        errors.push("Invalid password.");
+                        result.errors = errors;
+                        res.send(result);
+                    } else {
+                        var changePassword = false;
+                        var salt = generateSalt();
+                        if (nPassword && nPassword.length > 0) {
+                            changePassword = true;
+                        }
+                        db.collection("accounts").update({
+                            _id: new ObjectID(req.session.user._id.toString())
+                        }, {
+                            $set: extend({
+                                teamname: nTeamname,
+                                school: nSchool,
+                            }, changePassword ? {
+                                pass: salt + md5(nPassword + salt)
+                            } : {})
+                        }, function(e, d) {
+                            if (e) {
+
+                            } else {
+                                db.collection("accounts").find({
+                                    _id: new ObjectID(req.session.user._id.toString())
+                                }).toArray(function(e, d) {
+                                    if (e) {
+
+                                    } else {
+                                        req.session.user = d[0];
+                                        result.errors = errors;
+                                        res.send(result);
+                                    }
+                                });
+                            }
+                        });
+                        /*
+                            if (nPassword.length < 3) {
+                                errors.push("Password must be longer than 3 characters.");
+                                result.errors = errors;
+                                res.send(result);
+                            } else {
+                                
+                            }
+                        }
+                        */
+                    }
+                });
             } else {
                 errors.push("You must be logged in.");
                 result.errors = errors;

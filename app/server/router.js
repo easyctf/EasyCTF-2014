@@ -401,7 +401,38 @@ module.exports = function(app) {
                         result.errors = errors;
                         res.send(result);
                     } else {
+                        var changePassword = false;
+                        var salt = generateSalt();
                         if (nPassword && nPassword.length > 0) {
+                            changePassword = true;
+                        }
+                        db.collection("accounts").update({
+                            _id: new ObjectID(req.session.user._id.toString())
+                        }, {
+                            $set: extend({
+                                teamname: nTeamname,
+                                school: nSchool,
+                            }, changePassword ? {
+                                pass: salt + md5(nPassword + salt)
+                            } : {})
+                        }, function(e, d) {
+                            if (e) {
+
+                            } else {
+                                db.collection("accounts").find({
+                                    _id: new ObjectID(req.session.user._id.toString())
+                                }).toArray(function(e, d) {
+                                    if (e) {
+
+                                    } else {
+                                        req.session.user = d[0];
+                                        result.errors = errors;
+                                        res.send(result);
+                                    }
+                                });
+                            }
+                        });
+                        /*
                             if (nPassword.length < 3) {
                                 errors.push("Password must be longer than 3 characters.");
                                 result.errors = errors;
@@ -410,6 +441,7 @@ module.exports = function(app) {
                                 
                             }
                         }
+                        */
                     }
                 });
             } else {

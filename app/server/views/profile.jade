@@ -14,9 +14,9 @@ block content
 									td(style='text-align:right;')
 										a(href='/settings') Account Settings &raquo;
 					else
-						if teamID
+						if team
 							div(class='page-header')
-								h2 Team <b>#{teamID}<b>
+								h2 Team <b>#{team.teamname}<b>
 						else
 							div(class='alert alert-danger').
 								<b>Error:</b> You must be logged in to view this page!

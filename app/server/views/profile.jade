@@ -14,9 +14,13 @@ block content
 									td(style='text-align:right;')
 										a(href='/settings') Account Settings &raquo;
 					else
-						if team
-							div(class='page-header')
-								h2 Team <b>#{team.teamname}<b>
-						else
+						if no
 							div(class='alert alert-danger').
-								<b>Error:</b> You must be logged in to view this page!
+								<b>Error:</b> No account was found with that ID.
+						else
+							if team
+								div(class='page-header')
+									h2 <b>#{team.teamname}<b>
+							else
+								div(class='alert alert-danger').
+									<b>Error:</b> You must be logged in to view this page!

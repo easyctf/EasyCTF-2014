@@ -363,10 +363,39 @@ module.exports = function(app) {
     });
     
     app.get("/profile/:teamID", function(req, res) {
+        var id = req.params.teamID;
+        if (id.match("[a-fA-F0-9]{24}")) {
+            db.collection("accounts").find({
+                _id: new ObjectID(id.toString())
+            }).toArray(function(e, d) {
+                if (e) {
+                    console.dir(e);
+                } else {
+                    if (d.length > 0) {
+                        res.render("profile", {
+                            title: d[0].teamname + " - EasyCTF 2014",
+                            team: d[0],
+                        });
+                    } else {
+                        res.render("profile", {
+                            title: "Team not found - EasyCTF 2014",
+                            no: true,
+                        });
+                    }
+                }
+            });
+        } else {
+            res.render("profile", {
+                title: "Team not found - EasyCTF 2014",
+                no: true,
+            });
+        }
+        /*
         res.render("profile", {
             title: "Team: " + req.params.teamID + " - EasyCTF 2014",
             teamID: req.params.teamID,
         });
+        */
     });
     
     app.get("/settings", function(req, res) {

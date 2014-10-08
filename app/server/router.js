@@ -367,9 +367,121 @@ module.exports = function(app) {
     });
     
     app.get("/profile/:teamID", function(req, res) {
+        var id = req.params.teamID;
+        if (id.match("[a-fA-F0-9]{24}")) {
+            db.collection("accounts").find({
+                _id: new ObjectID(id.toString())
+            }).toArray(function(e, d) {
+                if (e) {
+                    console.dir(e);
+                } else {
+                    if (d.length > 0) {
+                        res.render("profile", {
+                            title: d[0].teamname + " - EasyCTF 2014",
+                            team: d[0],
+                        });
+                    } else {
+                        res.render("profile", {
+                            title: "Team not found - EasyCTF 2014",
+                            no: true,
+                        });
+                    }
+                }
+            });
+        } else {
+            res.render("profile", {
+                title: "Team not found - EasyCTF 2014",
+                no: true,
+            });
+        }
+        /*
         res.render("profile", {
             title: "Team: " + req.params.teamID + " - EasyCTF 2014",
             teamID: req.params.teamID,
+        });
+        */
+    });
+    
+    app.get("/settings", function(req, res) {
+        logged(req, res, function(logged) {
+            if (logged) {
+                render(req, res, "settings", "Settings - EasyCTF 2014", {
+                    teamname: req.session.user.teamname,
+                    school: req.session.user.school,
+                    email: req.session.user.email,
+                });
+            } else {
+                render(req, res, "settings", "Settings - EasyCTF 2014");
+            }
+        })
+    });
+
+    app.post("/settings/update.ajax", function(req, res) {
+        var result = {};
+        var errors = [];
+        logged(req, res, function(logged) {
+            if (logged) {
+                var nTeamname = req.param("teamname");
+                var nSchool = req.param("school");
+                var nPassword = req.param("password");
+
+                var confirm = req.param("confirm");
+
+                // console.log("using email "+req.session.user.email+" and password "+confirm);
+                AM.manualLogin(req.session.user.email, confirm, function(e, o) {
+                    if (e) {
+                        errors.push("Invalid password.");
+                        result.errors = errors;
+                        res.send(result);
+                    } else {
+                        var changePassword = false;
+                        var salt = generateSalt();
+                        if (nPassword && nPassword.length > 0) {
+                            changePassword = true;
+                        }
+                        db.collection("accounts").update({
+                            _id: new ObjectID(req.session.user._id.toString())
+                        }, {
+                            $set: extend({
+                                teamname: nTeamname,
+                                school: nSchool,
+                            }, changePassword ? {
+                                pass: salt + md5(nPassword + salt)
+                            } : {})
+                        }, function(e, d) {
+                            if (e) {
+
+                            } else {
+                                db.collection("accounts").find({
+                                    _id: new ObjectID(req.session.user._id.toString())
+                                }).toArray(function(e, d) {
+                                    if (e) {
+
+                                    } else {
+                                        req.session.user = d[0];
+                                        result.errors = errors;
+                                        res.send(result);
+                                    }
+                                });
+                            }
+                        });
+                        /*
+                            if (nPassword.length < 3) {
+                                errors.push("Password must be longer than 3 characters.");
+                                result.errors = errors;
+                                res.send(result);
+                            } else {
+                                
+                            }
+                        }
+                        */
+                    }
+                });
+            } else {
+                errors.push("You must be logged in.");
+                result.errors = errors;
+                res.send(result);
+            }
         });
     });
 

@@ -12,5 +12,8 @@
     "mongodb": "1.4.10",
     "sendgrid": "1.2.0",
     "stylus": "0.48.1"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }

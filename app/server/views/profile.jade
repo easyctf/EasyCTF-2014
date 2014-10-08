@@ -15,7 +15,7 @@ block content
 									if (logged)
 										td(style='text-align:right;')
 											a(href='/settings') Account Settings &raquo;
-						div.wrapper
+						div.wrapper.form-horizontal
 							div.page-header
 								h2 Profile
 							div.page-container.well
@@ -26,17 +26,19 @@ block content
 								h2 Statistics
 							div.page-container.well
 								div.form-group
-									b.col-lg-2 Total Score
-									p.col-lg-10 #{team.pointDisplay}
+									div.col-lg-2
+										b Total Score
+									div.col-lg-10 #{team.pointDisplay}
 								div.form-group
-									b.col-lg-2 Rank
+									div.col-lg-2
+										b Rank
 									- var i = 0;
 									- var everyone = team.group == 3;
 									- each user in users
 										- if (everyone || user.group == 1)
 											- i += 1;
 										if (user._id.toString() == team._id.toString())
-											p.col-lg-10 #{i}
+											div.col-lg-10 #{i}
 											- break;
 							div.page-header
 								h2 Solves

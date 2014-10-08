@@ -4,13 +4,13 @@
   "private": true,
   "dependencies": {
     "crypto": "0.0.3",
-    "emailjs": "^0.3.11",
-    "express": "^3.17.1",
-    "jade": "^1.6.0",
-    "jsdom": "^1.0.0",
-    "moment": "^2.8.3",
-    "mongodb": "^1.4.10",
-    "sendgrid": "^1.2.0",
-    "stylus": "^0.48.1"
+    "emailjs": "0.3.11",
+    "express": "3.17.1",
+    "jade": "1.6.0",
+    "jsdom": "1.0.0",
+    "moment": "2.8.3",
+    "mongodb": "1.4.10",
+    "sendgrid": "1.2.0",
+    "stylus": "0.48.1"
   }
 }

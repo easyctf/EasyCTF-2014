@@ -1,18 +1,18 @@
 extends layout
 
 block content
-	- var test = function(element, index, array) {  }
 	div(class='wrapper')
 		div(class='main')
 			section(id='page1')
 				div(class='page-container')
 					if team
+						div <!-- #{team._id} -->
 						div(class='page-header')
 							table(style='width:100%;')
 								tr
 									td
 										h1 <b>#{team.teamname}</b>
-									if logged
+									if (logged)
 										td(style='text-align:right;')
 											a(href='/settings') Account Settings &raquo;
 						div.wrapper
@@ -33,9 +33,8 @@ block content
 									- var i = 0;
 									- each user in users
 										- i += 1;
-										- if (user._id == team._id)
+										if (user._id.toString() == team._id.toString())
 											p.col-lg-10 #{i}
-											- break;
 							div.page-header
 								h2 Solves
 							div.container

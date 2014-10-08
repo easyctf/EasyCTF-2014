@@ -11,7 +11,7 @@ block content
 			section(id='page2')
 				div(class='page-container')
 					div(class='page-header')
-						h2 Programming Crash Course
+						h2 Python Crash Course
 					div(class='well')
 						h3 Introduction
 						p
@@ -22,35 +22,43 @@ block content
 							| Some unique properties of Python is that we use indentation instead of brackets, and declaring variable types and using semicolons are optional.
 						h3 Variables
 						p
-							| Variables store values that can be looked at or changed later. You do <b>not</b> need to need to declare variable types before using them. Different types of variables include:
+							| Variables store values that can be looked at or changed later. You do <b>not</b> need to need to declare variable types before assigning them. However, you must initialize them before you call them. Different types of variables include:
 							ul
-								li integer - a number that is not a fraction. <br />
-								| Examples: -1, 2, 105676 etc. <br />
-								| To define, use the following syntax: <br />
-								| myint = 2 <br />
-								li floating point - a number that has decimal values. <br />
-								| Examples: 1.0, -2.73, 0.66 <br />
-								| To define: <br />
-								| myfloat = 7.3 <br />
-								| or <br />
-								| myfloat = float(7) <br />
-								| With integers and floating points, you can perform basic math operations on them such as + - / *. <br />
-								li string - text surrounded by double or single quotes. <br />
-								| Examples: "Hello", 'World' <br />
-								| To define: <br />
-								| hello = "Hello" <br />
-								| world = "World" <br />
-								|You can also add strings together like this: <br />
-								| helloworld = hello + " " + world <br />
-								| This makes helloworld store the value "Hello World" <br />
-								li character - a symbol represented by a letter or number surrounded by single quotes. <br />
-								| Examples: 'A', '14', 'k'
+								li.
+									integer - a number that is not a fraction. <br />
+									Examples: <code>-1, 2, 105676 etc.</code><br />
+									To define, use the following syntax: <br />
+									<code>myint = 2</code><br />
+								li.
+									floating point - a number that has decimal values. <br />
+									Examples: <code>1.0, -2.73, 0.66</code><br />
+									To define: <br />
+									<code>myfloat = 7.3</code><br />
+									or <br />
+									<code>myfloat = float(7)</code><br />
+									With integers and floating points, you can perform basic math operations on them such as + - / *. <br />
+								li.
+									string - text surrounded by double or single quotes. <br />
+									Examples: <code>"Hello", 'World'</code><br />
+									To define: <br />
+									<code>hello = "Hello"</code><br />
+									<code>world = "World"</code><br />
+									You can also add strings together like this: <br />
+									<code>helloworld = hello + " " + world</code><br />
+									This makes <code>helloworld</code> store the value <code>"Hello World"</code><br />
+									<h4>PLEASE DO NOT SUBTRACT STRINGS</h4>
+								li.
+									character - a symbol represented by a letter or number surrounded by single quotes. <br />
+									Examples: <code>'A', '14', 'k'</code><br />
+									Single characters can be converted to their ASCII identifiers using the <code>ord()</code> function. Similarly, to convert an ASCII identifier back to a readable character, use the <code>chr()</code> function.
 						h3 Writing Functions
 						p
 							ul
-								li To define: <br />
-								| def func_name():
-								li Any code inside the function should be indented until you want to exit the function.
+								li.
+									To define: <br />
+									<code>def func_name():</code>
+								li.
+									Any code inside the function should be indented until you want to exit the function.
 								
 								
 			section(id='page3')

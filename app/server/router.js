@@ -461,6 +461,7 @@ module.exports = function(app) {
                 var nPassword = req.param("password");
 
                 var confirm = req.param("confirm");
+                var oTeamname = req.session.user.teamname;
 
                 // console.log("using email "+req.session.user.email+" and password "+confirm);
                 AM.manualLogin(req.session.user.email, confirm, function(e, o) {
@@ -469,35 +470,61 @@ module.exports = function(app) {
                         result.errors = errors;
                         res.send(result);
                     } else {
-                        var changePassword = false;
-                        var salt = generateSalt();
-                        if (nPassword && nPassword.length > 0) {
-                            changePassword = true;
-                        }
-                        db.collection("accounts").update({
-                            _id: new ObjectID(req.session.user._id.toString())
-                        }, {
-                            $set: extend({
-                                teamname: nTeamname,
-                                school: nSchool,
-                            }, changePassword ? {
-                                pass: salt + md5(nPassword + salt)
-                            } : {})
-                        }, function(e, d) {
+                        db.collection("accounts").find({
+                            teamname: nTeamname
+                        }).toArray(function(e, d) {
                             if (e) {
 
                             } else {
-                                db.collection("accounts").find({
-                                    _id: new ObjectID(req.session.user._id.toString())
-                                }).toArray(function(e, d) {
-                                    if (e) {
-
-                                    } else {
-                                        req.session.user = d[0];
-                                        result.errors = errors;
-                                        res.send(result);
+                                if (d.length == 0) {
+                                    var changePassword = false;
+                                    var salt = generateSalt();
+                                    if (nPassword && nPassword.length > 0) {
+                                        changePassword = true;
                                     }
-                                });
+                                    db.collection("accounts").update({
+                                        _id: new ObjectID(req.session.user._id.toString())
+                                    }, {
+                                        $set: extend({
+                                            teamname: nTeamname,
+                                            school: nSchool,
+                                        }, changePassword ? {
+                                            pass: salt + md5(nPassword + salt)
+                                        } : {})
+                                    }, function(e, d) {
+                                        if (e) {
+
+                                        } else {
+                                            db.collection("problems").update({
+                                                author: oTeamname,
+                                            }, {
+                                                $set: {
+                                                    author: nTeamname,
+                                                }
+                                            }, function(e, d) {
+                                                if (e) {
+
+                                                } else {
+                                                    db.collection("accounts").find({
+                                                        _id: new ObjectID(req.session.user._id.toString())
+                                                    }).toArray(function(e, d) {
+                                                        if (e) {
+
+                                                        } else {
+                                                            req.session.user = d[0];
+                                                            result.errors = errors;
+                                                            res.send(result);
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        }
+                                    });
+                                } else {
+                                    errors.push("Username already exists.");
+                                    result.errors = errors;
+                                    res.send(result);
+                                }
                             }
                         });
                         /*

@@ -63,6 +63,10 @@ module.exports = function(app) {
     app.get("/md5", function(req, res) {
         render(req, res, "md5", "MD5 Calculator - EasyCTF 2014");
     });
+	
+	app.get("/learn", function(req, res) {
+        render(req, res, "learn", "Learn - EasyCTF 2014");
+    });
 
     /***   ***/
     

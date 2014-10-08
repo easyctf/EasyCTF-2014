@@ -1,0 +1,77 @@
+extends layout
+
+block content
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					center
+						div(class='jumbotron page-title')
+							h1 Learn
+			section(id='page2')
+				div(class='page-container')
+					div(class='page-header')
+						h2 Programming Crash Course
+					div(class='well')
+						h3 Introduction
+						p
+							| If you have little to absolutely no programming experience, this will be helpful. This is a crash course of the most basic terms/syntax and functions of Python (since our IDE which will be used for some problems is optimized for Python).
+						p
+							| What can you do in Python? Lots of things! What may be useful for this competition is learning everything you need to write algorithms to solve problems and basic tools such as <i>printing</i>.
+						p
+							| Some unique properties of Python is that we use indentation instead of brackets, and declaring variable types and using semicolons are optional.
+						h3 Variables
+						p
+							| Variables store values that can be looked at or changed later. You do <b>not</b> need to need to declare variable types before using them. Different types of variables include:
+							ul
+								li integer - a number that is not a fraction. <br />
+								| Examples: -1, 2, 105676 etc. <br />
+								| To define, use the following syntax: <br />
+								| myint = 2 <br />
+								li floating point - a number that has decimal values. <br />
+								| Examples: 1.0, -2.73, 0.66 <br />
+								| To define: <br />
+								| myfloat = 7.3 <br />
+								| or <br />
+								| myfloat = float(7) <br />
+								| With integers and floating points, you can perform basic math operations on them such as + - / *. <br />
+								li string - text surrounded by double or single quotes. <br />
+								| Examples: "Hello", 'World' <br />
+								| To define: <br />
+								| hello = "Hello" <br />
+								| world = "World" <br />
+								|You can also add strings together like this: <br />
+								| helloworld = hello + " " + world <br />
+								| This makes helloworld store the value "Hello World" <br />
+								li character - a symbol represented by a letter or number surrounded by single quotes. <br />
+								| Examples: 'A', '14', 'k'
+						h3 Writing Functions
+						p
+							ul
+								li To define: <br />
+								| def func_name():
+								li Any code inside the function should be indented until you want to exit the function.
+								
+								
+			section(id='page3')
+				div(class='page-container')
+					div(class='page-header')
+						h2 Resources
+					div(class='well')
+						h3 Programming in General
+						p
+							ul
+								li <a href="https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md" target="_blank">Github List of Free Programming Books</a> <br />
+								li <a href="http://learnxinyminutes.com/" target="_blank">Learn X in Y Minutes: Programming Tutorials</a> <br />
+								li <a href="http://alexnisnevich.github.io/untrusted/" target="_blank">Untrusted: A Beginner Javascript Game</a> <br />
+						h3 Past CTFs
+						p
+							ul
+								li <a href="https://ctftime.org/" target="_blank">CTFTime: List of Upcoming CTFs & Write-Ups of Past CTFs</a> <br />
+								li <a href="http://repo.shell-storm.org/CTF/" target="_blank">Shell Storm Repository</a> <br />
+								li <a href="http://captf.com/practice-ctf/" target="_blank">Practice CTF List</a> <br />
+						h3 Cryptography
+						p
+							ul
+								li <a href="http://rumkin.com/tools/cipher/" target="_blank">Cipherd & Codes: Web-Based Tools</a>
+							

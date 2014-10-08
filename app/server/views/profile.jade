@@ -5,22 +5,22 @@ block content
 		div(class='main')
 			section(id='page1')
 				div(class='page-container')
-					if logged
+					if team
 						div(class='page-header')
 							table(style='width:100%;')
 								tr
 									td
-										h2 Team
-									td(style='text-align:right;')
-										a(href='/settings') Account Settings &raquo;
+										h1 <b>#{team.teamname}</b>
+									if logged
+										td(style='text-align:right;')
+											a(href='/settings') Account Settings &raquo;
+						div.wrapper
+							div.well
+								div.form-group
+									b.col-lg-2 Affiliation
+									p.col-lg-5 #{team.school}
+							div.page-header
+								h2 Solves
 					else
-						if no
-							div(class='alert alert-danger').
-								<b>Error:</b> No account was found with that ID.
-						else
-							if team
-								div(class='page-header')
-									h2 <b>#{team.teamname}<b>
-							else
-								div(class='alert alert-danger').
-									<b>Error:</b> You must be logged in to view this page!
+						div(class='alert alert-danger').
+							<b>Error:</b> No profile found here.

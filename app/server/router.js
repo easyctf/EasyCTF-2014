@@ -365,9 +365,11 @@ module.exports = function(app) {
     app.get("/profile", function(req, res) {
         logged(req, res, function(logged) {
             if (logged) {
-                render(req, res, "profile", req.session.user.teamname + " - EasyCTF 2014", {
-                    team: req.session.user
-                });
+                getProblems(function(problems) {
+                    render(req, res, "profile", req.session.user.teamname + " - EasyCTF 2014", {
+                        team: req.session.user
+                    });
+                })
             } else {
                 render(req, res, "profile", "Team - EasyCTF 2014");
             }
@@ -384,10 +386,11 @@ module.exports = function(app) {
                     console.dir(e);
                 } else {
                     if (d.length > 0) {
-                        res.render("profile", {
-                            title: d[0].teamname + " - EasyCTF 2014",
-                            team: d[0],
-                        });
+                        getProblems(function(problems) {
+                            render(req, res, "profile", d[0].teamname + " - EasyCTF 2014", {
+                                team: d[0]
+                            });
+                        })
                     } else {
                         res.render("profile", {
                             title: "Team not found - EasyCTF 2014",

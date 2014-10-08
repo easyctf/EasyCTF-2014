@@ -365,11 +365,23 @@ module.exports = function(app) {
     app.get("/profile", function(req, res) {
         logged(req, res, function(logged) {
             if (logged) {
-                getProblems(function(problems) {
-                    render(req, res, "profile", req.session.user.teamname + " - EasyCTF 2014", {
-                        team: req.session.user
+                getUsers(function(users) {
+                    getProblems(function(problems) {
+                        getSolved(req, function(solved) {
+                            var p = [];
+                            for (var i=0; i<problems.length; i++) {
+                                if (solved.indexOf(problems[i]._id.toString()) > -1) {
+                                    p.push(problems[i]);
+                                }
+                            }
+                            render(req, res, "profile", req.session.user.teamname + " - EasyCTF 2014", {
+                                team: req.session.user,
+                                problems: p,
+                                users: users,
+                            });
+                        });
                     });
-                })
+                });
             } else {
                 render(req, res, "profile", "Team - EasyCTF 2014");
             }
@@ -386,11 +398,23 @@ module.exports = function(app) {
                     console.dir(e);
                 } else {
                     if (d.length > 0) {
-                        getProblems(function(problems) {
-                            render(req, res, "profile", d[0].teamname + " - EasyCTF 2014", {
-                                team: d[0]
+                        getUsers(function(users) {
+                            getSolvedFor(d[0]._id.toString(), req, function(solved) {
+                                getProblems(function(problems) {
+                                    var p = [];
+                                    for (var i=0; i<problems.length; i++) {
+                                        if (solved.indexOf(problems[i]._id.toString()) > -1) {
+                                            p.push(problems[i]);
+                                        }
+                                    }
+                                    render(req, res, "profile", d[0].teamname + " - EasyCTF 2014", {
+                                        team: d[0],
+                                        problems: p,
+                                        users: users,
+                                    });
+                                });
                             });
-                        })
+                        });
                     } else {
                         res.render("profile", {
                             title: "Team not found - EasyCTF 2014",
@@ -816,6 +840,17 @@ var getTags = function(callback) {
 var getSolved = function(req, callback) {
     var query = db.collection("accounts").find({
         _id: new ObjectID(req.session.user._id.toString()),
+    });
+    query.toArray(function(e, d) {
+        // console.dir(d);
+        if (e) console.dir(e);
+        else callback(d[0].solved);
+    });
+};
+
+var getSolvedFor = function(userid, req, callback) {
+    var query = db.collection("accounts").find({
+        _id: new ObjectID(userid.toString()),
     });
     query.toArray(function(e, d) {
         // console.dir(d);

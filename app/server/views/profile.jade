@@ -1,6 +1,7 @@
 extends layout
 
 block content
+	- var test = function(element, index, array) {  }
 	div(class='wrapper')
 		div(class='main')
 			section(id='page1')
@@ -15,12 +16,37 @@ block content
 										td(style='text-align:right;')
 											a(href='/settings') Account Settings &raquo;
 						div.wrapper
-							div.well
+							div.page-header
+								h2 Profile
+							div.container.well
 								div.form-group
 									b.col-lg-2 Affiliation
-									p.col-lg-5 #{team.school}
+									p.col-lg-10 #{team.school}
+							div.page-header
+								h2 Statistics
+							div.container.well
+								div.form-group
+									b.col-lg-2 Total Score
+									p.col-lg-10 #{team.pointDisplay}
+								div.form-group
+									b.col-lg-2 Rank
+									- var i = 0;
+									- each user in users
+										- i += 1;
+										- if (user._id == team._id)
+											p.col-lg-10 #{i}
+											- break;
 							div.page-header
 								h2 Solves
+							div.container
+								table.table.table-striped.table-hover
+									thead
+										th Problem
+										th Points
+									- each problem in problems
+										tr
+											td #{problem.title}
+											td #{problem.value}
 					else
 						div(class='alert alert-danger').
 							<b>Error:</b> No profile found here.

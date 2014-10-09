@@ -59,8 +59,28 @@ block content
 									<code>def func_name():</code>
 								li.
 									Any code inside the function should be indented until you want to exit the function.
-								
-								
+								li.
+									You can put <i>parameters</i> - information passed to the function for use inside it - in a function as well. Here is a simple example: <br />
+									<code>def func_name(a,b,c):<br />
+										&nbsp;&nbsp;&nbsp;&nbsp;print(a,b)<br />
+										&nbsp;&nbsp;&nbsp;&nbsp;print(c)</code><br />
+									func_name(3,7,"hello") would give an output of:<br />
+									<code>10<br />
+									"Hello"</code><br />
+						h3 Loops
+						p
+							ul
+								li.
+									For-Loops will come in handy during the competition, especially in challenges that ask you to brute force answers. Basically, a for loop will repeat whatever code is inside it a certain number of times. <br />
+								li.
+									To define: <br />
+									<code>for x in range(a,b,c):</code><br />
+									What this means is for each number (x) inside the range [a,b), meaning the range includes 'a' but doesn't include 'b', it will skip every c number (if you don't include a c parameter, it will default to just incrementing by 1)<br />
+								li.
+									For example:<br />
+									<code>for x in range(0,10,2):<br />
+										&nbsp;&nbsp;&nbsp;&nbsp;print(x)</code><br />
+									would print <code>0,2,4,6,8</code>, with each number on a new line.
 			section(id='page3')
 				div(class='page-container')
 					div(class='page-header')

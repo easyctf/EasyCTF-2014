@@ -39,7 +39,7 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
         render(req, res, "easyctf", "EasyCTF 2014");
     });
-    
+
     app.get("/about", function(req, res) {
         render(req, res, "about", "About - EasyCTF 2014");
     });
@@ -55,21 +55,21 @@ module.exports = function(app) {
             render(req, res, "scores", "Scoreboard - EasyCTF 2014", { everyone: true, accounts: users });
         });
     });
-    
+
     app.get("/sponsors", function(req, res) {
         render(req, res, "sponsors", "Sponsors - EasyCTF 2014");
     });
-    
+
     app.get("/md5", function(req, res) {
         render(req, res, "md5", "MD5 Calculator - EasyCTF 2014");
     });
-	
+
 	app.get("/learn", function(req, res) {
         render(req, res, "learn", "Learn - EasyCTF 2014");
     });
 
     /***   ***/
-    
+
     app.get("/edit", function(req, res) {
         logged(req, res, function(L) {
             var result = {};
@@ -203,7 +203,7 @@ module.exports = function(app) {
             }
         });
     });
-    
+
     app.get("/ide", function(req, res) {
         render(req, res, "ide", "IDE - EasyCTF 2014");
     });
@@ -246,11 +246,11 @@ module.exports = function(app) {
             }
         }
     });
-    
+
     app.get("/chat", function(req, res) {
         render(req, res, "chat", "Chat (#easyctf) - EasyCTF 2014");
     });
-    
+
     app.get("/problems", function(req, res) {
         logged(req, res, function(logged) {
             if (logged) {
@@ -361,7 +361,7 @@ module.exports = function(app) {
             }
         });
     });
-    
+
     app.get("/profile", function(req, res) {
         logged(req, res, function(logged) {
             if (logged) {
@@ -387,7 +387,7 @@ module.exports = function(app) {
             }
         });
     });
-    
+
     app.get("/profile/:teamID", function(req, res) {
         var id = req.params.teamID;
         if (id.match("[a-fA-F0-9]{24}")) {
@@ -436,7 +436,7 @@ module.exports = function(app) {
         });
         */
     });
-    
+
     app.get("/settings", function(req, res) {
         logged(req, res, function(logged) {
             if (logged) {
@@ -533,7 +533,7 @@ module.exports = function(app) {
                                 result.errors = errors;
                                 res.send(result);
                             } else {
-                                
+
                             }
                         }
                         */

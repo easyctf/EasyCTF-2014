@@ -1,9 +1,0 @@
-extends layout
-
-block content
-	div(class='wrapper')
-		h1(class='page-header').
-			#{error.status}
-			-
-			#{message}
-		pre(class='well') #{error.stack}

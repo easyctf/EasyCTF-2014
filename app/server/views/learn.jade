@@ -81,6 +81,42 @@ block content
 									<code>for x in range(0,10,2):<br />
 										&nbsp;&nbsp;&nbsp;&nbsp;print(x)</code><br />
 									would print <code>0,2,4,6,8</code>, with each number on a new line.
+								li.
+									Another example:<br />
+									<code>for x in range(0,5):<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;print("hello")<br />
+									</code>
+									would print <code>"hello"</code> 5 times, which each "hello" on a new line.
+						h3 If, Else If, Else Statements
+						p
+							ul
+								li.
+									If, Else If, and Else are conditional statements, meaning that the condition set by the statement decides which statement will be executed.
+								li.
+									The format is usually as follows:<br />
+									<code>if (condition1):<br />
+									&nbsp;&nbsp;&nbsp;&nbsp; code to be executed<br />
+									elif (condition2):<br />
+									&nbsp;&nbsp;&nbsp;&nbsp; different code to be executed<br />
+									{more elifs if needed}<br />
+									else:<br />
+									&nbsp;&nbsp;&nbsp;&nbsp; another different set of code to be executed<br />
+									</code>
+								li.
+									For example:<br />
+									<code>
+									for x in range(0,5):<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;if (x == 0):<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("hello")<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;elif (x == 1 or x == 2):<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("second or third")<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;elif (x == 3):<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("4")<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;else:<br />
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("last x value left to check")<br />
+									</code>
+									would print <code>"hello", "second or third", "second or third", "4", "last x value left to check"</code> with each string on a new line.<br />
+									Notice how all the terms aren't just printed 5 times each as in the second example in the For-Loops section.
 			section(id='page3')
 				div(class='page-container')
 					div(class='page-header')

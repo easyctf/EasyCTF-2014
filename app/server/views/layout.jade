@@ -2,10 +2,11 @@ doctype html
 html
 	head
 		title= title
+		link(rel='stylesheet', href='/css/fonts.css')
 		link(rel='stylesheet', href='/css/cerulean.min.css')
 		link(rel='stylesheet', href='/css/pnotify.min.css')
 		link(rel='icon', href='/img/easyctf.ico')
-		
+
 		meta(charset='utf-8')
 		meta(name='keywords', content='easy ctf easyctf high school highschool hacking computer security fun')
 		meta(name='description', content='High school hacking competition.')
@@ -14,7 +15,7 @@ html
 		meta(property='og:title', content='#{title}')
 		meta(property='og:image', content='http://www.easyctf.com/img/easyctf.jpg')
 		meta(property='og:site_name', content='EasyCTF')
-		
+
 		style.
 			.wrapper { margin-left:10%; margin-right:10%; }
 
@@ -65,10 +66,10 @@ html
 									a(href='/register') Register
 								li
 									a(href='/login') Login
-		
+
 		script(type='text/javascript', src='/js/jquery.js')
 		script(type='text/javascript', src='/js/bootstrap.min.js')
 		script(type='text/javascript', src='/js/pnotify.min.js')
 		script(type='text/javascript', src='/js/easyctf.js')
-		
+
 		block content

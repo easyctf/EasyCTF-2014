@@ -309,7 +309,6 @@ module.exports = function(app) {
                                                 solved: obj._id.toString(),
                                             }
                                         }, function(e, d) {
-                                            req.session.user.pointDisplay += parseInt(obj.value);
                                             if (e) {
                                                 console.dir(e);
                                             } else {

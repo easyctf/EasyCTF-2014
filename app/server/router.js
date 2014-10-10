@@ -312,6 +312,7 @@ module.exports = function(app) {
                                             if (e) {
                                                 console.dir(e);
                                             } else {
+                                                req.session.user.pointDisplay += parseInt(obj.value);
                                                 result.ret = 1;
                                                 db.collection("submissions").insert({
                                                     tID: req.session.user._id,

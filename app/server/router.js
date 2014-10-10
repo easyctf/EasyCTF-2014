@@ -313,6 +313,7 @@ module.exports = function(app) {
                                             if (e) {
                                                 console.dir(e);
                                             } else {
+                                                req.session.user.pointDisplay += parseInt(obj.value);
                                                 result.ret = 1;
                                                 db.collection("submissions").insert({
                                                     tID: req.session.user._id,
@@ -478,7 +479,7 @@ module.exports = function(app) {
                             if (e) {
 
                             } else {
-                                if (d.length == 0) {
+                                if (nTeamname == req.session.user.teamname || d.length == 0) {
                                     var changePassword = false;
                                     var salt = generateSalt();
                                     if (nPassword && nPassword.length > 0) {

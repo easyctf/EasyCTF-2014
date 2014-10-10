@@ -23,6 +23,7 @@ block content
 										select.selectpicker.form-control#problem(data-live-search='true' data-style='btn-info')
 											option(value='just-sum-numbers') Just Sum Numbers
 											option(value='project-eratosthenes') Project Eratosthenes
+											option(value='palindrama') Palindrama
 								div(style='padding:5px;')
 									button.btn.btn-primary(onclick='javascript:runCode();')
 										div Run
@@ -49,39 +50,39 @@ block content
 											canvas#canvas(style='display:none;')
 											div#flag(style='margin-top:10px;')
 										div.modal-footer
-											button.btn.btn-default(data-dismiss='modal') Close	
-							
+											button.btn.btn-default(data-dismiss='modal') Close
+
 							script(type='text/javascript', src='/lib/bootstrap-select/dist/js/bootstrap-select.js')
 							script(type='text/javascript', src='/lib/codemirror/lib/codemirror.js')
 							script(type='text/javascript', src='/lib/codemirror/mode/python/python.js')
 							script(type='text/javascript', src='/lib/skulpt/skulpt.min.js')
 							script(type='text/javascript', src='/lib/skulpt/skulpt-stdlib.js')
-							
+
 							script.
 								var editor = CodeMirror(document.getElementById("editor-container"), {
 									mode: "python",
 									theme: "eclipse",
 									lineNumbers: true,
 								});
-								
+
 								function escapeRegExp(string) {
 									return string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 								}
 								function replaceAll(string, find, replace) {
 									return string.replace(new RegExp(escapeRegExp(find), 'g'), replace);
 								}
-								
-								var outf = function(text) { 
-									var mypre = document.getElementById("output"); 
-									mypre.innerHTML = mypre.innerHTML + text; 
+
+								var outf = function(text) {
+									var mypre = document.getElementById("output");
+									mypre.innerHTML = mypre.innerHTML + text;
 								}
-								
+
 								var builtinRead = function(x) {
 									if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
 											throw "File not found: '" + x + "'";
 									return Sk.builtinFiles["files"][x];
 								}
-								
+
 								var getArgs = function(ar) {
 									// console.dir(ar);
 									var res = "[";
@@ -100,15 +101,15 @@ block content
 									res += "]";
 									return res;
 								};
-		
+
 								var runCode = function() {
 									$("#output").html("");
 									$("#flag").html("");
-									
+
 									// var program = document.getElementById("editor").outerHTML;
 									// program = program.substring(198, program.lastIndexOf("</pre>"));
 									var program = editor.getValue();
-									
+
 									console.log("Retrieving data...");
 									$.ajax({
 										url: "/ide/data.ajax",
@@ -125,16 +126,16 @@ block content
 											program = args + "\n" + program;
 											// console.log(args);
 											// console.log(program);
-											
+
 											var output = document.getElementById("output");
-											
+
 											Sk.canvas = "canvas";
 											Sk.pre = output;
 											Sk.configure({
 												output: outf,
 												read: builtinRead
 											});
-											
+
 											console.log("Running program...");
 											var start = new Date().getTime();
 											try {
@@ -148,7 +149,7 @@ block content
 											var end = new Date().getTime();
 											var elapsed = end - start;
 											console.log("Program ran in " + elapsed + "ms");
-											
+
 											console.log("Checking answer...");
 											$.ajax({
 												url: "/ide/check.ajax",
@@ -168,12 +169,12 @@ block content
 													console.log("Answer retrieved.\n");
 												},
 											});
-											
+
 											$("#output-div").modal("show");
 										}
 									});
 								};
-		
+
 								var ctrl = false;
 								$(document).keydown(function(e) {
 									if (e.keyCode == 17) {

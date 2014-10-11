@@ -772,6 +772,8 @@ module.exports = function(app) {
             res.send(result);
         }
     });
+
+    require("./hack-site")(app);
 };
 
 var render = function(req, res, url, title, extraparams) {

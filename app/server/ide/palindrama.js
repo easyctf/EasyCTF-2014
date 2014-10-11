@@ -20,16 +20,20 @@ exports.check = function(output, data) {
 	for(var i = s.length - 1; i >= 0; i--) {
 		for (var j = i + 1; j < s.length; j++) {
 			var q = s.substring(i, j);
-			var t = q.replace(/[^A-Za-z]/gi,'').toLowerCase();
+			var t = q;
+			if (q.substring(0,1).match(/[0-9a-zA-Z]+$/)){
+			t = q.replace(/[^A-Za-z]/gi,'').toLowerCase();
+			}
 			if (t == t.split("").reverse().join("") && t.length > longest.length) {
 				longest = t;
 				longestOrig = q.trim();
 			}
 		}
 	}
-	console.log(longestOrig);
-
-	return longestOrig == parseInt(output);
+	/*onsole.log("!"+longestOrig+"!");
+	console.log("!"+output+"!");
+	console.log(longestOrig == output);*/
+	return longestOrig === output;
 };
 
 exports.flag = function() {

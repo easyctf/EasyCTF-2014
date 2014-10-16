@@ -268,6 +268,7 @@ module.exports = function(app) {
                                 }
                             }
                             getTags(function(tags) {
+                                console.dir(problems);
                                 render(req, res, "problems", "Problems - EasyCTF 2014", {
                                     problems: problems,
                                     tags: tags,
@@ -861,7 +862,7 @@ var getUsers = function(callback) {
 }
 
 var getTags = function(callback) {
-    var query = db.collection("tags").find();
+    var query = db.collection("tags").find().sort({ id: 1 });
     query.toArray(function(e, d) {
         if (e) callback(e);
         else callback(d);

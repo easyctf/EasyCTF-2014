@@ -3,6 +3,7 @@ html
 	head
 		title= title
 		link(rel='stylesheet', href='/css/fonts.css')
+		link(rel='stylesheet', href='/octicons/octicons.css')
 		link(rel='stylesheet', href='/css/cerulean.min.css')
 		link(rel='stylesheet', href='/css/pnotify.min.css')
 		link(rel='icon', href='/img/easyctf.ico')
@@ -17,7 +18,25 @@ html
 		meta(property='og:site_name', content='EasyCTF')
 
 		style.
-			.wrapper { margin-left:10%; margin-right:10%; }
+			.wrapper {
+				margin-left:10%; margin-right:10%;
+			}
+			.circle-img-box {
+				border-radius: 50%;
+				width: 84px;
+				height: 84px;
+				text-align: center;
+				margin: 0 auto;	 
+				background-color: #1995DC;
+				color: #FFF;
+				font-size:42px;
+			}
+			.no-border {
+				border: none;
+			}
+			#faq > p {
+				margin-bottom: 20px;
+			}
 
 	//
 		#{group}

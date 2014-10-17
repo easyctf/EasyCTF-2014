@@ -12,6 +12,11 @@ var params = {
 var connection = "postgres://" + params.user + ":" + params.password + "@" + params.host + ":" + params.port + "/" + params.database + "?ssl=true";
 
 module.exports = function(app) {
+  app.get(["/sites/cookiezi", "/sites/cookiezi/", "/sites/cookiezi/index.php"], function(req, res) {
+    res.cookie('flag', 'osu_is_love_osu_is_l1fe');
+    res.render("sites/cookiezi/index");
+  });
+
   app.get(["/sites/post-it", "/sites/post-it/", "/sites/post-it/index.php"], function(req, res) {
     res.render("sites/post-it/index");
   });

@@ -24,7 +24,7 @@ html
 		div#result
 			if posted
 				if error
-					h2 MySQL Error Occurred
+					h2 Error Occurred
 				else
 					table(border='1')
 						tr
@@ -32,5 +32,5 @@ html
 							th message
 						- each user in users
 							tr
-								td #{user.name}
+								td #{user.username}
 								td #{user.message}

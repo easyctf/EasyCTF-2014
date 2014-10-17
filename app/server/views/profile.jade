@@ -6,7 +6,6 @@ block content
 			section(id='page1')
 				div(class='page-container')
 					if team
-						div <!-- #{team._id} -->
 						div(class='page-header')
 							table(style='width:100%;')
 								tr
@@ -22,6 +21,8 @@ block content
 								div.form-group
 									b.col-lg-2 Affiliation
 									p.col-lg-10 #{team.school}
+								if team._id.toString() == "5415e31e0bc226904ad900a4"
+									| <!-- http://goo.gl/hI7dzj -->
 							div.page-header
 								h2 Statistics
 							div.page-container.well

@@ -1,0 +1,42 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Pointless Website
+
+	body
+		h1 This is a pointless title
+		button This is a pointless button
+		script(type='text/javascript', src='/js/jquery.js')
+		script.
+			// konami
+			Array.prototype.compare = function (o) {
+			    if (this.length != o.length) return false;
+			    for (var i = 0; i < this.length; i++) {
+			        if (this[i] != o[i]) return false
+			    }
+			    return true
+			};
+			if (window.addEventListener) {
+			    var kkeys = [], tkeys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 66, 65, 13];
+				window.addEventListener("keydown", function (e) {
+			        kkeys.push(e.keyCode);
+			        var k = kkeys.join(",");
+			        var t = tkeys.join(",");
+			        if (k.indexOf(t) >= 0) {
+			            $.ajax({
+			                url: "/sites/pointless-keys/flag.php",
+			                type: "POST",
+			                data: {
+			                    keys: kkeys,
+			                    target: tkeys
+			                },
+			                dataType: "html",
+			                success: function (content) {
+			                    console.log(content);
+			                },
+			            });
+			            kkeys = [];
+			        }
+			    }, true)
+			}

@@ -12,38 +12,45 @@ block content
 				div(class='page-container')
 					div(class='page-header')
 						h2 FAQ
-					div(class='well')
+					div(class='well', id='faq')
 						p
 							a(name='faq-hacking')
-							b
+							h4
 								a(href='#faq-hacking', title='Permalink')
 									span.glyphicon.glyphicon-link
 								| &nbsp;&nbsp;What are we hacking? Is this legal?<br />
 							| Nooooo we're not hacking banks and stealing credit cards like you might see in those Hollywood movies. In fact, we're trying to destroy that stereotype and create an entirely different one here, even though some challenges may ask you to "hack" into different things by utilizing vulnerabilities.
 						p
 							a(name='faq-background')
-							b
+							h4
 								a(href='#faq-background', title='Permalink')
 									span.glyphicon.glyphicon-link
 								| &nbsp;&nbsp;Do I need to have background knowledge in computer science or experience in other CTFs?<br />
 							| Not at all! This is a CTF designed to introduce new hackers to concepts commonly found in most other computer security competitions.
 						p
 							a(name='faq-where')
-							b
+							h4
 								a(href='#faq-where', title='Permalink')
 									span.glyphicon.glyphicon-link
 								| &nbsp;&nbsp;Where will this competition be held?<br />
 							| On the internet! It will be held on this website. The competition will be held from November 29, 2014 to December 6, 2014.
 						p
+							a(name='faq-practice')
+							h4
+								a(href='#faq-practice', title='Permalink')
+									span.glyphicon.glyphicon-link
+								| &nbsp;&nbsp;How can I practice?<br />
+							| We have plenty of resources at the <a href="/learn">Learn</a> page, and there is an entire Internet of resources and practice sets that you can use.
+						p
 							a(name='faq-prizes')
-							b
+							h4
 								a(href='#faq-prizes', title='Permalink')
 									span.glyphicon.glyphicon-link
 								| &nbsp;&nbsp;Are there prizes?<br />
 							| The most important prize you'll receive from this competition is that you have learned new things! If you're concerned about physical prizes, they have not been decided as of yet but <i>may</i> include small prizes or small sums of money. This is subject to change at any time.
 						p
 							a(name='faq-after')
-							b
+							h4
 								a(href='#faq-after', title='Permalink')
 									span.glyphicon.glyphicon-link
 								| &nbsp;&nbsp;What happens after the competition?<br />
@@ -54,6 +61,9 @@ block content
 						h2 Rules
 					div(class='well')
 						ol
+							li
+								h1
+									span(class='tooltipped', data-toggle='tooltip', data-placement='right', title='Lots of people seem to forget this one') USE COMMON SENSE
 							li Don't attack the score server. <br />
 							li Don't attack other teams. <br />
 							li Don't share flags. <br />
@@ -67,7 +77,7 @@ block content
 						ul
 							li
 								h4
-									span Devin Deng
+									a(href='/profile/54386b4525de4502005fc5db') Devin Deng
 								i [placeholder content]
 							li
 								h4
@@ -97,11 +107,11 @@ block content
 										a(href='/profile/5436fde8757f8f02004a872a') Austin Zhou
 								li
 									h4
-										<a href="javascript:void(0);">Carter Feldman</a>
+										a(href='/profile/542b86fbd4220302002cb546') Carter Feldman
 			section(id='page5')
 				div(class='page-container')
 					div(class='page-header')
-						h2 Past CTFs
+						h2 Other CTFs
 					div(class='well')
 						p We could not have created, or even had the idea of creating <i>this</i> competition without participating in some ourselves! So, we would like to thank all the people involved in making these competitions, which introduced <i>us</i> to concepts of cybersecurity and gave us some experience to work with.
 						ul
@@ -113,10 +123,7 @@ block content
 									<a href="http://hsctf.com/" target="_blank">HSCTF</a>
 							li
 								h4
-									<a href="https://ctf.isis.poly.edu/" target="_blank">CSAW CTF</a>
-							li
-								h4
-									<a href="http://ctf.sharif.edu/2014/quals/su-ctf/" target="_blank">SU CTF</a>
+									<a href="http://startctf.com" target="_blank">Start CTF</a>
 			section(id='page7')
 				div(class='page-container')
 					div(class='page-header')
@@ -132,3 +139,6 @@ block content
 						p 
 							h3 IRC
 						| Head over to the <a href="javascript:void(0);" target="_blank">chat room</a> to discuss anything you need in real time.
+
+			script.
+				$(".tooltipped").tooltip();

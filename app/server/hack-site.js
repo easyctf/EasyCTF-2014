@@ -47,7 +47,6 @@ module.exports = function(app) {
     } else {
       pg.connect(connection, function(err, client, done) {
         if (err) {
-          console.dir(err);
           res.render("sites/injection/index", {
             posted: true,
             error: true
@@ -55,16 +54,15 @@ module.exports = function(app) {
         } else {
           client.query("SELECT * FROM \"users-a14c001276a69f66fd95104c96c7e4f2\" WHERE username='" + req.param("username") + "' AND password='" + req.param("password") + "'", function(err, result) {
             if (err) {
-              console.dir(err);
               res.render("sites/injection/index", {
                 posted: true,
                 error: true
               });
             } else {
-              console.dir(result);
+              users = result.rows;
               res.render("sites/injection/index", {
                 posted: true,
-                error: users ? true : false,
+                error: users ? false : true,
                 users: users
               });
             }

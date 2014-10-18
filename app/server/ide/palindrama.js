@@ -1,13 +1,20 @@
 exports.data = function() {
 	var result = [];
-
 	var s = [
 		"[Go, droop aloof] sides reversed, is [fool a poor dog]. I did roar again, Niagara! ... or did I?",
 		"Help Max, Enid -- in example, H. See, slave, I demonstrate yet arts no medieval sees.",
 		"Egad, a base tone denotes a bad age. So may Obadiah, even in Nineveh, aid a boy, Amos. Naomi, did I moan?",
 		"Sir, I soon saw Bob was no Osiris. Poor Dan is in a droop.",
 	];
-	result.push(s[(Math.random()*s.length)|0]);
+	var rand = s[(Math.random()*s.length)|0];
+	var a = s[(Math.random()*s.length)|0];
+	
+	while (a == rand){
+		a = s[(Math.random()*s.length)|0];
+		}
+	a += " " + rand;
+	//console.log(s,a);
+	result.push(a);
 
 	return result;
 };

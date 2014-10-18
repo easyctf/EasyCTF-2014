@@ -88,4 +88,8 @@ module.exports = function(app) {
 	  res.send("flag is konami_c0dez");
 	}
   });
+
+  app.get(["/sites/what", "/sites/what/", "/sites/what/index.php"], function(req, res) {
+  	
+  });
 };

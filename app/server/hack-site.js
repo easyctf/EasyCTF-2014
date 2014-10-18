@@ -1,4 +1,5 @@
 var pg = require("pg");
+var exec = require("child_process").exec;
 
 var params = {
   host: 'ec2-54-204-40-96.compute-1.amazonaws.com',
@@ -90,6 +91,8 @@ module.exports = function(app) {
   });
 
   app.get(["/sites/what", "/sites/what/", "/sites/what/index.php"], function(req, res) {
-  	res.render("sites/what/index");
+  	exec("ls", function(err, stdout, stderr) {
+  		res.render("sites/what/index", { text: stdout });
+  	});
   });
 };

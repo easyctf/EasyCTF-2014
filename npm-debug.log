@@ -1,0 +1,165 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'sys',
+1 verbose cli   'child_process' ]
+2 info using npm@1.4.23
+3 info using node@v0.10.31
+4 warn package.json crypto@0.0.3 crypto is also the name of a node core module.
+5 warn package.json fs@0.0.2 fs is also the name of a node core module.
+6 warn package.json fs@0.0.2 No description
+7 warn package.json fs@0.0.2 No repository field.
+8 warn package.json fs@0.0.2 No README data
+9 warn package.json gem@0.0.1 No repository field.
+10 warn package.json gem@0.0.1 No README data
+11 verbose readDependencies using package.json deps
+12 verbose cache add [ 'sys', null ]
+13 verbose cache add name=undefined spec="sys" args=["sys",null]
+14 verbose parsed url { protocol: null,
+14 verbose parsed url   slashes: null,
+14 verbose parsed url   auth: null,
+14 verbose parsed url   host: null,
+14 verbose parsed url   port: null,
+14 verbose parsed url   hostname: null,
+14 verbose parsed url   hash: null,
+14 verbose parsed url   search: null,
+14 verbose parsed url   query: null,
+14 verbose parsed url   pathname: 'sys',
+14 verbose parsed url   path: 'sys',
+14 verbose parsed url   href: 'sys' }
+15 verbose cache add [ 'child_process', null ]
+16 verbose cache add name=undefined spec="child_process" args=["child_process",null]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: 'child_process',
+17 verbose parsed url   path: 'child_process',
+17 verbose parsed url   href: 'child_process' }
+18 silly lockFile b4c56ee8-sys sys
+19 verbose lock sys C:\Users\Michael\AppData\Roaming\npm-cache\b4c56ee8-sys.lock
+20 silly lockFile 4845fa97-child-process child_process
+21 verbose lock child_process C:\Users\Michael\AppData\Roaming\npm-cache\4845fa97-child-process.lock
+22 silly lockFile b4c56ee8-sys sys
+23 silly lockFile b4c56ee8-sys sys
+24 silly lockFile 4845fa97-child-process child_process
+25 silly lockFile 4845fa97-child-process child_process
+26 verbose addNamed [ 'sys', '' ]
+27 verbose addNamed [ null, '*' ]
+28 silly lockFile c9207cd9-sys sys@
+29 verbose lock sys@ C:\Users\Michael\AppData\Roaming\npm-cache\c9207cd9-sys.lock
+30 verbose addNamed [ 'child_process', '' ]
+31 verbose addNamed [ null, '*' ]
+32 silly lockFile 512a7ef6-child-process child_process@
+33 verbose lock child_process@ C:\Users\Michael\AppData\Roaming\npm-cache\512a7ef6-child-process.lock
+34 silly addNameRange { name: 'sys', range: '*', hasData: false }
+35 silly addNameRange { name: 'child_process', range: '*', hasData: false }
+36 verbose request where is /child_process
+37 verbose request registry https://registry.npmjs.org/
+38 verbose request id 17d4da5ca1bd18dc
+39 verbose url raw /child_process
+40 verbose url resolving [ 'https://registry.npmjs.org/', './child_process' ]
+41 verbose url resolved https://registry.npmjs.org/child_process
+42 verbose request where is https://registry.npmjs.org/child_process
+43 info trying registry request attempt 1 at 17:06:40
+44 http GET https://registry.npmjs.org/child_process
+45 verbose request where is /sys
+46 verbose request registry https://registry.npmjs.org/
+47 verbose url raw /sys
+48 verbose url resolving [ 'https://registry.npmjs.org/', './sys' ]
+49 verbose url resolved https://registry.npmjs.org/sys
+50 verbose request where is https://registry.npmjs.org/sys
+51 info trying registry request attempt 1 at 17:06:40
+52 http GET https://registry.npmjs.org/sys
+53 http 200 https://registry.npmjs.org/sys
+54 silly registry.get cb [ 200,
+54 silly registry.get   { date: 'Sat, 18 Oct 2014 22:06:28 GMT',
+54 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+54 silly registry.get     etag: '"OG703WYF2VXH2FDFTGRQW68"',
+54 silly registry.get     'content-type': 'application/json',
+54 silly registry.get     'cache-control': 'max-age=60',
+54 silly registry.get     'content-length': '1024',
+54 silly registry.get     'accept-ranges': 'bytes',
+54 silly registry.get     via: '1.1 varnish',
+54 silly registry.get     age: '0',
+54 silly registry.get     'x-served-by': 'cache-ord1721-ORD',
+54 silly registry.get     'x-cache': 'MISS',
+54 silly registry.get     'x-cache-hits': '0',
+54 silly registry.get     'x-timer': 'S1413669988.429383,VS0,VE135',
+54 silly registry.get     vary: 'Accept',
+54 silly registry.get     'keep-alive': 'timeout=10, max=50',
+54 silly registry.get     connection: 'Keep-Alive' } ]
+55 silly addNameRange number 2 { name: 'sys', range: '*', hasData: true }
+56 silly addNameRange versions [ 'sys', [ '0.0.1' ] ]
+57 verbose addNamed [ 'sys', '0.0.1' ]
+58 verbose addNamed [ '0.0.1', '0.0.1' ]
+59 silly lockFile 274ea5a7-sys-0-0-1 sys@0.0.1
+60 verbose lock sys@0.0.1 C:\Users\Michael\AppData\Roaming\npm-cache\274ea5a7-sys-0-0-1.lock
+61 silly lockFile 1c6ffe44-stry-npmjs-org-sys-sys-0-0-1-tgz https://registry.npmjs.org/sys/-/sys-0.0.1.tgz
+62 verbose lock https://registry.npmjs.org/sys/-/sys-0.0.1.tgz C:\Users\Michael\AppData\Roaming\npm-cache\1c6ffe44-stry-npmjs-org-sys-sys-0-0-1-tgz.lock
+63 verbose addRemoteTarball [ 'https://registry.npmjs.org/sys/-/sys-0.0.1.tgz',
+63 verbose addRemoteTarball   '3480cc695714905b7abce50a55a5a3985997e619' ]
+64 info retry fetch attempt 1 at 17:06:41
+65 verbose fetch to= C:\Users\Michael\AppData\Local\Temp\npm-1884-Bj44EmLw\registry.npmjs.org\sys\-\sys-0.0.1.tgz
+66 http GET https://registry.npmjs.org/sys/-/sys-0.0.1.tgz
+67 http 200 https://registry.npmjs.org/sys/-/sys-0.0.1.tgz
+68 silly lockFile 1c6ffe44-stry-npmjs-org-sys-sys-0-0-1-tgz https://registry.npmjs.org/sys/-/sys-0.0.1.tgz
+69 silly lockFile 1c6ffe44-stry-npmjs-org-sys-sys-0-0-1-tgz https://registry.npmjs.org/sys/-/sys-0.0.1.tgz
+70 silly lockFile 274ea5a7-sys-0-0-1 sys@0.0.1
+71 silly lockFile 274ea5a7-sys-0-0-1 sys@0.0.1
+72 silly lockFile c9207cd9-sys sys@
+73 silly lockFile c9207cd9-sys sys@
+74 http 404 https://registry.npmjs.org/child_process
+75 verbose headers { date: 'Sat, 18 Oct 2014 22:06:29 GMT',
+75 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+75 verbose headers   'content-type': 'application/json',
+75 verbose headers   'cache-control': 'max-age=0',
+75 verbose headers   'content-length': '52',
+75 verbose headers   'accept-ranges': 'bytes',
+75 verbose headers   via: '1.1 varnish',
+75 verbose headers   age: '0',
+75 verbose headers   'x-served-by': 'cache-ord1734-ORD',
+75 verbose headers   'x-cache': 'MISS',
+75 verbose headers   'x-cache-hits': '0',
+75 verbose headers   'x-timer': 'S1413669988.427885,VS0,VE661',
+75 verbose headers   'keep-alive': 'timeout=10, max=50',
+75 verbose headers   connection: 'Keep-Alive' }
+76 silly registry.get cb [ 404,
+76 silly registry.get   { date: 'Sat, 18 Oct 2014 22:06:29 GMT',
+76 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+76 silly registry.get     'content-type': 'application/json',
+76 silly registry.get     'cache-control': 'max-age=0',
+76 silly registry.get     'content-length': '52',
+76 silly registry.get     'accept-ranges': 'bytes',
+76 silly registry.get     via: '1.1 varnish',
+76 silly registry.get     age: '0',
+76 silly registry.get     'x-served-by': 'cache-ord1734-ORD',
+76 silly registry.get     'x-cache': 'MISS',
+76 silly registry.get     'x-cache-hits': '0',
+76 silly registry.get     'x-timer': 'S1413669988.427885,VS0,VE661',
+76 silly registry.get     'keep-alive': 'timeout=10, max=50',
+76 silly registry.get     connection: 'Keep-Alive' } ]
+77 silly lockFile 512a7ef6-child-process child_process@
+78 silly lockFile 512a7ef6-child-process child_process@
+79 error 404 404 Not Found: child_process
+79 error 404
+79 error 404 'child_process' is not in the npm registry.
+79 error 404 You should bug the author to publish it
+79 error 404 It was specified as a dependency of 'easyctf'
+79 error 404
+79 error 404 Note that you can also install from a
+79 error 404 tarball, folder, or http url, or git url.
+80 error System Windows_NT 6.2.9200
+81 error command "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "--save" "sys" "child_process"
+82 error cwd c:\Users\Michael\Cloud\Heroku\easyctf
+83 error node -v v0.10.31
+84 error npm -v 1.4.23
+85 error code E404
+86 verbose exit [ 1, true ]

@@ -91,6 +91,6 @@ module.exports = function(app) {
   });
 
   app.get(["/sites/what", "/sites/what/", "/sites/what/index.php"], function(req, res) {
-  	res.render("sites/what/index", { text: stdout });
+  	res.render("sites/what/index");
   });
 };

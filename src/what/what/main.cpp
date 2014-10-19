@@ -9,6 +9,12 @@ int main(int argc, char* argv[]) {
 	}
 	else {
 		ifstream file(argv[1]);
+		if (!file.is_open()) {
+			cout << "Could not open the file." << endl;
+		}
+		else {
+
+		}
 	}
 
 	system("pause");

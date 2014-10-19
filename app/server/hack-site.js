@@ -41,42 +41,42 @@ module.exports = function(app) {
 	var unclean = function(string) {
 		var words = ["select", "insert", "union", "drop", "create", "use", "describe", "table", "from", "where", "count", "now", "distinct", "flush", "into", "destroy"];
 		for(var i=0;i<words.length;i++) {
-		if (string.toLowerCase().indexOf(words[i].toLowerCase()) > -1) {
-			return true;
-		}
+			if (string.toLowerCase().indexOf(words[i].toLowerCase()) > -1) {
+				return true;
+			}
 		}
 		return false;
 	};
 
 	if (unclean(req.param("username")) || unclean(req.param("password"))) {
 		res.render("sites/injection/index", {
-		posted: true,
-		error: true
+			posted: true,
+			error: true
 		});
 	} else {
 		pg.connect(connection, function(err, client, done) {
-		if (err) {
-			res.render("sites/injection/index", {
-			posted: true,
-			error: true
-			});
-		} else {
-			client.query("SELECT * FROM \"users-a14c001276a69f66fd95104c96c7e4f2\" WHERE username='" + req.param("username") + "' AND password='" + req.param("password") + "'", function(err, result) {
 			if (err) {
 				res.render("sites/injection/index", {
-				posted: true,
-				error: true
+					posted: true,
+					error: true
 				});
 			} else {
-				users = result.rows;
-				res.render("sites/injection/index", {
-				posted: true,
-				error: users ? false : true,
-				users: users
+				client.query("SELECT * FROM \"users-a14c001276a69f66fd95104c96c7e4f2\" WHERE username='" + req.param("username") + "' AND password='" + req.param("password") + "'", function(err, result) {
+				if (err) {
+					res.render("sites/injection/index", {
+						posted: true,
+						error: true
+					});
+				} else {
+					users = result.rows;
+					res.render("sites/injection/index", {
+						posted: true,
+						error: users ? false : true,
+						users: users
+					});
+				}
 				});
 			}
-			});
-		}
 		});
 	}
 	});

@@ -1,6 +1,8 @@
 var pg = require("pg");
 var exec = require("child_process").exec;
 var fs = require("fs");
+var crypto = require("crypto");
+var moment = require("moment");
 
 var params = {
   host: 'ec2-54-204-40-96.compute-1.amazonaws.com',
@@ -97,7 +99,16 @@ module.exports = function(app) {
 
   app.post(["/sites/what", "/sites/what/", "/sites/what/index.php"], function(req, res) {
   	console.dir(req.files);
-
+  	fs.readFile(req.files.file.path, function(err, data) {
+  		var nPath = __dirname + "/uploaded/what/" + moment().format();
+  		fs.writeFile(nPath, data, function(err) {
+  			console.log("yey copied to "+nPath);
+  		});
+  	});
   	res.render("sites/what/index");
   });
 };
+
+function checksum (str, algorithm, encoding) {
+	return crypto.createHash(algorithm || 'md5').update(str, 'utf8').digest(encoding || 'hex');
+}

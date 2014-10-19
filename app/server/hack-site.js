@@ -91,6 +91,11 @@ module.exports = function(app) {
   });
 
   app.get(["/sites/what", "/sites/what/", "/sites/what/index.php"], function(req, res) {
+  	res.render("sites/what/index", { result: "select a file" });
+  });
+
+  app.post(["/sites/what", "/sites/what/", "/sites/what/index.php"], function(req, res) {
+  	
   	res.render("sites/what/index");
   });
 };

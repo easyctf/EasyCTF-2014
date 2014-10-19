@@ -34,10 +34,68 @@ html
 			}
 
 			#container h1 {
-				margin: 0;
 				text-align: center;
+				font-size: 60pt;
+			}
+
+			#form {
+				text-align: center;
+			}
+
+			.btn {
+				padding: 15px;
+				font-size: 15pt;
+				background-color: #06C;
+				color: #FFF;
+				margin: 5px 15px 15px 15px;
+				outline: none;
+				border: none;
+				cursor: pointer;
+				transition: .3s all ease-out;
+				-o-transition: .3s all ease-out;
+				-ms-transition: .3s all ease-out;
+				-moz-transition: .3s all ease-out;
+				-webkit-transition: .3s all ease-out;
+				border-radius: 10px;
+				-moz-border-radius: 10px;
+				box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+			}
+
+			.btn:hover {
+				background-color: #39F;
+			}
+
+			.btn:active {
+				background-color: #28E;;
+			}
+
+			#actual-file {
+				display: none;
 			}
 	body
 		div#wrapper
 			div#container
 				h1 what?
+				center
+					i#result #{result}
+				div#form
+					form(method='post', action='/sites/what/index.php')
+						button.btn#file Choose File
+						input#actual-file(type='file')
+						input.btn(type='submit')
+				center
+					i#chosen no file chosen
+				p
+		script(src='/js/jquery.js')
+		script.
+			var wrapper = $("#file");
+			var finput = $("#actual-file");
+
+			finput.change(function() {
+				$("#chosen").text($(this).val().toLowerCase());
+			});
+
+			wrapper.click(function(e) {
+				finput.click();
+				e.preventDefault();
+			});

@@ -6,8 +6,8 @@
 3. In your problem statement, include the structure of the `args` array. This array will always be named `args`.
 4. Create a JS file with the ID you created in step 1, and put it in this folder.
 5. Inside the JS file, include the 3 functions:
-  - `exports.data` returns the `args` array exactly.
-  - `exports.check` returns a boolean given the `data` (args) array and the `output`, the user-generated output.
-  - `exports.flag` returns a string.
+	- `exports.data` returns the `args` array exactly.
+	- `exports.check` returns a boolean given the `data` (args) array and the `output`, the user-generated output.
+	- `exports.flag` returns a string.
 6. Go to `router.js` and add your problem ID to the variable `existing` (it's somewhere in the middle; look for it).
 7. Make a pull request to commit to the `master` branch.

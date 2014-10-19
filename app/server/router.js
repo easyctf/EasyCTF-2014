@@ -4,7 +4,7 @@ var ObjectID = require("mongodb").ObjectID;
 var jsdom = require("jsdom");
 var moment = require("moment");
 var crypto = require("crypto");
-var sendgrid  = require('sendgrid')("app29067833@heroku.com" || process.env.SENDGRID_USERNAME, "0o6xvuek" || process.env.SENDGRID_PASSWORD);
+var sendgrid	= require('sendgrid')("app29067833@heroku.com" || process.env.SENDGRID_USERNAME, "0o6xvuek" || process.env.SENDGRID_PASSWORD);
 
 var extend = function(o1, o2) {
 	var o = {};
@@ -68,7 +68,7 @@ module.exports = function(app) {
 		render(req, res, "learn", "Learn - EasyCTF 2014");
 	});
 
-	/***   ***/
+	/***	 ***/
 
 	app.get("/edit", function(req, res) {
 		logged(req, res, function(L) {
@@ -578,11 +578,11 @@ module.exports = function(app) {
 					result.message += "</ul>";
 				} else {
 					sendgrid.send({
-						to:	   req.param("email"),
+						to:		 req.param("email"),
 						from:	 'michael@easyctf.com',
 						fromname: "Michael Zhang",
 						replyto: "failed.down@gmail.com",
-						subject:  'Welcome to EasyCTF!',
+						subject:	'Welcome to EasyCTF!',
 						text:	 'Thanks for participating in EasyCTF 2014! '
 					}, function(err, json) {
 						if (err) { return console.error(err); }
@@ -682,11 +682,11 @@ module.exports = function(app) {
 							// console.dir(d);
 							result.ret = 1;
 							sendgrid.send({
-								to:	   req.param("email"),
+								to:		 req.param("email"),
 								from:	 'michael@easyctf.com',
 								fromname: "Michael Zhang",
 								replyto: "failed.down@gmail.com",
-								subject:  'Password reset requested.',
+								subject:	'Password reset requested.',
 								html:	 '<p>Hey there</p><p>Someone (hopefully you) requested to change the password for the account with the email ' + req.param('email') + '. Obviously, we\'ll be asking for verification of identity, so if you did in fact request this, follow this link: http://easyctf.com/forgot/' + code + "</p><p>Michael Zhang<br />EasyCTF</p>"
 							}, function(err, json) {
 								if (err) {

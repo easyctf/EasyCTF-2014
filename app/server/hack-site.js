@@ -95,6 +95,7 @@ module.exports = function(app) {
   });
 
   app.post(["/sites/what", "/sites/what/", "/sites/what/index.php"], function(req, res) {
+  	console.dir(req.files);
   	
   	res.render("sites/what/index");
   });

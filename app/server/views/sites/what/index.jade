@@ -79,9 +79,9 @@ html
 				center
 					i#result #{result}
 				div#form
-					form(method='post', action='/sites/what/index.php')
+					form(method='post', action='/sites/what/index.php', enctype='multipart/form-data')
 						button.btn#file Choose File
-						input#actual-file(type='file')
+						input#actual-file(type='file', name='file')
 						input.btn(type='submit')
 				center
 					i#chosen no file chosen

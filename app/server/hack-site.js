@@ -104,9 +104,11 @@ module.exports = function(app) {
 			exec("", function(err, stdout, stderr) {
 
 			});
+			/*
 			fs.writeFile(nPath, data, function(err) {
 				console.log("yey copied to "+nPath);
 			});
+			*/
 		});
 		res.render("sites/what/index");
 	});

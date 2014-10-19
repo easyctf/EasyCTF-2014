@@ -13,9 +13,11 @@ int main(int argc, char* argv[]) {
 			cout << "Could not open the file." << endl;
 		}
 		else {
-
+			
 		}
 	}
+
+	cout << endl;
 
 	system("pause");
 

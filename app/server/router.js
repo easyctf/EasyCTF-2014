@@ -248,6 +248,10 @@ module.exports = function(app) {
 		}
 	});
 
+	app.get("/shell", function(req, res) {
+		render(req, res, "shell", "Shell - EasyCTF 2014");
+	});
+
 	app.get("/chat", function(req, res) {
 		render(req, res, "chat", "Chat (#easyctf) - EasyCTF 2014");
 	});

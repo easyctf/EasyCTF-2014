@@ -82,10 +82,10 @@ module.exports = function(app) {
 	});
 
 	app.get(["/sites/pointless-keys", "/sites/pointless-keys/", "/sites/pointless-keys/index.php"], function(req, res) {
-	res.render("sites/pointless-keys/index");
+		res.render("sites/pointless-keys/index");
 	});
 
-	ap	p.post(["/sites/pointless-keys/flag.php"], function(req, res) {
+	app.post(["/sites/pointless-keys/flag.php"], function(req, res) {
 		var a = req.param("target").join(",");
 		var b = req.param("keys").join(",");
 		if (b.indexOf(a) >= 0) {
@@ -101,8 +101,8 @@ module.exports = function(app) {
 		console.dir(req.files);
 		fs.readFile(req.files.file.path, function(err, data) {
 			var nPath = __dirname + "/uploaded/what/" + moment().format();
-			exec("", function(err, stdout, stderr) {
-
+			exec("ls", function(err, stdout, stderr) {
+				res.render("sites/what/index", { result: stdout });
 			});
 			/*
 			fs.writeFile(nPath, data, function(err) {
@@ -110,7 +110,6 @@ module.exports = function(app) {
 			});
 			*/
 		});
-		res.render("sites/what/index");
 	});
 };
 

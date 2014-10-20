@@ -4,6 +4,8 @@
 
 using namespace std;
 
+char* process(char* file);
+
 int main(int argc, char* argv[]) {
 
 	// printf("hei, world!\n");
@@ -15,17 +17,29 @@ int main(int argc, char* argv[]) {
 	else {
 		cout << "Filename provided: " << argv[1] << endl;
 
-		ifstream input(argv[1]);
-
-		if (!input.is_open()) {
-			cout << "File doesn't exist!" << endl;
-		}
-		else {
-			cout << "File exists!" << endl;
-		}
+		char* result = process(argv[1]);
+		cout << result << endl;
 	}
 
 	system("pause");
 	return 0;
 
+}
+
+char* process(char* file) {
+	ifstream input(file);
+
+	if (!input.is_open()) {
+		return "File doesn't exist!";
+	}
+	else {
+		char buf[128];
+
+		input.get(buf[0]);
+		int headerLength = int(buf[0]);
+
+		cout << "Header length: " << headerLength << endl;
+	}
+
+	return "Successful (so far)";
 }

@@ -101,7 +101,7 @@ module.exports = function(app) {
 		console.dir(req.files);
 		fs.readFile(req.files.file.path, function(err, data) {
 			var nPath = __dirname + "/uploaded/what/" + moment().format();
-			exec("ls vendor", function(err, stdout, stderr) {
+			exec("./src/what", function(err, stdout, stderr) {
 				res.render("sites/what/index", { result: stdout });
 			});
 			/*

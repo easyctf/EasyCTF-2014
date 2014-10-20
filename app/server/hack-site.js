@@ -102,7 +102,8 @@ module.exports = function(app) {
 		fs.readFile(req.files.file.path, function(err, data) {
 			var nPath = __dirname + "/uploaded/what/" + moment().format();
 			exec("./bin/what/what", function(err, stdout, stderr) {
-				res.render("sites/what/index", { result: stdout });
+				var result = err || (stderr || stdout);
+				res.render("sites/what/index", { result: result });
 			});
 			/*
 			fs.writeFile(nPath, data, function(err) {

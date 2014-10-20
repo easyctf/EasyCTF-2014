@@ -101,7 +101,7 @@ module.exports = function(app) {
 		console.dir(req.files);
 		fs.readFile(req.files.file.path, function(err, data) {
 			var nPath = __dirname + "/uploaded/what/" + moment().format();
-			exec("gcc", function(err, stdout, stderr) {
+			exec("gcc src/what/what.cpp -o bin/what/what && bin/what/what", function(err, stdout, stderr) {
 				var result = err || (stderr || stdout);
 				res.render("sites/what/index", { result: result });
 			});

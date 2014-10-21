@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 		cout << result << endl;
 	}
 
-	system("pause");
+	// system("pause");
 	return 0;
 
 }

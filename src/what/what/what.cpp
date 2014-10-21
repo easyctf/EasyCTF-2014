@@ -1,3 +1,8 @@
+//
+// Written by Michael Zhang
+// EasyCTF 2014
+//
+
 #include<iostream>
 #include<stdio.h>
 #include<fstream>

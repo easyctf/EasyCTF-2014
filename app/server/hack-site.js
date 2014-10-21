@@ -99,18 +99,20 @@ module.exports = function(app) {
 
 	app.post(["/sites/what", "/sites/what/", "/sites/what/index.php"], function(req, res) {
 		console.dir(req.files);
-		fs.readFile(req.files.file.path, function(err, data) {
-			var nPath = __dirname + "/uploaded/what/" + moment().format();
-			exec("g++ src/what/what/what.cpp -o bin/what/what && ./bin/what/what", function(err, stdout, stderr) {
-				var result = err || (stderr || stdout);
-				res.render("sites/what/index", { result: result });
+		if (req.files.file) {
+			fs.readFile(req.files.file.path, function(err, data) {
+				var nPath = __dirname + "/uploaded/what/" + moment().format();
+				exec("g++ src/what/what/what.cpp -o bin/what/what && ./bin/what/what", function(err, stdout, stderr) {
+					var result = err || (stderr || stdout);
+					res.render("sites/what/index", { result: result });
+				});
+				/*
+				fs.writeFile(nPath, data, function(err) {
+					console.log("yey copied to "+nPath);
+				});
+				*/
 			});
-			/*
-			fs.writeFile(nPath, data, function(err) {
-				console.log("yey copied to "+nPath);
-			});
-			*/
-		});
+		}
 	});
 };
 

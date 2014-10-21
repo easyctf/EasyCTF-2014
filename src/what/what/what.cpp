@@ -28,9 +28,11 @@ int main(int argc, char* argv[]) {
 
 char* process(char* file) {
 	ifstream input(file);
+	char* result;
 
 	if (!input.is_open()) {
-		return "File doesn't exist!";
+		strcpy(result, "File doesn't exist!");
+		return result;
 	}
 	else {
 		char buf[128];
@@ -44,5 +46,6 @@ char* process(char* file) {
 		
 	}
 
-	return "Successful (so far)";
+	strcpy(result, "Successful (so far)");
+	return result;
 }

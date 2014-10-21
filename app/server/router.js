@@ -1,7 +1,7 @@
 var MongoDB = require("mongodb").Db;
 var Server = require("mongodb").Server;
 var ObjectID = require("mongodb").ObjectID;
-var jsdom = require("jsdom");
+// var jsdom = require("jsdom");
 var moment = require("moment");
 var crypto = require("crypto");
 var sendgrid	= require('sendgrid')("app29067833@heroku.com" || process.env.SENDGRID_USERNAME, "0o6xvuek" || process.env.SENDGRID_PASSWORD);
@@ -846,6 +846,7 @@ var logged = function(req, res, callback) {
 	return false;
 };
 
+/*
 var decodeEntities = function(input, i, callback) {
 	jsdom.env(
 		'',
@@ -856,6 +857,7 @@ var decodeEntities = function(input, i, callback) {
 		}
 	);
 }
+*/
 
 var getUsers = function(callback) {
 	var query = db.collection("accounts").find().sort([['pointDisplay', -1]]);

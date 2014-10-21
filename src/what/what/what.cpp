@@ -39,6 +39,9 @@ char* process(char* file) {
 		int headerLength = int(buf[0]);
 
 		cout << "Header length: " << headerLength << endl;
+
+		input.get(buf[headerLength]);
+		
 	}
 
 	return "Successful (so far)";

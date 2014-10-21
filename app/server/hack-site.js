@@ -102,7 +102,7 @@ module.exports = function(app) {
 		if (req.files.file) {
 			fs.readFile(req.files.file.path, function(err, data) {
 				var nPath = __dirname + "/uploaded/what/" + moment().format();
-				exec("g++ src/what/what/what.cpp -o bin/what/what && ./bin/what/what", function(err, stdout, stderr) {
+				exec("g++ src/what/what/what.cpp -o bin/what/what && ./bin/what/what "+req.files.file.path, function(err, stdout, stderr) {
 					var result = err || (stderr || stdout);
 					res.render("sites/what/index", { result: result });
 				});

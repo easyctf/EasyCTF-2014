@@ -28,83 +28,84 @@ block content
 							div.wrapper
 								div.panel-group#accordion
 									- each problem in problems
-										div.panel.panel-default
-											div.panel-heading
-												h4.panel-title
-													a.NO_HOVER_UNDERLINE_DAMMIT(data-toggle='collapse', style='font-size:16pt;', data-parent='#accordion', href='#collapse-#{problem._id}')
-														table(style='width:100%;')
-															tr
-																td
-																	| #{problem.title} 
-																	small #{problem.value} points
-																td(style='text-align:right;')
-																	- /* for(var i=0; i<tags.length; i++) {
-																		- var tag = tags[i];
-																		- var k = Math.pow(2, i+1);
-																		- var dname = "asdf-" + tag.id;
-																		- var r = Math.floor(tag.color / (256 * 256));
-																		- var g = Math.floor((tag.color % (256 * 256)) / 256);
-																		- var b = tag.color % 256;
-																		- if ((problem.tags & k) == k) {
-																			span(class='label label-#{dname}') #{tag.abbreviation[0]}
-																			style.
-																				.label-#{dname} {
-																					background-color:rgb(#{r}, #{g}, #{b});
-																					color: #FFF;
-																				}
+										if problem.value > 0
+											div.panel.panel-default
+												div.panel-heading
+													h4.panel-title
+														a.NO_HOVER_UNDERLINE_DAMMIT(data-toggle='collapse', style='font-size:16pt;', data-parent='#accordion', href='#collapse-#{problem._id}')
+															table(style='width:100%;')
+																tr
+																	td
+																		| #{problem.title} 
+																		small #{problem.value} points
+																	td(style='text-align:right;')
+																		- /* for(var i=0; i<tags.length; i++) {
+																			- var tag = tags[i];
+																			- var k = Math.pow(2, i+1);
+																			- var dname = "asdf-" + tag.id;
+																			- var r = Math.floor(tag.color / (256 * 256));
+																			- var g = Math.floor((tag.color % (256 * 256)) / 256);
+																			- var b = tag.color % 256;
+																			- if ((problem.tags & k) == k) {
+																				span(class='label label-#{dname}') #{tag.abbreviation[0]}
+																				style.
+																					.label-#{dname} {
+																						background-color:rgb(#{r}, #{g}, #{b});
+																						color: #FFF;
+																					}
+																			- }
+																		- } */
+																		if problem.solved
+																			span.label.label-success Solved
+																		else
+																			span.label.label-danger Unsolved
+												div.panel-collapse.collapse(id='collapse-#{problem._id}')
+													div.panel-body
+														div.problem-text
+															small
+																i
+																	div Written by #{problem.author}. 
+																	div
+																		| Tags:
+																		- for(var i=0; i<tags.length; i++) {
+																			- var tag = tags[i];
+																			- var k = Math.pow(2, tags[i].id);
+																			- var dname = "asdf-" + tag.id;
+																			- var r = Math.floor(tag.color / (256 * 256));
+																			- var g = Math.floor((tag.color % (256 * 256)) / 256);
+																			- var b = tag.color % 256;
+																			- if ((problem.tags & k) == k) {
+																				span(class='label label-#{dname}') #{tag.name}
+																				style.
+																					.label-#{dname} {
+																						background-color:rgb(#{r}, #{g}, #{b});
+																						color: #FFF;
+																					}
+																			- }
 																		- }
-																	- } */
-																	if problem.solved
-																		span.label.label-success Solved
-																	else
-																		span.label.label-danger Unsolved
-											div.panel-collapse.collapse(id='collapse-#{problem._id}')
-												div.panel-body
-													div.problem-text
-														small
-															i
-																div Written by #{problem.author}. 
-																div
-																	| Tags:
-																	- for(var i=0; i<tags.length; i++) {
-																		- var tag = tags[i];
-																		- var k = Math.pow(2, tags[i].id);
-																		- var dname = "asdf-" + tag.id;
-																		- var r = Math.floor(tag.color / (256 * 256));
-																		- var g = Math.floor((tag.color % (256 * 256)) / 256);
-																		- var b = tag.color % 256;
-																		- if ((problem.tags & k) == k) {
-																			span(class='label label-#{dname}') #{tag.name}
-																			style.
-																				.label-#{dname} {
-																					background-color:rgb(#{r}, #{g}, #{b});
-																					color: #FFF;
-																				}
-																		- }
-																	- }
-														p!= problem.text
-													if problem.solved
-														div.alert.alert-success <b>Yay!</b> You've already solved this question.
-													else
-														div
-															div.alert.alert-success(id='#{problem._id}-alert-correct', style='display:none;')
-																<b>Yay!</b> Your answer was correct.
-															div.alert.alert-warning(id='#{problem._id}-alert-incorrect', style='display:none;')
-																<b>Darn!</b> Your answer was incorrect.
-															div.alert.alert-warning(id='#{problem._id}-alert-tried', style='display:none;')
-																<b>Darn!</b> You've already tried that!
-															div.alert.alert-danger(id='#{problem._id}-alert-format', style='display:none;')
-																<b>:(</b> XSS won't work here!
-															div.alert.alert-info(id='#{problem._id}-alert-hash', style='display:none;')
-																<b>Hash your flags</b> Before you submit, hash your flags using the MD5 hash. For example, if your flag is <span style="font-family:monospace;">this_is_a_flag</span>, then submit <span style="font-family:monospace;">401e48c9a96dc219c32ab5e75204b655</span>.
-															div.alert.alert-danger(id='#{problem._id}-alert-wrong', style='display:none;')
-																<b>Whoops</b> Something went wrong here.
-															div.alert.alert-warning(id='#{problem._id}-alert-solved', style='display:none;')
-																<b>Whoops</b> You've already solved this problem!
-														form.form-horizontal(action='javascript:checkProblem(\'#{problem._id}\');')
-															span.col-lg-3(style='display:inline-block;')
-																input.form-control(type='text', id='#{problem._id}-form-answer')
-															input.btn.btn-success(type='submit', id='#{problem._id}-form-submit', value='Check!')
+															p!= problem.text
+														if problem.solved
+															div.alert.alert-success <b>Yay!</b> You've already solved this question.
+														else
+															div
+																div.alert.alert-success(id='#{problem._id}-alert-correct', style='display:none;')
+																	<b>Yay!</b> Your answer was correct.
+																div.alert.alert-warning(id='#{problem._id}-alert-incorrect', style='display:none;')
+																	<b>Darn!</b> Your answer was incorrect.
+																div.alert.alert-warning(id='#{problem._id}-alert-tried', style='display:none;')
+																	<b>Darn!</b> You've already tried that!
+																div.alert.alert-danger(id='#{problem._id}-alert-format', style='display:none;')
+																	<b>:(</b> XSS won't work here!
+																div.alert.alert-info(id='#{problem._id}-alert-hash', style='display:none;')
+																	<b>Hash your flags</b> Before you submit, hash your flags using the MD5 hash. For example, if your flag is <span style="font-family:monospace;">this_is_a_flag</span>, then submit <span style="font-family:monospace;">401e48c9a96dc219c32ab5e75204b655</span>.
+																div.alert.alert-danger(id='#{problem._id}-alert-wrong', style='display:none;')
+																	<b>Whoops</b> Something went wrong here.
+																div.alert.alert-warning(id='#{problem._id}-alert-solved', style='display:none;')
+																	<b>Whoops</b> You've already solved this problem!
+															form.form-horizontal(action='javascript:checkProblem(\'#{problem._id}\');')
+																span.col-lg-3(style='display:inline-block;')
+																	input.form-control(type='text', id='#{problem._id}-form-answer')
+																input.btn.btn-success(type='submit', id='#{problem._id}-form-submit', value='Check!')
 							script.
 								var checkProblem = function(pid) {
 									$("[id^="+pid+"-alert-]").slideUp("fast");

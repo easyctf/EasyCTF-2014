@@ -1,0 +1,302 @@
+extends layout
+
+block content
+	style.
+		.NO_HOVER_UNDERLINE_DAMMIT, .NO_HOVER_UNDERLINE_DAMMIT:hover, .NO_HOVER_UNDERLINE_DAMMIT:active {
+			text-decoration:none;
+		}
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					if logged
+						if group == 3
+							div(class='page-header')
+								h2 Edit Problems
+							div.wrapper
+								div.panel-group#accordion
+									div.panel.panel-default
+										div.panel-heading
+											a.NO_HOVER_UNDERLINE_DAMMIT(style='font-size:16pt;', data-toggle='collapse', data-parent='#accordion', href='#collapse-create')
+												table
+													tr
+														td
+															| Create a New Problem
+										div.panel-collapse.collapse#collapse-create
+											div.panel-body
+												form.form-horizontal(action='javascript:create_problem();')
+													table.table.table-striped(cellpadding='5')
+														tr
+															td
+																div
+																	label(for='create-title') Title
+																div
+																	small
+																		i Keep it short
+															td
+																input.form-control#create-title(type='text', autocomplete='off')
+														tr
+															td
+																div
+																	label(for='create-text') Problem Statement
+																div
+																	small
+																		i Use HTML formatting
+															td
+																textarea.form-control#create-text
+														tr
+															td
+																div
+																	label(for='create-answer') Answer
+																div
+																	small
+																		i Don't hash it
+															td
+																input.form-control#create-answer(type='text', autocomplete='off')
+														tr
+															td
+																div
+																	label(for='create-value') Value
+																div
+																	small
+																		i How much is this problem worth?
+															td
+																input.form-control#create-value(type='text', autocomplete='off')
+														tr
+															td(colspan='2')
+																- each tag in tags
+																	- var dname = "create-check-tag" + tag.id;
+																	- var r = Math.floor(tag.color / (256 * 256));
+																	- var g = Math.floor((tag.color % (256 * 256)) / 256);
+																	- var b = tag.color % 256;
+																	style.
+																		.label-#{dname} {
+																			background-color:rgb(#{r}, #{g}, #{b});
+																			color: #FFF;
+																		}
+																	input(type="checkbox", name="#{dname}", id="#{dname}")
+																	label(for="#{dname}", class="label label-#{dname} tag-c-label") #{tag.name}
+														tr
+															td
+															td(style='text-align:right;')
+																input(type='submit', id='create-submit', value='Create', class='btn btn-primary')
+												div#problem-created.alert.alert-success(style='display:none;')
+												div#problem-create-error.alert.alert-danger(style='display:none;')
+									div.panel.panel-default
+										div.panel-heading
+											a.NO_HOVER_UNDERLINE_DAMMIT(style='font-size:16pt;', data-toggle='collapse', data-parent='#accordion', href='#collapse-edit')
+												table
+													tr
+														td
+															| Edit an Existing Problem
+										div.panel-collapse.collapse#collapse-edit
+											div.panel-body
+												div#problem-select
+													ol
+														- each problem in problems
+															li
+																if problem.author == you
+																	a(href="javascript:edit_select('#{problem._id}');") #{problem.title}: #{problem.value}
+																else
+																	| #{problem.title}: #{problem.value}
+												div#edit-pane(style='display:none;')
+													p
+														a.btn.btn-default(href='javascript:return_to_problem_select()') Back
+													form.form-horizontal(action='javascript:edit_problem();')
+														table.table.table-striped(cellpadding='5')
+															tr
+																td
+																	div
+																		label(for='edit-title') Title
+																	div
+																		small
+																			i Keep it short
+																td
+																	input.form-control#edit-title(type='text', autocomplete='off')
+															tr
+																td
+																	div
+																		label(for='edit-text') Problem Statement
+																	div
+																		small
+																			i Use HTML formatting
+																td
+																	textarea.form-control#edit-text
+															tr
+																td
+																	div
+																		label(for='edit-answer') Answer
+																	div
+																		small
+																			i Don't hash it
+																td
+																	input.form-control#edit-answer(type='text', autocomplete='off')
+															tr
+																td
+																	div
+																		label(for='edit-value') Value
+																	div
+																		small
+																			i How much is this problem worth?
+																td
+																	input.form-control#edit-value(type='text', autocomplete='off')
+															tr
+																td(colspan='2')
+																	- each tag in tags
+																		- var dname = "edit-check-tag" + tag.id;
+																		- var r = Math.floor(tag.color / (256 * 256));
+																		- var g = Math.floor((tag.color % (256 * 256)) / 256);
+																		- var b = tag.color % 256;
+																		style.
+																			.label-#{dname} {
+																				background-color:rgb(#{r}, #{g}, #{b});
+																				color: #FFF;
+																			}
+																		input(type="checkbox", name="#{dname}", id="#{dname}")
+																		label(for="#{dname}", class="label label-#{dname} tag-label") #{tag.name}
+															tr
+																td
+																td(style='text-align:right;')
+																	input(type='submit', id='edit-submit', value='Edit', class='btn btn-primary')
+													div#problem-edited.alert.alert-success(style='display:none;')
+													div#problem-edit-error.alert.alert-danger(style='display:none;')
+									script.
+										var create_problem = function() {
+											$("[id^=problem-create]").slideUp("fast");
+											$("[id^=create-]").attr("disabled", "disabled");
+											CKEDITOR.instances['create-text'].setReadOnly(true);
+											var tagVal = 0;
+											var totalTags = $(".tag-c-label").length;
+											for(var i=0;i<totalTags;i++) {
+												var elem = $("#create-check-tag" + (i+1));
+												if (elem.is(":checked")) {
+													tagVal += Math.pow(2, (i+1));
+												}
+											}
+											$.ajax({
+												url: "/edit/create.ajax",
+												dataType:"json",
+												type: "POST",
+												data: {
+													pTitle: $("#create-title").val(),
+													pStatement: CKEDITOR.instances["create-text"].getData(),
+													pAnswer: $("#create-answer").val(),
+													pValue: $("#create-value").val(),
+													pTags: tagVal,
+												},
+												success: function(content) {
+													if (content.ret == 1) {
+														$("#problem-created").html("Problem was created!");
+														$("#problem-created").slideDown("fast");
+														setTimeout(function() {
+															window.location.reload(true);
+														}, 2000);
+													} else if (content.ret == 0) {
+														$("#problem-create-error").html(content.error);
+														$("#problem-create-error").slideDown("fast");
+														$("[id^=create-]").removeAttr("disabled");
+														CKEDITOR.instances['create-text'].setReadOnly(false);
+													}
+												},
+												error: function() {
+													$("#problem-create-error").html("Could not connect?");
+													$("#problem-create-error").slideDown("fast");
+													$("[id^=create-]").removeAttr("disabled");
+													CKEDITOR.instances['create-text'].setReadOnly(false);
+												}
+											});
+										};
+										var edit_selected = "";
+										var return_to_problem_select = function() {
+											$("#edit-pane").slideUp("fast");
+											$("#problem-select").slideDown("fast");
+										};
+										var edit_select = function(_id) {
+											var totalTags = $(".tag-label").length;
+											for(var i=0;i<totalTags;i++) {
+												$("#edit-check-tag" + (i+1)).removeAttr("checked");
+											}
+											edit_selected = _id;
+											$.ajax({
+												url:"/edit/retrieve.ajax",
+												type:"POST",
+												dataType:"json",
+												data: {
+													pID: _id,
+												},
+												success:function(content) {
+													if (content.ret == 1) {
+														$("#edit-title").val(content.title);
+														$("#edit-answer").val(content.answer);
+														CKEDITOR.instances['edit-text'].setData(content.text);
+														$("#edit-value").val(content.value);
+														var totalTags = $(".tag-label").length;
+														for(var i=0;i<totalTags;i++) {
+															var k = Math.pow(2, i + 1);
+															if ((content.tags & k) == k) {
+																$("#edit-check-tag" + (i+1)).attr("checked", "checked");
+															}
+														}
+														$("#problem-select").slideUp("fast");
+														$("#edit-pane").slideDown("fast");
+													}
+												}
+											});
+										};
+										var edit_problem = function() {
+											$("[id^=problem-edit]").slideUp("fast");
+											$("[id^=edit-]").attr("disabled", "disabled");
+											CKEDITOR.instances['edit-text'].setReadOnly(true);
+											var tagVal = 0;
+											var totalTags = $(".tag-label").length;
+											for(var i=0;i<totalTags;i++) {
+												var elem = $("#edit-check-tag" + (i+1));
+												if (elem.is(":checked")) {
+													tagVal += Math.pow(2, (i+1));
+												}
+											}
+											$.ajax({
+												url: "/edit/commit.ajax",
+												dataType:"json",
+												type: "POST",
+												data: {
+													pID: edit_selected,
+													pTitle: $("#edit-title").val(),
+													pStatement: CKEDITOR.instances["edit-text"].getData(),
+													pAnswer: $("#edit-answer").val(),
+													pValue: $("#edit-value").val(),
+													pTags: tagVal,
+												},
+												success: function(content) {
+													console.dir(content);
+													if (content.ret == 1) {
+														$("#problem-edited").html("Problem was updated!");
+														$("#problem-edited").slideDown("fast");
+														setTimeout(function() {
+															window.location.reload(true);
+														}, 2000);
+													} else if (content.ret == 0) {
+														$("#problem-edit-error").html(content.error);
+														$("#problem-edit-error").slideDown("fast");
+														$("[id^=edit-]").removeAttr("disabled");
+														CKEDITOR.instances['edit-text'].setReadOnly(false);
+													}
+												},
+												error: function() {
+													$("#problem-edit-error").html("Could not connect?");
+													$("#problem-edit-error").slideDown("fast");
+													$("[id^=edit-]").removeAttr("disabled");
+													CKEDITOR.instances['edit-text'].setReadOnly(false);
+												}
+											});
+										};
+							script(type='text/javascript', src='/lib/ckeditor/ckeditor.js')
+							script.
+								CKEDITOR.replace("create-text")
+								CKEDITOR.replace("edit-text")
+						else
+							div(class='alert alert-danger').
+								<b>Error:</b> You must be admin to view this page!
+					else
+						div(class='alert alert-danger').
+							<b>Error:</b> You must be logged in to view this page!

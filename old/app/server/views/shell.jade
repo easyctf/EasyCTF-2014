@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	script(src='/lib/shellinabox/shellinabox/shell_in_a_box.js')
+
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					div(class='page-header')
+						h2 Shell
+					div.jumbotron
+						center
+							iframe(width="840", height="480", style="border:1px solid #999;", src="https://98.206.22.165:4200/")

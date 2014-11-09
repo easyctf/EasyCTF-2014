@@ -1,0 +1,88 @@
+extends layout
+
+block content
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					div(class='page-header')
+						h2 Forgot your Password?
+					if logged
+						div(class='alert alert-info').
+							<b>LOL</b> You're already signed in, silly!
+					else
+						div(class='well col-lg-7')
+							div
+								form(class='form-horizontal', action='javascript:dispatch();')
+									fieldset
+										legend Enter the email you used to sign up.
+										div(class='form-group')
+											label(for='forgot-email' class='col-lg-3 control-label') Email
+											div(class='col-lg-8')
+												input(type='email', class='form-control', name='forgot-email', id='forgot-email', placeholder='Email', autofocus='on')
+										div(class='form-group')
+											label(class='col-lg-3 control-label')
+											div(class='col-lg-7')
+												button(class='btn btn-default', id='forgot-btn', onClick='javascript:dispatch(); return false;') Send Password Reset Email
+			script.
+				var dispatch = function() {
+					$("[id^=forgot-]").attr("disabled", "disabled");
+					$.ajax({
+						url: "/forgot.ajax",
+						dataType: "json",
+						data: {
+							email: $("#forgot-email").val()
+						},
+						type: "POST",
+						success: function(content) {
+							if (content.ret == 1) {
+								new PNotify({
+									title: "Check your email!",
+									text: "We've emailed further instructions to your email.",
+									type: "success",
+									hide: false,
+									sticker: false,
+									nonblock: {
+										nonblock: true,
+										nonblock_opacity: 0.25,
+									},
+								});
+							} else {
+								if (content.ret == -2) {
+									new PNotify({
+										title: "Hmmmm....",
+										text: "We didn't find your email in our database. Did you make any typos?",
+										type: "warning",
+										nonblock: {
+											nonblock: true,
+											nonblock_opacity: 0.25,
+										},
+									});
+								} else if (content.ret == -1) {
+									new PNotify({
+										title: "Dang it!",
+										text: "Try again after a few minutes. If that doesn't work, email us.",
+										type: "warning",
+										nonblock: {
+											nonblock: true,
+											nonblock_opacity: 0.25,
+										},
+									});
+								}
+								$("[id^=forgot-]").removeAttr("disabled");
+							}
+						},
+						error: function() {
+							new PNotify({
+								title: "Whoops",
+								text: "Something went wrong when trying to send a password-reset email.",
+								type: "error",
+								nonblock: {
+									nonblock: true,
+									nonblock_opacity: 0.25,
+								},
+							});
+							$("[id^=forgot-]").removeAttr("disabled");
+						}
+					});
+				};

@@ -1,0 +1,119 @@
+extends layout
+
+block content
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					div(class='page-header')
+						h2 Register for EasyCTF 2014
+					if logged
+						div(class='alert alert-info').
+							<b>LOL</b> You're already signed in, silly!
+					else
+						div(class='alert col-lg-7 alert-info').
+							Registration for <b>EasyCTF</b> is free! Sign up below <!--- and verify your email ---> to get started.
+						div(class='well col-lg-7')
+							div
+								form(class='form-horizontal', action='javascript:register();')
+									fieldset
+										legend Create a Team
+										div(class='form-group')
+											label(for='reg-email' class='col-lg-3 control-label') Email
+											div(class='col-lg-8')
+												input(type='email', class='form-control', name='email', id='reg-email', placeholder='Email', autofocus='true')
+										div(class='form-group')
+											label(for='reg-team-name' class='col-lg-3 control-label') Team Name
+											div(class='col-lg-8')
+												input(type='text', class='form-control', name='name', id='reg-team-name', placeholder='Team Name')
+										div(class='form-group')
+											label(for='reg-school' class='col-lg-3 control-label') School
+											div(class='col-lg-8')
+												input(type='text', class='form-control', name='school', id='reg-school', placeholder='School')
+										div(class='form-group')
+											label(for='reg-password' class='col-lg-3 control-label') Password
+											div(class='col-lg-8')
+												input(type='password', class='form-control', name='password', id='reg-password', placeholder='Password')
+										div(class='form-group')
+											label(class='col-lg-3 control-label')
+											div(class='col-lg-7')
+												button(class='btn btn-default', id='submit-btn', onclick='javascript:register(); return false;') Register!
+	script(type='text/javascript').
+		var register = function() {
+			$("#reg-email,#reg-password,#reg-school,#reg-team-name,#submit-btn").attr("disabled","disabled");
+
+			var errors = [];
+			if ($("#reg-team-name").val().length < 1) {
+				errors.push("Team name must not be empty.");
+			}
+			if ($("#reg-school").val().length < 1) {
+				errors.push("School name must not be empty.");
+			}
+			if ($("#reg-password").val().length < 6) {
+				errors.push("Password must be at least 6 characters long.");
+			}
+			if ($("#reg-email").val().length < 1) {
+				errors.push("Email must not be empty.");
+			}
+
+			if (errors.length == 0) {
+				$.ajax({
+					url: "/register",
+					data: {
+						email: $("#reg-email").val(),
+						name: $("#reg-team-name").val(),
+						school: $("#reg-school").val(),
+						password: $("#reg-password").val(),
+					},
+					type: "POST",
+					success: function(content) {
+						console.dir(content);
+						new PNotify({
+							title: "Register",
+							text: content.message,
+							type: content.errors.length == 0 ? "success" : "warning",
+							nonblock: {
+								nonblock: true,
+								nonblock_opacity: 0.25,
+							},
+						});
+						if (content.errors.length != 0) {
+							$("#reg-email,#reg-password,#reg-school,#reg-team-name,#submit-btn").removeAttr("disabled");
+						} else {
+							setTimeout(function() {
+								window.location.href = "login";
+							},2000);
+						}
+					},
+					error: function(content) {
+						new PNotify({
+							title: "Whoops",
+							text: "Something went wrong when trying to register.",
+							type: "error",
+							nonblock: {
+								nonblock: true,
+								nonblock_opacity: 0.25,
+							},
+						});
+						$("#reg-email,#reg-password,#reg-school,#reg-team-name,#submit-btn").removeAttr("disabled");
+					}
+				});
+			} else {
+				var message = "<p>You need to recheck the following items:</p><ul>";
+				for(var i=0;i<errors.length;i++) {
+					message += "<li>" + errors[i] + "</li>";
+				}
+				message += "</ul>";
+				new PNotify({
+					title: "Register",
+					text: message,
+					type: "warning",
+					nonblock: {
+						nonblock: true,
+						nonblock_opacity: 0.25,
+					},
+				});
+				$("#reg-email,#reg-password,#reg-school,#reg-team-name,#submit-btn").removeAttr("disabled");
+			}
+			return false;
+		}

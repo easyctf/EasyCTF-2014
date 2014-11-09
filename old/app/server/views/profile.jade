@@ -1,0 +1,58 @@
+extends layout
+
+block content
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					if team
+						div(class='page-header')
+							table(style='width:100%;')
+								tr
+									td
+										h1 <b>#{team.teamname}</b>
+									if (logged)
+										td(style='text-align:right;')
+											a(href='/settings') Account Settings &raquo;
+						div.wrapper.form-horizontal
+							div.page-header
+								h2 Profile
+							div.page-container.well
+								div.form-group
+									b.col-lg-2 Affiliation
+									p.col-lg-10 #{team.school}
+								if (logged && group == 3) && team._id.toString() === "5415e31e0bc226904ad900a4"
+									span.
+										<!-- http://goo.gl/hI7dzj -->
+							div.page-header
+								h2 Statistics
+							div.page-container.well
+								div.form-group
+									div.col-lg-2
+										b Total Score
+									div.col-lg-10 #{team.pointDisplay}
+								div.form-group
+									div.col-lg-2
+										b Rank
+									- var i = 0;
+									- var everyone = team.group == 3;
+									- each user in users
+										- if (everyone || user.group == 1)
+											- i += 1;
+										if (user._id.toString() == team._id.toString())
+											div.col-lg-10 #{i}
+											- break;
+							div.page-header
+								h2 Solves
+							div.page-container
+								table.table.table-striped.table-hover
+									thead
+										th Problem
+										th Points
+									- each problem in problems
+										tr
+											td #{problem.title}
+											td #{problem.value}
+					else
+						div(class='alert alert-danger').
+							<b>Error:</b> No profile found here.

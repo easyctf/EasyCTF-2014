@@ -1,0 +1,112 @@
+extends layout
+
+block content
+	div(class='wrapper')
+		div(class='main')
+			section(id='page1')
+				div(class='page-container')
+					div(class='page-header')
+						h2 Login to EasyCTF 2014
+					if logged
+						div(class='alert alert-info').
+							<b>LOL</b> You're already signed in, silly!
+					else
+						div(class='well col-lg-7')
+							div
+								form(class='form-horizontal', action='javascript:login();')
+									fieldset
+										legend Login
+										div(class='form-group')
+											label(for='log-email' class='col-lg-3 control-label') Email
+											div(class='col-lg-8')
+												input(type='email', class='form-control', name='log-email', id='log-email', placeholder='Email', autofocus='on')
+										div(class='form-group')
+											label(for='log-password' class='col-lg-3 control-label') Password
+											div(class='col-lg-8')
+												input(type='password', class='form-control', name='log-password', id='log-password', placeholder='Password')
+										div(class='form-group')
+											label(class='col-lg-3 control-label')
+											div(class='btn-group col-lg-3', data-toggle='buttons')
+												label(class='btn btn-primary')
+													input(type='checkbox', id='log-remember')
+													| Remember Me
+										div(class='form-group')
+											label(class='col-lg-3 control-label')
+											div(class='col-lg-7')
+												button(class='btn btn-default', id='submit-btn', onClick='javascript:login(); return false;') Login
+										div(class='form-group')
+											label(class='col-lg-3 control-label')
+											a(href='/forgot') Forgot Password
+	script(type='text/javascript').
+		var login = function() {
+			$("#log-email,#log-password,#log-remember,#submit-btn").attr("disabled","disabled");
+
+			var errors = [];
+
+			if ($("#log-password").val().length < 6) {
+				errors.push("Password must be at least 6 characters long.");
+			}
+			if ($("#log-email").val().length < 1) {
+				errors.push("Email must not be empty.");
+			}
+
+			if (errors.length == 0) {
+				$.ajax({
+					url: "/login",
+					dataType: "json",
+					data: {
+						email: $("#log-email").val(),
+						password: $("#log-password").val(),
+						remember: $("#log-remember").is(":checked"),
+					},
+					type: "POST",
+					success: function(content) {
+						console.dir(content);
+						new PNotify({
+							title: "Login",
+							text: content.message,
+							type: content.errors.length == 0 ? "success" : "warning",
+							nonblock: {
+								nonblock: true,
+								nonblock_opacity: 0.25,
+							},
+						});
+						if (content.errors.length != 0) {
+							$("#log-email,#log-password,#log-remember,#submit-btn").removeAttr("disabled");
+						} else {
+							setTimeout(function() {
+								window.location.href = "/";
+							},2000);
+						}
+					},
+					error: function(content) {
+						new PNotify({
+							title: "Whoops",
+							text: "Something went wrong when trying to login.",
+							type: "error",
+							nonblock: {
+								nonblock: true,
+								nonblock_opacity: 0.25,
+							},
+						});
+					}
+				});
+			} else {
+				var message = "<p>You need to recheck the following items:</p><ul>";
+				for(var i=0;i<errors.length;i++) {
+					message += "<li>" + errors[i] + "</li>";
+				}
+				message += "</ul>";
+				new PNotify({
+					title: "Login",
+					text: message,
+					type: "warning",
+					nonblock: {
+						nonblock: true,
+						nonblock_opacity: 0.25,
+					},
+				});
+				$("#log-email,#log-password,#log-remember,#submit-btn").removeAttr("disabled");
+			}
+			return false;
+		};

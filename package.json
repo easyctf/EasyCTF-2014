@@ -2,7 +2,7 @@
   "name": "easyctf",
   "private": true,
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "High school hacking contest",
   "keywords": [],
   "dependencies": {
     "sails": "~0.10.5",
@@ -30,8 +30,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/easyctf.git"
+    "url": "git://github.com/failedxyz/easyctf.git"
   },
-  "author": "anonymous node/sails user",
+  "author": "Michael Zhang",
   "license": ""
 }

@@ -60,7 +60,7 @@ function display_navbar () {
 		} else if (sessionStorage.signInStatus == "notLoggedIn") {
 			build_navbar(1);
 		} else if (sessionStorage.signInStatus == "apiFail") {
-			build_navbar(2);
+			// gg
 		} else {
 			build_navbar(1);
 		}
@@ -80,10 +80,11 @@ function display_navbar () {
 		}).fail(function() {
 			if (sessionStorage.signInStatus != "apiFail") {
 				sessionStorage.signInStatus = "apiFail";
-				build_navbar(2);
+				// gg
 				show_site_down_error();
 			}
 		});
+		build_navbar(2);
 	} else {
 		$.ajax({
 			type: "GET",
@@ -96,4 +97,14 @@ function display_navbar () {
 			show_site_down_error();
 		});
 	}
+}
+
+function load_footer() {
+	$.ajax({
+		type: "GET",
+		cache: false,
+		url: "dependencies/footer.html",
+	}).done(function(data) {
+		$("#footer").html(data);
+	});
 }

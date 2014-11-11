@@ -30,12 +30,15 @@
 		</nav>
 
 		<div class="container">
-			<div id="row">
-				<form>
+			<div class="row">
+				<div class="row">
+					<div id="login_msg"></div>
+				</div>
+				<form action="" onsubmit="return false;">
 					<div class="row">
 						<div class="large-12 columns">
 							<label>Team Name
-								<input name="teamname" id="log-team" type="text" placeholder="Team Name" />
+								<input name="teamname" id="log-team" type="text" placeholder="Team Name" autocomplete="off" />
 							</label>
 						</div>
 						<div class="large-12 columns">
@@ -66,6 +69,7 @@
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/foundation.min.js"></script>
 		<script type="text/javascript" src="js/dependencies.js"></script>
+		<script type="text/javascript" src="js/pnotify.min.js"></script>
 		<script type="text/javascript" src="js/login.js"></script>
 		<script type="text/javascript">
 			$(function() {

@@ -1,9 +1,9 @@
 var MongoDB = require("mongodb").Db;
 var Server = require("mongodb").Server;
 
-var db = new MongoDB("app29067833", new Server("kahana.mongohq.com", 10071, { auto_reconnect: true }), {w: 1});
+exports.db = new MongoDB("app29067833", new Server("kahana.mongohq.com", 10071, { auto_reconnect: true }), {w: 1});
 
-db.open(function(err, db) {
+exports.db.open(function(err, db) {
 	if (err) {
 		console.dir(err);
 	} else {
@@ -17,8 +17,6 @@ db.open(function(err, db) {
 		});
 	}
 });
-
-exports.db = db;
 
 exports.esc = function(s) {
 	return s.replace("&", "&amp;")

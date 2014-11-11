@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "crypto": "0.0.3",
     "express": "3.x",
     "mongodb": "^1.4.19",
     "stylus": "^0.49.3"

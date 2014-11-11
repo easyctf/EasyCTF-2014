@@ -2,7 +2,7 @@ var auth = require("./auth");
 
 module.exports = function(app) {
 	app.post("/api/login", function(req, res) {
-		res.send(auth.login(req));
+		auth.login(req, res);
 	});
 
 	app.get("/api/isloggedin", function(req, res) {

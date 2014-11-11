@@ -29,6 +29,8 @@ app.configure("development", function() {
 
 require("./api/api")(app);
 
+require("./router")(app);
+
 http.createServer(app).listen(app.get("port"), function() {
 	console.log("[app.js] listening...");
 });

@@ -1,4 +1,4 @@
-require("./common");
+var common = require("./common");
 
 exports.login = function(req) {
 	if ("tid" in req.session) {
@@ -29,6 +29,10 @@ exports.login = function(req) {
 			message: "STAHP!"
 		};
 	}
+	teamCurr = common.db.accounts.find({
+		username: teamname
+	});
+	console.dir(teamCurr);
 };
 
 exports.is_logged_in = function(req) {

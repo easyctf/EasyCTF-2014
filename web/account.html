@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+		<meta name="description" content="EasyCTF">
+		<meta name="author" content="Stevenson HS">
+
+		<title>Account - EasyCTF 2014</title>
+
+		<link rel="stylesheet" href="css/main.css" media="screen" />
+		<link rel="stylesheet" href="css/account.css" media="screen" />
+		<link rel="icon" href="img/easyctf.ico" media="screen" />
+	</head>
+	<body>
+		<nav class="top-bar" data-topbar role="navigation">
+			<ul class="title-area">
+				<li class="name">
+					<h1><a href="/">EasyCTF</a></h1>
+				</li>
+				<li class="toggle-topbar menu-icon"><a href="javscript:void();"><span>Menu</span></a></li>
+			</ul>
+
+			<section class="top-bar-section">
+				<ul class="right" id="nav-right">
+				</ul>
+
+				<ul class="left" id="nav-left">
+				</ul>
+			</section>
+		</nav>
+
+		<div class="container">
+			<div class="row">
+				<h1>Account Settings</h1>
+				<h3>Group Membership</h3>
+				<p>You are currently a member of the following groups. A red group name indicates that you are an owner of that group. The button at the end of the row allows you to leave a group.</p>
+				<div class="large-4" id="group_membership_table">
+					You are not a member of any groups.
+				</div>
+				<h3>Group Management</h3>
+				<div class="large-12 columns">
+					<label>Group
+						<input type="text" id="group_join_input" placeholder="Group" />
+					</label>
+				</div>
+				<div class="large-12 columns">
+					<button id="join-group-button" type="submit" class="button small">
+						Join
+					</button>
+					<button id="create-group-button" type="submit" class="button small">
+						Create
+					</button>
+				</div>
+				<h3>Change Password</h3>
+				<p>Not implemented yet.</p>
+			</div>
+
+			<div id="footer"></div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/foundation.min.js"></script>
+		<script type="text/javascript" src="js/dependencies.js"></script>
+		<script type="text/javascript" src="js/account.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				display_navbar();
+				redirect_if_not_logged_in();
+				load_group_memberships();
+				load_footer();
+			});
+		</script>
+	</body>
+</html>

@@ -108,3 +108,16 @@ function load_footer() {
 		$("#footer").html(data);
 	});
 }
+
+function redirect_if_not_logged_in() {
+    $.ajax({
+        type: "GET",
+        url: "/api/isloggedin",
+        cache: false
+    }).done(function (data) {
+		if (data['success'] == 0)
+			window.location.href = '/login';
+	}).fail(function () {
+	window.location.href = '/';
+	});
+}

@@ -1,0 +1,9 @@
+.owner {
+	color: red;
+}
+
+.close {
+	display: inline;
+	float: right;
+	cursor: pointer;
+}

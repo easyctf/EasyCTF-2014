@@ -1,6 +1,7 @@
 var account = require("./account");
 var auth = require("./auth");
 var scoreboard = require("./scoreboard");
+var group = require("./group");
 
 module.exports = function(app) {
 	app.get("/api", function(req, res) {
@@ -23,6 +24,10 @@ module.exports = function(app) {
 
 	app.post("/api/register", function(req, res) {
 		account.register_team(req, res);
+	});
+
+	app.get("/api/groups", function(req, res) {
+		group.get_group_membership(req.session.tid, res);
 	});
 
 	app.get("/api/scoreboards", function(req, res) {

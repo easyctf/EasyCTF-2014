@@ -26,19 +26,19 @@ function build_navbar (set) {
 	switch (set) {
 		case 0:
 			for(var i=0; i<tabsLI.length; i++) {
-				ohtml += "<li" + (window.location.href.indexOf(tabsLI[i][0]) != -1 ? " class='active'" : "")+" id='ts_"+tabsLI[i][0]+"'><a href='/"+tabsLI[i][0]+".html'>"+tabsLI[i][1]+"</a></li>";
+				ohtml += "<li" + (window.location.href.indexOf(tabsLI[i][0]) != -1 ? " class='active'" : "")+" id='ts_"+tabsLI[i][0]+"'><a href='/"+tabsLI[i][0]+"'>"+tabsLI[i][1]+"</a></li>";
 			}
 			$("#nav-right")[0].innerHTML = ohtml;
 			break;
 		case 1:
 			for(var i=0; i<tabsNLI.length; i++) {
-				ohtml += "<li" + (window.location.href.indexOf(tabsNLI[i][0]) != -1 ? " class='active'" : "")+" id='ts_"+tabsNLI[i][0]+"'><a href='/"+tabsNLI[i][0]+".html'>"+tabsNLI[i][1]+"</a></li>";
+				ohtml += "<li" + (window.location.href.indexOf(tabsNLI[i][0]) != -1 ? " class='active'" : "")+" id='ts_"+tabsNLI[i][0]+"'><a href='/"+tabsNLI[i][0]+"'>"+tabsNLI[i][1]+"</a></li>";
 			}
 			$("#nav-right")[0].innerHTML = ohtml;
 			break;
 		case 2:
 			for(var i=0; i<tabsBoth.length; i++) {
-				ohtml += "<li" + (window.location.href.indexOf(tabsBoth[i][0]) != -1 ? " class='active'" : "")+" id='ts_"+tabsBoth[i][0]+"'><a href='/"+tabsBoth[i][0]+".html'>"+tabsBoth[i][1]+"</a></li>";
+				ohtml += "<li" + (window.location.href.indexOf(tabsBoth[i][0]) != -1 ? " class='active'" : "")+" id='ts_"+tabsBoth[i][0]+"'><a href='/"+tabsBoth[i][0]+"'>"+tabsBoth[i][1]+"</a></li>";
 			}
 			$("#nav-left")[0].innerHTML = ohtml;
 			break;

@@ -106,7 +106,7 @@ exports.login = function(req, res) {
 exports.logout = function(req) {
 	if ("tid" in req.session) {
 		req.session.destroy();
-		res.session = null;
+		req.session = null;
 		return {
 			success: 1,
 			message: "Successfully logged out!"

@@ -22,7 +22,6 @@
 			field = ref[i];
 			post[field] = $("#reg-" + field).val();
 		}
-		console.dir(post);
 		return post;
 	};
 
@@ -51,18 +50,19 @@
 				} else if (data['status'] === 2) {
 					alert_class = "warning";
 				}
-				$("#register_msg").hide().html("<div class=\"alert-box " + alert_class + "\"> " + data['message'] + " </div>").slideDown("normal");
-				return setTimeout(function() {
-					return $("#register_msg").slideUp("normal", function() {
-						return $("#register_msg").html("").show();
-					});
-				}, 2000);
 
 				if (data['status'] === 2) {
 					$("#register-button").fadeOut("fast", function() {
 						return $("#join-button").fadeIn("fast");
 					});
 				}
+
+				$("#register_msg").hide().html("<div class=\"alert-box " + alert_class + "\"> " + data['message'] + " </div>").slideDown("normal");
+				return setTimeout(function() {
+					return $("#register_msg").slideUp("normal", function() {
+						return $("#register_msg").html("").show();
+					});
+				}, 2000);
 			});
 		});
 		$("#create_group_link").click(function(event) {

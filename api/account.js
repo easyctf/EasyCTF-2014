@@ -47,7 +47,7 @@ exports.register_team = function(req, res) {
 					email: email.toString(),
 					teamname: teamname.toString(),
 					school: school.toString(),
-					pwhash: common.saltAndHashSync(pwd.toString()),
+					pass: common.saltAndHashSync(pwd.toString()),
 					group: 1
 				}, { w: 1 }, function(err, doc) {
 					console.dir(doc);

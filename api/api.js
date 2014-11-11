@@ -1,4 +1,5 @@
 var auth = require("./auth");
+var scoreboard = require("./scoreboard");
 
 module.exports = function(app) {
 	app.post("/api/login", function(req, res) {
@@ -11,5 +12,10 @@ module.exports = function(app) {
 
 	app.get("/api/isloggedin", function(req, res) {
 		res.send(auth.is_logged_in(req));
+	});
+
+	app.get("/api/scoreboards", function(req, res) {
+		var scoreboards = [scoreboard.get_public_scoreboard()];
+		return scoreboards;
 	});
 };

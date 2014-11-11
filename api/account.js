@@ -30,11 +30,15 @@ exports.register_team = function(req, res) {
 			});
 			return;
 		} else {
-			if (gname && joingroup && joingroup != 'true' && gname != '') {
+			console.log(gname);
+			console.log(joingroup);
+			if (gname != undefined && gname != "" && (joingroup == undefined || (joingroup != undefined && joingroup != "true"))) {
+				console.log("[api/account.js] checking for existing group");
 				common.db.collection("groups").find({
-					name: gname.toLowerCase()
+					name: gname
 				}).count(function(err, count2) {
 					if (count2 != 0) {
+						console.log("[api/account.js] group exists.");
 						res.send({
 							status: 2,
 							message: "The group name you have entered exists, would you like to join it?"
@@ -43,6 +47,7 @@ exports.register_team = function(req, res) {
 					}
 				});
 			} else {
+				console.log("[api/account.js] inserting into db");
 				common.db.collection("accounts").insert({
 					email: email.toString(),
 					teamname: teamname.toString(),
@@ -51,6 +56,7 @@ exports.register_team = function(req, res) {
 					group: 1
 				}, { w: 1 }, function(err, doc) {
 					console.dir(doc);
+					console.log("[api/account.js] inserted.");
 					var id = doc[0]._id.toString();
 					if (!gname || gname == "") {
 						res.send({
@@ -60,13 +66,13 @@ exports.register_team = function(req, res) {
 						return;
 					} else {
 						if (joingroup && joingroup == 'true') {
-							db.collection("groups").find({
+							common.db.collection("groups").find({
 								name: gname
 							}).count(function(err, count) {
 								if (count == 0) {
 									group.create_group(id, gname, res);
 								} else {
-									db.collection("groups").update({
+									common.db.collection("groups").update({
 										name: gname
 									}, {
 										$push: {

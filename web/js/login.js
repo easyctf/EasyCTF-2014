@@ -15,7 +15,7 @@
 				if (typeof Storage !== undefined) {
 					sessionStorage.signInStatus = "notLoggedIn";
 				}
-				if (data['success'] === 0) {
+				if (data['success'] == 0) {
 					alert_class = "error";
 				} else {
 					alert_class = "info";
@@ -32,6 +32,8 @@
 				}
 				return document.location.href = "compete";
 			}
+		}).fail(function(data) {
+			
 		});
 	};
 }).call(this);

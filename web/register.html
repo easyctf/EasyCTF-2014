@@ -31,33 +31,43 @@
 
 		<div class="container">
 			<div class="row">
-				<h1>Login</h1>
+				<h1>Register for EasyCTF 2014</h1>
 				<div class="row">
-					<div id="login_msg"></div>
+					<div id="register_msg"></div>
 				</div>
 				<form action="" onsubmit="return false;">
 					<div class="row">
 						<div class="large-12 columns">
+							<label>Email
+								<input name="email" id="reg-email" type="email" placeholder="Email" autocomplete="off" />
+							</label>
+						</div>
+						<div class="large-12 columns">
 							<label>Team Name
-								<input name="teamname" id="log-team" type="text" placeholder="Team Name" autocomplete="off" />
+								<input name="teamname" id="reg-team" type="text" placeholder="Team Name" autocomplete="off" />
+							</label>
+						</div>
+						<div class="large-12 columns">
+							<label>School
+								<input name="school" id="reg-school" type="text" placeholder="School" autocomplete="off" />
 							</label>
 						</div>
 						<div class="large-12 columns">
 							<label>Password
-								<input name="password" id="log-pass" type="password" placeholder="Password" />
+								<input name="password" id="reg-pass" type="password" placeholder="Password" />
 							</label>
 						</div>
 						<div class="large-12 columns">
-							<button id="login-button" type="submit" onclick="handle_login();" class="button">
-								Login
+							<button id="register-button" type="submit" class="button">
+								Register
 							</button>
-							<button id="forgot-button" onclick="handle_forgot_password_subit();" class="button">
-								Forgot Password
+							<button id="join-button" class="button" style="display: none;">
+								Join
 							</button>
 						</div>
 						<div id="forgot_teaname_link">
-							<a href="teamnamelookup.html">
-								I forgot my team name.
+							<a href="#">
+								Create a group of teams.
 							</a>
 						</div>
 					</div>
@@ -71,7 +81,7 @@
 		<script type="text/javascript" src="js/foundation.min.js"></script>
 		<script type="text/javascript" src="js/dependencies.js"></script>
 		<script type="text/javascript" src="js/pnotify.min.js"></script>
-		<script type="text/javascript" src="js/login.js"></script>
+		<script type="text/javascript" src="js/register.js"></script>
 		<script type="text/javascript">
 			$(function() {
 				display_navbar();

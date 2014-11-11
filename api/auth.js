@@ -67,10 +67,7 @@ exports.login = function(req, res) {
 				return;
 			}
 
-			console.dir(currArray);
 			var checkTeam = currArray[0];
-			console.dir(checkTeam);
-			console.log("--------------------------");
 			var pwHash = checkTeam.pass;
 
 			if (validatePassword(password, pwHash)) {
@@ -88,7 +85,7 @@ exports.login = function(req, res) {
 							tid: checkTeam._id.toString()
 						}
 					}, function() {
-						
+
 					});
 				}
 				res.send({

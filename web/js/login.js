@@ -10,7 +10,6 @@
 				password: $("#log-pass").val()
 			}
 		}).done(function(data) {
-			console.dir(data);
 			var alert_class;
 			if (data['success'] === 0 || data['success'] === 2) {
 				if (typeof Storage !== undefined) {

@@ -5,6 +5,10 @@ module.exports = function(app) {
 		auth.login(req, res);
 	});
 
+	app.get("/api/logout", function(req, res) {
+		res.send(auth.logout(req));
+	});
+
 	app.get("/api/isloggedin", function(req, res) {
 		res.send(auth.is_logged_in(req));
 	});

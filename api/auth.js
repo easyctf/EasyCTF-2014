@@ -103,6 +103,22 @@ exports.login = function(req, res) {
 	});
 };
 
+exports.logout = function(req) {
+	if ("tid" in req.session) {
+		req.session.destroy();
+		res.session = null;
+		return {
+			success: 1,
+			message: "Successfully logged out!"
+		}
+	} else {
+		return {
+			success: 0,
+			message: "You do not appear to be logged in."
+		}
+	}
+};
+
 exports.is_logged_in = function(req) {
 	if ("tid" in req.session) {
 		return {

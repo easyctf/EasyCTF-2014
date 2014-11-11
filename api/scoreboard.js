@@ -14,7 +14,9 @@ exports.get_public_scoreboard = function() {
 };
 
 var generate_scoreboard_page = function() {
-	common.db.collection("accounts").find({}).toArray(function(err, data) {
+	common.db.collection("accounts").find({
+		group: 1
+	}).sort([[ 'pointDisplay', -1 ]]).toArray(function(err, data) {
 		if (err) {
 			console.log("[api/scoreboard.js] something went wrong");
 		} else {

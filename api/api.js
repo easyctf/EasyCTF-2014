@@ -16,6 +16,6 @@ module.exports = function(app) {
 
 	app.get("/api/scoreboards", function(req, res) {
 		var scoreboards = [scoreboard.get_public_scoreboard()];
-		return scoreboards;
+		res.send(scoreboards);
 	});
 };

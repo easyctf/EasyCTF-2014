@@ -70,7 +70,7 @@ exports.login = function(req, res) {
 			var checkTeam = currArray[0];
 			var pwHash = checkTeam.pass;
 
-			if (validatePassword(password, pwHash)) {
+			if (common.validatePassword(password, pwHash)) {
 				if (debug_disable_general_login) {
 
 				}
@@ -131,29 +131,4 @@ exports.is_logged_in = function(req) {
 			message: "You do not appear to be logged in."
 		};
 	}
-};
-
-var validatePassword = function(plain, hashed) {
-	var salt = hashed.substr(0, 16);
-	var valid = salt + md5(plain + salt);
-	return hashed === valid;
-};
-
-var generateSalt = function() {
-	var set = "0123456789abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ";
-	var salt = "";
-	for(var i=0; i<16; i++) {
-		var p = Math.floor(Math.random() * set.length);
-		salt += set[p];
-	}
-	return salt;
-};
-
-var md5 = function(str) {
-	return crypto.createHash('md5').update(str).digest('hex');
-};
-
-var saltAndHash = function(pass, callback) {
-	var salt = generateSalt();
-	callback(salt + md5(pass + salt));
 };

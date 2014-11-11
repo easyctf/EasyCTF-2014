@@ -1,5 +1,5 @@
 (function() {
-	var fields == ["email", "team", "school", "pass"];
+	var fields = ["email", "team", "school", "pass"];
 
 	var clear = function() {
 		var field, i, len, ref;
@@ -22,6 +22,8 @@
 			field = ref[i];
 			post[field] = $("#reg-" + field).val();
 		}
+		console.dir(post);
+		return post;
 	};
 
 	$(document).ready(function() {
@@ -41,9 +43,55 @@
 				data: post,
 			}).done(function(data) {
 				var field, i, len, ref, results;
+				var alert_class = "";
 				if (data['status'] === 0) {
-					
+					alert_class = "alert";
+				} else if (data['status'] === 1) {
+					alert_class = "success";
+				} else if (data['status'] === 2) {
+					alert_class = "warning";
 				}
+				$("#register_msg").hide().html("<div class=\"alert-box " + alert_class + "\"> " + data['message'] + " </div>").slideDown("normal");
+				return setTimeout(function() {
+					return $("#register_msg").slideUp("normal", function() {
+						return $("#register_msg").html("").show();
+					});
+				}, 2000);
+
+				if (data['status'] === 2) {
+					$("#register-button").fadeOut("fast", function() {
+						return $("#join-button").fadeIn("fast");
+					});
+				}
+			});
+		});
+		$("#create_group_link").click(function(event) {
+			event.preventDefault();
+			return $("#reg_group_vis_toggle").slideDown("fast");
+		});
+		$("#join-button").click(function(event) {
+			event.preventDefault();
+			var post = getRegData();
+			post['joingroup'] = 'true';
+			$.ajax({
+				type: "POST",
+				url: "/api/register",
+				dataType: "json",
+				data: post
+			}).done(function(data) {
+				var alert_class;
+				if (data['status'] === 0) {
+					alert_class = 'alert';
+				} else if (data['status'] === 1) {
+					alert_class = 'success';
+				}
+
+				$("#register_msg").hide().html("<div class=\"alert-box " + alert_class + "\"> " + data['message'] + " </div>").slideDown("normal");
+				return setTimeout(function() {
+					return $("#register_msg").slideUp("normal", function() {
+						return $("#register_msg").html("").show();
+					});
+				}, 2000);
 			});
 		});
 	});

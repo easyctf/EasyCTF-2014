@@ -22,7 +22,7 @@ module.exports = function(app) {
 	});
 
 	app.post("/api/register", function(req, res) {
-		auth.register(req, res);
+		account.register_team(req, res);
 	});
 
 	app.get("/api/scoreboards", function(req, res) {

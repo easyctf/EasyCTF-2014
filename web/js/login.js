@@ -16,7 +16,7 @@
 					sessionStorage.signInStatus = "notLoggedIn";
 				}
 				if (data['success'] == 0) {
-					alert_class = "error";
+					alert_class = "alert";
 				} else {
 					alert_class = "info";
 				}

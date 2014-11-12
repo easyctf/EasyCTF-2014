@@ -53,7 +53,8 @@ exports.register_team = function(req, res) {
 					teamname: teamname.toString(),
 					school: school.toString(),
 					pass: common.saltAndHashSync(pwd.toString()),
-					group: 1
+					group: 1,
+					pointDisplay: 0,
 				}, { w: 1 }, function(err, doc) {
 					console.dir(doc);
 					console.log("[api/account.js] inserted.");

@@ -1,6 +1,9 @@
 var MongoDB = require("mongodb").Db;
 var Server = require("mongodb").Server;
 var crypto = require("crypto");
+var moment = require("moment");
+
+exports.startDate = moment("2014-11-29 11:00:00");
 
 exports.db = new MongoDB("app29067833", new Server("kahana.mongohq.com", 10071, { auto_reconnect: true }), {w: 1});
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+		<meta name="description" content="EasyCTF">
+		<meta name="author" content="Stevenson HS">
+
+		<title>Problems - EasyCTF 2014</title>
+
+		<link rel="stylesheet" href="css/main.css" media="screen" />
+		<link rel="icon" href="img/easyctf.ico" media="screen" />
+	</head>
+	<body>
+		<nav class="top-bar" data-topbar role="navigation">
+			<ul class="title-area">
+				<li class="name">
+					<h1><a href="/">EasyCTF</a></h1>
+				</li>
+				<li class="toggle-topbar menu-icon"><a href="javscript:void();"><span>Menu</span></a></li>
+			</ul>
+
+			<section class="top-bar-section">
+				<ul class="right" id="nav-right">
+				</ul>
+
+				<ul class="left" id="nav-left">
+				</ul>
+			</section>
+		</nav>
+
+		<div class="container">
+			<div class="row">
+				<div>
+					<h1 style="text-align:center; font-size:96pt;">EasyCTF 2014</h1>
+				</div>
+			</div>
+
+			<div id="footer"></div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/foundation.min.js"></script>
+		<script type="text/javascript" src="js/dependencies.js"></script>
+		<script type="text/javascript" src="js/problems.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				display_navbar();
+				redirect_if_not_logged_in();
+				load_problems();
+				load_footer();
+			});
+		</script>
+	</body>
+</html>

@@ -14,11 +14,9 @@ def gen_name():
 
 for i in range(1500):
 	name = gen_name();
+	pwd = str(randint(1000000, 10000000));
 
-	s = "useradd ";
-	s += "-p " + str(randint(1000000, 10000000)) + " ";
-	s += "-m ";
-	s += name;
+	s = name + ":" + pwd + ":" + ":" + "easyctf_users" + ":" + name + ":" + "/home_users/" + name + ":" + "/bin/bash";
 
 	file.write("%s\n"%s);
 

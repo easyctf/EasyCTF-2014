@@ -18,7 +18,7 @@
 					} else {
 						permission = "member";
 					}
-					html += "<div class='panel "+permission+"' id='gid_"+g['gid']+"'>"+g['name']+"<div class='close remove-group-button'>&times;</div></div>";
+					html += "<div class='"+permission+"' id='gid_"+g['gid']+"'>"+g['name']+"<div class='close remove-group-button'>&times;</div></div>";
 				}
 			}
 			$("#group_membership_table").html(html);

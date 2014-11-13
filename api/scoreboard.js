@@ -23,8 +23,8 @@ var generate_scoreboard_page = function() {
 			var content = "";
 			var path = "web/staticscoreboard.html";
 
-			content += "<table width=\"100%\">\r\n";
-			content += "\t<tr>\r\n\t\t<th>Place</th>\r\n\t\t<th>Team</th>\r\n\t\t<th>Affiliation</th>\r\n\t\t<th>Score</th>\r\n";
+			content += "<table class=\"table table-striped table-hover\">\r\n";
+			content += "\t<thead><tr>\r\n\t\t<th>Place</th>\r\n\t\t<th>Team</th>\r\n\t\t<th>Affiliation</th>\r\n\t\t<th>Score</th></tr></thead>\r\n";
 			for(var i=0; i<data.length; i++) {
 				content += "\t<tr>\r\n";
 				content += "\t\t<td>"+(i+1)+"</td>\r\n";

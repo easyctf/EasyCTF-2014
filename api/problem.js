@@ -83,5 +83,83 @@ exports.load_unlocked_problems = function(tid, callback) {
 };
 
 exports.get_single_problem = function(pid, tid, callback) {
+	exports.load_unlocked_problems(tid, function(unlocked) {
+		for(var i=0; i<unlocked.length; i++) {
+			var prob = unlocked[i];
+			if (prob.pid == pid) {
+				callback(problem);
+				return;
+			}
+		}
+		callback({
+			status: 0,
+			message: "Internal error, problem not found."
+		});
+		return;
+	});
+};
 
+exports.submit_problem = function(tid, req, callback) {
+	var pid = req.param("pid");
+	var key = req.param("key");
+	var correct = false;
+
+	if (pid == undefined || pid.length == 0) {
+		callback({
+			status: 0,
+			points: 0,
+			message: "Problem ID cannot be empty. /* fuck you */"
+		});
+		return;
+	}
+	if (key == undefined || key.length == 0) {
+		callback({
+			status: 0,
+			points: 0,
+			message: "Answer cannot be empty."
+		});
+		return;
+	}
+	exports.load_unlocked_problems(tid, function(unlocked) {
+		var pids = [];
+		for(var i=0; i<unlocked.length; i++) {
+			pids.push(unlocked[i].pid);
+		}
+
+		if (!(pid in pids)) {
+			callback({
+				status: 0,
+				points: 0,
+				message: "You cannot submit problems that you haven't unlocked yet! (a.k.a. stop trying to XSS)"
+			});
+			return;
+		}
+		
+		common.db.findOne({
+			pid: pid
+		}, function(err, prob) {
+			if (prob == undefined) {
+				callback({
+					status: 0,
+					points: 0,
+					message: "No problem ID in database, stahp XSS pls"
+				});
+				return;
+			}
+
+			if (!prob.autogen) {
+				require("graders/" + prob.grader).grade(tid, key, function(obj) {
+
+				});
+			} else {
+
+			}
+		});
+	});
+};
+
+var submit_problem_result = function(result, callback) {
+	if (result.correct) {
+		
+	}
 };

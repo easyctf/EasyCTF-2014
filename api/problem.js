@@ -1,4 +1,5 @@
 var common = require("./common");
+var moment = require("moment");
 var ObjectID = require("mongodb").ObjectID;
 
 exports.load_unlocked_problems = function(tid, callback) {
@@ -42,7 +43,8 @@ exports.load_unlocked_problems = function(tid, callback) {
 					common.db.collection("problems").find().toArray(function(err, doc) {
 						for(var i=0; i<doc.length; i++) {
 							var p = doc[i];
-							var b = false;
+							/*
+							var b = true;
 							if (!("weightmap" in p && "threshold" in p)) {
 								b = true;
 							} else {
@@ -54,14 +56,15 @@ exports.load_unlocked_problems = function(tid, callback) {
 									b = true;
 								}
 							}
-							if (b) {
+							*/
+							if (true) { // b) {
 								unlocked.push({
 									pid: p.pid,
 									displayname: p.displayname,
 									hint: p.hint,
 									basescore: p.basescore,
-									correct: p.pid in correctPIDs,
-									desc: p.autogen ? build_problem_instance(p, tid) : p.desc
+									correct: correctPIDs.indexOf(p.pid) != -1,
+									desc: p.desc // p.autogen ? build_problem_instance(p, tid) : p.desc
 								});
 							}
 						}
@@ -121,12 +124,16 @@ exports.submit_problem = function(tid, req, callback) {
 		return;
 	}
 	exports.load_unlocked_problems(tid, function(unlocked) {
-		var pids = [];
+		var has = false;
 		for(var i=0; i<unlocked.length; i++) {
-			pids.push(unlocked[i].pid);
+			// console.log(unlocked[i].pid + " " + pid);
+			if (unlocked[i].pid.indexOf(pid) != -1) {
+				has = true;
+				break;
+			}
 		}
 
-		if (!(pid in pids)) {
+		if (!has) {
 			callback({
 				status: 0,
 				points: 0,
@@ -135,7 +142,7 @@ exports.submit_problem = function(tid, req, callback) {
 			return;
 		}
 		
-		common.db.findOne({
+		common.db.collection("problems").findOne({
 			pid: pid
 		}, function(err, prob) {
 			if (prob == undefined) {
@@ -148,8 +155,15 @@ exports.submit_problem = function(tid, req, callback) {
 			}
 
 			if (!prob.autogen) {
-				require("graders/" + prob.grader).grade(tid, key, function(obj) {
-
+				require("./graders/" + prob.grader).grade(tid, key, function(obj) {
+					submit_problem_result(pid, key, tid, req.ip, obj, function(result) {
+						callback({
+							status: result.status,
+							points: obj.correct ? prob.basescore : 0,
+							message: result.message
+						});
+						return;
+					});
 				});
 			} else {
 
@@ -158,8 +172,64 @@ exports.submit_problem = function(tid, req, callback) {
 	});
 };
 
-var submit_problem_result = function(result, callback) {
+var submit_problem_result = function(pid, key, tid, ip, result, callback) {
 	if (result.correct) {
-		
+		common.db.collection("submissions").find({
+			tid: tid,
+			pid: pid,
+			correct: true
+		}).toArray(function(err, doc) {
+			if (doc.length == 0) {
+				common.db.collection("submissions").insert({
+					tid: tid,
+					pid: pid,
+					key: key,
+					ip: ip,
+					correct: true,
+					timestamp: moment().format()
+				}, { w: 1 }, function(err, doc) {
+					callback({
+						status: 1,
+						message: result.message
+					});
+					return;
+				});
+			} else {
+				callback({
+					status: 0,
+					message: "You have already solved this problem!"
+				});
+				return;
+			}
+		});
+	} else {
+		common.db.collection("submissions").find({
+			tid: tid,
+			pid: pid,
+			correct: false
+		}).toArray(function(err, doc) {
+			if (doc.length == 0) {
+				common.db.collection("submissions").insert({
+					tid: tid,
+					pid: pid,
+					key: key,
+					ip: ip,
+					correct: false,
+					timestamp: moment().format()
+				}, { w: 1 }, function(err, doc) {
+					callback({
+						status: 0,
+						message: result.message
+					});
+					return;
+				});
+			} else {
+				callback({
+					status: 0,
+					message: "You have already tried that answer!"
+				});
+				return;
+			}
+		});
 	}
 };

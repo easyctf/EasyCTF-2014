@@ -39,7 +39,7 @@
 	};
 
 	window.load_solved_problems = function() {
-
+		
 	};
 
 	window.load_teamscore = function() {

@@ -109,6 +109,34 @@ function load_footer() {
 	});
 }
 
+function handle_submit(prob_id) {
+	$.ajax({
+		type: "POST",
+		cache: false,
+		url: "/api/submit",
+		dataType: "json",
+		data: {
+			pid: prob_id,
+			key: $("#"+prob_id).val()
+		}
+	}).done(function(data) {
+		console.dir(data);
+		var prob_msg = $("#msg_" + prob_id);
+		var alert_class = "";
+		if (data.status == 0) {
+			alert_class = "danger";
+		} else if (data.status == 1) {
+			alert_class = "success";
+		}
+		prob_msg.hide().html("<div class='alert alert-"+alert_class+"'>"+data.message+"</div>").slideDown();
+		setTimeout(function() {
+			prob_msg.slideUp("normal", function() {
+				prob_msg.html("").show();
+			});
+		}, 2000);
+	});
+}
+
 function redirect_if_not_logged_in() {
     $.ajax({
         type: "GET",
@@ -118,6 +146,6 @@ function redirect_if_not_logged_in() {
 		if (data['success'] == 0)
 			window.location.href = '/login';
 	}).fail(function () {
-	window.location.href = '/';
+		window.location.href = '/';
 	});
 }

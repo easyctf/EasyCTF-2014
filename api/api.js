@@ -54,4 +54,10 @@ module.exports = function(app) {
 		var scoreboards = [scoreboard.get_public_scoreboard()];
 		res.send(scoreboards);
 	});
+
+	app.post("/api/submit", function(req, res) {
+		problem.submit_problem(req.session.tid, req, function(result) {
+			res.send(result);
+		});
+	});
 };

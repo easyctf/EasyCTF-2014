@@ -123,6 +123,14 @@ exports.submit_problem = function(tid, req, callback) {
 		});
 		return;
 	}
+	if (tid == undefined || tid.length == 0) {
+		callback({
+			status: 0,
+			points: 0,
+			message: "You must be logged in."
+		});
+		return;
+	}
 	exports.load_unlocked_problems(tid, function(unlocked) {
 		var has = false;
 		for(var i=0; i<unlocked.length; i++) {

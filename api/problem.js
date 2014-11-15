@@ -214,7 +214,8 @@ var submit_problem_result = function(pid, key, tid, ip, result, callback) {
 		common.db.collection("submissions").find({
 			tid: tid,
 			pid: pid,
-			correct: false
+			correct: false,
+			key: key
 		}).toArray(function(err, doc) {
 			if (doc.length == 0) {
 				common.db.collection("submissions").insert({

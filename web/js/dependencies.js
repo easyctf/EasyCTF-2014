@@ -132,7 +132,7 @@ function handle_submit(prob_id) {
 		setTimeout(function() {
 			prob_msg.slideUp("normal", function() {
 				prob_msg.html("").show();
-				window.location.reload(true);
+				if (data.status == 1) window.location.reload(true);
 			});
 		}, 2000);
 	});

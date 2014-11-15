@@ -28,13 +28,27 @@ module.exports = function(app) {
 	});
 
 	app.get("/api/problems", function(req, res) {
-		problem.load_unlocked_problems(req.session.tid, function(unlocked) {
-			res.send(unlocked);
-		});
+		if (auth.is_logged_in(req)) {
+			problem.load_unlocked_problems(req.session.tid, function(unlocked) {
+				res.send(unlocked);
+			});
+		} else {
+			res.send({
+				status: 0,
+				message: "You must be logged in in order to view this page!"
+			});
+		}
 	});
 
 	app.get("/api/problems/solved", function(req, res) {
-		problem.get_solved_problems(req.session.tid, res);
+		if (auth.is_logged_in(req)) {
+			problem.get_solved_problems(req.session.tid, res);
+		} else {
+			res.send({
+				status: 0,
+				message: "You must be logged in in order to view this page!"
+			});
+		}
 	});
 
 	app.get("/api/problems/:pid", function(req, res) {

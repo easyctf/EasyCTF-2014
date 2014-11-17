@@ -40,7 +40,11 @@ exports.load_unlocked_problems = function(tid, callback) {
 					for(var i=0; i<doc.length; i++) {
 						correctPIDs.push(doc[i].pid);
 					}
-					common.db.collection("problems").find().toArray(function(err, doc) {
+					common.db.collection("problems").find({
+						basescore: {
+							$gt: 0
+						}
+					}).toArray(function(err, doc) {
 						for(var i=0; i<doc.length; i++) {
 							var p = doc[i];
 							/*

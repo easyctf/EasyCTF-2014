@@ -23,7 +23,7 @@ app.configure(function() {
 });
 
 require("./api/api")(app);
-
+require("./app/server/hack-site")(app);
 require("./router")(app);
 
 http.createServer(app).listen(app.get("port"), function() {

@@ -7,7 +7,7 @@
 			dataType: "json"
 		}).done(function(data) {
 			console.dir(data);
-			var html = "<div class='panel-group' id='accordion' role='tablist' aria-multiselectable='true'>";
+			var html = "<div class='panel-group'>"; // id='accordion' role='tablist' aria-multiselectable='true'>";
 			for(var i=0; i<data.length; i++) {
 				var d = data[i];
 				var id = d.pid;

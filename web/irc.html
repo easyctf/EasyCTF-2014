@@ -6,7 +6,7 @@
 		<meta name="description" content="EasyCTF">
 		<meta name="author" content="Stevenson HS">
 
-		<title>Scoreboard - EasyCTF 2014</title>
+		<title>Chat - EasyCTF 2014</title>
 
 		<link rel="stylesheet" href="css/main.css" media="screen" />
 		<link rel="icon" href="img/easyctf.ico" media="screen" />
@@ -28,30 +28,23 @@
 		</nav>
 
 		<div class="container">
-			<div class="row">
-				<div class="page-header">
-					<h1>Scoreboard</h1>
-				</div>
-				<div id="team_status"></div>
-				<div id="problems_solved"></div>
-				<dl class="tabs" id="scoreboard_selector"></dl>
-				<div id="scoreboard_container"></div>
-				<div id="public_scoreboard_container"></div>
+			<div class="page-header">
+				<h1>IRC</h1>
+			</div>
+
+			<div class="jumbotron">
+				<center><iframe width="840" height="480" style="border:1px solid #999;" src="http://widget00.mibbit.com/?channel=%23easyctf"></iframe></center>
 			</div>
 
 			<div id="footer"></div>
 		</div>
-
+		
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/dependencies.js"></script>
-		<script type="text/javascript" src="js/scoreboard.js"></script>
 		<script type="text/javascript">
 			$(function() {
 				display_navbar();
-				load_solved_problems();
-				load_scoreboards();
-				load_teamscore();
 				load_footer();
 			});
 		</script>

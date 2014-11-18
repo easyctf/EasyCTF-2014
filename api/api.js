@@ -4,6 +4,10 @@ var scoreboard = require("./scoreboard");
 var group = require("./group");
 var problem = require("./problem");
 
+var problems = [
+	"python-basic-1",
+];
+
 module.exports = function(app) {
 	app.get("/api", function(req, res) {
 		res.send({
@@ -27,6 +31,32 @@ module.exports = function(app) {
 		account.register_team(req, res);
 	});
 
+	app.post("/api/ide/data", function(req, res) {
+		if (auth.is_logged_in(req) && req.param("problem") && problems.indexOf(req.param("problem")) > -1) {
+			require("./ide/" + req.param("problem")).get_data(req, function(data) {
+				res.send(data);
+			});
+		} else {
+			res.send({
+				status: 0,
+				message: "You can't view this page!"
+			});
+		}
+	});
+
+	app.post("/api/ide/check", function(req, res) {
+		if (auth.is_logged_in(req) && req.param("problem") && problems.indexOf(req.param("problem")) > -1) {
+			require("./ide/" + req.param("problem")).check_data(req, function(data) {
+				res.send(data);
+			});
+		} else {
+			res.send({
+				status: 0,
+				message: "You can't view this page!"
+			});
+		}
+	});
+
 	app.get("/api/problems", function(req, res) {
 		if (auth.is_logged_in(req)) {
 			problem.load_unlocked_problems(req.session.tid, function(unlocked) {
@@ -35,7 +65,7 @@ module.exports = function(app) {
 		} else {
 			res.send({
 				status: 0,
-				message: "You must be logged in in order to view this page!"
+				message: "You can't view this page!"
 			});
 		}
 	});
@@ -46,7 +76,7 @@ module.exports = function(app) {
 		} else {
 			res.send({
 				status: 0,
-				message: "You must be logged in in order to view this page!"
+				message: "You can't view this page!"
 			});
 		}
 	});

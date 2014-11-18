@@ -6,6 +6,8 @@ var problem = require("./problem");
 
 var problems = [
 	"python-basic-1",
+	"palindrama",
+	"just-sum-numbers"
 ];
 
 module.exports = function(app) {

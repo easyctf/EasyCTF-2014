@@ -1,5 +1,6 @@
 var common = require("./common");
 var crypto = require("crypto");
+var moment = require("moment");
 
 var debug_disable_general_login = false;
 
@@ -74,6 +75,9 @@ exports.login = function(req, res) {
 				if (debug_disable_general_login) {
 
 				}
+
+				req.session.group = checkTeam.group || 1;
+
 				if (checkTeam.tid) {
 					req.session.tid = checkTeam.tid;
 				} else {
@@ -130,5 +134,19 @@ exports.is_logged_in = function(req) {
 			success: 0,
 			message: "You do not appear to be logged in."
 		};
+	}
+};
+
+exports.is_authorized = function(req) {
+	if (req.session.tid && (moment().isAfter(common.startDate) || (req.session.group && req.session.group == 3))) {
+		return {
+			success: 1,
+			message: "You are authorized!"
+		};
+	} else {
+		return {
+			success: 0,
+			message: "You are not authorized!"
+		}
 	}
 };

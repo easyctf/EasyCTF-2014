@@ -6,7 +6,7 @@
 		<meta name="description" content="EasyCTF">
 		<meta name="author" content="Stevenson HS">
 
-		<title>Scoreboard - EasyCTF 2014</title>
+		<title>Sponsors - EasyCTF 2014</title>
 
 		<link rel="stylesheet" href="css/main.css" media="screen" />
 		<link rel="icon" href="img/easyctf.ico" media="screen" />
@@ -28,15 +28,29 @@
 		</nav>
 
 		<div class="container">
-			<div class="row">
-				<div class="page-header">
-					<h1>Scoreboard</h1>
+			<div class="page-header">
+				<h1>Sponsors</h1>
+			</div>
+
+			<div class="well">
+				<p>EasyCTF would not be possible without the help of sponsors! Here are some of the people who helped make EasyCTF happen.</p>
+				<p>Interested in sponsoring? Contact us at <a href="mailto:team@easyctf.com" target="_blank">team@easyctf.com</a>!</p>
+			</div>
+
+			<div class="container-fluid">
+				<div class="col-lg-4 col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Educoin</h4>
+						</div>
+						<div class="panel-body">
+							<p><img src="img/sponsors/educoin.gif" style="width:100%;" /></p>
+							<p>
+								EduCoin (EDU) is an open source peer-to-peer digital currency. Just as Bitcoin is radically re-inventing the future of money, EduCoin will reshape the future of education everywhere. EduCoin aims to be the worldwide standard for transactions between students, educators, and third parties.
+							</p>
+						</div>
+					</div>
 				</div>
-				<div id="team_status"></div>
-				<div id="problems_solved"></div>
-				<dl class="tabs" id="scoreboard_selector"></dl>
-				<div id="scoreboard_container"></div>
-				<div id="public_scoreboard_container"></div>
 			</div>
 
 			<div id="footer"></div>
@@ -45,13 +59,9 @@
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/dependencies.js"></script>
-		<script type="text/javascript" src="js/scoreboard.js"></script>
 		<script type="text/javascript">
 			$(function() {
 				display_navbar();
-				load_solved_problems();
-				load_scoreboards();
-				load_teamscore();
 				load_footer();
 			});
 		</script>

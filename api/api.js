@@ -58,7 +58,7 @@ module.exports = function(app) {
 	});
 
 	app.get("/api/problems", function(req, res) {
-		if (auth.is_logged_in(req) && auth.is_authorized(req).status === 1) {
+		if (auth.is_logged_in(req) && auth.is_authorized(req).success === 1) {
 			problem.load_unlocked_problems(req.session.tid, function(unlocked) {
 				res.send(unlocked);
 			});

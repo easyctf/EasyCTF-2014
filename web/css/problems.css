@@ -1,3 +1,12 @@
+.problem_statement img {
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+	-o-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+	-ms-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+	margin: auto;
+}
+
 .solved {
 	color: #090;
 }

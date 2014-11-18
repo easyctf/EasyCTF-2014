@@ -23,7 +23,7 @@
 						html += "</h4>";
 					html += "</div>";
 					html += "<div id='collapse"+i+"' class='panel-collapse collapse" + (d.correct ? "" : " in") + "' role='tabpanel' aria-labelledby='heading"+i+"'>";
-						html += "<div class='panel-body'>";
+						html += "<div class='panel-body problem_statement'>";
 							html += "<div id='msg_"+d.pid+"'>";
 							html += "</div>";
 							html += "<p>";

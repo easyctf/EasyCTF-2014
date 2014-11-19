@@ -34,7 +34,7 @@
 			if ((typeof ar[i]) === "number") {
 				res += ar[i];
 			} else if ((typeof ar[i]) === "string") {
-				res += '"' + ar + '"';
+				res += '"' + ar[i] + '"';
 			} else if (typeof ar[i] === "object" && ar[i][0]) {
 				res += getArgs(ar[i]);
 			} else {

@@ -12,4 +12,9 @@
 8. Fill out other fields as necessary.
 9. Create `/api/graders/grader-name.js` in the folder. **It must be the same name as what you put into the database, but DON'T PUT .js IN THE DATABASE**
 10. Push the grader to GitHub.
-11. 
+
+## IDE-based Problems
+
+1. Go into `/api/api.js` and add your problem ID string to the `problems` array.
+2. Go into `/web/exec.html`, and add that same problem ID string in the text box.
+3. Create `/api/ide/your-problem-id.js`, but **don't include the .js part in step 1 or 2.**

@@ -159,3 +159,8 @@ FOOTER
 .rnav {
     float: right;
 }
+
+a:hover {
+    text-decoration: none;
+    color: #19B5FE;
+}

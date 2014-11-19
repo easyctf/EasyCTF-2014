@@ -105,7 +105,17 @@ body {
     top: 0;
     padding-top: 180px;
     background-color: #ecf0f1;
-    box-shadow: 1px 1px 15px #000;
+    /* box-shadow: 1px 10px 15px #000; */
+}
+
+.intro-extension {
+    border-top: 75px solid #ecf0f1;
+	border-left: 570px solid transparent;
+	border-right: 570px solid transparent;
+}
+
+.title-section {
+    text-align: center;
 }
 
 .title {
@@ -118,6 +128,43 @@ body {
     font-size: 48px;
 }
 
+.contest-date {
+    text-align: center;
+}
+
+.register-container {
+    width: 480px;
+    height: 128px;
+    
+    margin-top: -75px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    padding: 1px 25px;
+    background-color: #bdc3c7;
+    
+    text-align: center;
+}
+
+.register-button {
+    width: 430px;
+    height: 150px;
+    background-color: #3498db;
+    color: #FFF;
+    font-size: 32px;
+    text-align: center;
+    border: none;
+    
+    transition: all 125ms ease-in-out 0s;
+    -o-transition: all 125ms ease-in-out 0s;
+    -moz-transition: all 125ms ease-in-out 0s;
+    -ms-transition: all 125ms ease-in-out 0s;
+}
+
+.register-button:hover {
+    background-color: #2980b9;
+    color: #FFF;
+}
 /********
 FOOTER
 ********/
@@ -144,4 +191,9 @@ FOOTER
 
 .rnav {
     float: right;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #19B5FE;
 }

@@ -126,6 +126,13 @@ FOOTER
     padding: 10px;
 }
 
+#footer ul li a{
+    width: 75px;
+    height: 50px;
+    color: #FFF;
+    line-height: 25px;
+}
+
 .rnav {
     float: right;
 }

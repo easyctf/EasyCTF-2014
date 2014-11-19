@@ -103,9 +103,19 @@ body {
 
 .intro-section {
     top: 0;
-    padding-top: 320px;
+    padding-top: 180px;
     background-color: #ecf0f1;
     box-shadow: 1px 1px 15px #000;
+}
+
+.title {
+    font-size: 96px;
+    margin-bottom: 5px;
+}
+
+.title-date {
+    margin-top: 0;
+    font-size: 48px;
 }
 
 /********

@@ -44,7 +44,7 @@
 				var field, i, len, ref, results;
 				var alert_class = "";
 				if (data['status'] === 0) {
-					alert_class = "alert";
+					alert_class = "danger";
 				} else if (data['status'] === 1) {
 					alert_class = "success";
 				} else if (data['status'] === 2) {
@@ -57,7 +57,7 @@
 					});
 				}
 
-				$("#register_msg").hide().html("<div class=\"alert-box " + alert_class + "\"> " + data['message'] + " </div>").slideDown("normal");
+				$("#register_msg").hide().html("<div class=\"alert alert-" + alert_class + "\"> " + data['message'] + " </div>").slideDown("normal");
 				return setTimeout(function() {
 					return $("#register_msg").slideUp("normal", function() {
 						return $("#register_msg").html("").show();

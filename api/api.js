@@ -29,6 +29,10 @@ module.exports = function(app) {
 		res.send(auth.is_logged_in(req));
 	});
 
+	app.get("/api/isadmin", function(req, res) {
+		res.send(auth.is_admin(req));
+	})
+
 	app.post("/api/register", function(req, res) {
 		account.register_team(req, res);
 	});

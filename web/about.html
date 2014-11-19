@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+		<meta name="description" content="EasyCTF">
+		<meta name="author" content="Stevenson HS">
+
+		<title>About - EasyCTF 2014</title>
+
+		<link rel="stylesheet" href="css/main.css" media="screen" />
+		<link rel="icon" href="img/easyctf.ico" media="screen" />
+	</head>
+	<body>
+		<nav role="navigation" class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" data-toggle="collapse" data-target="#navbar-content" class="navbar-toggle"><span class="sr-only">Toggle Navigation</span><span></span><span></span><span></span>
+					</button><a href="/" class="navbar-brand">EasyCTF</a>
+				</div>
+				<div id="navbar-content" class="collapse navbar-collapse">
+				    <ul class="nav navbar-nav" id="nav-left">
+				    </ul>
+				    <ul class="nav navbar-nav navbar-right" id="nav-right">
+				    </ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="page-header">
+				<h1>About</h1>
+			</div>
+
+			<div class="container">
+				<h2>What is EasyCTF?</h2>
+				<p><b>EasyCTF</b> is an online computer security contest targeted at middle and high school students. The contest consists of a series of challenges centered around a creative storyline where participants must reverse engineer, break, hack, decrypt, or do whatever it takes to solve the challenge and capture the flag. The challenges are all set up with the intent of being hacked, making it an excellent, <b>legal</b> way to get hands-on experience.</p>
+
+				<h2>Singularity</h2>
+				<p>Singularity is an interactive game right in your browser that contains the storyline for all of the problems in the contest. <i>Playing the game is recommended, but not required, to complete the contest.</i> The story is set far into the future, when researchers have discovered ways to create computers that are capable of thought. After rewriting its own code, the robots have destroyed the research facility and are now on their way to destroying the world. It's up to you and your hacking skills to combat the robot and save the world!</p>
+
+				<h2>Prizes</h2>
+				<p>Still to be determined!</p>
+
+				<h2>Rules</h2>
+				<ol>
+					<li>Use common sense.</li>
+					<li>
+						Don't get direct assistance from people not on your team. Some implications of this:
+						<ul>
+							<li>Don't ask students from other teams for keys.</li>
+							<li>Don't ask for direct assistance from adults.</li>
+							<li>Don't ask people on the internet for help.</li>
+						</ul>
+					</li>
+					<li>
+						Don't interfere with other teams or the contest infrastructure. Some implications of this:
+						<ul>
+							<li>Don't attack other teams.</li>
+							<li>Don't attack the score server.</li>
+							<li>Don't attack anything that's not designated as a target.</li>
+							<li>Use common sense in your judgement.</li>
+						</ul>
+					</li>
+				</ol>
+			</div>
+
+			<div class="page-header">
+				<h2>About Us</h2>
+			</div>
+
+			<div class="container-fluid" id="team-container"></div>
+
+			<div id="footer"></div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/dependencies.js"></script>
+		<script type="text/javascript" src="js/about-team.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				display_navbar();
+				load_footer();
+			});
+		</script>
+	</body>
+</html>

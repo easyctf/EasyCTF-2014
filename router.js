@@ -11,8 +11,9 @@ module.exports = function(app) {
 	for(var i=0; i<pages.length; i++) {
 		(function(i) {
 			app.get("/" + pages[i], function(req, res) {
+				// console.dir(auth.is_authorized(req));
 				if (auth_pages.indexOf(pages[i]) > -1) {
-					if (!(auth.is_logged_in(req) && req.param("problem") && problems.indexOf(req.param("problem")) > -1)) {
+					if (auth.is_authorized(req).success !== 1) {
 						res.sendfile("web/noauth.html", { root: __dirname });
 						return;
 					}

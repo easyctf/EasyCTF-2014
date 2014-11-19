@@ -6,6 +6,11 @@ var tabsLI = [
 	[ "logout", "Logout" ],
 ];
 
+var tabsLIBefore = [
+	[ "account", "Account" ],
+	[ "logout", "Logout" ],
+];
+
 var tabsNLI = [
 	[ "register", "Register" ],
 	[ "login", "Login" ],
@@ -42,6 +47,12 @@ function build_navbar (set) {
 			}
 			$("#nav-left")[0].innerHTML = ohtml;
 			break;
+		case 3:
+			for(var i=0; i<tabsLIBefore.length; i++) {
+				ohtml += "<li" + (window.location.href.indexOf(tabsLIBefore[i][0]) != -1 ? " class='active'" : "")+" id='ts_"+tabsLIBefore[i][0]+"'><a href='/"+tabsLIBefore[i][0]+"'>"+tabsLIBefore[i][1]+"</a></li>";
+			}
+			$("#nav-right")[0].innerHTML = ohtml;
+			break;
 		default:
 			// fuck you
 			break;
@@ -53,50 +64,59 @@ function check_certs_link_necessary() {
 }
 
 function display_navbar () {
-	if (typeof(Storage) != "undefined") {
-		if (sessionStorage.signInStatus == "loggedIn") {
-			build_navbar(0);
-			check_certs_link_necessary();
-		} else if (sessionStorage.signInStatus == "notLoggedIn") {
-			build_navbar(1);
-		} else if (sessionStorage.signInStatus == "apiFail") {
-			// gg
-		} else {
-			build_navbar(1);
-		}
-		$.ajax({
-			type: "GET",
-			url: "/api/isloggedin",
-			cache: false,
-		}).done(function(data) {
-			if (data['success'] == 1 && sessionStorage.signInStatus != "loggedIn") {
-				sessionStorage.signInStatus = "loggedIn";
-				build_navbar(0);
+	var during = (new Date("November 29, 2014 19:00:00") < new Date());
+	$.ajax({
+		url: "/api/isadmin",
+		method: "GET",
+		dataType: "json"
+	}).done(function(data) {
+		var admin = data.success === 1;
+		var full_navbar = during || admin;
+		if (typeof(Storage) != "undefined") {
+			if (sessionStorage.signInStatus == "loggedIn") {
+				build_navbar(during ? 0 : 3);
 				check_certs_link_necessary();
-			} else if (data['success'] == 0 && sessionStorage.signInStatus != "notLoggedIn") {
-				sessionStorage.signInStatus = "notLoggedIn";
+			} else if (sessionStorage.signInStatus == "notLoggedIn") {
+				build_navbar(1);
+			} else if (sessionStorage.signInStatus == "apiFail") {
+				// gg
+			} else {
 				build_navbar(1);
 			}
-		}).fail(function() {
-			if (sessionStorage.signInStatus != "apiFail") {
-				sessionStorage.signInStatus = "apiFail";
-				// gg
+			$.ajax({
+				type: "GET",
+				url: "/api/isloggedin",
+				cache: false,
+			}).done(function(data) {
+				if (data['success'] == 1 && sessionStorage.signInStatus != "loggedIn") {
+					sessionStorage.signInStatus = "loggedIn";
+					build_navbar(during ? 0 : 3);
+					check_certs_link_necessary();
+				} else if (data['success'] == 0 && sessionStorage.signInStatus != "notLoggedIn") {
+					sessionStorage.signInStatus = "notLoggedIn";
+					build_navbar(1);
+				}
+			}).fail(function() {
+				if (sessionStorage.signInStatus != "apiFail") {
+					sessionStorage.signInStatus = "apiFail";
+					// gg
+					show_site_down_error();
+				}
+			});
+			build_navbar(2);
+		} else {
+			$.ajax({
+				type: "GET",
+				url: "/api/isloggedin",
+				cache: false,
+			}).done(function(data) {
+				build_navbar(data['success'] == 1 ? (during ? 0 : 3) : 1);
+			}).fail(function() {
+				build_navbar(1);
 				show_site_down_error();
-			}
-		});
-		build_navbar(2);
-	} else {
-		$.ajax({
-			type: "GET",
-			url: "/api/isloggedin",
-			cache: false,
-		}).done(function(data) {
-			build_navbar(data['success'] == 1 ? 0 : 1);
-		}).fail(function() {
-			build_navbar(1);
-			show_site_down_error();
-		});
-	}
+			});
+		}
+	});
 }
 
 function load_footer() {

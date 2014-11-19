@@ -31,7 +31,7 @@
 				if (typeof Storage !== "undefined") {
 					sessionStorage.signInStatus = "loggedIn";
 				}
-				return document.location.href =  (new Date("November 29, 2014 19:00:00") < new Date()) ? "compete" : "account";
+				return document.location.href = (new Date("November 29, 2014 19:00:00") < new Date()) ? "compete" : "account";
 			}
 		}).fail(function(data) {
 			

@@ -35,33 +35,47 @@
 				<div class="row">
 					<div id="login_msg"></div>
 				</div>
-				<form action="" onsubmit="return false;">
-					<div class="row">
-						<div class="large-12 columns">
-							<label>Team Name
-								<input name="teamname" id="log-team" type="text" placeholder="Team Name" autocomplete="off" />
-							</label>
-						</div>
-						<div class="large-12 columns">
-							<label>Password
-								<input name="password" id="log-pass" type="password" placeholder="Password" />
-							</label>
-						</div>
-						<div class="large-12 columns">
-							<button id="login-button" type="submit" onclick="handle_login();" class="button">
-								Login
-							</button>
-							<button id="forgot-button" onclick="handle_forgot_password_subit();" class="button">
-								Forgot Password
-							</button>
-						</div>
-						<div id="forgot_teaname_link">
-							<a href="teamnamelookup.html">
-								I forgot my team name.
-							</a>
+
+				<div class="container-fluid">
+					<div class="col-lg-8">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h2 class="panel-title">Login to EasyCTF</h2>
+							</div>
+							<div class="panel-body">
+								<form class="form-horizontal" action="" onsubmit="return false;">
+									<div class="form-group">
+										<label for="email" class="col-lg-3 control-label">Team Name</label>
+										<div class="col-lg-8">
+											<input type="text" name="teamname" class="form-control" id="log-team" placeholder="Team Name">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="password" class="col-lg-3 control-label">Password</label>
+										<div class="col-lg-8">
+											<input type="password" name="password" class="form-control" id="log-pass" placeholder="Password">
+										</div>
+									</div>
+									<!-- <div class="form-group">
+										<label for="log-password" class="col-lg-3 control-label"></label>
+										<div class="btn-group col-lg-3" data-toggle="buttons">
+											<label class="btn btn-primary" disabled>
+												<input type="checkbox" id="log-remember" disabled> Remember Me
+											</label>
+										</div>
+									</div> -->
+									<div class="form-group">
+										<label for="log-password" class="col-lg-3 control-label"></label>
+										<div class="col-lg-7">
+											<button class="btn btn-primary" id="login-button" onClick="handle_login(); return false;">Login</button>
+											<button class="btn btn-default" id="forgot-button" onClick="handle_forgot_password_submit(); return false;">Forgot Password</button>
+										</div>
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
-				</form>
+				</div>
 			</div>
 
 			<div id="footer"></div>

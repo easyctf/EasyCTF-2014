@@ -137,6 +137,20 @@ exports.is_logged_in = function(req) {
 	}
 };
 
+exports.is_admin = function(req) {
+	if (req.session.group && req.session.group === 3) {
+		return {
+			success: 1,
+			message: "You appear to be an admin."
+		}
+	} else {
+		return {
+			success: 0,
+			message: "You do not appear to be an admin."
+		}
+	}
+};
+
 exports.is_authorized = function(req) {
 	if (req.session.tid && (moment().isAfter(common.startDate) || (req.session.group && req.session.group == 3))) {
 		return {

@@ -8,7 +8,8 @@ var problems = [
 	"python-basic-1",
 	"palindrama",
 	"just-sum-numbers",
-	"logic"
+	"logic",
+	"string-cast"
 ];
 
 module.exports = function(app) {

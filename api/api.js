@@ -10,7 +10,8 @@ var problems = [
 	"just-sum-numbers",
 	"logic",
 	"string-cast",
-	"combination"
+	"combination",
+	"math-loop"
 ];
 
 module.exports = function(app) {

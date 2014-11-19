@@ -18,7 +18,7 @@
 					} else {
 						permission = "member";
 					}
-					html += "<div class='panel panel-default'><div class='panel-body "+permission+"' id='gid_"+g['gid']+"'>"+g['name']+"<div class='close remove-group-button'>&times;</div></div></div>";
+					html += "<div class='panel panel-default col-lg-8 col-lg-offset-2'><div class='panel-body "+permission+"' id='gid_"+g['gid']+"'>"+g['name']+"<div class='close remove-group-button'>&times;</div></div></div>";
 				}
 			}
 			$("#group_membership_table").html(html);

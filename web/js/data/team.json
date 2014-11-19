@@ -5,7 +5,7 @@
 	},
 	{
 		"name": "Jay Mo",
-		"role": "Web Design"
+		"role": "Website Frontend"
 	},
 	{
 		"name": "Emily Leng",
@@ -18,5 +18,13 @@
 	{
 		"name": "Carter Feldman",
 		"role": "Problem Design"
+	},
+	{
+		"name": "George Sivulka",
+		"role": "Website Frontend"
+	},
+	{
+		"name": "Su Min Kim",
+		"role": "Website Frontend"
 	}
 ]

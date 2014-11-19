@@ -74,7 +74,7 @@ function display_navbar () {
 		var full_navbar = during || admin;
 		if (typeof(Storage) != "undefined") {
 			if (sessionStorage.signInStatus == "loggedIn") {
-				build_navbar(during ? 0 : 3);
+				build_navbar(full_navbar ? 0 : 3);
 				check_certs_link_necessary();
 			} else if (sessionStorage.signInStatus == "notLoggedIn") {
 				build_navbar(1);
@@ -90,7 +90,7 @@ function display_navbar () {
 			}).done(function(data) {
 				if (data['success'] == 1 && sessionStorage.signInStatus != "loggedIn") {
 					sessionStorage.signInStatus = "loggedIn";
-					build_navbar(during ? 0 : 3);
+					build_navbar(full_navbar ? 0 : 3);
 					check_certs_link_necessary();
 				} else if (data['success'] == 0 && sessionStorage.signInStatus != "notLoggedIn") {
 					sessionStorage.signInStatus = "notLoggedIn";
@@ -110,7 +110,7 @@ function display_navbar () {
 				url: "/api/isloggedin",
 				cache: false,
 			}).done(function(data) {
-				build_navbar(data['success'] == 1 ? (during ? 0 : 3) : 1);
+				build_navbar(data['success'] == 1 ? (full_navbar ? 0 : 3) : 1);
 			}).fail(function() {
 				build_navbar(1);
 				show_site_down_error();

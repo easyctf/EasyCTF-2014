@@ -35,22 +35,30 @@
 				</div>
 				<h3>Group Membership</h3>
 				<p>You are currently a member of the following groups. A red group name indicates that you are an owner of that group. The button at the end of the row allows you to leave a group.</p>
-				<div class="large-6 large-offset-3" id="group_membership_table">
+				<div class="container" id="group_membership_table">
 					You are not a member of any groups.
 				</div>
 				<h3>Group Management</h3>
-				<div class="col-lg-12 columns">
-					<label>Group
-						<input type="text" id="group_join_input" placeholder="Group" />
-					</label>
-				</div>
-				<div class="col-lg-12 columns">
-					<button id="join-group-button" type="submit" class="button small">
-						Join
-					</button>
-					<button id="create-group-button" type="submit" class="button small">
-						Create
-					</button>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="col-lg-8">
+							<div class="form-group">
+								<label class="col-lg-3 control-label" for="group">Group</label>
+								<div class="col-lg-8">
+									<input class="form-control" type="text" name="group" id="group_join_input" placeholder="Group" />
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-8">
+							<label class="col-lg-3 control-label"></label>
+							<button id="join-group-button" type="submit" class="btn btn-primary">
+								Join
+							</button>
+							<button id="create-group-button" type="submit" class="btn btn-primary">
+								Create
+							</button>
+						</div>
+					</div>
 				</div>
 				<h3>Change Password</h3>
 				<p>Not implemented yet.</p>

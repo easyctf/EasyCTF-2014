@@ -32,7 +32,7 @@ body {
     margin: 0;
     padding: 0;
     
-    background-color: #ecf0f1;
+    background-color: #bdc3c7;
     color: #000;
 }
 
@@ -42,6 +42,7 @@ body {
 }
 
 .triangle {
+    position: absolute;
     width: 0;
     height: 0;
     
@@ -70,7 +71,7 @@ body {
     top: 140px;
     left: 50%;
     
-    width: 380px;
+    width: 480px;
     height: 140px;
     
     margin-left: -240px;
@@ -80,7 +81,51 @@ body {
 	border-right: 50px solid transparent;
 }
 
-.easyctf-badge .rodus {
+.easyctf-badge h1{
     color: #FFF;
     font-size: 72px;
+    margin-top: 45px;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.easyctf-badge h2{
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    width: 100px;
+    z-index: 999;
+    color: #FFF;
+    font-size: 32px;
+    margin-left: -50px;
+    padding: 0;
+}
+
+.intro-section {
+    top: 0;
+    padding-top: 320px;
+    background-color: #ecf0f1;
+    box-shadow: 1px 1px 15px #000;
+}
+
+/********
+FOOTER
+********/
+
+#footer {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    background-color: #333;
+}
+
+#footer ul li {
+    display: inline;
+    float: left;
+    padding: 10px;
+}
+
+.rnav {
+    float: right;
 }

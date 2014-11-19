@@ -40,3 +40,15 @@ body {
     font-family: "Rodus";
     font-weight: 300;
 }
+
+.triangle {
+    width: 0;
+    height: 0;
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    border-left: 720px solid transparent;
+    border-right: 720px solid transparent;
+    border-top: 180px solid #D24D57;
+}

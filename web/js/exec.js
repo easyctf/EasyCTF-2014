@@ -24,18 +24,21 @@
 	}
 
 	var getArgs = function(ar) {
-		// console.dir(ar);
+		console.dir(ar);
 		var res = "[";
 		for (var i=0;i<ar.length;i++) {
 			if (i != 0) {
 				res += ",";
 			}
-			if (typeof ar[i] == "number") {
+			console.log(i+" "+ar[i]+" "+typeof ar[i]);
+			if ((typeof ar[i]) === "number") {
 				res += ar[i];
-			} else if (typeof ar[i] == "string") {
+			} else if ((typeof ar[i]) === "string") {
 				res += '"' + ar + '"';
-			} else if (ar[i][0]) {
+			} else if (typeof ar[i] === "object" && ar[i][0]) {
 				res += getArgs(ar[i]);
+			} else {
+				// fuck you 
 			}
 		}
 		res += "]";

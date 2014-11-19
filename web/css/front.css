@@ -105,7 +105,17 @@ body {
     top: 0;
     padding-top: 180px;
     background-color: #ecf0f1;
-    box-shadow: 1px 1px 15px #000;
+    /* box-shadow: 1px 10px 15px #000; */
+}
+
+.intro-extension {
+    border-top: 75px solid #ecf0f1;
+	border-left: 570px solid transparent;
+	border-right: 570px solid transparent;
+}
+
+.title-section {
+    text-align: center;
 }
 
 .title {
@@ -116,6 +126,10 @@ body {
 .title-date {
     margin-top: 0;
     font-size: 48px;
+}
+
+.contest-date {
+    text-align: center;
 }
 
 /********

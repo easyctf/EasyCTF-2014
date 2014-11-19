@@ -32,7 +32,7 @@ body {
     margin: 0;
     padding: 0;
     
-    background-color: #ecf0f1;
+    background-color: #bdc3c7;
     color: #000;
 }
 
@@ -42,13 +42,106 @@ body {
 }
 
 .triangle {
+    position: absolute;
     width: 0;
     height: 0;
     
-    margin-left: auto;
-    margin-right: auto;
+    border-left: 960px solid transparent;
+	border-right: 960px solid transparent;
+	border-top: 100px solid #59ABE3;
+}
+
+.easyctf-badge {
+    position: absolute;
     
-    border-left: 720px solid transparent;
-    border-right: 720px solid transparent;
-    border-top: 180px solid #D24D57;
+    top: 0;
+    left: 50%;
+    
+    width: 480px;
+    height: 140px;
+    
+    margin-left: -240px;
+    background-color: #19B5FE;
+    text-align: center;
+}
+
+.easyctf-badge-extension {
+    position: absolute;
+    
+    top: 140px;
+    left: 50%;
+    
+    width: 480px;
+    height: 140px;
+    
+    margin-left: -240px;
+    
+    border-top: 25px solid #19B5FE;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+}
+
+.easyctf-badge h1{
+    color: #FFF;
+    font-size: 72px;
+    margin-top: 45px;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.easyctf-badge h2{
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    width: 100px;
+    z-index: 999;
+    color: #FFF;
+    font-size: 32px;
+    margin-left: -50px;
+    padding: 0;
+}
+
+.intro-section {
+    top: 0;
+    padding-top: 180px;
+    background-color: #ecf0f1;
+    box-shadow: 1px 1px 15px #000;
+}
+
+.title {
+    font-size: 96px;
+    margin-bottom: 5px;
+}
+
+.title-date {
+    margin-top: 0;
+    font-size: 48px;
+}
+
+/********
+FOOTER
+********/
+
+#footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #333;
+}
+
+#footer ul li {
+    display: inline;
+    float: left;
+    padding: 10px;
+}
+
+#footer ul li a{
+    width: 75px;
+    height: 50px;
+    color: #FFF;
+    line-height: 25px;
+}
+
+.rnav {
+    float: right;
 }

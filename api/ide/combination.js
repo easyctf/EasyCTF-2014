@@ -1,13 +1,13 @@
-var flag = "stupid_type_errorz";
+var flag = "putting_it_all_t0gether";
 
 exports.get_data = function(req, callback) {
 	var result = [];
 
-	result.push("strings can be ");
-	result.push("concatenated with ");
-	result.push(5);
-	result.push(" other strings ");
-	result.push("but not with non-strings");
+	result.push("Let's put all your skills together now. ");
+	result.push('A');
+	result.push("thisisastringoflength23");
+	result.push(1787569);
+	result.push("wouldn't it be great if this were a palindrome");
 	req.session.data = result;
 	callback(result);
 };
@@ -16,7 +16,11 @@ exports.check_data = function(req, callback) {
 	var data = req.session.data;
 	var ans = "";
 	var a = data;
-	ans = String(a[0])+String(a[1])+String(a[2])+String(a[3])+String(a[4]);
+	var b = typeof a[2];
+	function reverse(s) {
+	return s.split('').reverse().join('');
+	}
+	ans = a[0]+String(b)+String(a[2].length)+String(Math.sqrt(a[3]))+String(reverse(a[4]));
 	var answer = req.param("answer");
 	var correct = ans;
 	if (answer) {

@@ -18,3 +18,5 @@
 1. Go into `/api/api.js` and add your problem ID string to the `problems` array.
 2. Go into `/web/exec.html`, and add that same problem ID string in the text box.
 3. Create `/api/ide/your-problem-id.js`, but **don't include the .js part in step 1 or 2.**
+4. Follow the examples and use common sense.
+5. Follow steps from normal problems.

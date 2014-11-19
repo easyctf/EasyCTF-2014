@@ -1,0 +1,54 @@
+/* FRONT.CSS */
+@font-face {
+    font-family: "Rodus";
+    src: url("../fonts/Rodus/RODUSsquare100.otf") format("opentype");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Rodus";
+    src: url("../fonts/Rodus/RODUSsquare300.otf") format("opentype");
+    font-weight: 300;
+}
+
+
+@font-face {
+    font-family: "Rodus";
+    src: url("../fonts/Rodus/RODUSsquare500.otf") format("opentype");
+    font-weight: 500;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 100%;
+    
+    margin: 0;
+    padding: 0;
+    
+    background-color: #ecf0f1;
+    color: #000;
+}
+
+.rodus {
+    font-family: "Rodus";
+    font-weight: 300;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    border-left: 720px solid transparent;
+    border-right: 720px solid transparent;
+    border-top: 180px solid #D24D57;
+}

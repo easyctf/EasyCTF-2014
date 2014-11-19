@@ -1,4 +1,5 @@
 (function() {
+
 	window.handle_login = function() {
 		return $.ajax({
 			type: "POST",
@@ -16,11 +17,11 @@
 					sessionStorage.signInStatus = "notLoggedIn";
 				}
 				if (data['success'] == 0) {
-					alert_class = "alert";
+					alert_class = "danger";
 				} else {
 					alert_class = "info";
 				}
-				$("#login_msg").hide().html("<div class=\"alert-box " + alert_class + "\"> " + data['message'] + " </div>").slideDown("normal");
+				$("#login_msg").hide().html("<div class=\"alert alert-" + alert_class + "\"> " + data['message'] + " </div>").slideDown("normal");
 				return setTimeout(function() {
 					return $("#login_msg").slideUp("normal", function() {
 						return $("#login_msg").html("").show();
@@ -30,7 +31,7 @@
 				if (typeof Storage !== "undefined") {
 					sessionStorage.signInStatus = "loggedIn";
 				}
-				return document.location.href = "compete";
+				return document.location.href =  (new Date("November 29, 2014 19:00:00") < new Date()) ? "compete" : "account";
 			}
 		}).fail(function(data) {
 			

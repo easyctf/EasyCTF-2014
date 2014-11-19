@@ -9,7 +9,8 @@ var problems = [
 	"palindrama",
 	"just-sum-numbers",
 	"logic",
-	"string-cast"
+	"string-cast",
+	"combination"
 ];
 
 module.exports = function(app) {

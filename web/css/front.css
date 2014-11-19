@@ -132,6 +132,39 @@ body {
     text-align: center;
 }
 
+.register-container {
+    width: 480px;
+    height: 128px;
+    
+    margin-top: -75px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    padding: 1px 25px;
+    background-color: #bdc3c7;
+    
+    text-align: center;
+}
+
+.register-button {
+    width: 430px;
+    height: 150px;
+    background-color: #3498db;
+    color: #FFF;
+    font-size: 32px;
+    text-align: center;
+    border: none;
+    
+    transition: all 125ms ease-in-out 0s;
+    -o-transition: all 125ms ease-in-out 0s;
+    -moz-transition: all 125ms ease-in-out 0s;
+    -ms-transition: all 125ms ease-in-out 0s;
+}
+
+.register-button:hover {
+    background-color: #2980b9;
+    color: #FFF;
+}
 /********
 FOOTER
 ********/
@@ -158,4 +191,9 @@ FOOTER
 
 .rnav {
     float: right;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #19B5FE;
 }

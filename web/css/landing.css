@@ -21,23 +21,51 @@ body {
   max-width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #bdc3c7;
+  background-color: #8D2300; /* #bdc3c7;*/
   color: #000; }
 
 .rodus {
   font-family: "Rodus";
   font-weight: 300; }
 
+
+
 .triangle {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 960px solid transparent;
+    /*position: absolute;
+    width: 0;
+    height: 0;
+    
+    border-left: 960px solid transparent;
   border-right: 960px solid transparent;
-  border-top: 100px solid #59ABE3; }
+  border-top: 100px solid #59ABE3;*/
+}
+
+.triangle:before {
+  content: "";
+  position: fixed;
+  width: 50%;
+  height: 50%;
+  background-color: #59ABE3;
+  transform: skew(0deg, 10deg);
+
+  top: -44%;
+  left: 0%;
+}
+
+.triangle:after {
+  content: "";
+  position: fixed;
+  width: 50%;
+  height: 50%;
+  background-color: #59ABE3;
+  transform: skew(0deg, -10deg);
+
+  top: -44%;
+  right: 0%;
+}
 
 .easyctf-badge {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 50%;
   width: 480px;
@@ -48,12 +76,12 @@ body {
   .easyctf-badge h1 {
     color: #FFF;
     font-size: 72px;
-    margin-top: 45px;
+    margin-top: 20px;
     margin-bottom: 0;
     padding: 0; }
   .easyctf-badge h2 {
-    position: absolute;
-    top: 100px;
+    position: fixed;
+    top: 85px;
     left: 50%;
     width: 100px;
     z-index: 999;
@@ -63,7 +91,7 @@ body {
     padding: 0; }
 
 .easyctf-badge-extension {
-  position: absolute;
+  position: fixed;
   top: 140px;
   left: 50%;
   width: 480px;
@@ -93,10 +121,11 @@ body {
 
 .title-date {
   margin-top: 0;
-  font-size: 48px; }
+  font-size: 28px; }
 
 .contest-date {
-  text-align: center; }
+  text-align: center;
+  margin: 60px auto; }
 
 .register-container {
   width: 480px;
@@ -105,13 +134,28 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 1px 25px;
-  background-color: #bdc3c7;
+  background-color: #8D2300;
+  color: #FFF;
   text-align: center; }
 
+.title-table {
+  width: 100%;
+  margin: 80px auto;
+  table-layout: fixed;
+}
+
+.title-video {
+  width:560px;
+  height:315px;
+  margin: auto;
+}
+
 .register-button {
+  display: table-cell;
+  vertical-align: middle;
   width: 430px;
   height: 150px;
-  background-color: #3498db;
+  background-color: #2980b9;
   color: #FFF;
   font-size: 32px;
   text-align: center;
@@ -121,8 +165,9 @@ body {
   -moz-transition: all 125ms ease-in-out 0s;
   -ms-transition: all 125ms ease-in-out 0s; }
   .register-button:hover {
-    background-color: #2980b9;
-    color: #FFF; }
+    background-color: #3498db;
+    color: #FFF;
+    text-decoration: none; }
 
 /********
 FOOTER

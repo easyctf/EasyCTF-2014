@@ -42,13 +42,14 @@ body {
 }
 
 .triangle {
+}
+
+.triangle:before {
+    content: "";
     position: absolute;
-    width: 0;
-    height: 0;
-    
-    border-left: 960px solid transparent;
-	border-right: 960px solid transparent;
-	border-top: 100px solid #59ABE3;
+    height: 50%;
+    width: 50%;
+    background-color: #59ABE3;
 }
 
 .easyctf-badge {

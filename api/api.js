@@ -11,7 +11,8 @@ var problems = [
 	"logic",
 	"string-cast",
 	"combination",
-	"math-loop"
+	"math-loop",
+	"string-loop"
 ];
 
 module.exports = function(app) {

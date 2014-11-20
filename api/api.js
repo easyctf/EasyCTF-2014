@@ -13,7 +13,8 @@ var problems = [
 	"combination",
 	"math-loop",
 	"string-loop",
-	"sort"
+	"sort",
+	"bool-logic"
 ];
 
 module.exports = function(app) {

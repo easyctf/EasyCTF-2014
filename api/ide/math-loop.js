@@ -20,7 +20,7 @@ exports.check_data = function(req, callback) {
 	ans = ans.toString().split("").reduce(function (i, j, key, value) { ni = Number(i); nj = Number(j); return ni + nj });
 	//console.log(data,ans);
 	var answer = req.param("answer");
-	var correct = ans;
+	var correct = String(ans);
 	if (answer) {
 		answer = answer.replace(/^\s+|\s+$/g,'');
 		correct = correct.replace(/^\s+|\s+$/g,'');

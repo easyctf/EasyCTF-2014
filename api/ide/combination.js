@@ -28,7 +28,7 @@ exports.get_data = function(req, callback) {
 	result.push(Math.pow(Math.floor(Math.random()*12409)+182740, 2));
 	result.push("wouldn't it be great if this were a palindrome");
 
-	result = shuffle(result);
+	// result = shuffle(result);
 
 	req.session.data = result;
 	callback(result);

@@ -1,0 +1,2 @@
+# mongoimport --host kahana.mongohq.com --port 10071 --db app29067833 -u github_user -p __temporarypassword__ --verbose --file backup/accounts.json -c accounts --type json
+mongoimport --host kahana.mongohq.com --port 10071 --db app29067833 -u github_user -p __temporarypassword__ --verbose --file backup/problems.json -c problems --type json --jsonArray

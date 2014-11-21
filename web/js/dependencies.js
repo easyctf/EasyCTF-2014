@@ -1,5 +1,6 @@
 var tabsLI = [
 	[ "problems", "Problems" ],
+	[ "exec", "Python" ],
 	[ "irc", "Chat" ],
 	[ "shell", "Shell" ],
 	[ "account", "Account" ],

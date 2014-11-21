@@ -1,0 +1,14 @@
+{
+    "_id": ObjectId("546e67b6925a4dbb9f0034e2"),
+    "autogen": false,
+    "basescore": 70,
+    "desc": "<p>I found this hashed password <code>dqcxxkgegmrunaue</code> and its hashing algorithm <a href=\"/problem_data/hash1/hash1.py\" target=\"_blank\">hash1.py</a>. Can you find the password?</p>\n",
+    "displayname": "Hashing 1",
+    "grader": "hash1",
+    "hint": "Maybe there's more than 1 password that works...",
+    "pid": "546e67b6925a4dbb9f0034e2",
+    "threshold": 0,
+    "weightmap": {
+        
+    }
+}

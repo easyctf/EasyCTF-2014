@@ -1,0 +1,2 @@
+mongoexport --host kahana.mongohq.com --port 10071 --db app29067833 -u github_user -p __temporarypassword__ --verbose -o backup/accounts.json -c accounts
+mongoexport --host kahana.mongohq.com --port 10071 --db app29067833 -u github_user -p __temporarypassword__ --verbose -o backup/problems.json -c problems

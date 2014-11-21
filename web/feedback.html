@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+		<meta name="description" content="EasyCTF">
+		<meta name="author" content="Stevenson HS">
+
+		<title>Feedback - EasyCTF 2014</title>
+
+		<link rel="stylesheet" href="css/main.css" media="screen" />
+		<link rel="icon" href="img/easyctf.ico" media="screen" />
+	</head>
+	<body>
+		<nav role="navigation" class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" data-toggle="collapse" data-target="#navbar-content" class="navbar-toggle"><span class="sr-only">Toggle Navigation</span><span></span><span></span><span></span>
+					</button><a href="/" class="navbar-brand">EasyCTF</a>
+				</div>
+				<div id="navbar-content" class="collapse navbar-collapse">
+				    <ul class="nav navbar-nav" id="nav-left">
+				    </ul>
+				    <ul class="nav navbar-nav navbar-right" id="nav-right">
+				    </ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="page-header">
+				<h1>Feedback</h1>
+			</div>
+
+			<p>It's our first time organizing a CTF, so we'd like to hear from you about how we're doing! Fill out the form below or email us at <a href="mailto:team@easyctf.com" target="_blank">team@easyctf.com</a> to contact us about any questions, or if something's noticeably wrong.</p>
+
+			<div id="feedback_msg"></div>
+
+			<form class="form-horizontal" action="javascript:void(0);">
+				<div class="container">
+					<div class="panel panel-default col-lg-8">
+						<div class="panel-body">
+							<div class="form-group">
+								<label class="col-lg-3 control-label" for="name">Name</label>
+								<div class="col-lg-8">
+									<input type="text" id="name" class="form-control" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label" for="email">Email</label>
+								<div class="col-lg-8">
+									<input type="email" id="email" class="form-control" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label" for="message">Message</label>
+								<div class="col-lg-8">
+									<textarea type="text" id="message" class="form-control"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label"></label>
+								<div class="col-lg-8">
+									<input type="submit" id="send-feedback" value="Send Feedback" class="btn btn-primary" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+
+			<div id="footer"></div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/dependencies.js"></script>
+		<script type="text/javascript" src="js/feedback.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				display_navbar();
+				load_footer();
+			});
+		</script>
+	</body>
+</html>

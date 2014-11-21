@@ -44,6 +44,9 @@ exports.load_unlocked_problems = function(tid, callback) {
 						basescore: {
 							$gt: 0
 						}
+					}).sort({
+						basescore: 1,
+						displayname: 1
 					}).toArray(function(err, doc) {
 						for(var i=0; i<doc.length; i++) {
 							var p = doc[i];

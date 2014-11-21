@@ -1,24 +1,5 @@
 var flag = "putting_it_all_t0gether";
 
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex ;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-
-  return array;
-}
-
 exports.get_data = function(req, callback) {
 	var result = [];
 
@@ -27,8 +8,6 @@ exports.get_data = function(req, callback) {
 	result.push("thisisastringoflength23");
 	result.push(Math.pow(Math.floor(Math.random()*12409)+182740, 2));
 	result.push("wouldn't it be great if this were a palindrome");
-
-	// result = shuffle(result);
 
 	req.session.data = result;
 	callback(result);

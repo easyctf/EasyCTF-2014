@@ -1,14 +1,68 @@
-{
-    "_id": ObjectId("546e67b6925a4dbb9f0034e2"),
-    "autogen": false,
-    "basescore": 70,
-    "desc": "<p>I found this hashed password <code>dqcxxkgegmrunaue</code> and its hashing algorithm <a href=\"/problem_data/hash1/hash1.py\" target=\"_blank\">hash1.py</a>. Can you find the password?</p>\n",
-    "displayname": "Hashing 1",
-    "grader": "hash1",
-    "hint": "Maybe there's more than 1 password that works...",
-    "pid": "546e67b6925a4dbb9f0034e2",
-    "threshold": 0,
-    "weightmap": {
-        
-    }
-}
+[
+	{
+		"autogen": false,
+		"basescore": 20,
+		"desc": "<p>Free points guyz.</p> <p>Since this is the first time we're holding this competition, we'd like some feedback on how we can improve. Come on, it's just ~5 minutes or so for 20 free points.</p> <p><a href=\"https://docs.google.com/forms/d/1VmReUSHT4vDdUJgyymzJzPJM5r59iyn4VpgBBDadvnU/viewform\" target=\"_blank\">EasyCTF Feedback Survey</a></p>\n",
+		"displayname": "EasyCTF Survey",
+		"grader": "survey",
+		"hint": "Just click the link and complete the survey! No tricks here!",
+		"threshold": 0,
+		"weightmap": {}
+	},
+
+
+
+	{
+		"autogen": false,
+		"basescore": 40,
+		"desc": "<p>Welcome to Python crash course! To get started, head over to the <a href=\"/exec\" target=\"_blank\">Python Editor</a> and print the string \"Hello, EasyCTF!\" exactly like that to the console.</p>\n",
+		"displayname": "Python Basics 1",
+		"grader": "python-basic-1",
+		"hint": "Not sure how to print in Python? Look it up! It probably uses the <code>print</code> function.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 50,
+		"desc": "<p>You're faced with a control panel. There are some instructions left on a sign nearby on the wall: This machine generates random numbers that you can access through the variable <code>args[0]</code>. If the number is greater than or equal to 0 and less than 100, print <code>hacks</code>. If the number is greater than or equal to 100, print <code>haxx</code>. If the number is negative, print <code>hakz</code>. Use the IDE to complete this problem.</p>\n",
+		"displayname": "Python Basics 2",
+		"grader": "python-basic-2",
+		"hint": "What are <a href=\"http://en.wikibooks.org/wiki/Python_Programming/Conditional_Statements\" target=\"_blank\">conditionals</a>?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 60,
+		"desc": "<p>How can you add strings in print statements? <code>args</code> is an array of 5 variables than can be accessed with <code> args[0]</code>, <code>args[1]</code> etc. Write some python code in the IDE to concatenate the variables together before printing.</p>\n",
+		"displayname": "Python Basics 3",
+		"grader": "python-basic-3",
+		"hint": "Hmmm... how can you turn that pesky integer into a string?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 70,
+		"desc": "<p><code>args</code> is an array of 5 variables than can be accessed with <code> args[0]</code>, <code>args[1]</code> etc. Write some python code in the IDE to concatenate <code>args[0]</code>, <code>args[1]</code>'s type (string or integer), <code>args[2]</code>'s length, <code>args[3]</code>'s square root (will be a perfect square), and <code>args[4]</code> in reverse.</p>\n",
+		"displayname": "Python Basics 4",
+		"grader": "python-basic-4",
+		"hint": "Hmmm... how can you turn that pesky integer into a string?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+
+
+
+	{
+		"autogen": false,
+		"basescore": 70,
+		"desc": "<p>I found this hashed password <code>dqcxxkgegmrunaue</code> and its hashing algorithm <a href=\"/problem_data/hash1/hash1.py\" target=\"_blank\">hash1.py</a>. Can you find the password?</p>\n",
+		"displayname": "Hashing 1",
+		"grader": "hash1",
+		"hint": "Maybe there's more than 1 password that works...",
+		"threshold": 0,
+		"weightmap": {}
+	}
+]

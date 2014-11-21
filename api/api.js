@@ -44,6 +44,10 @@ module.exports = function(app) {
 		account.register_team(req, res);
 	});
 
+	app.post("/api/feedback", function(req, res) {
+		
+	});
+
 	app.post("/api/ide/data", function(req, res) {
 		if (auth.is_logged_in(req) && req.param("problem") && problems.indexOf(req.param("problem")) > -1) {
 			require("./ide/" + req.param("problem")).get_data(req, function(data) {

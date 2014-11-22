@@ -24,7 +24,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 50,
+		"basescore": 45,
 		"desc": "<p>You're faced with a control panel. There are some instructions left on a sign nearby on the wall: This machine generates random numbers that you can access through the variable <code>args[0]</code>. If the number is greater than or equal to 0 and less than 100, print <code>hacks</code>. If the number is greater than or equal to 100, print <code>haxx</code>. If the number is negative, print <code>hakz</code>. Use the IDE to complete this problem.</p>\n",
 		"displayname": "Python Basics 2",
 		"grader": "python-basic-2",
@@ -34,7 +34,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 60,
+		"basescore": 50,
 		"desc": "<p>How can you add strings in print statements? <code>args</code> is an array of 5 variables than can be accessed with <code> args[0]</code>, <code>args[1]</code> etc. Write some python code in the IDE to concatenate the variables together before printing.</p>\n",
 		"displayname": "Python Basics 3",
 		"grader": "python-basic-3",
@@ -44,7 +44,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 70,
+		"basescore": 55,
 		"desc": "<p><code>args</code> is an array of 5 variables than can be accessed with <code> args[0]</code>, <code>args[1]</code> etc. Write some python code in the IDE to concatenate <code>args[0]</code>, <code>args[1]</code>'s type (string or integer), <code>args[2]</code>'s length, <code>args[3]</code>'s square root (will be a perfect square), and <code>args[4]</code> in reverse.</p>\n",
 		"displayname": "Python Basics 4",
 		"grader": "python-basic-4",
@@ -54,7 +54,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 80,
+		"basescore": 60,
 		"desc": "<p>Given an list of unknown length of strings stored in <code>args</code>, for each string, take the first two characters and concatenate them into another string variable. Print the final variable.</p>\n",
 		"displayname": "Python Basics 5",
 		"grader": "python-basic-5",
@@ -72,6 +72,26 @@
 		"displayname": "Hashing 1",
 		"grader": "hash1",
 		"hint": "Maybe there's more than 1 password that works...",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 65,
+		"desc": "<p>Given an integer value stored in args[0], find the sum of all numbers less than or equal to args[0] and greater than zero that are divisible by 7. Then, print the sum of all the digits of the original sum to get your answer.</p>\n",
+		"displayname": "Python Basics 6",
+		"grader": "python-basic-6",
+		"hint": "What is a math operation to check divisibility?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 70,
+		"desc": "<p>Given an list of integers stored in args[0] and an integer k stored in args[1], sort them in descending order, then print the value at array index k from the sorted list.</p>\n",
+		"displayname": "Python Basics 7",
+		"grader": "python-basic-7",
+		"hint": "I wonder if there's a built in sort function?",
 		"threshold": 0,
 		"weightmap": {}
 	}

@@ -278,7 +278,7 @@
 	{
 		"autogen": false,
 		"basescore": 80,
-		"desc": "<p><a href=\"/problem_data/format_deception/format_deception.nds\">What kind of file is this?</a></p>\n",
+		"desc": "<p>What kind of file is <a href=\"/problem_data/format_deception/format_deception.nds\">this</a>?</p>\n",
 		"displayname": "Format Deception",
 		"grader": "formatdeception",
 		"hint": "After you manage to open the .nds file, (if you don't know how, Google is your best friend), look around for your flag. Maybe go against your first instinct.",
@@ -288,7 +288,7 @@
 	{
 		"autogen": false,
 		"basescore": 30,
-		"desc": "<p>Algorithmic problems require you to write a program to solve the problem in the online python editor. Data will be generated randomly, as well as the solutions. If your program produces the required answer, the flag will be given to you. You can find this using the python link in the navigation menu above.</p><p>Given positive integers A, B, C, and L, find the sum of all the distinct multiples of A, B, and C under L.</p><p>The variables A, B, C, and L are passed through an array of variables called args. You don't have to create this; it's already there for you. This is how the generated data is passed to your program.</p><pre>args = [A, B, C, L];</pre></p>\n",
+		"desc": "<p>Algorithmic problems require you to write a program to solve the problem in the online python editor. Data will be generated randomly, as well as the solutions. If your program produces the required answer, the flag will be given to you. You can find this using the python link in the navigation menu above.</p><p>Given positive integers A, B, C, and L, find the sum of all the distinct multiples of A, B, and C under L.</p><p>The variables A, B, C, and L are passed through an array of variables called args. You don't have to create this; it's already there for you. This is how the generated data is passed to your program.</p><code>args = [A, B, C, L];</code></p>\n",
 		"displayname": "Just Sum Numbers",
 		"grader": "just-sum-numbers",
 		"hint": "If you don't know how to do this problem just yet, try the Python Basics problem series first.",
@@ -297,11 +297,31 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 80,
+		"basescore": 75,
 		"desc": "<p>You received a zip file but you find that it is corrupted! You're given that it's missing a couple of bytes at the beginning. Replace these bytes and find the flag.</p><p><a href=\"/problem_data/corrupted/corrupted.zip\" target=\"_blank\">Input file</a></p>\n",
 		"displayname": "Corruption",
 		"grader": "corrupted",
 		"hint": "No clue what bytes to insert? Perhaps looking into file headers would be helpful. Also, you might want to download a hex editor, such as HxD.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 40,
+		"desc": "<p>ciphertext: .... - - .--. ---... -..-. -..-. - .. -. -.-- ..- .-. .-.. .-.-.- -.-. --- -- -..-. .-.. .. -. . ... .- -. -.. -.. --- - ...</p>\n",
+		"displayname": "Lines, Dots, and Shift Keys",
+		"grader": "LDSK",
+		"hint": "Haven't you already used a Shift Key in a previous problem?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 85,
+		"desc": "<p>It appears the only thing you know about the flag is its MD5 hash <code>f54f10fd6e38929084d505d0c2e9c997</code>, and that the flag is formatted in this way: [number][adjective][color][animal] (without the brackets).</p><p>Luckily, you have found some <a href=\"/problem_data/brutus/brutus.zip\" target=\"_blank\">lists of the words</a> that may have been used.</p><p>Tribute to <a href=\"http://hsctf.com\" target=\"_blank\">http://hsctf.com</a></p>\n",
+		"displayname": "Brutus",
+		"grader": "brutus",
+		"hint": "As the title suggests, brute forcing the answer is necessary.",
 		"threshold": 0,
 		"weightmap": {}
 	}

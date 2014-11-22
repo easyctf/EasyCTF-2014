@@ -113,6 +113,16 @@
 		"threshold": 0,
 		"weightmap": {}
 	},
+	{
+		"autogen": false,
+		"basescore": 50,
+		"desc": "<p>Ok, so now you know how to list files and read files... this is starting to sound more like a file manager you are familiar with, right? So what&#39;s left now? Searching.</p> <p>Luckily, there&#39;s also a command for that: <code>grep</code>. You know the drill, read up on the command, and then solve the problem in <code>/problems/grep</code>.</p> <p>The flag is the filename of the file containing the string <code>yep!</code>. All other files will contain the string <code>nope!</code>.</p>\n",
+		"displayname": "Linux Basics 3",
+		"grader": "linux-basic-3",
+		"hint": "What character stands for \"all files\"?",
+		"threshold": 0,
+		"weightmap": {}
+	},
 
 
 	{

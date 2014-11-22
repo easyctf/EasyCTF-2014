@@ -21,6 +21,7 @@ var tabsBoth = [
 	[ "about", "About" ],
 	[ "scoreboard", "Scoreboard" ],
 	[ "sponsors", "Sponsors" ],
+	[ "feedback", "Feedback" ],
 ];
 
 function show_site_down_error() {

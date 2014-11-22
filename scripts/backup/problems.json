@@ -123,6 +123,16 @@
 		"threshold": 0,
 		"weightmap": {}
 	},
+	{
+		"autogen": false,
+		"basescore": 55,
+		"desc": "<p>Alright time to get to some fun stuff: binaries. A&nbsp;<strong>binary</strong>&nbsp;is just a really fancy word that means a file (or in this case, a program) that contains some bits that are not text.</p> <p>The binary in this problem is a program. When you run it, it&#39;ll ask you for an input, but not just any input: a special character. To run this binary, navigate to the folder <code>/problems/pipe</code> and run <code>./pipe</code>.</p> <p>The source code is available for download <a href=\"/problem_data/linux-basic-4/pipe.c\" target=\"_blank\">here</a>, or you can find it at <code>/problems/pipe/pipe.c</code> on the shell server. The flag has been redacted.</p>\n",
+		"displayname": "Linux Basics 4",
+		"grader": "linux-basic-4",
+		"hint": "A pipe can refer to a number of things, but the one you are probably most concerned about is this <code>|</code> symbol.",
+		"threshold": 0,
+		"weightmap": {}
+	},
 
 
 	{

@@ -9,6 +9,8 @@
 		"threshold": 0,
 		"weightmap": {}
 	},
+
+
 	{
 		"autogen": false,
 		"basescore": 40,
@@ -89,6 +91,20 @@
 		"threshold": 0,
 		"weightmap": {}
 	},
+
+
+	{
+		"autogen": false,
+		"basescore": 75,
+		"desc": "<p>Many servers (including web servers) are run on machines that use an operating system called Linux. Most of you are familiar with an operating system such as Windows or Mac OS X, or maybe a mobile operating system such as Android or iOS.</p> <p>Linux has a shell, or a command-line interface, which is similar to an interface you may see when you open Command Prompt on Windows or Terminal on Mac. In a shell, you type commands to the machine and it executes your command.</p> <p>Before you can learn how to hack, you have to learn how Linux works. Some basics for using linux:</p> <ul> <li><code>echo</code> - similar to <code>print</code> in most programming languages. Typing <code>echo &quot;hi&quot;</code> will literally print the word &quot;hi&quot; to the screen.</li> <li><code>cd</code> - stands for change directory. When you execute a command, you are always doing so from a specific directory. To change the directory, type <code>cd</code> and whichever directory you want to go to.</li> </ul> <p>In the first problem, we&#39;ll learn about a function called <code>ls</code>. Log in to the web shell, and type <code>cd /problems/ls</code> to get started.</p>\n",
+		"displayname": "Linux Basics 1",
+		"grader": "linux-basic-1",
+		"hint": "If you're still unsure how to solve this problem, ask for help on the <a href=\"/irc\" target=\"_blank\">chat</a>.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+
+
 	{
 		"autogen": false,
 		"basescore": 70,

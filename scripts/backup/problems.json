@@ -337,7 +337,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 90,
+		"basescore": 100,
 		"desc": "<p>The first 5 primes are 2, 3, 5, 7, and 11. The 2nd, 3rd, 5th, 7th, and 11th primes are (respectively) 3, 5, 11, 17, and 31. The sum of these primes is 67. Let <code>Q(n)</code> be the sum of the <code>k</code>th prime where k is the first <code>n</code> prime numbers, as shown above. Then <code>Q(5) = 67</code>.</p><p>It can be confirmed that <code>Q(35) = 11735</code> and <code>Q(85) = 107591</code>.</p><p>If <code>args = [M,N]</code>, find Q(M) + Q(N), using the python editor.</p>\n",
 		"displayname": "Project Eratosthenes",
 		"grader": "project-eratosthenes",
@@ -347,7 +347,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 100,
+		"basescore": 90,
 		"desc": "<p>Obfuscation is changing variables and statements in a code so that it still performs the desired functions but is harder to read by humans. This makes it harder for people who are not supposed to see your code to understand your code. Try your hand at the following Python deobfuscation exercise:</p><p><a href=\"/problem_data/obfuscation/obfuscated.py\" target=\"_blank\">Input file</a></p>\n",
 		"displayname": "Obfuscation 1",
 		"grader": "obfuscation1",
@@ -357,11 +357,31 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 120,
+		"basescore": 130,
 		"desc": "<p><a href=\"/problem_data/reversing-2/EasyCTF_Reversing_2.exe\">Input file</a></p>\n",
 		"displayname": "Reversing 2",
 		"grader": "reversing2",
 		"hint": "What happens when you change what you input?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 90,
+		"desc": "<p><table align=\"center\" border=\"0\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\"><tbody><tr><td><img alt=\"\" src=\"/problem_data/pixelated/1.png\" style=\"height:200px; width:200px\"></td><td><img alt=\"\" src=\"/problem_data/pixelated/2.png\" style=\"height:200px; width:200px\"></td></tr></tbody></table></p>\n",
+		"displayname": "Pixelated",
+		"grader": "pixelated",
+		"hint": "Did you know you can do <a href=\"http://homepages.inf.ed.ac.uk/rbf/HIPR2/arthops.htm\" target=\"_blank\">arithmetic with images</a> too?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 120,
+		"desc": "<p>Let's bring some 8th grade Python assignments in here.</p><p>Given a string stored in <code>args[0]</code>, find the longest palindrome inside the string, ignoring the punctuation and spacing during calculations, but including them in the final result.</p><p>For example, <code>I did roar again, Niagara! ... or did I?</code> returns <code>I did roar again, Niagara! ... or did I</code></p><p>Notice how the question mark was not part of the palindromic string, so it was not included in the answer (and neither should trailing spaces or new lines).</p>\n",
+		"displayname": "Palindrama",
+		"grader": "palindrama",
+		"hint": "Python makes palindrome testing easy (after you remove punctuation, that is)! How do you reverse strings?",
 		"threshold": 0,
 		"weightmap": {}
 	}

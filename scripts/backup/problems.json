@@ -9,9 +9,6 @@
 		"threshold": 0,
 		"weightmap": {}
 	},
-
-
-
 	{
 		"autogen": false,
 		"basescore": 40,
@@ -62,23 +59,10 @@
 		"threshold": 0,
 		"weightmap": {}
 	},
-
-
-
-	{
-		"autogen": false,
-		"basescore": 70,
-		"desc": "<p>I found this hashed password <code>dqcxxkgegmrunaue</code> and its hashing algorithm <a href=\"/problem_data/hash1/hash1.py\" target=\"_blank\">hash1.py</a>. Can you find the password?</p>\n",
-		"displayname": "Hashing 1",
-		"grader": "hash1",
-		"hint": "Maybe there's more than 1 password that works...",
-		"threshold": 0,
-		"weightmap": {}
-	},
 	{
 		"autogen": false,
 		"basescore": 65,
-		"desc": "<p>Given an integer value stored in args[0], find the sum of all numbers less than or equal to args[0] and greater than zero that are divisible by 7. Then, print the sum of all the digits of the original sum to get your answer.</p>\n",
+		"desc": "<p>Given an integer value stored in <code>args[0]</code>, find the sum of all numbers less than or equal to <code>args[0]</code> and greater than zero that are divisible by 7. Then, print the sum of all the digits of the original sum to get your answer.</p>\n",
 		"displayname": "Python Basics 6",
 		"grader": "python-basic-6",
 		"hint": "What is a math operation to check divisibility?",
@@ -88,10 +72,30 @@
 	{
 		"autogen": false,
 		"basescore": 70,
-		"desc": "<p>Given an list of integers stored in args[0] and an integer k stored in args[1], sort them in descending order, then print the value at array index k from the sorted list.</p>\n",
+		"desc": "<p>Given an list of integers stored in <code>args[0]</code> and an integer k stored in <code>args[1]</code>, sort them in descending order, then print the value at array index k from the sorted list.</p>\n",
 		"displayname": "Python Basics 7",
 		"grader": "python-basic-7",
 		"hint": "I wonder if there's a built in sort function?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 75,
+		"desc": "<p>A boolean is a value that is either True or False. Given an list of arrays of integers as <code>[a,b]</code> stored in <code>args</code>, for each array, if the sum of <code>a + b <= 25</code> then concatenate the value \"1\" to represent the value <code>True</code> to a string. Otherwise, concatenate \"0\" to represent the value <code>False</code>.</p>\n",
+		"displayname": "Python Basics 8",
+		"grader": "python-basic-8",
+		"hint": "Use your knowledge from previous problems and apply it here!",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 70,
+		"desc": "<p>I found this hashed password <code>dqcxxkgegmrunaue</code> and its hashing algorithm <a href=\"/problem_data/hash1/hash1.py\" target=\"_blank\">hash1.py</a>. Can you find the password?</p>\n",
+		"displayname": "Hashing 1",
+		"grader": "hash1",
+		"hint": "Maybe there's more than 1 password that works...",
 		"threshold": 0,
 		"weightmap": {}
 	}

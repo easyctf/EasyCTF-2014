@@ -185,7 +185,6 @@
 		"threshold": 0,
 		"weightmap": {}
 	},
-
 	{
 		"autogen": false,
 		"basescore": 30,
@@ -193,6 +192,26 @@
 		"displayname": "A Simple Cipher",
 		"grader": "simplecipher",
 		"hint": "Don't worry, it'll get harder. ;)",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 80,
+		"desc": "<p>What could this possibly mean?</p><p>xhwdlsibxnmwvinalpdcbsymzzx</p>\n",
+		"displayname": "Easy As CTF Gets",
+		"grader": "EACG",
+		"hint": "Perhaps you could try one of these <a href=\"http://rumkin.com/tools/cipher/\" target=\"_blank\">cipers</a>.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 80,
+		"desc": "<p>Once upon a midnight dreary, while I pondered, weak and weary,<br>Over many a quaint and curious volume of forgotten lore –<br>While I nodded, nearly napping, suddenly there came a tapping,<br>As of some one gently rapping, rapping at my chamber door –<br>\"'Tis some visitor,\" I muttered, \"tapping at my chamber door –<br>Only this and nothing more.\"</p><p>Ah, distinctly I remember it was in the bleak December;<br>And each separate dying ember wrought its ghost upon the floor.<br>Eagerly I wished the morrow; – vainly I had sought to borrow<br>From my books surcease of sorrow – sorrow for the lost Lenore –&nbsp;<br>For the rare and radiant maiden whom the angels name Lenore –&nbsp;<br>Nameless here for evermore.</p><p>&nbsp;</p><p>ciphertext:&nbsp;6 11&nbsp;22 28 66&nbsp;uooy htue mghn salc mria rrop clns pggl eoie nioo ifdt iwtd eres atau&nbsp;odgh dfgr doti dwii sbsc eato eorf gjgr sron owud sefe</p>\n",
+		"displayname": "Easy As CTF Gets",
+		"grader": "EACG",
+		"hint": "Poems were used in cryptography in WW2 to encrypt messages, but were regarded as extremely insecure. Those first five numbers look important - what could they be referring to in the poem?",
 		"threshold": 0,
 		"weightmap": {}
 	}

@@ -259,9 +259,29 @@
 		"autogen": false,
 		"basescore": 40,
 		"desc": "<p>Networking covers everything that is related to our computer's interactions with other computers over the Internet or through some other connection. Sometimes we can trace these interactions and analyze them in order to acquire information.</p><p>You might need to install a piece of software called WireShark for this problem. Analyze the input file and look through all packets for information that might be related to a flag.</p><p>Here is the file in an online viewer, CloudShark:</p><p><a href=\"https://www.cloudshark.org/captures/1c66eb3587a1\" target=\"_blank\">https://www.cloudshark.org/captures/1c66eb3587a1</a></p><p>Alternatively, here is the source file if you like to download it and view it in WireShark:</p><p><a href=\"/problem_data/networking/mystery.pcap\">Input File</a></p>\n",
-		"displayname": "Flowchart",
-		"grader": "flowchart",
-		"hint": "Java has several types of loops - <code>for</code>, <code>for each</code>, <code>while</code> - how do they differ from each other?",
+		"displayname": "Networking 1",
+		"grader": "networking1",
+		"hint": "It seems like information is being recorded as a form is submitted, through a POST request.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 70,
+		"desc": "<p>Find the Number of Digits in the 16th Fibonacci Number that Contains 1618 and is Divisible by 1618.</p>\n",
+		"displayname": "Golden Ratio Obsession",
+		"grader": "GRO",
+		"hint": "Use your knowledge from the previous basic python problems! (You are not, however, limited to python for this problem - you can compute the answer in any language you'd like.)",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 80,
+		"desc": "<p><a href=\"/problem_data/format_deception/format_deception.nds\">What kind of file is this?</a></p>\n",
+		"displayname": "Format Deception",
+		"grader": "formatdeception",
+		"hint": "After you manage to open the .nds file, (if you don't know how, Google is your best friend), look around for your flag. Maybe go against your first instinct.",
 		"threshold": 0,
 		"weightmap": {}
 	}

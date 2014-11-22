@@ -171,7 +171,7 @@ exports.submit_problem = function(tid, req, callback) {
 
 			if (!prob.autogen) {
 				require("./graders/" + prob.grader).grade(tid, key, function(obj) {
-					submit_problem_result(pid, key, tid, req.ip, obj, function(result) {
+					submit_problem_result(pid, key, tid, req.ip, prob.basescore, obj, function(result) {
 						callback({
 							status: result.status,
 							points: obj.correct ? prob.basescore : 0,
@@ -187,7 +187,7 @@ exports.submit_problem = function(tid, req, callback) {
 	});
 };
 
-var submit_problem_result = function(pid, key, tid, ip, result, callback) {
+var submit_problem_result = function(pid, key, tid, ip, pts, result, callback) {
 	if (result.correct) {
 		common.db.collection("submissions").find({
 			tid: tid,
@@ -201,7 +201,8 @@ var submit_problem_result = function(pid, key, tid, ip, result, callback) {
 					key: key,
 					ip: ip,
 					correct: true,
-					timestamp: moment().format()
+					timestamp: moment().format(),
+					pts: pts
 				}, { w: 1 }, function(err, doc) {
 					callback({
 						status: 1,
@@ -231,7 +232,8 @@ var submit_problem_result = function(pid, key, tid, ip, result, callback) {
 					key: key,
 					ip: ip,
 					correct: false,
-					timestamp: moment().format()
+					timestamp: moment().format(),
+					pts: 0,
 				}, { w: 1 }, function(err, doc) {
 					callback({
 						status: 0,

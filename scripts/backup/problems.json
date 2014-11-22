@@ -141,7 +141,7 @@
 		"desc": "<p><a href=\"/sites/pointless-keys/index.php\" target=\"_blank\">Pointless website</a></p>\n",
 		"displayname": "Pointless Keys",
 		"grader": "pointlesskeys",
-		"hint": "You may want to look at some of the <i>JavaScript<i> source code.",
+		"hint": "You may want to look at some of the <i>JavaScript</i> source code.",
 		"threshold": 0,
 		"weightmap": {}
 	},

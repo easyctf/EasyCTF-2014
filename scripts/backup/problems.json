@@ -240,8 +240,28 @@
 		"basescore": 40,
 		"desc": "<p>A friend has created a code for you to guess because he has no life and spends all his time making this kind of stuff.</p><p>Anyways, here it is: <a href=\"/problem_data/a000045/A000045.txt\">A000045.txt</a></p>\n",
 		"displayname": "A000045.txt",
-		"grader": "QR",
+		"grader": "A000045",
 		"hint": "Ask Google what A000045 might mean.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 30,
+		"desc": "<p>How do loops work? Examine the <a href=\"/problem_data/flowchart/flowchart.png\" target=\"_blank\">flowchart</a> left for you, then match the letter choices to the correct loop. Submit the result of the loops in the order the diagrams are drawn (without line breaks or spaces) as your solution.</p>\n",
+		"displayname": "Flowchart",
+		"grader": "flowchart",
+		"hint": "Java has several types of loops - <code>for</code>, <code>for each</code>, <code>while</code> - how do they differ from each other?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 40,
+		"desc": "<p>Networking covers everything that is related to our computer's interactions with other computers over the Internet or through some other connection. Sometimes we can trace these interactions and analyze them in order to acquire information.</p><p>You might need to install a piece of software called WireShark for this problem. Analyze the input file and look through all packets for information that might be related to a flag.</p><p>Here is the file in an online viewer, CloudShark:</p><p><a href=\"https://www.cloudshark.org/captures/1c66eb3587a1\" target=\"_blank\">https://www.cloudshark.org/captures/1c66eb3587a1</a></p><p>Alternatively, here is the source file if you like to download it and view it in WireShark:</p><p><a href=\"/problem_data/networking/mystery.pcap\">Input File</a></p>\n",
+		"displayname": "Flowchart",
+		"grader": "flowchart",
+		"hint": "Java has several types of loops - <code>for</code>, <code>for each</code>, <code>while</code> - how do they differ from each other?",
 		"threshold": 0,
 		"weightmap": {}
 	}

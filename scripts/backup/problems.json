@@ -237,7 +237,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 40,
+		"basescore": 60,
 		"desc": "<p>A friend has created a code for you to guess because he has no life and spends all his time making this kind of stuff.</p><p>Anyways, here it is: <a href=\"/problem_data/a000045/A000045.txt\">A000045.txt</a></p>\n",
 		"displayname": "A000045.txt",
 		"grader": "A000045",
@@ -267,7 +267,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 70,
+		"basescore": 75,
 		"desc": "<p>Find the Number of Digits in the 16th Fibonacci Number that Contains 1618 and is Divisible by 1618.</p>\n",
 		"displayname": "Golden Ratio Obsession",
 		"grader": "GRO",
@@ -277,7 +277,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 80,
+		"basescore": 90,
 		"desc": "<p>What kind of file is <a href=\"/problem_data/format_deception/format_deception.nds\">this</a>?</p>\n",
 		"displayname": "Format Deception",
 		"grader": "formatdeception",
@@ -322,6 +322,26 @@
 		"displayname": "Brutus",
 		"grader": "brutus",
 		"hint": "As the title suggests, brute forcing the answer is necessary.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 60,
+		"desc": "<p>Try your hand at some <a href=\"http://en.wikipedia.org/wiki/Steganography\" target=\"_blank\">stego</a>. </p><p><img alt=\"\" src=\"/problem_data/stegosaurus/stegosaurus.jpg\" style=\"height:235px; width:400px\"></p>\n",
+		"displayname": "Stegosaurus",
+		"grader": "stegosaurus",
+		"hint": "Open up the problem in a hex editor and take a look around.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 100,
+		"desc": "<p>The first 5 primes are 2, 3, 5, 7, and 11. The 2nd, 3rd, 5th, 7th, and 11th primes are (respectively) 3, 5, 11, 17, and 31. The sum of these primes is 67. Let <code>Q(n)</code> be the sum of the <code>k</code>th prime where k is the first n prime numbers, as shown above. Then <code>Q(5) = 67</code>.</p><p>It can be confirmed that <code>Q(35) = 11735</code> and <code>Q(85) = 107591</code>.</p><p>If <code>args = [M,N]</code>, find Q(M) + Q(N), using the python editor.</p>\n",
+		"displayname": "Project Eratosthenes",
+		"grader": "project-eratosthenes",
+		"hint": "Open up the problem in a hex editor and take a look around.",
 		"threshold": 0,
 		"weightmap": {}
 	}

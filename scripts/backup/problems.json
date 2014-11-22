@@ -284,5 +284,25 @@
 		"hint": "After you manage to open the .nds file, (if you don't know how, Google is your best friend), look around for your flag. Maybe go against your first instinct.",
 		"threshold": 0,
 		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 30,
+		"desc": "<p>Algorithmic problems require you to write a program to solve the problem in the online python editor. Data will be generated randomly, as well as the solutions. If your program produces the required answer, the flag will be given to you. You can find this using the python link in the navigation menu above.</p><p>Given positive integers A, B, C, and L, find the sum of all the distinct multiples of A, B, and C under L.</p><p>The variables A, B, C, and L are passed through an array of variables called args. You don't have to create this; it's already there for you. This is how the generated data is passed to your program.</p><pre>args = [A, B, C, L];</pre></p>\n",
+		"displayname": "Just Sum Numbers",
+		"grader": "just-sum-numbers",
+		"hint": "If you don't know how to do this problem just yet, try the Python Basics problem series first.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 80,
+		"desc": "<p>You received a zip file but you find that it is corrupted! You're given that it's missing a couple of bytes at the beginning. Replace these bytes and find the flag.</p><p><a href=\"/problem_data/corrupted/corrupted.zip\" target=\"_blank\">Input file</a></p>\n",
+		"displayname": "Corruption",
+		"grader": "corrupted",
+		"hint": "No clue what bytes to insert? Perhaps looking into file headers would be helpful. Also, you might want to download a hex editor, such as HxD.",
+		"threshold": 0,
+		"weightmap": {}
 	}
 ]

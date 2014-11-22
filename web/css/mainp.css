@@ -1,0 +1,91 @@
+.idxpage {
+    background-image: url('/web/img/zwartevilt.png');
+    height: 100%;
+    width: 100%;
+    background-size:cover;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+}
+.title {
+    font-family: 'Rokkitt', serif;
+    font-size: 100px;
+    font-weight: 800;
+    color: #FFF; 
+    text-align: center;
+}
+
+.video {
+    padding-left: 30%;
+}
+
+.statem {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 30px;
+    color: #FFF;
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 8%;
+}
+
+.btn {
+    text-align: center;
+    height: 2em;
+    font-size: 2em;
+    background-color: transparent;
+    border: 1px solid #222;
+
+    
+    -webkit-transition: all .5s ease;
+-moz-transition: all .5s ease;
+-ms-transition: all .5s ease;
+-o-transition: all .5s ease;
+transition: all .5s ease;
+    border: 1px solid #fff;
+    padding: 0.5% 2% 1% 2%;
+    margin-top: 2%;
+}
+
+/********
+FOOTER
+********/
+
+#footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding-top: 0;
+    background-color: #333;
+}
+
+#footer ul li {
+    display: inline;
+    float: left;
+    padding: 10px;
+}
+
+#footer ul li a{
+    width: 75px;
+    height: 50px;
+    color: #FFF;
+    line-height: 25px;
+}
+
+/*****
+A Tags
+*****/
+body a{
+    text-decoration: none;
+    color: #19B5FE;
+       -webkit-transition: all .3s ease;
+-moz-transition: all .3s ease;
+-ms-transition: all .3s ease;
+-o-transition: all .3s ease;
+transition: all .3s ease;
+}
+
+body a:hover{
+    text-decoration: none;
+    color: #000;
+    background-color: #FFF;
+}

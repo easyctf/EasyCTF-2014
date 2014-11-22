@@ -11,7 +11,6 @@
 	},
 
 
-
 	{
 		"autogen": false,
 		"basescore": 40,
@@ -62,7 +61,78 @@
 		"threshold": 0,
 		"weightmap": {}
 	},
+	{
+		"autogen": false,
+		"basescore": 65,
+		"desc": "<p>Given an integer value stored in <code>args[0]</code>, find the sum of all numbers less than or equal to <code>args[0]</code> and greater than zero that are divisible by 7. Then, print the sum of all the digits of the original sum to get your answer.</p>\n",
+		"displayname": "Python Basics 6",
+		"grader": "python-basic-6",
+		"hint": "What is a math operation to check divisibility?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 70,
+		"desc": "<p>Given an list of integers stored in <code>args[0]</code> and an integer k stored in <code>args[1]</code>, sort them in descending order, then print the value at array index k from the sorted list.</p>\n",
+		"displayname": "Python Basics 7",
+		"grader": "python-basic-7",
+		"hint": "I wonder if there's a built in sort function?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 75,
+		"desc": "<p>A boolean is a value that is either True or False. Given an list of arrays of integers as <code>[a,b]</code> stored in <code>args</code>, for each array, if the sum of <code>a + b <= 25</code> then concatenate the value \"1\" to represent the value <code>True</code> to a string. Otherwise, concatenate \"0\" to represent the value <code>False</code>.</p>\n",
+		"displayname": "Python Basics 8",
+		"grader": "python-basic-8",
+		"hint": "Use your knowledge from previous problems and apply it here!",
+		"threshold": 0,
+		"weightmap": {}
+	},
 
+
+	{
+		"autogen": false,
+		"basescore": 40,
+		"desc": "<p>Many servers (including web servers) are run on machines that use an operating system called Linux. Most of you are familiar with an operating system such as Windows or Mac OS X, or maybe a mobile operating system such as Android or iOS.</p> <p>Linux has a shell, or a command-line interface, which is similar to an interface you may see when you open Command Prompt on Windows or Terminal on Mac. In a shell, you type commands to the machine and it executes your command.</p> <p>Before you can learn how to hack, you have to learn how Linux works. Some basics for using linux:</p> <ul> <li><code>echo</code> - similar to <code>print</code> in most programming languages. Typing <code>echo &quot;hi&quot;</code> will literally print the word &quot;hi&quot; to the screen.</li> <li><code>cd</code> - stands for change directory. When you execute a command, you are always doing so from a specific directory. To change the directory, type <code>cd</code> and whichever directory you want to go to.</li> </ul> <p>In the first problem, we&#39;ll learn about a function called <code>ls</code>. Log in to the web shell, and type <code>cd /problems/ls</code> to get started.</p>\n",
+		"displayname": "Linux Basics 1",
+		"grader": "linux-basic-1",
+		"hint": "If you're still unsure how to solve this problem, ask for help on the <a href=\"/irc\" target=\"_blank\">chat</a>.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 45,
+		"desc": "<p>Now that you&#39;re somewhat familiar with&nbsp;how the Linux shell works, we&#39;ll move on to another command that is useful: <code><a href=\"http://linux.die.net/man/1/cat\" target=\"_blank\">cat</a></code>.</p> <p>To solve this problem, log into the shell server, and try to find out what&#39;s inside <code>/problems/cat/flag.txt</code>!</p>\n",
+		"displayname": "Linux Basics 2",
+		"grader": "linux-basic-2",
+		"hint": "There are multiple ways to solve this problem; kudos to you if you find them all!",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 50,
+		"desc": "<p>Ok, so now you know how to list files and read files... this is starting to sound more like a file manager you are familiar with, right? So what&#39;s left now? Searching.</p> <p>Luckily, there&#39;s also a command for that: <code>grep</code>. You know the drill, read up on the command, and then solve the problem in <code>/problems/grep</code>.</p> <p>The flag is the filename of the file containing the string <code>yep!</code>. All other files will contain the string <code>nope!</code>.</p>\n",
+		"displayname": "Linux Basics 3",
+		"grader": "linux-basic-3",
+		"hint": "What character stands for \"all files\"?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 55,
+		"desc": "<p>Alright time to get to some fun stuff: binaries. A&nbsp;<strong>binary</strong>&nbsp;is just a really fancy word that means a file (or in this case, a program) that contains some bits that are not text.</p> <p>The binary in this problem is a program. When you run it, it&#39;ll ask you for an input, but not just any input: a special character. To run this binary, navigate to the folder <code>/problems/pipe</code> and run <code>./pipe</code>.</p> <p>The source code is available for download <a href=\"/problem_data/linux-basic-4/pipe.c\" target=\"_blank\">here</a>, or you can find it at <code>/problems/pipe/pipe.c</code> on the shell server. The flag has been redacted.</p>\n",
+		"displayname": "Linux Basics 4",
+		"grader": "linux-basic-4",
+		"hint": "A pipe can refer to a number of things, but the one you are probably most concerned about is this <code>|</code> symbol.",
+		"threshold": 0,
+		"weightmap": {}
+	},
 
 
 	{
@@ -77,21 +147,71 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 65,
-		"desc": "<p>Given an integer value stored in args[0], find the sum of all numbers less than or equal to args[0] and greater than zero that are divisible by 7. Then, print the sum of all the digits of the original sum to get your answer.</p>\n",
-		"displayname": "Python Basics 6",
-		"grader": "python-basic-6",
-		"hint": "What is a math operation to check divisibility?",
+		"basescore": 50,
+		"desc": "<p><a href=\"/sites/post-it/index.php\" target=\"_blank\">http://easyctf.com/sites/post-it</a></p>\n",
+		"displayname": "POST-it",
+		"grader": "postit",
+		"hint": "It may be helpful to look into what POST requests <i>are</i>. How can you use this?",
 		"threshold": 0,
 		"weightmap": {}
 	},
 	{
 		"autogen": false,
-		"basescore": 70,
-		"desc": "<p>Given an list of integers stored in args[0] and an integer k stored in args[1], sort them in descending order, then print the value at array index k from the sorted list.</p>\n",
-		"displayname": "Python Basics 7",
-		"grader": "python-basic-7",
-		"hint": "I wonder if there's a built in sort function?",
+		"basescore": 50,
+		"desc": "<p><a href=\"/sites/pointless-keys/index.php\" target=\"_blank\">Pointless website</a></p>\n",
+		"displayname": "Pointless Keys",
+		"grader": "pointlesskeys",
+		"hint": "You may want to look at some of the <i>JavaScript</i> source code.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 60,
+		"desc": "<p>Cookiezi has been banned from osu! forever, but we'll never forget him!</p><p>Only those who truly believe in the return of Cookiezi can enter this <a href=\"/sites/cookiezi\" target=\"_blank\">site</a>.</p>\n",
+		"displayname": "Cookiezi Fanpage",
+		"grader": "cookiezi",
+		"hint": "Yum yum yum what could be more delicious than chocolate chip cookies? HTTP cookies, of course!",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 80,
+		"desc": "<p>This site seems to have some information we need. Unfortunately, it's protected by a login page. Help us get through the login system!</p><p><a href=\"/sites/injection/index.php\" target=\"_blank\">Website</a> - <a href=\"/sites/injection/index.phps\" target=\"_blank\">Source</a></p>\n",
+		"displayname": "Injection 1",
+		"grader": "injection-1",
+		"hint": "You might want to study up on some SQL syntax. How can we modify the query so it will always return true?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 30,
+		"desc": "<p>Cryptography is hiding messages in plain sight. Although they can be viewed, they are usually unreadable without the use of a special key. Messages can be encrypted and then sent to another person who then decrypts the ciphertext (encrypted message) using their special key into plaintext (readable text). Try your hand at this <a href=\"http://en.wikipedia.org/wiki/Caesar_cipher\" target=\"_blank\">Caesar cipher</a>:</p> <p>IGKYGX HKIGSK ZNK LOXYZ XUSGT MKTKXGR ZU IXUYY HUZN CNKT NK HAORZ G HXOJMK GIXUYY ZNK XNOTK GTJ IUTJAIZKJ ZNK LOXYZ OTBGYOUT UL HXOZGOT.ZNKYK GINOKBKSKTZY MXGTZKJ NOS ATSGZINKJ SOROZGXE VUCKX GTJ ZNXKGZKTKJ ZU KIROVYK ZNK YZGTJOTM UL VUSVKE, CNU NGJ XKGROMTKJ NOSYKRL COZN ZNK YKTGZK GLZKX ZNK JKGZN UL IXGYYAY OT 53 HI. COZN ZNK MGRROI CGXY IUTIRAJKJ, ZNK YKTGZK UXJKXKJ IGKYGX ZU YZKV JUCT LXUS NOY SOROZGXE IUSSGTJ GTJ XKZAXT ZU XUSK. IGKYGX XKLAYKJ, GTJ SGXQKJ NOY JKLOGTIK OT 49 HI HE IXUYYOTM ZNK XAHOIUT COZN G RKMOUT, RKGBOTM NOY VXUBOTIK GTJ ORRKMGRRE KTZKXOTM XUSGT ZKXXOZUXE ATJKX GXSY. IOBOR CGX XKYARZKJ, LXUS CNOIN NK KSKXMKJ GY ZNK ATXOBGRKJ RKGJKX UL XUSK. ZNK LRGM OY IGKYGX_OY_NUSK.</p>\n",
+		"displayname": "A Simple Cipher",
+		"grader": "simplecipher",
+		"hint": "Don't worry, it'll get harder. ;)",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 80,
+		"desc": "<p>What could this possibly mean?</p><p>xhwdlsibxnmwvinalpdcbsymzzx</p>\n",
+		"displayname": "Easy As CTF Gets",
+		"grader": "EACG",
+		"hint": "Perhaps you could try one of these <a href=\"http://rumkin.com/tools/cipher/\" target=\"_blank\">cipers</a>.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 80,
+		"desc": "<p>Once upon a midnight dreary, while I pondered, weak and weary,<br>Over many a quaint and curious volume of forgotten lore –<br>While I nodded, nearly napping, suddenly there came a tapping,<br>As of some one gently rapping, rapping at my chamber door –<br>\"'Tis some visitor,\" I muttered, \"tapping at my chamber door –<br>Only this and nothing more.\"</p><p>Ah, distinctly I remember it was in the bleak December;<br>And each separate dying ember wrought its ghost upon the floor.<br>Eagerly I wished the morrow; – vainly I had sought to borrow<br>From my books surcease of sorrow – sorrow for the lost Lenore –&nbsp;<br>For the rare and radiant maiden whom the angels name Lenore –&nbsp;<br>Nameless here for evermore.</p><p>&nbsp;</p><p>ciphertext:&nbsp;6 11&nbsp;22 28 66&nbsp;uooy htue mghn salc mria rrop clns pggl eoie nioo ifdt iwtd eres atau&nbsp;odgh dfgr doti dwii sbsc eato eorf gjgr sron owud sefe</p>\n",
+		"displayname": "The Raven",
+		"grader": "theraven",
+		"hint": "Poems were used in cryptography in WW2 to encrypt messages, but were regarded as extremely insecure. Those first five numbers look important - what could they be referring to in the poem?",
 		"threshold": 0,
 		"weightmap": {}
 	}

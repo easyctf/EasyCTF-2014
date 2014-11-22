@@ -1,6 +1,10 @@
 var common = require("./common");
 var group = require("./group");
 
+function fuckXSS(str) {
+	return String(str).replace(/&/g, '').replace(/</g, '').replace(/>/g, '').replace(/"/g, '');
+}
+
 exports.register_team = function(req, res) {
 	var email = req.param("email");
 	var teamname = req.param("team");
@@ -16,6 +20,9 @@ exports.register_team = function(req, res) {
 		});
 		return;
 	}
+
+	teamname = fuckXSS(teamname);
+	school = fuckXSS(school);
 
 	common.db.collection("accounts").find({
 		$or: [

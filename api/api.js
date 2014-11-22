@@ -3,6 +3,7 @@ var auth = require("./auth");
 var scoreboard = require("./scoreboard");
 var group = require("./group");
 var problem = require("./problem");
+var feedback = require("./feedback");
 
 var problems = [
 	"python-basic-1",
@@ -45,7 +46,7 @@ module.exports = function(app) {
 	});
 
 	app.post("/api/feedback", function(req, res) {
-		
+		feedback.upload_feedback(req, res);
 	});
 
 	app.post("/api/ide/data", function(req, res) {

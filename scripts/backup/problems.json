@@ -214,5 +214,35 @@
 		"hint": "Poems were used in cryptography in WW2 to encrypt messages, but were regarded as extremely insecure. Those first five numbers look important - what could they be referring to in the poem?",
 		"threshold": 0,
 		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 50,
+		"desc": "<p><a href=\"/problem_data/reversing-1/EasyCTF_Reversing_1.exe\">Input file</a></p>\n",
+		"displayname": "Reversing 1",
+		"grader": "reversing1",
+		"hint": "Does the source of the file reveal anything?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 30,
+		"desc": "<p>Something appears to be wrong with this QR. Can you fix it?</p><p><img alt=\"\" src=\"/problem_data/QR/code.png\" style=\"height:184px; width:184px\"></p>\n",
+		"displayname": "QR",
+		"grader": "QR",
+		"hint": "Normal QR's are square, aren't they?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 40,
+		"desc": "<p>A friend has created a code for you to guess because he has no life and spends all his time making this kind of stuff.</p><p>Anyways, here it is: <a href=\"/problem_data/a000045/A000045.txt\">A000045.txt</a></p>\n",
+		"displayname": "A000045.txt",
+		"grader": "QR",
+		"hint": "Ask Google what A000045 might mean.",
+		"threshold": 0,
+		"weightmap": {}
 	}
 ]

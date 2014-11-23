@@ -1,7 +1,8 @@
 #canvas {
+	display: block;
 	z-index: 499;
 	width: 840px;
 	height: 480px;
-	border: 1px solid #999;
+	outline: 1px solid #999;
 	background-color: #FFF;
 }

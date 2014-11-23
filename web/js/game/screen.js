@@ -7,7 +7,6 @@ document.addEventListener('mousemove', function(e){
 
 var Screens = {
 	Splash: {
-		name: "Splash",
 		draw: function(ctx) {
 			ctx.drawImage(imgs.splash, 0, 0);
 		},
@@ -15,15 +14,29 @@ var Screens = {
 
 		},
 		click: function(e) {
-			SwitchScreen("Menu");
+			SwitchScreen(Save.New ? "Level1" : "Menu");
 		}
 	},
 	Menu: {
-		name: "Menu",
 		draw: function(ctx) {
-			
+
 		},
 		update: function(time) {
+		},
+		click: function(e) {
+
+		}
+	},
+	Level1: {
+		levelDialog: [
+			{ icon: undefined, name: "", message: "Welcome to EasyCTF! " },
+			{ icon: undefined, name: "", message: "" }
+		],
+		draw: function(ctx) {
+
+		},
+		update: function(time) {
+
 		},
 		click: function(e) {
 

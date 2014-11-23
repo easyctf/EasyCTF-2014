@@ -4,7 +4,7 @@ var saveLoaded = false;
 
 var Save = {
 	New: true,
-
+	Level: 0
 };
 
 saveLoaded = true;

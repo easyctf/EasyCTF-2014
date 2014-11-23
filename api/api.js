@@ -16,7 +16,9 @@ var problems = [
 	"string-loop",
 	"sort",
 	"bool-logic",
-	"project-eratosthenes"
+	"project-eratosthenes",
+	"gcf",
+	"xor"
 ];
 
 module.exports = function(app) {

@@ -91,8 +91,26 @@
 		"threshold": 0,
 		"weightmap": {}
 	},
-
-
+	{
+		"autogen": false,
+		"basescore": 80,
+		"desc": "<p>Head over to the Python Editor and print the greatest common factor between <code>args[0]</code> and <code>args[1]</code>.</p>\n",
+		"displayname": "Python Basics 9",
+		"grader": "python-basic-9",
+		"hint": "Defining a <i>function</i> that finds a GCF will be of use.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 85,
+		"desc": "<p><code>args[0]</code> is a result of <code>XOR</code> encryption on two hexadecimal strings. You only know one of the two original strings, <code>args[1]</code>, can you find the other? \n\n</p>\n",
+		"displayname": "Python Basics 10",
+		"grader": "python-basic-10",
+		"hint": "The operation <code>^</code> in python only works on numbers. The built in functions <code>ord()</code> and <code>chr()</code> convert between characters and numbers.",
+		"threshold": 0,
+		"weightmap": {}
+	},
 	{
 		"autogen": false,
 		"basescore": 40,

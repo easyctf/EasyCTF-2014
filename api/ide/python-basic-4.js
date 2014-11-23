@@ -1,10 +1,14 @@
-var flag = "simple_logic_no_haxx_involved";
+var flag = "combine_all_y0ur_kn0wledge";
 
 exports.get_data = function(req, callback) {
 	var result = [];
 
-	result.push(Math.random()*250 - 100);
-	//console.log(result);
+	result.push("Let's put all your skills together now. ");
+	result.push('A');
+	result.push("thisisastringoflength23");
+	result.push(Math.pow(Math.floor(Math.random()*12409)+182740, 2));
+	result.push("wouldn't it be great if this were a palindrome");
+
 	req.session.data = result;
 	callback(result);
 };
@@ -12,19 +16,12 @@ exports.get_data = function(req, callback) {
 exports.check_data = function(req, callback) {
 	var data = req.session.data;
 	var ans = "";
-
-	var a = data[0];
-	if (a < 0){
-		ans = "hakz"
+	var a = data;
+	var b = typeof a[1];
+	function reverse(s) {
+		return s.split('').reverse().join('');
 	}
-	else if (a >= 0 && a < 100){
-		ans = "hacks"
-	}
-	else {
-		ans = "haxx"
-	}
-
-	//return ans == parseInt(output);
+	ans = a[0]+String(b)+String(a[2].length)+String(Math.sqrt(a[3]))+String(reverse(a[4]));
 	var answer = req.param("answer");
 	var correct = ans;
 	if (answer) {

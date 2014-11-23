@@ -1,24 +1,30 @@
-var flag = "arrays_too_easy_4_me";
+var flag = "just-simple-logic-no-haxx-involved";
 
 exports.get_data = function(req, callback) {
 	var result = [];
-	var arr = []
-	for (var i = 0; i < 50; i++){
-	arr.push(Math.floor(Math.random()*200));
-	}
-	result.push(arr);
-	result.push(Math.floor(Math.random()*50));
+
+	result.push(Math.random()*250 - 100);
+	//console.log(result);
 	req.session.data = result;
 	callback(result);
 };
 
 exports.check_data = function(req, callback) {
 	var data = req.session.data;
-	//var ans = 0;
+	var ans = "";
+
 	var a = data[0];
-	var b = a.sort(function(a, b){return b-a});
-	var ans = String(a[data[1]]);
-	//console.log(data,ans);
+	if (a < 0){
+		ans = "hakz"
+	}
+	else if (a >= 0 && a < 100){
+		ans = "hacks"
+	}
+	else {
+		ans = "haxx"
+	}
+
+	//return ans == parseInt(output);
 	var answer = req.param("answer");
 	var correct = ans;
 	if (answer) {

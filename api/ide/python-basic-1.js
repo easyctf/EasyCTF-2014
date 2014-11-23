@@ -1,4 +1,4 @@
-var flag = "don't_worry_it's_gonna_get_harder_real_fast";
+var flag = "don't_worry_it's_gonna_get_harder_for_all_you_pros";
 
 exports.get_data = function(req, callback) {
 	callback([

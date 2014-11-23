@@ -1,12 +1,13 @@
-var flag = "b00lean_logic_011000100110100101101110011000010111001001111001";
+var flag = "stupid_ints_causing_those_annoying_type_errorz";
 
 exports.get_data = function(req, callback) {
 	var result = [];
-	for (var i = 0; i < 30; i++){
-	var a = Math.floor(Math.random()*50);
-	var b = Math.floor(Math.random()*50);
-	result.push([a,b]);
-	}
+
+	result.push("strings can be ");
+	result.push("concatenated with ");
+	result.push(5);
+	result.push(" other strings ");
+	result.push("but not with non-strings");
 	req.session.data = result;
 	callback(result);
 };
@@ -15,15 +16,7 @@ exports.check_data = function(req, callback) {
 	var data = req.session.data;
 	var ans = "";
 	var a = data;
-	for (var i = 0; i < data.length; i++){
-		if (a[i][0] + a[i][1] <= 25){
-			ans += "1";
-		}
-		else{
-			ans += "0";
-		}
-	}
-	//console.log(data,ans);
+	ans = String(a[0])+String(a[1])+String(a[2])+String(a[3])+String(a[4]);
 	var answer = req.param("answer");
 	var correct = ans;
 	if (answer) {

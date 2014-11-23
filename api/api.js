@@ -9,14 +9,16 @@ var problems = [
 	"python-basic-1",
 	"palindrama",
 	"just-sum-numbers",
-	"logic",
-	"string-cast",
-	"combination",
-	"math-loop",
-	"string-loop",
-	"sort",
-	"bool-logic",
-	"project-eratosthenes"
+	"python-basic-2",
+	"python-basic-3",
+	"python-basic-4",
+	"python-basic-5",
+	"python-basic-6",
+	"python-basic-7",
+	"python-basic-8",
+	"project-eratosthenes",
+	"python-basic-9",
+	"python-basic-10"
 ];
 
 module.exports = function(app) {

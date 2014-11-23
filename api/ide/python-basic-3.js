@@ -1,4 +1,4 @@
-var flag = "stupid_type_errorz";
+var flag = "stupid_ints_causing_those_annoying_type_errorz";
 
 exports.get_data = function(req, callback) {
 	var result = [];

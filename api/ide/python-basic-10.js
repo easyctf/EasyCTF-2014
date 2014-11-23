@@ -1,4 +1,4 @@
-var flag = "x0r_encrypti0n_can_be_easy_t0_crack";
+var flag = "x0r_encrypti0n_is_be_e4sy_t0_crack";
 function hex2a(hexx) {
     var hex = hexx.toString();//force conversion
     var str = '';

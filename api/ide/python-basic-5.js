@@ -1,4 +1,4 @@
-var flag = "string_slicing_not_pi_slicing";
+var flag = "its_string_slicing_not_pi(e)_slicing";
 
 exports.get_data = function(req, callback) {
 	var result = ["though","essay","earth","really","spin","light","turn","psychology","track","into","gs"];

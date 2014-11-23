@@ -1,6 +1,6 @@
 var auth = require("./api/auth");
 
-var pages = ["account", "noauth", "about", "updates", "feedback", "login", "logout", "passreset", "teamnamelookup", "contact", "learn", "faq", "teachers", "register", "sponsors", "scoreboard"];
+var pages = ["account", "noauth", "about", "updates", "feedback", "login", "logout", "passreset", "teamnamelookup", "contact", "learn", "faq", "teachers", "register", "sponsors", "scoreboard", "forgot"];
 var auth_pages = ["problems", "exec", "irc", "compete", "shell"];
 
 for(var i=0; i<auth_pages.length; i++) {

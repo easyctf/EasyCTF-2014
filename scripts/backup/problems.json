@@ -201,7 +201,7 @@
 		"desc": "<p>What could this possibly mean?</p><p>xhwdlsibxnmwvinalpdcbsymzzx</p>\n",
 		"displayname": "Easy As CTF Gets",
 		"grader": "EACG",
-		"hint": "Perhaps you could try one of these <a href=\"http://rumkin.com/tools/cipher/\" target=\"_blank\">cipers</a>.",
+		"hint": "Perhaps you could try one of these <a href=\"http://rumkin.com/tools/cipher/\" target=\"_blank\">ciphers</a>.",
 		"threshold": 0,
 		"weightmap": {}
 	},

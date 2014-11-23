@@ -1,4 +1,4 @@
-var flag = "simple_logic_no_haxx_involved";
+var flag = "just-simple-logic-no-haxx-involved";
 
 exports.get_data = function(req, callback) {
 	var result = [];

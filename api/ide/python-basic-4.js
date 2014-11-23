@@ -1,4 +1,4 @@
-var flag = "putting_it_all_t0gether";
+var flag = "combine_all_y0ur_kn0wledge";
 
 exports.get_data = function(req, callback) {
 	var result = [];
@@ -21,7 +21,7 @@ exports.check_data = function(req, callback) {
 	function reverse(s) {
 		return s.split('').reverse().join('');
 	}
-	ans = a[0]+String(b)+String(a[2].length)+String(Math.sqrt(a[3]))+String(reverse(a[4]));
+	ans = a[0]+String(b)+String(a[2].length)+String(Math.floor(Math.sqrt(a[3])))+String(reverse(a[4]));
 	var answer = req.param("answer");
 	var correct = ans;
 	if (answer) {

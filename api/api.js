@@ -42,7 +42,7 @@ module.exports = function(app) {
 
 	app.get("/api/isadmin", function(req, res) {
 		res.send(auth.is_admin(req));
-	})
+	});
 
 	app.post("/api/register", function(req, res) {
 		account.register_team(req, res);
@@ -53,7 +53,7 @@ module.exports = function(app) {
 	});
 
 	app.post("/api/ide/data", function(req, res) {
-		if (auth.is_logged_in(req) && req.param("problem") && problems.indexOf(req.param("problem")) > -1) {
+		if (auth.is_logged_in(req) && auth.is_authorized(req).success === 1 && req.param("problem") && problems.indexOf(req.param("problem")) > -1) {
 			require("./ide/" + req.param("problem")).get_data(req, function(data) {
 				res.send(data);
 			});
@@ -66,7 +66,7 @@ module.exports = function(app) {
 	});
 
 	app.post("/api/ide/check", function(req, res) {
-		if (auth.is_logged_in(req) && req.param("problem") && problems.indexOf(req.param("problem")) > -1) {
+		if (auth.is_logged_in(req) && auth.is_authorized(req).success === 1 && req.param("problem") && problems.indexOf(req.param("problem")) > -1) {
 			require("./ide/" + req.param("problem")).check_data(req, function(data) {
 				res.send(data);
 			});

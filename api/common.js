@@ -23,11 +23,7 @@ exports.db.open(function(err, db) {
 });
 
 exports.esc = function(s) {
-	return s.replace("&", "&amp;")
-		.replace("<", "&lt;")
-		.replace(">", "&gt;")
-		.replace('"', "&quot;")
-		.replace("'", "&#39;");
+	return encodeURIComponent(s);
 };
 
 exports.token = function() {

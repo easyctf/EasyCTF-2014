@@ -1,4 +1,4 @@
-var flag = "arrays_too_easy_4_me";
+var flag = "arrays_aren't_hard_because_python_rocks";
 
 exports.get_data = function(req, callback) {
 	var result = [];

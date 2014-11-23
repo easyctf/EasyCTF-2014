@@ -1,4 +1,4 @@
-var flag = "n0t_pr0jekt_o1ler";
+var flag = "n0t_pr0jekt_o1ler_but_s1mil4r";
 var math = require("./math.js");
 
 exports.get_data = function(req, callback) {

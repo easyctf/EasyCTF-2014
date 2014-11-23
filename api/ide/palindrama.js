@@ -1,4 +1,4 @@
-var flag = "did_you_use_[::-1]_notation";
+var flag = "did_you_use_python's_[::-1]_notation?";
 exports.get_data = function(req, callback) {
 	var result = [];
 	var s = [
@@ -6,6 +6,11 @@ exports.get_data = function(req, callback) {
 		"Help Max, Enid -- in example, H. See, slave, I demonstrate yet arts no medieval sees.",
 		"Egad, a base tone denotes a bad age. So may Obadiah, even in Nineveh, aid a boy, Amos. Naomi, did I moan?",
 		"Sir, I soon saw Bob was no Osiris. Poor Dan is in a droop.",
+		"Straw? No, too stupid a fad. I put soot on warts.",
+		"Live on, Time; emit no evil.",
+		"No, it is opposition.",
+		"Peel's lager on red rum did murder no regal sleep.",
+		"Too far away, no mere clay or royal ceremony, a war afoot."
 	];
 	var rand = s[(Math.random()*s.length)|0];
 	var a = s[(Math.random()*s.length)|0];

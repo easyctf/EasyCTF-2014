@@ -207,11 +207,191 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 80,
+		"basescore": 100,
 		"desc": "<p>Once upon a midnight dreary, while I pondered, weak and weary,<br>Over many a quaint and curious volume of forgotten lore –<br>While I nodded, nearly napping, suddenly there came a tapping,<br>As of some one gently rapping, rapping at my chamber door –<br>\"'Tis some visitor,\" I muttered, \"tapping at my chamber door –<br>Only this and nothing more.\"</p><p>Ah, distinctly I remember it was in the bleak December;<br>And each separate dying ember wrought its ghost upon the floor.<br>Eagerly I wished the morrow; – vainly I had sought to borrow<br>From my books surcease of sorrow – sorrow for the lost Lenore –&nbsp;<br>For the rare and radiant maiden whom the angels name Lenore –&nbsp;<br>Nameless here for evermore.</p><p>&nbsp;</p><p>ciphertext:&nbsp;6 11&nbsp;22 28 66&nbsp;uooy htue mghn salc mria rrop clns pggl eoie nioo ifdt iwtd eres atau&nbsp;odgh dfgr doti dwii sbsc eato eorf gjgr sron owud sefe</p>\n",
 		"displayname": "The Raven",
 		"grader": "theraven",
 		"hint": "Poems were used in cryptography in WW2 to encrypt messages, but were regarded as extremely insecure. Those first five numbers look important - what could they be referring to in the poem?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 50,
+		"desc": "<p><a href=\"/problem_data/reversing-1/EasyCTF_Reversing_1.exe\">Input file</a></p>\n",
+		"displayname": "Reversing 1",
+		"grader": "reversing1",
+		"hint": "Does the source of the file reveal anything?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 30,
+		"desc": "<p>Something appears to be wrong with this QR. Can you fix it?</p><p><img alt=\"\" src=\"/problem_data/QR/code.png\" style=\"height:184px; width:184px\"></p>\n",
+		"displayname": "QR",
+		"grader": "QR",
+		"hint": "Normal QR's are square, aren't they?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 60,
+		"desc": "<p>A friend has created a code for you to guess because he has no life and spends all his time making this kind of stuff.</p><p>Anyways, here it is: <a href=\"/problem_data/a000045/A000045.txt\">A000045.txt</a></p>\n",
+		"displayname": "A000045.txt",
+		"grader": "A000045",
+		"hint": "Ask Google what A000045 might mean.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 30,
+		"desc": "<p>How do loops work? Examine the <a href=\"/problem_data/flowchart/flowchart.png\" target=\"_blank\">flowchart</a> left for you, then match the letter choices to the correct loop. Submit the result of the loops in the order the diagrams are drawn (without line breaks or spaces) as your solution.</p>\n",
+		"displayname": "Flowchart",
+		"grader": "flowchart",
+		"hint": "Java has several types of loops - <code>for</code>, <code>for each</code>, <code>while</code> - how do they differ from each other?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 40,
+		"desc": "<p>Networking covers everything that is related to our computer's interactions with other computers over the Internet or through some other connection. Sometimes we can trace these interactions and analyze them in order to acquire information.</p><p>You might need to install a piece of software called WireShark for this problem. Analyze the input file and look through all packets for information that might be related to a flag.</p><p>Here is the file in an online viewer, CloudShark:</p><p><a href=\"https://www.cloudshark.org/captures/1c66eb3587a1\" target=\"_blank\">https://www.cloudshark.org/captures/1c66eb3587a1</a></p><p>Alternatively, here is the source file if you like to download it and view it in WireShark:</p><p><a href=\"/problem_data/networking/mystery.pcap\">Input File</a></p>\n",
+		"displayname": "Networking 1",
+		"grader": "networking1",
+		"hint": "It seems like information is being recorded as a form is submitted, through a POST request.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 75,
+		"desc": "<p>Find the Number of Digits in the 16th Fibonacci Number that Contains 1618 and is Divisible by 1618.</p>\n",
+		"displayname": "Golden Ratio Obsession",
+		"grader": "GRO",
+		"hint": "Use your knowledge from the previous basic python problems! (You are not, however, limited to python for this problem - you can compute the answer in any language you'd like.)",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 90,
+		"desc": "<p>What kind of file is <a href=\"/problem_data/format_deception/format_deception.nds\">this</a>?</p>\n",
+		"displayname": "Format Deception",
+		"grader": "formatdeception",
+		"hint": "After you manage to open the .nds file, (if you don't know how, Google is your best friend), look around for your flag. Maybe go against your first instinct.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 30,
+		"desc": "<p>Algorithmic problems require you to write a program to solve the problem in the online python editor. Data will be generated randomly, as well as the solutions. If your program produces the required answer, the flag will be given to you. You can find this using the python link in the navigation menu above.</p><p>Given positive integers A, B, C, and L, find the sum of all the distinct multiples of A, B, and C under L.</p><p>The variables A, B, C, and L are passed through an array of variables called args. You don't have to create this; it's already there for you. This is how the generated data is passed to your program.</p><code>args = [A, B, C, L];</code></p>\n",
+		"displayname": "Just Sum Numbers",
+		"grader": "just-sum-numbers",
+		"hint": "If you don't know how to do this problem just yet, try the Python Basics problem series first.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 75,
+		"desc": "<p>You received a zip file but you find that it is corrupted! You're given that it's missing a couple of bytes at the beginning. Replace these bytes and find the flag.</p><p><a href=\"/problem_data/corrupted/corrupted.zip\" target=\"_blank\">Input file</a></p>\n",
+		"displayname": "Corruption",
+		"grader": "corrupted",
+		"hint": "No clue what bytes to insert? Perhaps looking into file headers would be helpful. Also, you might want to download a hex editor, such as HxD.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 40,
+		"desc": "<p>.... - - .--. ---... -..-. -..-. - .. -. -.-- ..- .-. .-.. .-.-.- -.-. --- -- -..-. .-.. .. -. . ... .- -. -.. -.. --- - ...</p>\n",
+		"displayname": "Lines, Dots, and Shift Keys",
+		"grader": "LDSK",
+		"hint": "Haven't you already used a Shift Key in a previous problem?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 70,
+		"desc": "<p>It appears the only thing you know about the flag is its MD5 hash <code>f54f10fd6e38929084d505d0c2e9c997</code>, and that the flag is formatted in this way: [number][adjective][color][animal] (without the brackets).</p><p>Luckily, you have found some <a href=\"/problem_data/brutus/brutus.zip\" target=\"_blank\">lists of the words</a> that may have been used.</p><p>Tribute to <a href=\"http://hsctf.com\" target=\"_blank\">http://hsctf.com</a></p>\n",
+		"displayname": "Brutus",
+		"grader": "brutus",
+		"hint": "As the title suggests, brute forcing the answer is necessary.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 60,
+		"desc": "<p>Try your hand at some <a href=\"http://en.wikipedia.org/wiki/Steganography\" target=\"_blank\">stego</a>. </p><p><img alt=\"\" src=\"/problem_data/stegosaurus/stegosaurus.jpg\" style=\"height:235px; width:400px\"></p>\n",
+		"displayname": "Stegosaurus",
+		"grader": "stegosaurus",
+		"hint": "Open up the problem in a hex editor and take a look around.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 100,
+		"desc": "<p>The first 5 primes are 2, 3, 5, 7, and 11. The 2nd, 3rd, 5th, 7th, and 11th primes are (respectively) 3, 5, 11, 17, and 31. The sum of these primes is 67. Let <code>Q(n)</code> be the sum of the <code>k</code>th prime where k is the first <code>n</code> prime numbers, as shown above. Then <code>Q(5) = 67</code>.</p><p>It can be confirmed that <code>Q(35) = 11735</code> and <code>Q(85) = 107591</code>.</p><p>If <code>args = [M,N]</code>, find Q(M) + Q(N), using the python editor.</p>\n",
+		"displayname": "Project Eratosthenes",
+		"grader": "project-eratosthenes",
+		"hint": "Find an efficient way to generate primes.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 90,
+		"desc": "<p>Obfuscation is changing variables and statements in a code so that it still performs the desired functions but is harder to read by humans. This makes it harder for people who are not supposed to see your code to understand your code. Try your hand at the following Python deobfuscation exercise:</p><p><a href=\"/problem_data/obfuscation/obfuscated.py\" target=\"_blank\">Input file</a></p>\n",
+		"displayname": "Obfuscation 1",
+		"grader": "obfuscation1",
+		"hint": "Think backwards, reverse the encryption.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 130,
+		"desc": "<p><a href=\"/problem_data/reversing-2/EasyCTF_Reversing_2.exe\">Input file</a></p>\n",
+		"displayname": "Reversing 2",
+		"grader": "reversing2",
+		"hint": "What happens when you change what you input?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 90,
+		"desc": "<p><table align=\"center\" border=\"0\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\"><tbody><tr><td><img alt=\"\" src=\"/problem_data/pixelated/1.png\" style=\"height:200px; width:200px\"></td><td><img alt=\"\" src=\"/problem_data/pixelated/2.png\" style=\"height:200px; width:200px\"></td></tr></tbody></table></p>\n",
+		"displayname": "Pixelated",
+		"grader": "pixelated",
+		"hint": "Did you know you can do <a href=\"http://homepages.inf.ed.ac.uk/rbf/HIPR2/arthops.htm\" target=\"_blank\">arithmetic with images</a> too?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 120,
+		"desc": "<p>Let's bring some 8th grade Python assignments in here.</p><p>Given a string stored in <code>args[0]</code>, find the longest palindrome inside the string, ignoring the punctuation and spacing during calculations, but including them in the final result.</p><p>For example, <code>I did roar again, Niagara! ... or did I?</code> returns <code>I did roar again, Niagara! ... or did I</code></p><p>Notice how the question mark was not part of the palindromic string, so it was not included in the answer (and neither should trailing spaces or new lines).</p>\n",
+		"displayname": "Palindrama",
+		"grader": "palindrama",
+		"hint": "Python makes palindrome testing easy (after you remove punctuation, that is) with its ability to reverse strings!",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 160,
+		"desc": "<p><a href=\"/problem_data/obfuscation/obfuscate.js\" target=\"_blank\">Input file</a></p>\n",
+		"displayname": "Obfuscation 2",
+		"grader": "obfuscation2",
+		"hint": "Are there any ways to make this code more readable?",
 		"threshold": 0,
 		"weightmap": {}
 	}

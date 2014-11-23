@@ -5,6 +5,8 @@ document.addEventListener('mousemove', function(e){
     mouse.y = (e.clientY || e.pageY) - canvas.offsetTop; 
 }, false);
 
+var viewedDialog;
+
 var Screens = {
 	Splash: {
 		draw: function(ctx) {
@@ -40,6 +42,9 @@ var Screens = {
 		},
 		click: function(e) {
 
+		},
+		init: function() {
+			viewedDialog = false;
 		}
 	}
 };
@@ -49,6 +54,7 @@ var SwitchScreen = function(New) {
 	if (CurrentScreen in Screens) canvas.removeEventListener("click", Screens[CurrentScreen].click);
 	CurrentScreen = New;
 	canvas.addEventListener("click", Screens[CurrentScreen].click);
+	if (Screens[CurrentScreen].init) Screens[CurrentScreen].init();
 }
 
 console.log("screen.js");

@@ -1,24 +1,26 @@
-var flag = "stupid_type_errorz";
+var flag = "beginner_math_loops_5_e_z_3_me";
 
 exports.get_data = function(req, callback) {
 	var result = [];
 
-	result.push("strings can be ");
-	result.push("concatenated with ");
-	result.push(5);
-	result.push(" other strings ");
-	result.push("but not with non-strings");
+	result.push(Math.floor(Math.random()*3000000 + 1000000));
 	req.session.data = result;
 	callback(result);
 };
 
 exports.check_data = function(req, callback) {
 	var data = req.session.data;
-	var ans = "";
+	var ans = 0;
 	var a = data;
-	ans = String(a[0])+String(a[1])+String(a[2])+String(a[3])+String(a[4]);
+	for (var i = 0; i <= data[0]; i++){
+		if (i%7 == 0){
+			ans += i;
+		}
+	}
+	ans = ans.toString().split("").reduce(function (i, j, key, value) { ni = Number(i); nj = Number(j); return ni + nj });
+	//console.log(data,ans);
 	var answer = req.param("answer");
-	var correct = ans;
+	var correct = String(ans);
 	if (answer) {
 		answer = answer.replace(/^\s+|\s+$/g,'');
 		correct = correct.replace(/^\s+|\s+$/g,'');

@@ -1,18 +1,23 @@
-var flag = "string_slicing_not_pi_slicing";
+var flag = "arrays_aren't_hard_because_python_rocks";
 
 exports.get_data = function(req, callback) {
-	var result = ["though","essay","earth","really","spin","light","turn","psychology","track","into","gs"];
+	var result = [];
+	var arr = []
+	for (var i = 0; i < 50; i++){
+	arr.push(Math.floor(Math.random()*200));
+	}
+	result.push(arr);
+	result.push(Math.floor(Math.random()*50));
 	req.session.data = result;
 	callback(result);
 };
 
 exports.check_data = function(req, callback) {
 	var data = req.session.data;
-	var ans = "";
-	var a = data;
-	for (var i = 0; i < a.length; i++){
-		ans += a[i].substr(0,2);
-	}
+	//var ans = 0;
+	var a = data[0];
+	var b = a.sort(function(a, b){return b-a});
+	var ans = String(a[data[1]]);
 	//console.log(data,ans);
 	var answer = req.param("answer");
 	var correct = ans;

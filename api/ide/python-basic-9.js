@@ -1,29 +1,36 @@
-var flag = "putting_it_all_t0gether";
+var flag = "programming_beats_calculating_by_hand_any_day";
+var gcd = function(a, b) {
+    if ( ! b) {
+        return a;
+    }
+
+    return gcd(b, a % b);
+};
 
 exports.get_data = function(req, callback) {
+	
+	var a = Math.floor(Math.random()*1000);
+	var b = Math.floor(Math.random()*1000);
 	var result = [];
-
-	result.push("Let's put all your skills together now. ");
-	result.push('A');
-	result.push("thisisastringoflength23");
-	result.push(Math.pow(Math.floor(Math.random()*12409)+182740, 2));
-	result.push("wouldn't it be great if this were a palindrome");
-
+	while (gcd(a,b) < 50){
+	a = Math.floor(Math.random()*1000);
+	b = Math.floor(Math.random()*1000);
+	}
+	//console.log(a,b);
+	result.push(a);
+	result.push(b);
 	req.session.data = result;
 	callback(result);
 };
 
 exports.check_data = function(req, callback) {
 	var data = req.session.data;
-	var ans = "";
+	var ans = 0;
 	var a = data;
-	var b = typeof a[1];
-	function reverse(s) {
-		return s.split('').reverse().join('');
-	}
-	ans = a[0]+String(b)+String(a[2].length)+String(Math.sqrt(a[3]))+String(reverse(a[4]));
+	ans = gcd(data[0],data[1]);
+	//console.log(data,ans);
 	var answer = req.param("answer");
-	var correct = ans;
+	var correct = String(ans);
 	if (answer) {
 		answer = answer.replace(/^\s+|\s+$/g,'');
 		correct = correct.replace(/^\s+|\s+$/g,'');

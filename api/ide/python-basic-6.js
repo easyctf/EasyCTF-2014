@@ -1,4 +1,4 @@
-var flag = "beginner_loop_math_too_e_z";
+var flag = "beginner_math_loops_5_e_z_3_me";
 
 exports.get_data = function(req, callback) {
 	var result = [];

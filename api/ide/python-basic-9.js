@@ -1,4 +1,4 @@
-var flag = "arentyougladyoudidnthavetocalculatebyhand";
+var flag = "programming_beats_calculating_by_hand_any_day";
 var gcd = function(a, b) {
     if ( ! b) {
         return a;

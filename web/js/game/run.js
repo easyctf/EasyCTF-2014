@@ -3,8 +3,10 @@ var frame = function() {
 	var dt = now - oldTime;
 	oldTime = now;
 
-	if (imagesLoaded) {
+	if (imagesLoaded && saveLoaded) {
+		Screens[CurrentScreen].update(dt);
 		Screens[CurrentScreen].draw(context);
+	} else {
 	}
 
 	requestAnimationFrame(frame);

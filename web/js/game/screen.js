@@ -1,8 +1,15 @@
+var mouse = {x: 0, y: 0};
+
+document.addEventListener('mousemove', function(e){ 
+    mouse.x = (e.clientX || e.pageX) - canvas.offsetLeft; 
+    mouse.y = (e.clientY || e.pageY) - canvas.offsetTop; 
+}, false);
+
 var Screens = {
 	Splash: {
 		name: "Splash",
 		draw: function(ctx) {
-			ctx.drawImage(imgs.splash, 0, 0, 840, 480);
+			ctx.drawImage(imgs.splash, 0, 0);
 		},
 		update: function(time) {
 
@@ -14,10 +21,9 @@ var Screens = {
 	Menu: {
 		name: "Menu",
 		draw: function(ctx) {
-			console.log("MENU TIME NOW");
+			
 		},
 		update: function(time) {
-
 		},
 		click: function(e) {
 

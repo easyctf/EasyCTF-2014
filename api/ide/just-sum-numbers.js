@@ -1,4 +1,4 @@
-var flag = "pr0jekt_o1ler";
+var flag = "is_this_pr0jekt_o1ler?";
 
 exports.get_data = function(req, callback) {
 	var result = [];

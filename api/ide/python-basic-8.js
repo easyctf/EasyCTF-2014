@@ -1,4 +1,4 @@
-var flag = "b00lean_logic_011000100110100101101110011000010111001001111001";
+var flag = "b0ole4n_l0g1c_011000100110100101101110011000010111001001111001";
 
 exports.get_data = function(req, callback) {
 	var result = [];
@@ -16,7 +16,7 @@ exports.check_data = function(req, callback) {
 	var ans = "";
 	var a = data;
 	for (var i = 0; i < data.length; i++){
-		if (a[i][0] + a[i][1] <= 25){
+		if (a[i][0] + a[i][1] <= 35){
 			ans += "1";
 		}
 		else{

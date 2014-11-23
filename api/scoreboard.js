@@ -35,11 +35,25 @@ var generate_scoreboard_page = function() {
 							points += submissions[j].pts;
 						}
 					}
+					teams[i].points = points;
+				}
+
+				teams.sort(function(a, b) {
+					if (a.points > b.points) {
+						return -1;
+					}
+					if (a.points < b.points) {
+						return 1;
+					}
+					return 0;
+				});
+
+				for(var i=0; i<teams.length; i++) {
 					content += "\t<tr>\r\n";
 					content += "\t\t<td>"+(i+1)+"</td>\r\n";
 					content += "\t\t<td>"+teams[i].teamname+"</td>\r\n";
 					content += "\t\t<td>"+teams[i].school+"</td>\r\n";
-					content += "\t\t<td>"+points+"</td>\r\n";
+					content += "\t\t<td>"+teams[i].points+"</td>\r\n";
 					content += "\t</tr>\r\n";
 
 					// console.log(teams[i].teamname + " " + points);

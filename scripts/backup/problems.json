@@ -44,7 +44,7 @@
 	{
 		"autogen": false,
 		"basescore": 55,
-		"desc": "<p><code>args</code> is an array of 5 variables than can be accessed with <code> args[0]</code>, <code>args[1]</code> etc. Write some python code in the IDE to concatenate <code>args[0]</code>, <code>args[1]</code>'s type (string or integer), <code>args[2]</code>'s length, <code>args[3]</code>'s square root (will be a perfect square), and <code>args[4]</code> in reverse.</p>\n",
+		"desc": "<p><code>args</code> is an array of 5 variables than can be accessed with <code> args[0]</code>, <code>args[1]</code> etc. Write some python code in the IDE to concatenate <code>args[0]</code>, <code>args[1]</code>'s type (string or integer), <code>args[2]</code>'s length, <code>args[3]</code>'s square root as an integer (will be a perfect square), and <code>args[4]</code> in reverse.</p>\n",
 		"displayname": "Python Basics 4",
 		"grader": "python-basic-4",
 		"hint": "I hope you're taking notes; this stuff will be on the harder problems :)",

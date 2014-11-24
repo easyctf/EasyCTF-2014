@@ -151,6 +151,9 @@ exports.update_user_info = function(req, res) {
 		return;
 	}
 
+	teamname = derp(teamname);
+	school = derp(school);
+
 	if (nTeamname.length > 250) {
 		res.send({
 			success: 0,

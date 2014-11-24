@@ -14,11 +14,11 @@ module.exports = function(app) {
 				// console.dir(auth.is_authorized(req));
 				if (auth_pages.indexOf(pages[i]) > -1) {
 					if (auth.is_authorized(req).success !== 1) {
-						res.sendfile("web/noauth.html", { root: __dirname });
+						res.sendfile("pages/noauth.html", { root: __dirname });
 						return;
 					}
 				}
-				res.sendfile("web" + req.url + ".html", { root: __dirname });
+				res.sendfile("pages" + req.url + ".html", { root: __dirname });
 			});
 		})(i);
 	}

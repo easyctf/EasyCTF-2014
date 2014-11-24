@@ -120,6 +120,30 @@ module.exports = function(app) {
 		res.send(scoreboards);
 	});
 
+	app.get("/api/account/info", function(req, res) {
+		if (auth.is_logged_in(req)) {
+			account.get_user_info(req, res);
+		} else {
+			res.send({
+				success: 0,
+				message: "You're not logged in!"
+			});
+			return;
+		}
+	});
+
+	app.post("/api/account/update", function(req, res) {
+		if (auth.is_logged_in(req)) {
+			account.update_user_info(req, res);
+		} else {
+			res.send({
+				success: 0,
+				message: "You're not logged in!"
+			});
+			return;
+		}
+	});
+
 	app.post("/api/submit", function(req, res) {
 		problem.submit_problem(req.session.tid, req, function(result) {
 			res.send(result);

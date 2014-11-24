@@ -1,8 +1,9 @@
 var common = require("./common");
 var group = require("./group");
+var ObjectId = require("mongodb").ObjectID;
 
-function fuckXSS(str) {
-	return String(str).replace(/&/g, '').replace(/</g, '').replace(/>/g, '').replace(/"/g, '');
+function derp(str) {
+	return encodeURIComponent(str);
 }
 
 exports.register_team = function(req, res) {
@@ -21,8 +22,8 @@ exports.register_team = function(req, res) {
 		return;
 	}
 
-	teamname = fuckXSS(teamname);
-	school = fuckXSS(school);
+	teamname = derp(teamname);
+	school = derp(school);
 
 	common.db.collection("accounts").find({
 		$or: [
@@ -100,6 +101,136 @@ exports.register_team = function(req, res) {
 					}
 				});
 			}
+		}
+	});
+};
+
+exports.get_user_info = function(req, res) {
+	var _id = new ObjectId(req.session.tid);
+	common.db.collection("accounts").find({
+		$or: [
+			{ tid: req.session.tid },
+			{ _id: _id }
+		]
+	}).toArray(function(err, data) {
+		if (err) {
+			console.dir(err);
+		} else {
+			if (data.length === 1) {
+				res.send({
+					success: 1,
+					name: data[0].teamname,
+					email: data[0].email,
+					school: data[0].school
+				});
+				return;
+			} else {
+				res.send({
+					success: 0,
+					message: "Couldn't find user."
+				});
+				return;
+			}
+		}
+	});
+};
+
+exports.update_user_info = function(req, res) {
+	var _id = new ObjectId(req.session.tid);
+	var nTeamname = req.param("teamname");
+	var nSchool = req.param("school");
+	var nPassword = req.param("password");
+
+	var confirm = req.param("confirm");
+
+	if (!(nTeamname && nSchool && confirm)) {
+		res.send({
+			success: 0,
+			message: "You haven't filled out the required fields."
+		});
+		return;
+	}
+
+	if (nTeamname.length > 250) {
+		res.send({
+			success: 0,
+			message: "Are you kidding me..."
+		});
+		return;
+	}
+
+	common.db.collection("accounts").find({
+		$or: [
+			{ tid: req.session.id },
+			{ _id: _id }
+		]
+	}).toArray(function(err, data) {
+		if (data.length == 0) {
+			res.send({
+				success: 0,
+				message: "Couldn't find your team."
+			});
+			return;
+		}
+		if (data.length > 1) {
+			res.send({
+				success: 0,
+				message: "wat"
+			});
+			return;
+		}
+
+		var checkTeam = data[0];
+		var pwHash = checkTeam.pass;
+
+		if (common.validatePassword(confirm, pwHash)) {
+			common.db.collection("accounts").find({
+				teamname: nTeamname
+			}).toArray(function(err, d) {
+				if (err) {
+					res.send({
+						success: 0,
+						message: "An error occurred"
+					});
+				}
+				if (nTeamname == checkTeam.teamname || d.length == 0) {
+					var changePassword = nPassword && nPassword.length > 0;
+					var salt = common.generateSalt();
+					common.db.collection("accounts").update({
+						$or: [
+							{ tid: req.session.id },
+							{ _id: _id }
+						]
+					}, {
+						$set: common.extend({
+							teamname: nTeamname,
+							school: nSchool
+						}, changePassword?{
+							pass: salt + common.md5(nPassword + salt)
+						}:{})
+					}, function(err, data) {
+						if (err) {
+							res.send({
+								success: 0,
+								message: "Not successful"
+							});
+							return;
+						} else {
+							res.send({
+								success: 1,
+								message: "Yay!!11! Your account was updated"
+							});
+							return;
+						}
+					});
+				}
+			});
+		} else {
+			res.send({
+				success: 0,
+				message: "Invalid password"
+			});
+			return;
 		}
 	});
 };

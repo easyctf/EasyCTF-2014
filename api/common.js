@@ -36,6 +36,17 @@ exports.token = function() {
 	return token;
 };
 
+exports.extend = function(o1, o2) {
+	var o = {};
+	for (var attr in o1) {
+		o[attr] = o1[attr];
+	}
+	for (var attr in o2) {
+		o[attr] = o2[attr];
+	}
+	return o;
+};
+
 exports.sec_token = function() {
 	var chars = "abcdefghijklmnopqrstuvwxyz0123456789";
 	var token = "";
@@ -75,6 +86,10 @@ exports.unique = function(arr) {
 }
 
 var md5 = function(str) {
+	return crypto.createHash('md5').update(str).digest('hex');
+};
+
+exports.md5 = function(str) {
 	return crypto.createHash('md5').update(str).digest('hex');
 };
 

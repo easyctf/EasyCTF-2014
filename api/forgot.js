@@ -96,3 +96,95 @@ exports.send_reset_email = function(req, res) {
 		});
 	});
 };
+
+exports.verify_code = function(req, res) {
+	var code = req.param("code");
+	var pass = req.param("p1");
+	var confirm = req.param("p2");
+
+	if (!(code && pass && confirm)) {
+		res.send({
+			success: 0,
+			message: "You must fill out all of the fields!"
+		});
+		return;
+	}
+
+	if (pass !== confirm) {
+		res.send({
+			success: 0,
+			message: "Passwords don't match."
+		});
+		return;
+	}
+
+	common.db.collection("reset_password").find({
+		code: code,
+		active: true
+	}).toArray(function(err, data) {
+		if (err) {
+			res.send({
+				success: 0,
+				message: "Internal error.",
+			});
+			return;
+		}
+		if (data.length == 0) {
+			res.send({
+				success: 0,
+				message: "Couldn't find an active ticket for this code. Try requesting another"
+			});
+			return;
+		}
+
+		var obj = data[0];
+		var now = moment();
+		var exp = moment(obj.expire);
+		if (now.isBefore(exp) && obj.active) {
+			var salt = common.generateSalt();
+			var salted = salt + common.md5(pass + salt); //yum
+			common.db.collection("reset_password").update({
+				code: code
+			}, {
+				$set: {
+					active: false
+				}
+			}, function(err2, data2) {
+				if (err2) {
+					res.send({
+						success: 0,
+						message: "Internal error.",
+					});
+					return;
+				}
+				common.db.collection("accounts").update({
+					email: obj.email
+				}, {
+					$set: {
+						pass: salted
+					}
+				}, function(err3, data3) {
+					if (err3) {
+						res.send({
+							success: 0,
+							message: "Internal error.",
+						});
+						return;
+					} else {
+						res.send({
+							success: 1,
+							message: "Your password has been changed!"
+						});
+						return;
+					}
+				});
+			});
+		} else {
+			res.send({
+				success: 0,
+				message: "Maybe your code expired?"
+			});
+			return;
+		}
+	});
+}

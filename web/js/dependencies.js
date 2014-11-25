@@ -125,7 +125,7 @@ function load_footer() {
 	$.ajax({
 		type: "GET",
 		cache: false,
-		url: "dependencies/footer.html",
+		url: "/dependencies/footer.html",
 	}).done(function(data) {
 		$("#footer").html(data);
 	});

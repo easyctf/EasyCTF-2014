@@ -22,4 +22,10 @@ module.exports = function(app) {
 			});
 		})(i);
 	}
+
+	app.get("/forgot/:code", function(req, res) {
+		res.render("verify", {
+			code: req.params.code
+		});
+	});
 };

@@ -3,6 +3,7 @@ var auth = require("./auth");
 var scoreboard = require("./scoreboard");
 var group = require("./group");
 var problem = require("./problem");
+var forgot = require("./forgot");
 var feedback = require("./feedback");
 
 var problems = [
@@ -148,5 +149,9 @@ module.exports = function(app) {
 		problem.submit_problem(req.session.tid, req, function(result) {
 			res.send(result);
 		});
+	});
+
+	app.post("/api/forgot", function(req, res) {
+		forgot.send_reset_email(req, res);
 	});
 };

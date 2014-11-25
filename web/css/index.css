@@ -30,9 +30,11 @@ body{
 
 ::selection {
   background: 	#FF6600; /* WebKit/Blink Browsers */
+  color: #FFF;
 }
 ::-moz-selection {
   background: 	#FF6600; /* Gecko Browsers */
+  color: #FFF;
 }
     
     

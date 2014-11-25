@@ -412,5 +412,25 @@
 		"hint": "Are there any ways to make this code more readable?",
 		"threshold": 0,
 		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 180,
+		"desc": "<p>Oh no! The door has been stolen! Find the key and open the door. You can solve the problem on the webshell or by downloading the source. <a href=\"/problem_data/door/door.c\" target=\"_blank\">Input file source</a></p>\n",
+		"displayname": "The Door",
+		"grader": "door",
+		"hint": "No hint for this problem, it is fairly straightforward.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 180,
+		"desc": "<p>You have been presented with a guessing game. The the source can be downloaded here. <a href=\"/problem_data/guess/guess.c\" target=\"_blank\">Input file source</a></p>\n",
+		"displayname": "Guess",
+		"grader": "randomConfusion-Carter1",
+		"hint": "No hint for this problem, it is fairly straightforward.",
+		"threshold": 0,
+		"weightmap": {}
 	}
 ]

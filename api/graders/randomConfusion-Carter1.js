@@ -1,6 +1,5 @@
 exports.grade = function(team, key, callback) {
-	var flag = "QRs_r_2D_baRcoDEz";
-	if (typeof key === "string" && key.toLowerCase().indexOf(flag.toLowerCase()) != -1) {
+	if (typeof key === "string" && checkRandomConfusion(parseFloat(key))) {
 		callback({
 			correct: true,
 			message: "Nice job!"

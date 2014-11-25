@@ -3,7 +3,7 @@ var group = require("./group");
 var ObjectId = require("mongodb").ObjectID;
 
 function derp(str) {
-	return encodeURIComponent(str).replace("%20", " ");
+	return encodeURIComponent(str).replace(/%20/g, " ");
 }
 
 exports.register_team = function(req, res) {

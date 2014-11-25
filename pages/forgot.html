@@ -32,12 +32,38 @@
 				<h1>Forgot Password</h1>
 			</div>
 
+			<div class="container">
+				<div id="forgot_msg"></div>
+				<div class="well col-lg-7">
+					<div>
+						<form action="javascript:dispatch();" class="form-horizontal">
+							<fieldset>
+								<legend>Enter the email you used to sign up.</legend>
+								<div class="form-group">
+									<label for="forgot-email" class="col-lg-3 control-label">Email</label>
+									<div class="col-lg-8">
+										<input type="email" name="forgot-email" id="forgot-email" placeholder="Email" autofocus="on" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-3 control-label"></label>
+									<div class="col-lg-7">
+										<button id="forgot-btn" onClick="javascript:dispatch(); return false;" class="btn btn-primary">Send Password Reset Email</button>
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+
 			<div id="footer"></div>
 		</div>
 
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/dependencies.js"></script>
+		<script type="text/javascript" src="js/forgot.js"></script>
 		<script type="text/javascript">
 			$(function() {
 				display_navbar();

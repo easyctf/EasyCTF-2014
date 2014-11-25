@@ -171,7 +171,7 @@ exports.submit_problem = function(tid, req, callback) {
 
 			if (!prob.autogen) {
 				require("./graders/" + prob.grader).grade(tid, key, function(obj) {
-					submit_problem_result(pid, key, tid, req.ip, prob.basescore, obj, function(result) {
+					submit_problem_result(pid, key, tid, req.connection.remoteAddress, prob.basescore, obj, function(result) {
 						callback({
 							status: result.status,
 							points: obj.correct ? prob.basescore : 0,

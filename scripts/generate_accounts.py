@@ -1,6 +1,6 @@
 from random import randint;
 
-N = 500;
+N = 800;
 
 def gen(a, b):
 	return randint(10**a, 10**b);

@@ -1,7 +1,8 @@
 var common = require("./common");
 var group = require("./group");
 var ObjectId = require("mongodb").ObjectID;
-var entities = require("html-entities").XmlEntities;
+var entities_ = require("html-entities").XmlEntities;
+var entities = new entities_();
 
 function derp(str) {
 	return entities.encode(str);
@@ -152,8 +153,8 @@ exports.update_user_info = function(req, res) {
 		return;
 	}
 
-	teamname = derp(nTeamname);
-	school = derp(nSchool);
+	nTeamname = derp(nTeamname);
+	nSchool = derp(nSchool);
 
 	if (nTeamname.length > 250) {
 		res.send({

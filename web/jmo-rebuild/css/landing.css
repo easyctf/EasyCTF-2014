@@ -1,7 +1,6 @@
 @font-face {
   font-family: "Singularity";
   src: url(../fonts/singularity.ttf) format("TrueType"); }
-
 .singularity-font {
   font-family: "Singularity"; }
 
@@ -157,33 +156,35 @@ body {
       height: 252px;
       margin-left: auto;
       margin-right: auto; } }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   .title {
     display: block;
-    width: 1024px;
+    width: 1440px;
     height: 180px; }
     .title .easyctf .primary {
-      top: -50px;
-      font-size: 175px;
-      width: 750px;
-      margin-left: -375px; }
+      top: -125px;
+      font-size: 276px;
+      width: 1024px;
+      margin-left: -512px; }
     .title .singularity .primary {
-      top: 90px;
-      font-size: 125px;
-      width: 750px;
-      margin-left: -375px; }
+      top: 86.4px;
+      font-size: 198px;
+      width: 1024px;
+      margin-left: -512px; }
 
   .media {
-    width: 750px;
-    padding-top: 55px; }
+    width: 1024px;
+    padding-top: 145px; }
     .media .robot {
       display: inline; }
     .media .video {
-      width: 448px;
-      height: 252px;
+      width: 560px;
+      height: 315px;
       margin-left: 0;
       margin-right: auto; }
 
   .details {
     padding-top: 50px; } }
 /* < 480, > 640, > 768, > 1024, > 1280, > 1440 */
+
+/*# sourceMappingURL=landing.css.map */

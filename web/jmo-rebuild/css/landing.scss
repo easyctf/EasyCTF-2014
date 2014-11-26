@@ -245,43 +245,43 @@ $singularity-top: 72px;
     }
 }
 
-@media screen and (min-width: 1024px)
+@media screen and (min-width: 1440px)
 {
     .title {
         display: block;
-        width: 1024px;
+        width: 1440px;
         height: 180px;
         
         .easyctf {
             .primary {
-                top: -50px;
-                font-size: 175px;
-                width: 750px;
-                margin-left: -375px;
+                top: -125px;
+                font-size: 276px;
+                width: 1024px;
+                margin-left: -512px;
             }
         }
         
         .singularity {
             .primary {
-                top: $singularity-top * 1.25;
-                font-size: 125px;
-                width: 750px;
-                margin-left: -375px;
+                top: $singularity-top * 1.2;
+                font-size: 198px;
+                width: 1024px;
+                margin-left: -512px;
             }
         }
     }
     
     .media {
-        width: 750px;
-        padding-top: 55px;
+        width: 1024px;
+        padding-top: 145px;
         
         .robot {
             display: inline;
         }
         
         .video {
-            width: 448px;
-            height: 252px;
+            width: 560px;
+            height: 315px;
             
             margin-left: 0;
             margin-right: auto;

@@ -1,9 +1,10 @@
 var common = require("./common");
 var group = require("./group");
 var ObjectId = require("mongodb").ObjectID;
+var entities = require("html-entities").XmlEntities;
 
 function derp(str) {
-	return encodeURIComponent(str.replace(/%20/g, " ").replace(/&/g, "-").replace(/</g, "-").replace(/>/g, "-").replace(/"/g, "-"));
+	return entities.encode(str);
 }
 
 exports.register_team = function(req, res) {

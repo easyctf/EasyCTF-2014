@@ -239,6 +239,7 @@ exports.update_user_info = function(req, res) {
 };
 
 exports.get_shell_account = function(req, res) {
+	var _id = new ObjectId(req.session.tid);
 	common.db.collection("accounts").find({
 		$or: [
 			{ tid: req.session.id },

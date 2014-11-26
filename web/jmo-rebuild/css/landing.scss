@@ -76,8 +76,18 @@ $singularity-top: 72px;
 }
 
 .media {
+    max-width: 100%;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    
+    text-align: right;
+    
     .robot {
+        display: none;
         width: 250px;
+        margin-left: auto;
+        margin-right: 0;
     }
     
     .video {
@@ -164,15 +174,32 @@ $singularity-top: 72px;
     .title {
         display: block;
         width: 100%;
-        height: 100px;
+        height: 125px;
+        
+        .easyctf {
+            .primary {
+                font-size: 108px;
+                width: 500px;
+                margin-left: -250px;
+            }
+        }
+        
+        .singularity {
+            .primary {
+                top: $singularity-top * 1.2;
+                font-size: 77px;
+                width: 500px;
+                margin-left: -250px;
+            }
+        }
     }
     
     .media {
         padding-top: 45px;
         
         .video {
-            width: 560px;
-            height: 315px;
+            width: 448px;
+            height: 252px;
             
             margin-left: auto;
             margin-right: auto;
@@ -185,19 +212,86 @@ $singularity-top: 72px;
     .title {
         display: block;
         width: 768px;
-        height: 100px;
+        height: 170px;
+        
+        .easyctf {
+            .primary {
+                font-size: 145px;
+                width: 550px;
+                margin-left: -250px;
+            }
+        }
+        
+        .singularity {
+            .primary {
+                top: $singularity-top * 1.6;
+                font-size: 104px;
+                width: 550px;
+                margin-left: -250px;
+            }
+        }
     }
     
     .media {
         padding-top: 55px;
         
         .video {
-            width: 672px;
-            height: 398px;
+            width: 448px;
+            height: 252px;
             
             margin-left: auto;
             margin-right: auto;
         }
     }
 }
+
+@media screen and (min-width: 1024px)
+{
+    .title {
+        display: block;
+        width: 1024px;
+        height: 180px;
+        
+        .easyctf {
+            .primary {
+                top: -50px;
+                font-size: 175px;
+                width: 750px;
+                margin-left: -375px;
+            }
+        }
+        
+        .singularity {
+            .primary {
+                top: $singularity-top * 1.25;
+                font-size: 125px;
+                width: 750px;
+                margin-left: -375px;
+            }
+        }
+    }
+    
+    .media {
+        width: 750px;
+        padding-top: 55px;
+        
+        .robot {
+            display: inline;
+        }
+        
+        .video {
+            width: 448px;
+            height: 252px;
+            
+            margin-left: 0;
+            margin-right: auto;
+        }
+    }
+    
+    .details {
+        padding-top: 50px;
+        
+    }
+}
+
 /* < 480, > 640, > 768, > 1024, > 1280, > 1440 */

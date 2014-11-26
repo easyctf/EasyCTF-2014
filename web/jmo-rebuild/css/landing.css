@@ -182,5 +182,8 @@ body {
       width: 448px;
       height: 252px;
       margin-left: 0;
-      margin-right: auto; } }
+      margin-right: auto; }
+
+  .details {
+    padding-top: 50px; } }
 /* < 480, > 640, > 768, > 1024, > 1280, > 1440 */

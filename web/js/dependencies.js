@@ -21,6 +21,7 @@ var tabsBoth = [
 	[ "about", "About" ],
 	[ "scoreboard", "Scoreboard" ],
 	[ "sponsors", "Sponsors" ],
+	[ "learn", "Learn" ],
 	[ "feedback", "Feedback" ],
 ];
 

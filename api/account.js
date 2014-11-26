@@ -237,3 +237,107 @@ exports.update_user_info = function(req, res) {
 		}
 	});
 };
+
+exports.get_shell_account = function(req, res) {
+	common.db.collection("accounts").find({
+		$or: [
+			{ tid: req.session.id },
+			{ _id: _id }
+		]
+	}).toArray(function(err, data) {
+		if (err) {
+			res.send({
+				success: 0,
+				message: "Internal error"
+			});
+			return;
+		}
+		if (data.length == 0) {
+			res.send({
+				success: 0,
+				message: "Couldn't find your team."
+			});
+			return;
+		}
+		if (data.length > 1) {
+			res.send({
+				success: 0,
+				message: "wat"
+			});
+			return;
+		}
+
+		var checkTeam = data[0];
+		if (checkTeam.shell_user) {
+			res.send({
+				success: 1,
+				uname: checkTeam.shell_user,
+				pass: checkTeam.shell_pass
+			});
+			return;
+		} else {
+			common.db.collection("shell_accounts").find({
+				open: {
+					$ne: false
+				}
+			}).toArray(function(err2, data2) {
+				if (err2) {
+					res.send({
+						success: 0,
+						message: "Internal error"
+					});
+					return;
+				}
+				if (data2.length == 0) {
+					res.send({
+						success: 0,
+						message: "No more accounts! D:"
+					});
+					return;
+				}
+
+				var shell_acc = data2[0];
+				common.db.collection("accounts").update({
+					$or: [
+						{ tid: req.session.id },
+						{ _id: _id }
+					]
+				}, {
+					$set: {
+						shell_user: shell_acc.username,
+						shell_pass: shell_acc.password
+					}
+				}, function(err3, data3) {
+					if (err3) {
+						res.send({
+							success: 0,
+							message: "Internal error"
+						});
+						return;
+					}
+					common.db.collection("shell_accounts").update({
+						username: shell_acc.username
+					}, {
+						$set: {
+							open: false
+						}
+					}, function(err4, data4) {
+						if (err4) {
+							res.send({
+								success: 0,
+								message: "Internal error"
+							});
+							return;
+						}
+						res.send({
+							success: 1,
+							uname: shell_acc.username,
+							pass: shell_acc.password
+						});
+						return;
+					});
+				});
+			});
+		}
+	});
+};

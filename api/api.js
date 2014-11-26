@@ -79,6 +79,17 @@ module.exports = function(app) {
 		}
 	});
 
+	app.get("/api/shell", function(req, res) {
+		if (auth.is_logged_in(req) && auth.is_authorized(req).success === 1) {
+			account.get_shell_account(req, res);
+		} else {
+			res.send({
+				status: 0,
+				message: "You can't view this page!"
+			});
+		}
+	});
+
 	app.get("/api/problems", function(req, res) {
 		if (auth.is_logged_in(req) && auth.is_authorized(req).success === 1) {
 			problem.load_unlocked_problems(req.session.tid, function(unlocked) {

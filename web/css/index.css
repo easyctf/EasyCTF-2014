@@ -40,8 +40,49 @@ body{
   background: 	#FF6600; /* Gecko Browsers */
   color: #FFF;
 }
+
+
+
+#consolcontain{
+    width:800px;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+        background:  rgba(67,67,67,0.8);  
+    border-radius: 6px;
+    padding-bottom: 0.5%;
+
+}
+    
+
+#bar{
+    height:25px;
+ 
+    border-bottom: rgba(67,67,67,0.25) 1px solid;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
     
     
+    
+}
+
+#fakeconsol{
+ background-color: black;
+    height:500px;
+    width:98%;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-family: "Lucida Console", Monaco, monospace;
+    color:lime;
+    padding: 4px;
+    
+    
+    
+}
+
+
 
 /*
 #containE{

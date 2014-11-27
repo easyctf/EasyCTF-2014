@@ -48,18 +48,60 @@
            </div>
         -->
         </div>
-       
+                <div  id="consolcontain">
+            
+            
+            
+            
+                <div id="bar">
+                    <svg height="24" width="100">
+                          <circle cx="16" cy="13" r="7" stroke="black" stroke-width="0" fill="#fe011b" />
+                          <circle cx="34" cy="13" r="7" stroke="black" stroke-width="0" fill="#f6d90e" />
+                          <circle cx="52" cy="13" r="7" stroke="black" stroke-width="0" fill="#7aff1a" />
+                    </svg>
+                    
+                </div>       
+                
+                
+            <div  id="fakeconsol">
+               <span id="typer">    </span>
+                    
+            </div>
+        </div>
         <div class="media">
            
         </div>
         
         <div class="details">
-            <center><a class="play">Compete</a></center>
+            <center><a class="play">Compete!</a></center>
         </div>
         <!-- Nav -->
         <!-- EasyCTF, Singularity -->
         <!-- Robot, Video -->
         <!-- Button -->
+        
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.typer.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/dependencies.js"></script>
+		<script type="text/javascript" src="js/jquery.onepage-scroll.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				display_navbar();
+				load_footer();
+				$(".main").onepage_scroll({
+
+				});
+			});
+		</script>
+		    <script>
+                        $('#typer').typeTo("Hi, and welcome to EasyCTF! We're an online legal hacking competition geared towards highschool students. Click the links in the navbar above or register below to find out more!");
+                
+                
+                $.typer.options.typeSpeed = 50;
+                </script>            
+
+        
         
         
 	</body>

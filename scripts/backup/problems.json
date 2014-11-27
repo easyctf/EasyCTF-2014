@@ -13,7 +13,7 @@
 
 	{
 		"autogen": false,
-		"basescore": 40,
+		"basescore": 30,
 		"desc": "<p>Welcome to Python crash course! To get started, head over to the <a href=\"/exec\" target=\"_blank\">Python Editor</a> and print the string \"Hello, EasyCTF!\" exactly like that to the console.</p>\n",
 		"displayname": "Python Basics 1",
 		"grader": "python-basic-1",
@@ -23,7 +23,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 45,
+		"basescore": 35,
 		"desc": "<p>You're faced with a control panel. There are some instructions left on a sign nearby on the wall: This machine generates random numbers that you can access through the variable <code>args[0]</code>. If the number is greater than or equal to 0 and less than 100, print <code>hacks</code>. If the number is greater than or equal to 100, print <code>haxx</code>. If the number is negative, print <code>hakz</code>. Use the IDE to complete this problem.</p>\n",
 		"displayname": "Python Basics 2",
 		"grader": "python-basic-2",
@@ -33,7 +33,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 50,
+		"basescore": 40,
 		"desc": "<p>How can you add strings in print statements? <code>args</code> is an array of 5 variables than can be accessed with <code> args[0]</code>, <code>args[1]</code> etc. Write some python code in the IDE to concatenate the variables together before printing.</p>\n",
 		"displayname": "Python Basics 3",
 		"grader": "python-basic-3",
@@ -43,7 +43,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 55,
+		"basescore": 45,
 		"desc": "<p><code>args</code> is an array of 5 variables than can be accessed with <code> args[0]</code>, <code>args[1]</code> etc. Write some python code in the IDE to concatenate <code>args[0]</code>, <code>args[1]</code>'s type (string or integer), <code>args[2]</code>'s length, <code>args[3]</code>'s square root as an integer (will be a perfect square), and <code>args[4]</code> in reverse.</p>\n",
 		"displayname": "Python Basics 4",
 		"grader": "python-basic-4",
@@ -53,7 +53,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 60,
+		"basescore": 50,
 		"desc": "<p>Given an list of unknown length of strings stored in <code>args</code>, for each string, take the first two characters and concatenate them into another string variable. Print the final variable.</p>\n",
 		"displayname": "Python Basics 5",
 		"grader": "python-basic-5",
@@ -63,7 +63,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 65,
+		"basescore": 55,
 		"desc": "<p>Given an integer value stored in <code>args[0]</code>, find the sum of all numbers less than or equal to <code>args[0]</code> and greater than zero that are divisible by 7. Then, print the sum of all the digits of the original sum to get your answer.</p>\n",
 		"displayname": "Python Basics 6",
 		"grader": "python-basic-6",
@@ -73,7 +73,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 70,
+		"basescore": 60,
 		"desc": "<p>Given an list of integers stored in <code>args[0]</code> and an integer k stored in <code>args[1]</code>, sort them in descending order, then print the value at array index k from the sorted list.</p>\n",
 		"displayname": "Python Basics 7",
 		"grader": "python-basic-7",
@@ -83,7 +83,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 75,
+		"basescore": 65,
 		"desc": "<p>A boolean is a value that is either True or False. Given an list of arrays of integers as <code>[a,b]</code> stored in <code>args</code>, for each array, if the sum of <code>a + b <= 25</code> then concatenate the value \"1\" to represent the value <code>True</code> to a string. Otherwise, concatenate \"0\" to represent the value <code>False</code>.</p>\n",
 		"displayname": "Python Basics 8",
 		"grader": "python-basic-8",
@@ -93,7 +93,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 80,
+		"basescore": 70,
 		"desc": "<p>Head over to the Python Editor and print the greatest common factor between <code>args[0]</code> and <code>args[1]</code>.</p>\n",
 		"displayname": "Python Basics 9",
 		"grader": "python-basic-9",
@@ -103,7 +103,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 85,
+		"basescore": 75,
 		"desc": "<p><code>args[0]</code> is a result of <code>XOR</code> encryption on two hexadecimal strings. You only know one of the two original strings, <code>args[1]</code>, can you find the other? \n\n</p>\n",
 		"displayname": "Python Basics 10",
 		"grader": "python-basic-10",
@@ -113,7 +113,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 40,
+		"basescore": 30,
 		"desc": "<p>Many servers (including web servers) are run on machines that use an operating system called Linux. Most of you are familiar with an operating system such as Windows or Mac OS X, or maybe a mobile operating system such as Android or iOS.</p> <p>Linux has a shell, or a command-line interface, which is similar to an interface you may see when you open Command Prompt on Windows or Terminal on Mac. In a shell, you type commands to the machine and it executes your command.</p> <p>Before you can learn how to hack, you have to learn how Linux works. Some basics for using linux:</p> <ul> <li><code>echo</code> - similar to <code>print</code> in most programming languages. Typing <code>echo &quot;hi&quot;</code> will literally print the word &quot;hi&quot; to the screen.</li> <li><code>cd</code> - stands for change directory. When you execute a command, you are always doing so from a specific directory. To change the directory, type <code>cd</code> and whichever directory you want to go to.</li> </ul> <p>In the first problem, we&#39;ll learn about a function called <code>ls</code>. Log in to the web shell, and type <code>cd /problems/ls</code> to get started.</p>\n",
 		"displayname": "Linux Basics 1",
 		"grader": "linux-basic-1",
@@ -123,7 +123,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 45,
+		"basescore": 35,
 		"desc": "<p>Now that you&#39;re somewhat familiar with&nbsp;how the Linux shell works, we&#39;ll move on to another command that is useful: <code><a href=\"http://linux.die.net/man/1/cat\" target=\"_blank\">cat</a></code>.</p> <p>To solve this problem, log into the shell server, and try to find out what&#39;s inside <code>/problems/cat/flag.txt</code>!</p>\n",
 		"displayname": "Linux Basics 2",
 		"grader": "linux-basic-2",
@@ -133,7 +133,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 50,
+		"basescore": 40,
 		"desc": "<p>Ok, so now you know how to list files and read files... this is starting to sound more like a file manager you are familiar with, right? So what&#39;s left now? Searching.</p> <p>Luckily, there&#39;s also a command for that: <code>grep</code>. You know the drill, read up on the command, and then solve the problem in <code>/problems/grep</code>.</p> <p>The flag is the filename of the file containing the string <code>yep!</code>. All other files will contain the string <code>nope!</code>.</p>\n",
 		"displayname": "Linux Basics 3",
 		"grader": "linux-basic-3",
@@ -143,7 +143,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 55,
+		"basescore": 45,
 		"desc": "<p>Alright time to get to some fun stuff: binaries. A&nbsp;<strong>binary</strong>&nbsp;is just a really fancy word that means a file (or in this case, a program) that contains some bits that are not text.</p> <p>The binary in this problem is a program. When you run it, it&#39;ll ask you for an input, but not just any input: a special character. To run this binary, navigate to the folder <code>/problems/pipe</code> and run <code>./pipe</code>.</p> <p>The source code is available for download <a href=\"/problem_data/linux-basic-4/pipe.c\" target=\"_blank\">here</a>, or you can find it at <code>/problems/pipe/pipe.c</code> on the shell server. The flag has been redacted.</p>\n",
 		"displayname": "Linux Basics 4",
 		"grader": "linux-basic-4",
@@ -239,7 +239,7 @@
 		"desc": "<p><a href=\"/problem_data/reversing-1/EasyCTF_Reversing_1.exe\">Input file</a></p>\n",
 		"displayname": "Reversing 1",
 		"grader": "reversing1",
-		"hint": "Does the source of the file reveal anything?",
+		"hint": "I bet the flag is stored as a string... how can we see all the strings in a binary?",
 		"threshold": 0,
 		"weightmap": {}
 	},

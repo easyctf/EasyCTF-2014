@@ -111,6 +111,7 @@
 		"threshold": 0,
 		"weightmap": {}
 	},
+
 	{
 		"autogen": false,
 		"basescore": 30,
@@ -163,6 +164,7 @@
 		"threshold": 0,
 		"weightmap": {}
 	},
+
 	{
 		"autogen": false,
 		"basescore": 50,
@@ -406,7 +408,7 @@
 	{
 		"autogen": false,
 		"basescore": 160,
-		"desc": "<p><a href=\"/problem_data/obfuscation/obfuscate.js\" target=\"_blank\">Input file</a></p>\n",
+		"desc": "<p><a href=\"/problem_data/obfuscation/obfuscate.js\" target=\"_blank\">source</a></p>\n",
 		"displayname": "Obfuscation 2",
 		"grader": "obfuscation2",
 		"hint": "Are there any ways to make this code more readable?",
@@ -416,20 +418,32 @@
 	{
 		"autogen": false,
 		"basescore": 180,
-		"desc": "<p>Oh no! The door has been stolen! Find the key and open the door. You can solve the problem on the webshell or by downloading the source. <a href=\"/problem_data/door/door.c\" target=\"_blank\">Input file source</a></p>\n",
+		"desc": "<p>Oh no! The door has been stolen! Find the key and open the door. You can solve the problem on the webshell or by downloading the source. <a href=\"/problem_data/door/door.c\" target=\"_blank\">source</a></p>\n",
 		"displayname": "The Door",
 		"grader": "door",
-		"hint": "No hint for this problem, it is fairly straightforward.",
+		"hint": "Surely you're joking, Mr. Feldman!",
+		"threshold": 0,
+		"weightmap": {}
+	},
+
+
+	{
+		"autogen": false,
+		"basescore": 170,
+		"desc": "<p>I found an evil guessing game. Try to get the flag!</p> <p>Connect at <code>python.easyctf.com:10661</code>. <a href=\"/problem_data/mild_guess/guess.py\" target=\"_blank\">source</a></p>\n",
+		"displayname": "Mildly Evil Guess",
+		"grader": "door",
+		"hint": "This seems to be an impossible game. The <code>random_secret</code> is generated every time and it's completely random... or is it?",
 		"threshold": 0,
 		"weightmap": {}
 	},
 	{
 		"autogen": false,
 		"basescore": 180,
-		"desc": "<p>You have been presented with a guessing game. The the source can be downloaded here. <a href=\"/problem_data/guess/guess.c\" target=\"_blank\">Input file source</a></p>\n",
-		"displayname": "Guess",
+		"desc": "<p>This guessing game seems particularly evil. <a href=\"/problem_data/guess/guess.c\" target=\"_blank\">source</a></p>\n",
+		"displayname": "Evil Guess",
 		"grader": "randomConfusion-Carter1",
-		"hint": "No hint for this problem, it is fairly straightforward.",
+		"hint": "We hold these truths to be self-evident, that all base pointers are created equal, that they are endowed by their compiler with certain unalienable instructions.",
 		"threshold": 0,
 		"weightmap": {}
 	}

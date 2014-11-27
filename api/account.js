@@ -15,11 +15,7 @@ exports.register_team = function(req, res) {
 	var pwd = req.param("pass");
 	var gname = req.param("group");
 	var joingroup = req.param("joingroup");
-    
-    teamname = derp(teamname);
-	school = derp(school);
-    email = derp(email);    
-    
+
 	if (!(email && teamname && school && pwd && email.length > 0 && teamname.length > 0 && school.length > 0 && pwd.length > 0)) {
 		res.send({
 			status: 0,
@@ -28,37 +24,25 @@ exports.register_team = function(req, res) {
 		return;
 	}
 
-    if (!(teamname.length >= 3 && teamname <= 40)) {
+	teamname = derp(teamname);
+	school = derp(school);
+
+	if (teamname.length == 0) {
 		res.send({
 			status: 0,
-			message: "The team name must be between 3 and 40 characters."
+			message: "Please enter some characters"
 		});
 		return;
 	}
-    
-    if (!(pwd.length >= 3 && pwd <= 20)) {
+
+	if (school.length == 0) {
 		res.send({
 			status: 0,
-			message: "The password must be between 3 and 20 characters."
+			message: "Please enter some characters"
 		});
 		return;
 	}
-    
-    if (!(school.length >= 3 && school <= 100)) {
-		res.send({
-			status: 0,
-			message: "The school name must be between 3 and 100 characters."
-		});
-		return;
-	}
-    
-    /* TODO */
-    //ADD EMAIL VALIDATION
-    /***********************************************************/    
-    /***********************************************************/    
-    /***********************************************************/    
-    /***********************************************************/    
-    
+
 	common.db.collection("accounts").find({
 		$or: [
 			{ teamname: teamname },
@@ -177,13 +161,37 @@ exports.update_user_info = function(req, res) {
 
 	var confirm = req.param("confirm");
 
-    nTeamname = derp(nTeamname);
-	nSchool = derp(nSchool);
-    
 	if (!(nTeamname && nSchool && confirm)) {
 		res.send({
 			success: 0,
 			message: "You haven't filled out the required fields."
+		});
+		return;
+	}
+
+	nTeamname = derp(nTeamname);
+	nSchool = derp(nSchool);
+
+	if (nTeamname.length == 0) {
+		res.send({
+			status: 0,
+			message: "Please enter some characters"
+		});
+		return;
+	}
+
+	if (nSchool.length == 0) {
+		res.send({
+			status: 0,
+			message: "Please enter some characters"
+		});
+		return;
+	}
+
+	if (nTeamname.length > 250) {
+		res.send({
+			success: 0,
+			message: "Are you kidding me..."
 		});
 		return;
 	}
@@ -247,7 +255,7 @@ exports.update_user_info = function(req, res) {
 						} else {
 							res.send({
 								success: 1,
-								message: "Yay!!! Your account was updated"
+								message: "Yay!!11! Your account was updated"
 							});
 							return;
 						}

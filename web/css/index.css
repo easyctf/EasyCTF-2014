@@ -22,6 +22,10 @@
 	font-size: 24pt;
 }
 
+#title-date small {
+  color: #000;
+}
+
 
 body{
     background-image: url("back.png");

@@ -55,7 +55,7 @@ exports.login = function(req, res) {
 			if (currArray.length == 0) {
 				res.send({
 					success: 0,
-					message: "Team " + teamname + " not found."
+					message: "That team was not found."
 				});
 				return;
 			}

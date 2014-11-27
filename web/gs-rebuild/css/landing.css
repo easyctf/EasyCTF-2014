@@ -73,7 +73,7 @@ body {
 .details {
   padding-top: 25px; }
   .details .play {
-    background-color: #821e11;
+    background-color: rgba(0,0,0,0.7);
     color: #FFF;
     font-family: "Singularity";
     font-size: 48px;

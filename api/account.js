@@ -27,22 +27,6 @@ exports.register_team = function(req, res) {
 	teamname = derp(teamname);
 	school = derp(school);
 
-	if (teamname.length == 0) {
-		res.send({
-			status: 0,
-			message: "Please enter some characters"
-		});
-		return;
-	}
-
-	if (school.length == 0) {
-		res.send({
-			status: 0,
-			message: "Please enter some characters"
-		});
-		return;
-	}
-
 	common.db.collection("accounts").find({
 		$or: [
 			{ teamname: teamname },
@@ -171,30 +155,6 @@ exports.update_user_info = function(req, res) {
 
 	nTeamname = derp(nTeamname);
 	nSchool = derp(nSchool);
-
-	if (nTeamname.length == 0) {
-		res.send({
-			status: 0,
-			message: "Please enter some characters"
-		});
-		return;
-	}
-
-	if (nSchool.length == 0) {
-		res.send({
-			status: 0,
-			message: "Please enter some characters"
-		});
-		return;
-	}
-
-	if (nTeamname.length > 250) {
-		res.send({
-			success: 0,
-			message: "Are you kidding me..."
-		});
-		return;
-	}
 
 	common.db.collection("accounts").find({
 		$or: [

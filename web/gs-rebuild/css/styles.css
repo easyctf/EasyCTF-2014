@@ -20,6 +20,17 @@ height:100%
 
 
 
+::selection {
+  background:   grey; /* WebKit/Blink Browsers */
+  color: #FFF;
+}
+::-moz-selection {
+  background:   grey; /* Gecko Browsers */
+  color: #FFF;
+}
+    
+
+
 
 
 

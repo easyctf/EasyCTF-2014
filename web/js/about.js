@@ -25,4 +25,29 @@
 		}
 		$("#team-container").html(html);
 	});
+
+	var flags = [
+		"",
+		"now_go_sign_up_and_do_the_real_challenges"
+	];
+
+	window.show_hint = function(i) {
+		$("#hint_"+i).slideToggle();
+	}
+
+	window.handle_submit = function(i) {
+		var guess = $("#q" + i).val();
+		var html;
+		if (guess.toLowerCase().indexOf(flags[i].toLowerCase()) > -1) {
+			html = "<div class='alert alert-success'>Congratulations!</div>";
+		} else {
+			html = "<div class='alert alert-danger'>Nope, that's not right. If you want to know the answers, check <code>js/about.js</code>!</div>";
+		}
+		$("#msg_" + i).hide().html(html).slideDown("normal");
+		setTimeout(function() {
+			$("#msg_"+i).slideUp("normal", function() {
+				$("#msg_"+i).html("").show();
+			});
+		}, 2000);
+	}
 })();

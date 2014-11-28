@@ -456,5 +456,15 @@
 		"hint": "We hold these truths to be self-evident, that all base pointers are created equal, that they are endowed by their compiler with certain unalienable instructions.",
 		"threshold": 0,
 		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 180,
+		"desc": "<p>You stumble upon a RSA encrypted message that looks different... All you know is the public key. Can you decrypt the message? <a href=\"/problem_data/rsa/rsa.txt\" target=\"_blank\">Data</a></p>\n",
+		"displayname": "RSA",
+		"grader": "rsa",
+		"hint":  "The message is about RSA.",
+		"threshold": 0,
+		"weightmap": {}
 	}
 ]

@@ -17,17 +17,17 @@
 		"desc": "<p>Welcome to Python crash course! To get started, head over to the <a href=\"/exec\" target=\"_blank\">Python Editor</a> and print the string \"Hello, EasyCTF!\" exactly like that to the console.</p>\n",
 		"displayname": "Python Basics 1",
 		"grader": "python-basic-1",
-		"hint": "Not sure how to print in Python? Look it up! It probably uses the <code>print</code> function.",
+		"hint": "Not sure how to print in Python? Look it up (maybe on our Learn page?)! It probably uses the <code>print</code> function.",
 		"threshold": 0,
 		"weightmap": {}
 	},
 	{
 		"autogen": false,
 		"basescore": 35,
-		"desc": "<p>You're faced with a control panel. There are some instructions left on a sign nearby on the wall: This machine generates random numbers that you can access through the variable <code>args[0]</code>. If the number is greater than or equal to 0 and less than 100, print <code>hacks</code>. If the number is greater than or equal to 100, print <code>haxx</code>. If the number is negative, print <code>hakz</code>. Use the IDE to complete this problem.</p>\n",
+		"desc": "<p>You're faced with a control panel. There are some instructions left on a sign nearby on the wall: This machine generates random numbers that you can access through the variable <code>args[0]</code>. If the number is greater than or equal to 0 and less than 100, print <code>hacks</code>. If the number is greater than or equal to 100, print <code>haxx</code>. If the number is negative, print <code>hakz</code>. Use the IDE (Python Editor) to complete this problem.</p>\n",
 		"displayname": "Python Basics 2",
 		"grader": "python-basic-2",
-		"hint": "What are <a href=\"http://en.wikibooks.org/wiki/Python_Programming/Conditional_Statements\" target=\"_blank\">conditionals</a>?",
+		"hint": "What are <a href=\"http://learn.easyctf.com/content/python-conditional.html\" target=\"_blank\">conditionals</a>?",
 		"threshold": 0,
 		"weightmap": {}
 	},
@@ -118,7 +118,7 @@
 		"desc": "<p>Many servers (including web servers) are run on machines that use an operating system called Linux. Most of you are familiar with an operating system such as Windows or Mac OS X, or maybe a mobile operating system such as Android or iOS.</p> <p>Linux has a shell, or a command-line interface, which is similar to an interface you may see when you open Command Prompt on Windows or Terminal on Mac. In a shell, you type commands to the machine and it executes your command.</p> <p>Before you can learn how to hack, you have to learn how Linux works. Some basics for using linux:</p> <ul> <li><code>echo</code> - similar to <code>print</code> in most programming languages. Typing <code>echo &quot;hi&quot;</code> will literally print the word &quot;hi&quot; to the screen.</li> <li><code>cd</code> - stands for change directory. When you execute a command, you are always doing so from a specific directory. To change the directory, type <code>cd</code> and whichever directory you want to go to.</li> </ul> <p>In the first problem, we&#39;ll learn about a function called <code>ls</code>. Log in to the web shell, and type <code>cd /problems/ls</code> to get started.</p>\n",
 		"displayname": "Linux Basics 1",
 		"grader": "linux-basic-1",
-		"hint": "If you're still unsure how to solve this problem, ask for help on the <a href=\"/irc\" target=\"_blank\">chat</a>.",
+		"hint": "If you're still unsure how to solve this problem, ask for help on the <a href=\"/irc\" target=\"_blank\">chat</a> or take a look on our Learn page.",
 		"threshold": 0,
 		"weightmap": {}
 	},
@@ -158,7 +158,7 @@
 		"autogen": false,
 		"basescore": 70,
 		"desc": "<p>I found this hashed password <code>dqcxxkgegmrunaue</code> and its hashing algorithm <a href=\"/problem_data/hash1/hash1.py\" target=\"_blank\">hash1.py</a>. Can you find the password?</p>\n",
-		"displayname": "Hashing 1",
+		"displayname": "Hashing",
 		"grader": "hash1",
 		"hint": "Maybe there's more than 1 password that works...",
 		"threshold": 0,
@@ -378,6 +378,16 @@
 	},
 	{
 		"autogen": false,
+		"basescore": 95,
+		"desc": "<p>Here's something a bit harder. </p><p><img alt=\"\" src=\"/problem_data/brachiosaurus/brachiosaurus.jpg\" style=\"height:235px; width:400px\"></p>\n",
+		"displayname": "Brachiosaurus",
+		"grader": "brachiosaurus",
+		"hint": "Is this <code>jpg</code> <i>really</i> a <code>jpg</code>?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
 		"basescore": 100,
 		"desc": "<p>The first 5 primes are 2, 3, 5, 7, and 11. The 2nd, 3rd, 5th, 7th, and 11th primes are (respectively) 3, 5, 11, 17, and 31. The sum of these primes is 67. Let <code>Q(n)</code> be the sum of the <code>k</code>th prime where k is the first <code>n</code> prime numbers, as shown above. Then <code>Q(5) = 67</code>.</p><p>It can be confirmed that <code>Q(35) = 11735</code> and <code>Q(85) = 107591</code>.</p><p>If <code>args = [M,N]</code>, find Q(M) + Q(N), using the python editor.</p>\n",
 		"displayname": "Project Eratosthenes",
@@ -399,7 +409,7 @@
 	{
 		"autogen": false,
 		"basescore": 130,
-		"desc": "<p><a href=\"/problem_data/reversing-2/EasyCTF_Reversing_2.exe\">Input file</a></p>\n",
+		"desc": "<p>Hmm this program seems to encrypt a statement depending on your input. Can you reverse it to get the original statement? <a href=\"/problem_data/reversing-2/EasyCTF_Reversing_2.exe\">Input file</a></p>\n",
 		"displayname": "Reversing 2",
 		"grader": "reversing2",
 		"hint": "What happens when you change what you input?",
@@ -439,7 +449,7 @@
 	{
 		"autogen": false,
 		"basescore": 160,
-		"desc": "<p><a href=\"/problem_data/obfuscation/obfuscate.js\" target=\"_blank\">source</a></p>\n",
+		"desc": "<p>This jumbled mess has been left for you... <a href=\"/problem_data/obfuscation/obfuscate.js\" target=\"_blank\">source</a></p>\n",
 		"displayname": "Obfuscation 2",
 		"grader": "obfuscation2",
 		"hint": "Are there any ways to make this code more readable?",

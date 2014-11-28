@@ -78,25 +78,56 @@
 
 				<a name="sample"></a>
 				<h2>Sample Problems</h2>
-				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="heading0">
-						<h4 class="panel-title"><a class="NO_HOVER_UNDERLINE_DAMMIT" data-toggle="collapse" data-parent="#accordion" href="#collapse0" aria-expanded="true" aria-controls="collapse0">Crypto</a></h4>
+				<div class="panel-group">
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="heading0">
+							<h4 class="panel-title"><a class="NO_HOVER_UNDERLINE_DAMMIT" data-toggle="collapse" data-parent="#accordion" href="#collapse0" aria-expanded="true" aria-controls="collapse0">Crypto</a></h4>
+						</div>
+						<div id="collapse0" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading0">
+							<div class="panel-body problem_statement">
+								<div id="msg_1"></div>
+								<p></p>
+								<p>
+									Do you like crypto? We do. Try decrypting this: <code>lqef ef s fehzwa fgpflelglevt oezqak. dwsj ef tvm_jv_fejt_gz_sti_iv_lqa_kasw_oqswwatjaf
+	</code>
+								</p>
+								<p></p>
+								<form onsubmit="handle_submit('1'); return false;" class="form-inline" id="form_1">
+									<input type="text" class="form-control" autocomplete="off" id="q1">
+									<input type="submit" class="btn btn-primary"> <a class="show_hint_btn btn btn-primary" href='javascript:show_hint("1");'>Show Hint</a>
+								</form>
+								<br>
+								<div style="display:none;" class="well" id="hint_1">Use online resources such as <a href="http://rumkin.com/tools/cipher" target="_blank">this</a> to help you :).</div>
+							</div>
+						</div>
 					</div>
-					<div id="collapse0" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading0">
-						<div class="panel-body problem_statement">
-							<div id="msg_1"></div>
-							<p></p>
-							<p>
-								Do you like crypto? We do. Try decrypting this: <code>lqef ef s fehzwa fgpflelglevt oezqak. dwsj ef tvm_jv_fejt_gz_sti_iv_lqa_kasw_oqswwatjaf
-</code>
-							</p>
-							<p></p>
-							<form onsubmit="handle_submit('1'); return false;" class="form-inline" id="form_1">
-								<input type="text" class="form-control" autocomplete="off" id="q1">
-								<input type="submit" class="btn btn-primary"> <a class="show_hint_btn btn btn-primary" href='javascript:show_hint("1");'>Show Hint</a>
-							</form>
-							<br>
-							<div style="display:none;" class="well" id="hint_1">Use online resources such as <a href="http://rumkin.com/tools/cipher" target="_blank">this</a> to help you :).</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="heading1">
+							<h4 class="panel-title"><a class="NO_HOVER_UNDERLINE_DAMMIT" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">Reversing</a></h4>
+						</div>
+						<div id="collapse1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
+							<div class="panel-body problem_statement">
+								<div id="msg_2"></div>
+								<p></p>
+								<p>
+									Do you like Python? We do. Try reversing this:
+								</p>
+								<pre>x = raw_input("enter the password ");
+y = "";
+for c in x:
+	y += chr(ord(c) ^ ord(" "));
+if y == "nottherightcase":
+	print "congratz the flag is "+y;
+else:
+	print "nope";</pre>
+								<p></p>
+								<form onsubmit="handle_submit('2'); return false;" class="form-inline" id="form_2">
+									<input type="text" class="form-control" autocomplete="off" id="q2">
+									<input type="submit" class="btn btn-primary"> <a class="show_hint_btn btn btn-primary" href='javascript:show_hint("2");'>Show Hint</a>
+								</form>
+								<br>
+								<div style="display:none;" class="well" id="hint_2">What does this <code>^</code> operator do?</div>
+							</div>
 						</div>
 					</div>
 				</div>

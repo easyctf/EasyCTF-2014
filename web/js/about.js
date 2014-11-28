@@ -28,7 +28,8 @@
 
 	var flags = [
 		"",
-		"now_go_sign_up_and_do_the_real_challenges"
+		"now_go_sign_up_and_do_the_real_challenges",
+		"NOTTHERIGHTCASE"
 	];
 
 	window.show_hint = function(i) {

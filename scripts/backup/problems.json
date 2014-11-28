@@ -282,7 +282,7 @@
 		"desc": "<p>How do loops work? Examine the <a href=\"/problem_data/flowchart/flowchart.png\" target=\"_blank\">flowchart</a> left for you, then match the letter choices to the correct loop. Submit the result of the loops in the order the diagrams are drawn (without line breaks or spaces) as your solution.</p>\n",
 		"displayname": "Flowchart",
 		"grader": "flowchart",
-		"hint": "Java has several types of loops - <code>for</code>, <code>for each</code>, <code>while</code> - how do they differ from each other?",
+		"hint": "Java has several types of loops - <code>for</code>, <code>for each</code>, <code>while</code>, <code>do-while</code> - how do they differ from each other? And how do flow controls like <code>breaks</code> or <code>switch</code> statements affect how code runs?",
 		"threshold": 0,
 		"weightmap": {}
 	},

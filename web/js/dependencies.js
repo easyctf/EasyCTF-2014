@@ -19,7 +19,7 @@ var tabsNLI = [
 
 var tabsBoth = [
 	[ "about", "About" ],
-	[ "updates", "Updates"]
+	[ "updates", "Updates"],
 	[ "scoreboard", "Scoreboard" ],
 	[ "sponsors", "Sponsors" ],
 	[ "learn", "Learn" ],

@@ -1,0 +1,2 @@
+public key = 0x219cc6aa0ec13d041c4971
+message = 0xac470f7350ea67d7a0696

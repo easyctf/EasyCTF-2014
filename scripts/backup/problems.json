@@ -175,6 +175,16 @@
 		"threshold": 0,
 		"weightmap": {}
 	},
+	{
+		"autogen": false,
+		"basescore": 150,
+		"desc": "<p>What if there's no function that gives you the shell?</p><p>Problem can be found at <code>/problems/format2</code> and source can be downloaded <a href=\"/problem_data/format2/format2.c\" target=\"_blank\">here</a>.</p>\n",
+		"displayname": "Format 2",
+		"grader": "format2",
+		"hint": "How are arguments passed to <code>system()</code>?",
+		"threshold": 0,
+		"weightmap": {}
+	},
 
 	{
 		"autogen": false,

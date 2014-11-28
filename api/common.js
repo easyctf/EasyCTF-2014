@@ -3,8 +3,9 @@ var Server = require("mongodb").Server;
 var crypto = require("crypto");
 var moment = require("moment");
 
-exports.startDate = moment("2014-11-29T11:00:00-06:00");
-exports.endDate = moment("2014-12-06T22:00:00-06:00");
+exports.startDate = moment("2014-11-29 11:00:00.000-06:00");
+// exports.startDate = moment("2014-11-28 01:45:00.000-06:00"); //2014-11-28T1:45:00-06:00");
+exports.endDate = moment("2014-12-06 22:00:00.000-06:00");
 
 exports.db = new MongoDB("app29067833", new Server("kahana.mongohq.com", 10071, { auto_reconnect: true }), {w: 1});
 

@@ -5,6 +5,8 @@ var group = require("./group");
 var problem = require("./problem");
 var forgot = require("./forgot");
 var feedback = require("./feedback");
+var moment = require("moment");
+var common = require("./common");
 
 var problems = [
 	"python-basic-1",
@@ -43,6 +45,10 @@ module.exports = function(app) {
 
 	app.get("/api/isadmin", function(req, res) {
 		res.send(auth.is_admin(req));
+	});
+
+	app.get("/api/isauthorized", function(req, res) {
+		res.send(auth.is_authorized(req));
 	});
 
 	app.post("/api/register", function(req, res) {

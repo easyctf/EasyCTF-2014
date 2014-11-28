@@ -7,7 +7,7 @@ exports.grade = function(team, key, callback) {
 	} else {
 		callback({
 			correct: false,
-			message: "This one might be a bit trickier."
+			message: "Nope, try again."
 		});
 	}
 };

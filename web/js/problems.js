@@ -17,7 +17,7 @@
 					html += "<div class='panel panel-default'>";
 						html += "<div class='panel-heading' role='tab' id='heading"+i+"'>";
 							html += "<h4 class='panel-title'>";
-								html += "<a class='NO_HOVER_UNDERLINE_DAMMIT' data-toggle='collapse' data-parent='#accordion' href='#collapse"+i+"' aria-expanded='true' aria-controls='collapse"+i+"'>";
+								html += "<a class='NO_HOVER_UNDERLINE_DAMMIT' style='display:block;' data-toggle='collapse' data-parent='#accordion' href='#collapse"+i+"' aria-expanded='true' aria-controls='collapse"+i+"'>";
 									html += d.displayname + ": " + d.basescore;
 									html += "<span style='float:right;'>";
 										html += d.correct ? "<span class='solved'>Solved</span>" : "<span class='unsolved'>Unsolved</span>";

@@ -167,6 +167,17 @@
 
 	{
 		"autogen": false,
+		"basescore": 70,
+		"desc": "<p>The function <code>printf</code> can do a lot of great things, but depends on how you use it. Try to exploit this <i>very</i> irresponsible use of <code>printf</code>.</p><p>Problem can be found at <code>/problems/format1</code> and source can be downloaded <a href=\"/problem_data/format1/format1.c\" target=\"_blank\">here</a>.</p>\n",
+		"displayname": "Format 1",
+		"grader": "format1",
+		"hint": "This line might interest you... <code>printf(argv[1]);</code>. What happens if no format arguments are provided?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+
+	{
+		"autogen": false,
 		"basescore": 50,
 		"desc": "<p><a href=\"/sites/post-it/index.php\" target=\"_blank\">http://easyctf.com/sites/post-it</a></p>\n",
 		"displayname": "POST-it",

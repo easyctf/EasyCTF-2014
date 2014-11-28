@@ -10,7 +10,7 @@ size = 1024
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((host,port))
 s.listen(backlog)
-flag="NOT_HERE"
+flag="xxxxxx"
 def clientthread(conn):
     random.seed()
     random_secret=random.random()

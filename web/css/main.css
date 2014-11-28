@@ -1,7 +1,7 @@
 @import url(yeti.min.css);
 @import url(font-awesome.min.css);
 @import url(pnotify.min.css);
-@import url(maint.css);
+/* @import url(maint.css); */
 
 .NO_HOVER_UNDERLINE_DAMMIT, .NO_HOVER_UNDERLINE_DAMMIT:hover, .NO_HOVER_UNDERLINE_DAMMIT:active {
 	text-decoration: none;

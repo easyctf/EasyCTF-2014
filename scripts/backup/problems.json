@@ -167,6 +167,17 @@
 
 	{
 		"autogen": false,
+		"basescore": 70,
+		"desc": "<p>The function <code>printf</code> can do a lot of great things, but depends on how you use it. Try to exploit this <i>very</i> irresponsible use of <code>printf</code>.</p><p>Problem can be found at <code>/problems/format1</code> and source can be downloaded <a href=\"/problem_data/format1/format1.c\" target=\"_blank\">here</a>.</p>\n",
+		"displayname": "Format 1",
+		"grader": "format1",
+		"hint": "This line might interest you... <code>printf(argv[1]);</code>. What happens if no format arguments are provided?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+
+	{
+		"autogen": false,
 		"basescore": 50,
 		"desc": "<p><a href=\"/sites/post-it/index.php\" target=\"_blank\">http://easyctf.com/sites/post-it</a></p>\n",
 		"displayname": "POST-it",
@@ -387,6 +398,16 @@
 	},
 	{
 		"autogen": false,
+		"basescore": 140,
+		"desc": "<p>Can you beat the Jung? Try your hand at some fast math at <code>python.easyctf.com:10660</code>!</p>\n",
+		"displayname": "Fast Math",
+		"grader": "fastmath",
+		"hint": "How can you solve problems quickly?",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
 		"basescore": 90,
 		"desc": "<p><table align=\"center\" border=\"0\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\"><tbody><tr><td><img alt=\"\" src=\"/problem_data/pixelated/1.png\" style=\"height:200px; width:200px\"></td><td><img alt=\"\" src=\"/problem_data/pixelated/2.png\" style=\"height:200px; width:200px\"></td></tr></tbody></table></p>\n",
 		"displayname": "Pixelated",
@@ -418,7 +439,7 @@
 	{
 		"autogen": false,
 		"basescore": 180,
-		"desc": "<p>Oh no! The door has been stolen! Find the key and open the door. You can solve the problem on the webshell or by downloading the source. <a href=\"/problem_data/door/door.c\" target=\"_blank\">source</a></p>\n",
+		"desc": "<p>Oh no! The door has been stolen! Find the key and open the door. <a href=\"/problem_data/door/door.c\" target=\"_blank\">source</a></p>\n",
 		"displayname": "The Door",
 		"grader": "door",
 		"hint": "Surely you're joking, Mr. Feldman!",
@@ -426,13 +447,12 @@
 		"weightmap": {}
 	},
 
-
 	{
 		"autogen": false,
 		"basescore": 170,
 		"desc": "<p>I found an evil guessing game. Try to get the flag!</p> <p>Connect at <code>python.easyctf.com:10661</code>. <a href=\"/problem_data/mild_guess/guess.py\" target=\"_blank\">source</a></p>\n",
 		"displayname": "Mildly Evil Guess",
-		"grader": "door",
+		"grader": "mild",
 		"hint": "This seems to be an impossible game. The <code>random_secret</code> is generated every time and it's completely random... or is it?",
 		"threshold": 0,
 		"weightmap": {}

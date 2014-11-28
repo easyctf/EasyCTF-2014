@@ -4,10 +4,6 @@
 		"role": "Project Lead"
 	},
 	{
-		"name": "Jay Mo",
-		"role": "Website Frontend"
-	},
-	{
 		"name": "Emily Leng",
 		"role": "Problem Design, 2D Art"
 	},
@@ -18,6 +14,10 @@
 	{
 		"name": "Carter Feldman",
 		"role": "Problem Design"
+	},
+	{
+		"name": "Jay Mo",
+		"role": "Website Frontend"
 	},
 	{
 		"name": "George Sivulka",

@@ -21,7 +21,7 @@ var generate_scoreboard_page = function() {
 			console.log("[api/scoreboard.js] something went wrong");
 		} else {
 			common.db.collection("submissions").find({
-
+				correct: true,
 			}).toArray(function(err2, submissions) {
 				common.db.collection("problems").find({
 

@@ -438,7 +438,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 120,
+		"basescore": 100,
 		"desc": "<p>Given a string stored in <code>args[0]</code>, find the longest palindrome inside the string, ignoring the punctuation and spacing during calculations, but including them in the final result.</p><p>For example, <code>I did roar again, Niagara! ... or did I?</code> returns <code>I did roar again, Niagara! ... or did I</code></p><p>Notice how the question mark was not part of the palindromic string, so it was not included in the answer (and neither should trailing spaces or new lines).</p>\n",
 		"displayname": "Palindrama",
 		"grader": "palindrama",

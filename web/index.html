@@ -57,7 +57,12 @@
 
 				var refreshTimer = function() {
 					var now = moment();
-					var diff = moment.duration(startDate.diff(now), "milliseconds");
+					var diff;
+					if (moment().isAfter(startDate)) {
+						diff = moment.duration(endDate.diff(now), "milliseconds");
+					} else {
+						diff = moment.duration(startDate.diff(now), "milliseconds");
+					}
 					$("#countdown").html("<b>" + diff.days() + "</b> days, <b>" + diff.hours() + "</b> hours, <b>" + diff.minutes() + "</b> minutes, <b>" + diff.seconds() + "</b> seconds left!");
 					requestAnimationFrame(refreshTimer);
 				};

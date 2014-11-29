@@ -189,7 +189,7 @@
 	{
 		"autogen": false,
 		"basescore": 50,
-		"desc": "<p>You need to gain access to this site, but it looks like you have the wrong <code>POST</code> values! Hmm.. <a href=\"/sites/post-it/index.php\" target=\"_blank\">http://easyctf.com/sites/post-it</a></p>\n",
+		"desc": "<p>You need to gain access to this site, but it looks like you have the wrong <code>POST</code> values! Hmm..</p><p> <a href=\"/sites/post-it/index.php\" target=\"_blank\">http://easyctf.com/sites/post-it</a></p>\n",
 		"displayname": "POST-it",
 		"grader": "postit",
 		"hint": "It may be helpful to look into what POST requests <i>are</i>. How can you use this?",
@@ -199,7 +199,7 @@
 	{
 		"autogen": false,
 		"basescore": 50,
-		"desc": "<p>Well this sure is a useless looking website. Still, I wonder if something is hidden in it. <a href=\"/sites/pointless-keys/index.php\" target=\"_blank\">Pointless website</a></p>\n",
+		"desc": "<p>Well this sure is a useless looking website. Still, I wonder if something is hidden in it. </p><p><a href=\"/sites/pointless-keys/index.php\" target=\"_blank\">Pointless website</a></p>\n",
 		"displayname": "Pointless Keys",
 		"grader": "pointlesskeys",
 		"hint": "You may want to look at some of the <i>JavaScript</i> source code.",
@@ -259,7 +259,7 @@
 	{
 		"autogen": false,
 		"basescore": 50,
-		"desc": "<p>Looks like you need to find the password that is the flag from this binary. <a href=\"/problem_data/reversing-1/EasyCTF_Reversing_1.exe\">Input file</a></p>\n",
+		"desc": "<p>Looks like you need to find the password that is the flag from this binary. </p><p><a href=\"/problem_data/reversing-1/EasyCTF_Reversing_1.exe\">Input file</a></p>\n",
 		"displayname": "Reversing 1",
 		"grader": "reversing1",
 		"hint": "I bet the flag is stored as a string... how can we see all the strings in a binary?",

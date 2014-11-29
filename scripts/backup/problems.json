@@ -318,7 +318,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 90,
+		"basescore": 60,
 		"desc": "<p>What kind of file is <a href=\"/problem_data/format_deception/format_deception.nds\">this</a>?</p>\n",
 		"displayname": "Format Deception",
 		"grader": "formatdeception",
@@ -490,10 +490,21 @@
 	{
 		"autogen": false,
 		"basescore": 150,
-		"desc": "<p>Haaaalppp I can't pronounce this word. </p><p><img alt=\"\" src=\"/problem_data/ghoti/ghoti.jpg\" style=\"height:235px; width:400px\"></p>\n",
+		"desc": "<p>Haaaalppp I can't pronounce this word. What could this image mean?</p><p><img alt=\"\" src=\"/problem_data/ghoti/ghoti.jpg\" style=\"height:235px; width:400px\"><br /><small>ghoti.jpg</small></p>\n",
 		"displayname": "Ghoti",
 		"grader": "ghoti",
 		"hint": "Look for clues in the file. The file appears corrupted, but maybe it still contains some important information.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+
+	{
+		"autogen": false,
+		"basescore": 0,
+		"desc": "<p>My name is Michael Zhang.</p>\n",
+		"displayname": "failedxyz",
+		"grader": "failedxyz",
+		"hint": "If you solve this problem, you are required to write a write-up and send it (using the email you signed your team up with) to <a href=\"mailto:failed.down@gmail.com\" target=\"_blank\">failed.down@gmail.com</a>.",
 		"threshold": 0,
 		"weightmap": {}
 	}

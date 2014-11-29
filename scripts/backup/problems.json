@@ -189,7 +189,7 @@
 	{
 		"autogen": false,
 		"basescore": 50,
-		"desc": "<p><a href=\"/sites/post-it/index.php\" target=\"_blank\">http://easyctf.com/sites/post-it</a></p>\n",
+		"desc": "<p>You need to gain access to this site, but it looks like you have the wrong <code>POST</code> values! Hmm.. <a href=\"/sites/post-it/index.php\" target=\"_blank\">http://easyctf.com/sites/post-it</a></p>\n",
 		"displayname": "POST-it",
 		"grader": "postit",
 		"hint": "It may be helpful to look into what POST requests <i>are</i>. How can you use this?",

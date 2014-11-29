@@ -17,10 +17,11 @@
 		<nav role="navigation" class="navbar navbar-default topnav">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<button type="button" data-toggle="collapse" data-target="#navbar-content" class="navbar-toggle"><span class="sr-only">Toggle Navigation</span><span></span><span></span><span></span>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle Navigation</span><span></span><span></span><span></span>
 					</button><a href="/" class="navbar-brand">EasyCTF</a>
 				</div>
-				<div id="navbar-content" class="collapse navbar-collapse navcon">
+				<div id="navbar-content" class="collapse navbar-collapse navicon">
 				    <ul class="nav navbar-nav" id="nav-left">
 				    </ul>
 				    <ul class="nav navbar-nav navbar-right" id="nav-right">
@@ -50,9 +51,6 @@
 			$(function() {
 				display_navbar();
 				load_footer();
-				$(".main").onepage_scroll({
-
-				});
 
 				var startDate = moment("2014-11-29 11:00:00.000-06:00");
 				var endDate = moment("2014-12-06 22:00:00.000-06:00");

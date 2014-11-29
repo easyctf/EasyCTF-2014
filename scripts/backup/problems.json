@@ -279,7 +279,7 @@
 	{
 		"autogen": false,
 		"basescore": 60,
-		"desc": "<p>A friend has created a code for you to guess because he has no life and spends all his time making this kind of stuff.</p><p>Anyways, here it is: <a href=\"/problem_data/a000045/A000045.txt\">A000045.txt</a></p>\n",
+		"desc": "<p>A friend has created a code for you to guess because he has no life and spends all his time making this kind of stuff.</p><p>Anyways, here it is: <a href=\"/problem_data/A000045/A000045.txt\">A000045.txt</a></p>\n",
 		"displayname": "A000045.txt",
 		"grader": "A000045",
 		"hint": "Ask Google what A000045 might mean.",

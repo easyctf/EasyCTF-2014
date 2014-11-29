@@ -8,6 +8,8 @@ function derp(str) {
 	return entities.encode(str).trim();
 }
 
+var limit = 128;
+
 exports.register_team = function(req, res) {
 	var email = req.param("email");
 	var teamname = req.param("team");
@@ -31,6 +33,14 @@ exports.register_team = function(req, res) {
 		res.send({
 			status: 0,
 			message: "Please enter some characters"
+		});
+		return;
+	}
+
+	if (teamname.length > limit) {
+		res.send({
+			status: 0,
+			message: "STAHP",
 		});
 		return;
 	}
@@ -188,7 +198,7 @@ exports.update_user_info = function(req, res) {
 		return;
 	}
 
-	if (nTeamname.length > 250) {
+	if (nTeamname.length > limit) {
 		res.send({
 			success: 0,
 			message: "Are you kidding me..."

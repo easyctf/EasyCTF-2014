@@ -3,9 +3,9 @@ var flag = "b0ole4n_l0g1c_011000100110100101101110011000010111001001111001";
 exports.get_data = function(req, callback) {
 	var result = [];
 	for (var i = 0; i < 30; i++){
-	var a = Math.floor(Math.random()*50);
-	var b = Math.floor(Math.random()*50);
-	result.push([a,b]);
+		var a = Math.floor(Math.random()*50) + 1;
+		var b = Math.floor(Math.random()*50) + 1;
+		result.push([a,b]);
 	}
 	req.session.data = result;
 	callback(result);

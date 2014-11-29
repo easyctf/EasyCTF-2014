@@ -16,7 +16,7 @@ exports.check_data = function(req, callback) {
 	var ans = "";
 	var a = data;
 	for (var i = 0; i < data.length; i++){
-		if (a[i][0] + a[i][1] <= 35){
+		if (a[i][0] + a[i][1] <= 25){
 			ans += "1";
 		}
 		else{

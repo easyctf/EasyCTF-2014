@@ -228,7 +228,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 30,
+		"basescore": 35,
 		"desc": "<p>Cryptography is hiding messages in plain sight. Although they can be viewed, they are usually unreadable without the use of a special key. Messages can be encrypted and then sent to another person who then decrypts the ciphertext (encrypted message) using their special key into plaintext (readable text). Try your hand at this <a href=\"http://en.wikipedia.org/wiki/Caesar_cipher\" target=\"_blank\">Caesar cipher</a>:</p> <p>IGKYGX HKIGSK ZNK LOXYZ XUSGT MKTKXGR ZU IXUYY HUZN CNKT NK HAORZ G HXOJMK GIXUYY ZNK XNOTK GTJ IUTJAIZKJ ZNK LOXYZ OTBGYOUT UL HXOZGOT.ZNKYK GINOKBKSKTZY MXGTZKJ NOS ATSGZINKJ SOROZGXE VUCKX GTJ ZNXKGZKTKJ ZU KIROVYK ZNK YZGTJOTM UL VUSVKE, CNU NGJ XKGROMTKJ NOSYKRL COZN ZNK YKTGZK GLZKX ZNK JKGZN UL IXGYYAY OT 53 HI. COZN ZNK MGRROI CGXY IUTIRAJKJ, ZNK YKTGZK UXJKXKJ IGKYGX ZU YZKV JUCT LXUS NOY SOROZGXE IUSSGTJ GTJ XKZAXT ZU XUSK. IGKYGX XKLAYKJ, GTJ SGXQKJ NOY JKLOGTIK OT 49 HI HE IXUYYOTM ZNK XAHOIUT COZN G RKMOUT, RKGBOTM NOY VXUBOTIK GTJ ORRKMGRRE KTZKXOTM XUSGT ZKXXOZUXE ATJKX GXSY. IOBOR CGX XKYARZKJ, LXUS CNOIN NK KSKXMKJ GY ZNK ATXOBGRKJ RKGJKX UL XUSK. ZNK LRGM OY IGKYGX_OY_NUSK.</p>\n",
 		"displayname": "A Simple Cipher",
 		"grader": "simplecipher",
@@ -248,7 +248,7 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 100,
+		"basescore": 70,
 		"desc": "<p>Once upon a midnight dreary, while I pondered, weak and weary,<br>Over many a quaint and curious volume of forgotten lore –<br>While I nodded, nearly napping, suddenly there came a tapping,<br>As of some one gently rapping, rapping at my chamber door –<br>\"'Tis some visitor,\" I muttered, \"tapping at my chamber door –<br>Only this and nothing more.\"</p><p>Ah, distinctly I remember it was in the bleak December;<br>And each separate dying ember wrought its ghost upon the floor.<br>Eagerly I wished the morrow; – vainly I had sought to borrow<br>From my books surcease of sorrow – sorrow for the lost Lenore –&nbsp;<br>For the rare and radiant maiden whom the angels name Lenore –&nbsp;<br>Nameless here for evermore.</p><p>&nbsp;</p><p>ciphertext:&nbsp;6 11&nbsp;22 28 66&nbsp;uooy htue mghn salc mria rrop clns pggl eoie nioo ifdt iwtd eres atau&nbsp;odgh dfgr doti dwii sbsc eato eorf gjgr sron owud sefe</p>\n",
 		"displayname": "The Raven",
 		"grader": "theraven",
@@ -268,11 +268,11 @@
 	},
 	{
 		"autogen": false,
-		"basescore": 30,
+		"basescore": 40,
 		"desc": "<p>Something appears to be wrong with this QR. Can you fix it?</p><p><img alt=\"\" src=\"/problem_data/QR/code.png\" style=\"height:184px; width:184px\"></p>\n",
 		"displayname": "QR",
 		"grader": "QR",
-		"hint": "Normal QR's are square, aren't they?",
+		"hint": "The QR looks like it's missing some pixels...",
 		"threshold": 0,
 		"weightmap": {}
 	},

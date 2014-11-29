@@ -34,13 +34,17 @@
                 <div id="containE"> <div id="E"> </div></div>
 				<h1 id="title">EasyCTF 2014</h1>
 				<h2 id="title-description">High School Hacking Competition</h2>
-				<h3 id="title-date">November 29 <small>11:00am CST</small> to December 6, 2014 <small>11:00am CST</small></h3>
+				<h3 id="title-date">
+					<p id="countdown">[loading...]</p>
+					<p>November 29 <small>11:00am CST</small> to December 6, 2014 <small>11:00am CST</small></p>
+				</h3>
 			</section>
 		</div>
 
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/dependencies.js"></script>
+		<script type="text/javascript" src="js/moment.js"></script>
 		<script type="text/javascript" src="js/jquery.onepage-scroll.min.js"></script>
 		<script type="text/javascript">
 			$(function() {
@@ -49,6 +53,17 @@
 				$(".main").onepage_scroll({
 
 				});
+
+				var startDate = moment("2014-11-29 11:00:00.000-06:00");
+				var endDate = moment("2014-12-06 22:00:00.000-06:00");
+
+				var refreshTimer = function() {
+					var now = moment();
+					var diff = moment.duration(startDate.diff(now), "milliseconds");
+					$("#countdown").html("<b>" + diff.days() + "</b> days, <b>" + diff.hours() + "</b> hours, <b>" + diff.minutes() + "</b> minutes, <b>" + diff.seconds() + "</b> seconds left!");
+					requestAnimationFrame(refreshTimer);
+				};
+				refreshTimer();
 			});
 		</script>
 	</body>

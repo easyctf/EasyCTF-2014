@@ -32,8 +32,8 @@ var generate_scoreboard_page = function() {
 						var content = "";
 						var path = "web/staticscoreboard.html";
 
-						content += "<table class=\"table table-striped table-hover\" style=\"width:100%;word-wrap:break-all;\">\r\n";
-						content += "\t<thead><tr>\r\n\t\t<th>Place</th>\r\n\t\t<th>Team</th>\r\n\t\t<th>Affiliation</th>\r\n\t\t<th>Score</th></tr></thead>\r\n";
+						content += "<table class=\"table table-striped table-hover\" style=\"table-layout:fixed;width:100%;\">\r\n";
+						content += "\t<thead><tr>\r\n\t\t<th style=\"width:10%;\">Place</th>\r\n\t\t<th style=\"width:60%;\">Team</th>\r\n\t\t<th style=\"width:20%;\">Affiliation</th>\r\n\t\t<th style=\"width:10%;\">Score</th></tr></thead>\r\n";
 						for(var i=0; i<teams.length; i++) {
 							var points = 0;
 							for(var j=0; j<submissions.length; j++) {
@@ -64,8 +64,8 @@ var generate_scoreboard_page = function() {
 						for(var i=0; i<teams.length; i++) {
 							content += "\t<tr>\r\n";
 							content += "\t\t<td>"+(i+1)+"</td>\r\n";
-							content += "\t\t<td>"+teams[i].teamname+"</td>\r\n";
-							content += "\t\t<td>"+teams[i].school+"</td>\r\n";
+							content += "\t\t<td style=\"word-break:break-all;\">"+teams[i].teamname+"</td>\r\n";
+							content += "\t\t<td style=\"word-break:break-all;\">"+teams[i].school+"</td>\r\n";
 							content += "\t\t<td>"+teams[i].points+"</td>\r\n";
 							content += "\t</tr>\r\n";
 

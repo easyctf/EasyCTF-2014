@@ -220,7 +220,7 @@
 		"autogen": false,
 		"basescore": 80,
 		"desc": "<p>This site seems to have some information we need. Unfortunately, it's protected by a login page. Help us get through the login system!</p><p><a href=\"/sites/injection/index.php\" target=\"_blank\">Website</a> - <a href=\"/sites/injection/index.phps\" target=\"_blank\">Source</a></p>\n",
-		"displayname": "Injection 1",
+		"displayname": "Injection",
 		"grader": "injection-1",
 		"hint": "You might want to study up on some SQL syntax. How can we modify the query so it will always return true?",
 		"threshold": 0,
@@ -300,7 +300,7 @@
 		"autogen": false,
 		"basescore": 40,
 		"desc": "<p>Networking covers everything that is related to our computer's interactions with other computers over the Internet or through some other connection. Sometimes we can trace these interactions and analyze them in order to acquire information.</p><p>You might need to install a piece of software called WireShark for this problem. Analyze the input file and look through all packets for information that might be related to a flag.</p><p>Here is the file in an online viewer, CloudShark:</p><p><a href=\"https://www.cloudshark.org/captures/1c66eb3587a1\" target=\"_blank\">https://www.cloudshark.org/captures/1c66eb3587a1</a></p><p>Alternatively, here is the source file if you like to download it and view it in WireShark:</p><p><a href=\"/problem_data/networking/mystery.pcap\">Input File</a></p>\n",
-		"displayname": "Networking 1",
+		"displayname": "Networking",
 		"grader": "networking1",
 		"hint": "It seems like information is being recorded as a form is submitted, through a POST request.",
 		"threshold": 0,
@@ -484,6 +484,16 @@
 		"displayname": "Evil Guess",
 		"grader": "randomConfusion-Carter1",
 		"hint": "We hold these truths to be self-evident, that all base pointers are created equal, that they are endowed by their compiler with certain unalienable instructions.",
+		"threshold": 0,
+		"weightmap": {}
+	},
+	{
+		"autogen": false,
+		"basescore": 150,
+		"desc": "<p>Haaaalppp I can't pronounce this word. </p><p><img alt=\"\" src=\"/problem_data/ghoti/ghoti.jpg\" style=\"height:235px; width:400px\"></p>\n",
+		"displayname": "Ghoti",
+		"grader": "ghoti",
+		"hint": "Look for clues in the file. The file appears corrupted, but maybe it still contains some important information.",
 		"threshold": 0,
 		"weightmap": {}
 	}

@@ -26,7 +26,7 @@ exports.check_data = function(req, callback) {
 
 	//return ans == parseInt(output);
 	var answer = req.param("answer");
-	var correct = ans;
+	var correct = ans.toString();
 	if (answer) {
 		answer = answer.replace(/^\s+|\s+$/g,'');
 		correct = correct.replace(/^\s+|\s+$/g,'');

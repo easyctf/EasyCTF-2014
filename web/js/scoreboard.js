@@ -39,7 +39,43 @@
 	};
 
 	window.load_solved_problems = function() {
-		
+		$.ajax({
+			type: "GET",
+			cache: false,
+			url: "/api/problems/solved",
+			dataType: "json"
+		}).done(function(data) {
+			console.dir(data);
+			if(data.success == 1) {
+				if (data.problems.length !== 0) {
+					var total = 0;
+					for(var i=0; i<data.problems.length; i++) {
+						total += data.problems[i].pts;
+					}
+					var html = "";
+					html += "<div class='panel panel-default'>";
+						html += "<div class='panel-heading'>";
+							html += "<h3 class='panel-title'>";
+								html += "<a class='NO_HOVER_UNDERLINE_DAMMIT' style='display:block;' data-toggle='collapse' data-parent='#accordion' href='#collapse-solve' aria-expanded='true' aria-controls='collapse-solve'>";
+									html += "<span>Solved Problems</span>";
+									html += "<span style='float:right;'>Points: "+total+"</span>";
+								html += "</a>";
+							html += "</h3>";
+						html += "</div>";
+						html += "<div id='collapse-solve' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading-solve'>";
+							html += "<div class='panel-body'>";
+								html += "<table class='table table-default table-striped'>";
+									for(var i=0; i<data.problems.length; i++) {
+										html += "<tr><td>"+data.problems[i].name+": "+data.problems[i].pts+"</td></tr>";
+									}
+								html += "</table>";
+							html += "</div>";
+						html += "</div>";
+					html += "</div>";
+					$("#problems_solved").html(html);
+				}
+			}
+		});
 	};
 
 	window.load_teamscore = function() {

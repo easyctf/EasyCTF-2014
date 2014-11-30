@@ -36,9 +36,8 @@
 					<h1>Scoreboard</h1>
 				</div>
 				<div id="team_status"></div>
-				<div id="problems_solved"></div>
-				<dl class="tabs" id="scoreboard_selector"></dl>
-				<div id="scoreboard_container"></div>
+				<!-- <div id="problems_solved"></div> -->
+				<div id="graph_container"></div>
 				<div id="public_scoreboard_container"></div>
 			</div>
 
@@ -48,6 +47,7 @@
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/dependencies.js"></script>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script><!-- ?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script> -->
 		<script type="text/javascript" src="js/scoreboard.js"></script>
 		<script type="text/javascript">
 			$(function() {
@@ -55,6 +55,7 @@
 				load_solved_problems();
 				load_scoreboards();
 				load_teamscore();
+				load_graph();
 				load_footer();
 			});
 		</script>

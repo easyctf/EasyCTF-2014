@@ -1,5 +1,5 @@
 exports.grade = function(team, key, callback) {
-	if (typeof key === "string" && key.toLowerCase().indexOf("7092") != -1) {
+	if (typeof key === "string" && parseInt(k) == 7092) {
 		callback({
 			correct: true,
 			message: "Nice job!"

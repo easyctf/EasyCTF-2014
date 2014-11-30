@@ -45,6 +45,14 @@ exports.register_team = function(req, res) {
 		return;
 	}
 
+	if (school.length > limit) {
+		res.send({
+			status: 0,
+			message: "STAHP",
+		});
+		return;
+	}
+
 	if (school.length == 0) {
 		res.send({
 			status: 0,
@@ -229,6 +237,14 @@ exports.update_user_info = function(req, res) {
 	}
 
 	if (nTeamname.length > limit) {
+		res.send({
+			success: 0,
+			message: "Are you kidding me..."
+		});
+		return;
+	}
+
+	if (nSchool.length > limit) {
 		res.send({
 			success: 0,
 			message: "Are you kidding me..."

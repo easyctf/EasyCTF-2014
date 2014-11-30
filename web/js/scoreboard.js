@@ -43,6 +43,28 @@
 	};
 
 	window.load_teamscore = function() {
+ 
+	};
 
+	window.load_graph = function() {
+		$.ajax({
+			type: "GET",
+			cache: false,
+			url: "/api/scoreboard_graph",
+			dataType: "json"
+		}).done(function(data) {
+			if (data.success == 1) {
+				window._points = data.points;
+				window._options = data.options;
+				google.load('visualization', '1', {packages:['corechart'], callback: function() {
+					console.log("loaded");
+					var data = google.visualization.arrayToDataTable(window._points);
+					var options = window._options;
+					var chart = new google.visualization.LineChart(document.getElementById("graph_container"));
+					chart.draw(data, options);
+					console.log("drew graph");
+				}});
+			}
+		});
 	};
 }).call(this);

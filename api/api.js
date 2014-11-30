@@ -59,6 +59,10 @@ module.exports = function(app) {
 		feedback.upload_feedback(req, res);
 	});
 
+	app.get("/api/scoreboard_graph", function(req, res) {
+		scoreboard.scoreboard_graph(req, res);
+	});
+
 	app.post("/api/ide/data", function(req, res) {
 		if (auth.is_logged_in(req) && auth.is_authorized(req).success === 1 && req.param("problem") && problems.indexOf(req.param("problem")) > -1) {
 			require("./ide/" + req.param("problem")).get_data(req, function(data) {

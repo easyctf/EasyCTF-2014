@@ -138,6 +138,12 @@ var generate_scoreboard_graph = function() {
 								}
 								arr.push(a1);
 							}
+							var last = [moment().diff(common.startDate)];
+							for(var i=0; i<nTeamJson.length; i++) {
+								last.push(nTeamJson[i].points);
+							}
+							arr.push(last);
+
 							var finalData = {};
 							finalData.options = {
 								title: "EasyCTF 2014 Score Progression",

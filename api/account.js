@@ -53,6 +53,21 @@ exports.register_team = function(req, res) {
 		return;
 	}
 
+	if (!teamname.match(/^[\x20-\x7E]+$/)) {
+		res.send({
+			status: 0,
+			message: "Please enter ascii characters only."
+		});
+		return;
+	}
+	if (!school.match(/^[\x20-\x7E]+$/)) {
+		res.send({
+			status: 0,
+			message: "Please enter ascii characters only."
+		});
+		return;
+	}
+
 	common.db.collection("accounts").find({
 		$or: [
 			{ teamname: teamname },
@@ -194,6 +209,21 @@ exports.update_user_info = function(req, res) {
 		res.send({
 			status: 0,
 			message: "Please enter some characters"
+		});
+		return;
+	}
+
+	if (!nTeamname.match(/^[\x20-\x7E]+$/)) {
+		res.send({
+			status: 0,
+			message: "Please enter ascii characters only."
+		});
+		return;
+	}
+	if (!nSchool.match(/^[\x20-\x7E]+$/)) {
+		res.send({
+			status: 0,
+			message: "Please enter ascii characters only."
 		});
 		return;
 	}

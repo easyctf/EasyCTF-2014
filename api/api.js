@@ -114,11 +114,11 @@ module.exports = function(app) {
 	});
 
 	app.get("/api/problems/solved", function(req, res) {
-		if (auth.is_logged_in(req)) {
+		if (auth.is_logged_in(req) && auth.is_authorized(req).success === 1) {
 			problem.get_solved_problems(req.session.tid, res);
 		} else {
 			res.send({
-				status: 0,
+				success: 0,
 				message: "You can't view this page!"
 			});
 		}

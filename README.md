@@ -1,4 +1,4 @@
 easyctf
 =======
 
-EasyCTF Platform for EasyCTF 2014
+EasyCTF Platform for EasyCTF 2014 

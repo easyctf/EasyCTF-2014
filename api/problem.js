@@ -251,3 +251,40 @@ var submit_problem_result = function(pid, key, tid, ip, pts, result, callback) {
 		});
 	}
 };
+
+exports.get_solved_problems = function(tid, res) {
+	common.db.collection("problems").find({
+
+	}).toArray(function(err, problems) {
+		if (err) {
+
+		}
+		common.db.collection("submissions").find({
+			tid: tid,
+			correct: true
+		}).sort({
+			pts: 1
+		}).toArray(function(err2, submissions) {
+			var solved = [];
+			if (err2) {
+
+			}
+			for(var i=0; i<submissions.length; i++) {
+				for(var j=0; j<problems.length; j++) {
+					if (problems[j].pid == submissions[i].pid) {
+						solved.push({
+							name: problems[j].displayname,
+							pts: problems[j].basescore
+						});
+						break;
+					}
+				}
+			}
+			res.send({
+				success: 1,
+				problems: solved
+			});
+			return;
+		});
+	});
+};

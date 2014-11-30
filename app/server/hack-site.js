@@ -3,7 +3,9 @@ var exec = require("child_process").exec;
 var fs = require("fs");
 var crypto = require("crypto");
 var moment = require("moment");
+var mysql = require("mysql");
 
+/*
 var params = {
 	host: 'ec2-54-204-40-96.compute-1.amazonaws.com',
 	user: 'uuauqvjvjlhsjj',
@@ -14,6 +16,14 @@ var params = {
 };
 
 var connection = "postgres://" + params.user + ":" + params.password + "@" + params.host + ":" + params.port + "/" + params.database + "?ssl=true";
+*/
+
+var params = {
+	host: "us-cdbr-iron-east-01.cleardb.net",
+	user: "b1b745e3a0348c",
+	password: "46cc7908",
+	database: "heroku_771c330721efe5a"
+};
 
 module.exports = function(app) {
 	app.get(["/sites/cookiezi", "/sites/cookiezi/", "/sites/cookiezi/index.php"], function(req, res) {
@@ -39,7 +49,7 @@ module.exports = function(app) {
 
 	app.post(["/sites/injection", "/sites/injection/", "/sites/injection/index.php"], function(req, res) {
 		var unclean = function(string) {
-			var words = ["select", "insert", "union", "drop", "create", "use", "describe", "table", "from", "where", "count", "now", "distinct", "flush", "into", "destroy"];
+			var words = ["select", "insert", "union", "drop", "create", "describe", "table", "from", "where", "count", "now", "distinct", "flush", "into", "destroy"];
 			for(var i=0;i<words.length;i++) {
 				if (string.toLowerCase().indexOf(words[i].toLowerCase()) > -1) {
 					return true;
@@ -54,6 +64,27 @@ module.exports = function(app) {
 				error: true
 			});
 		} else {
+			var connection = mysql.createConnection(params);
+			connection.connect();
+			var queryString = "SELECT * FROM `users-2875980287301982374` WHERE username='" + req.param("username") + "' AND password='" + req.param("password") + "'";
+			// console.log(queryString);
+			connection.query(queryString, function(err, rows, fields) {
+				if (err) {
+					console.dir(err);
+					res.render("sites/injection/index", {
+						posted: true,
+						error: true
+					});
+				}
+				res.render("sites/injection/index", {
+					posted: true,
+					error: rows ? false : true,
+					users: rows
+				})
+				// console.dir(rows);
+				// console.dir(fields);
+			});
+			connection.end();/*
 			pg.connect(connection, function(err, client, done) {
 				if (err) {
 					res.render("sites/injection/index", {
@@ -62,7 +93,8 @@ module.exports = function(app) {
 					});
 					return;
 				} else {
-					client.query("SELECT * FROM \"users-a14c001276a69f66fd95104c96c7e4f2\" WHERE username='" + req.param("username") + "' AND password='" + req.param("password") + "'", function(err, result) {
+					/*
+					client.query("SELECT * FROM \"users-2875980287301982374\" WHERE username='" + req.param("username") + "' AND password='" + req.param("password") + "'", function(err, result) {
 						if (err) {
 							res.render("sites/injection/index", {
 								posted: true,
@@ -80,7 +112,7 @@ module.exports = function(app) {
 						}
 					});
 				}
-			}); 
+			}); */
 		}
 	});
 

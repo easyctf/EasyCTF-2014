@@ -1,5 +1,5 @@
 exports.grade = function(team, key, callback) {
-	if (typeof key === "string" && key.toLowerCase().indexOf("not_here") != -1) {
+	if (typeof key === "string" && key.toLowerCase().indexOf("very_uncreative_flag") != -1) {
 		callback({
 			correct: true,
 			message: "Awesome!"

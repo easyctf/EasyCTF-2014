@@ -63,6 +63,7 @@ module.exports = function(app) {
 				posted: true,
 				error: true
 			});
+			return;
 		} else {
 			var connection = mysql.createConnection(params);
 			connection.connect();
@@ -75,12 +76,14 @@ module.exports = function(app) {
 						posted: true,
 						error: true
 					});
+					return;
 				}
 				res.render("sites/injection/index", {
 					posted: true,
 					error: rows ? false : true,
 					users: rows
-				})
+				});
+				return;
 				// console.dir(rows);
 				// console.dir(fields);
 			});

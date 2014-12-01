@@ -96,10 +96,15 @@ body{
     bottom: 0;
 }
 
+.navbar-default {
+  z-index: 4000;
+}
+
 .main-container {
   display: table-cell;
   vertical-align: middle;
     padding-bottom: 75px;
+    z-index: 40;
 }
     
     

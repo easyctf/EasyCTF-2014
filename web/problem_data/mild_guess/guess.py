@@ -23,7 +23,7 @@ def clientthread(conn):
     except Exception:
         conn.close();
         return;
-    if float(data)==random_secret:
+    if float(data)-random_secret<10**-8:
         conn.sendall(flag)
     else:
         conn.sendall("Nope!")

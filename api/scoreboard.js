@@ -151,6 +151,7 @@ var generate_scoreboard_graph = function() {
 							finalData.options = {
 								title: "EasyCTF 2014 Score Progression",
 								curveType: "function",
+								height: 348,
 								legend: {
 									"position": "bottom"
 								},

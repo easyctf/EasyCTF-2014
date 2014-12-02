@@ -58,6 +58,14 @@ module.exports = function(app) {
 			return false;
 		};
 
+		if (!(req.param("username") && req.param("password"))) {
+			res.render("sites/injection/index", {
+				posted: true,
+				error: true
+			});
+			return;
+		}
+
 		if (unclean(req.param("username")) || unclean(req.param("password"))) {
 			res.render("sites/injection/index", {
 				posted: true,

@@ -21,7 +21,7 @@ exports.scoreboard_graph = function(req, res) {
 	res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
 	res.header('Expires', '-1');
 	res.header('Pragma', 'no-cache');
-	res.send(require("./../web/staticscoreboardgraph.json"));
+	res.sendfile("web/staticscoreboardgraph.json");
 };
 
 var generate_scoreboard_graph = function() {

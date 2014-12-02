@@ -18,6 +18,9 @@ exports.get_public_scoreboard = function() {
 
 exports.scoreboard_graph = function(req, res) {
 	generate_scoreboard_graph();
+	res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+	res.header('Expires', '-1');
+	res.header('Pragma', 'no-cache');
 	res.send(require("./../web/staticscoreboardgraph.json"));
 };
 
@@ -159,6 +162,7 @@ var generate_scoreboard_graph = function() {
 							finalData.success = 1;
 
 							fs.chmodSync(path, 0755);
+
 							fs.writeFile(path, JSON.stringify(finalData), function(err) {
 								if (err) {
 									console.log("[api/scoreboard.js] error when generating scoreboard graph");

@@ -88,7 +88,7 @@ module.exports = function(app) {
 			});
 		}
 	});
-
+ 
 	app.get("/api/shell", function(req, res) {
 		if (auth.is_logged_in(req) && auth.is_authorized(req).success === 1) {
 			account.get_shell_account(req, res);

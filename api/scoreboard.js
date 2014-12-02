@@ -157,6 +157,13 @@ var generate_scoreboard_graph = function() {
 								hAxis: {
 									textPosition: "none",
 								},
+								vAxis: {
+									viewWindowMode: "explicit",
+									viewWindow: {
+										min: 0,
+										max: 4500
+									}
+								}
 							};
 							finalData.points = arr;
 							finalData.success = 1;

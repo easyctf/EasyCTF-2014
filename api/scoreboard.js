@@ -43,9 +43,14 @@ var generate_scoreboard_graph = function() {
 						// fuck
 					} else {
 						for(var i=0; i<teams.length; i++) {
+							teams[i].lastUpdated = 0;
 							var points = 0;
 							for(var j=0; j<submissions.length; j++) {
 								if (submissions[j].tid.indexOf(teams[i]._id.valueOf()) > -1) {
+									var time = moment(submissions[j].timestamp).diff(common.startDate);
+									if (time > teams[i].lastUpdated) {
+										teams[i].lastUpdated = time;
+									}
 									var prob_points;
 									for(var k=0; k<problems.length; k++) {
 										if (problems[k].pid == submissions[j].pid) {
@@ -66,7 +71,7 @@ var generate_scoreboard_graph = function() {
 							if (a.points < b.points) {
 								return 1;
 							}
-							return 0;
+							return a.lastUpdated - b.lastUpdated;
 						});
 
 						for(var i=0; i<5; i++) {
@@ -150,7 +155,7 @@ var generate_scoreboard_graph = function() {
 							var finalData = {};
 							finalData.options = {
 								title: "EasyCTF 2014 Score Progression",
-								curveType: "function",
+								/* curveType: "function", */
 								height: 348,
 								legend: {
 									"position": "bottom"
@@ -212,8 +217,13 @@ var generate_scoreboard_page = function() {
 						content += "\t<thead><tr>\r\n\t\t<th style=\"width:10%;\">Place</th>\r\n\t\t<th style=\"width:60%;\">Team</th>\r\n\t\t<th style=\"width:20%;\">Affiliation</th>\r\n\t\t<th style=\"width:10%;\">Score</th></tr></thead>\r\n";
 						for(var i=0; i<teams.length; i++) {
 							var points = 0;
+							teams[i].lastUpdated = 0;
 							for(var j=0; j<submissions.length; j++) {
 								if (submissions[j].tid.indexOf(teams[i]._id.valueOf()) > -1) {
+									var time = moment(submissions[j].timestamp).diff(common.startDate);
+									if (time > teams[i].lastUpdated) {
+										teams[i].lastUpdated = time;
+									}
 									var prob_points;
 									for(var k=0; k<problems.length; k++) {
 										if (problems[k].pid == submissions[j].pid) {
@@ -234,7 +244,7 @@ var generate_scoreboard_page = function() {
 							if (a.points < b.points) {
 								return 1;
 							}
-							return 0;
+							return a.lastUpdated - b.lastUpdated;
 						});
 
 						for(var i=0; i<teams.length; i++) {

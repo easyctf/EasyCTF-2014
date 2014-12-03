@@ -254,7 +254,9 @@ var submit_problem_result = function(pid, key, tid, ip, pts, result, callback) {
 
 exports.get_solved_problems = function(tid, res) {
 	common.db.collection("problems").find({
-
+		basescore: {
+			$gt: 0
+		}
 	}).toArray(function(err, problems) {
 		if (err) {
 
@@ -280,6 +282,9 @@ exports.get_solved_problems = function(tid, res) {
 					}
 				}
 			}
+			solved.sort(function(a, b) {
+				return a.pts - b.pts;
+			});
 			res.send({
 				success: 1,
 				problems: solved

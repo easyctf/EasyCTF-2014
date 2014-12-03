@@ -81,8 +81,13 @@ var get_top_n = function(req, res) {
 					} else {
 						for(var i=0; i<teams.length; i++) {
 							var points = 0;
+							teams[i].lastUpdated = 0;
 							for(var j=0; j<submissions.length; j++) {
 								if (submissions[j].tid.indexOf(teams[i]._id.valueOf()) > -1) {
+									var time = moment(submissions[j].timestamp).diff(common.startDate);
+									if (time > teams[i].lastUpdated) {
+										teams[i].lastUpdated = time;
+									}
 									var prob_points;
 									for(var k=0; k<problems.length; k++) {
 										if (problems[k].pid == submissions[j].pid) {
@@ -103,7 +108,7 @@ var get_top_n = function(req, res) {
 							if (a.points < b.points) {
 								return 1;
 							}
-							return 0;
+							return b.lastUpdated - a.lastUpdated;
 						});
 
 						var teamJson = [];

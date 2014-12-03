@@ -1,8 +1,65 @@
 var common = require("./common");
 
 module.exports = function(app) {
+	app.get("/api/stats/solved", function(req, res) {
+		get_solved_p(req, res);
+	});
+
 	app.get("/api/stats/top", function(req, res) {
 		get_top_n(req, res);
+	});
+};
+
+var get_solved_p = function(req, res) {
+	var problem = req.param("pname");
+	if (!problem) {
+		res.send({
+			status: 0,
+			message: "Need to specify a problem"
+		});
+		return;
+	}
+	common.db.collection("problems").find({
+		displayname: new RegExp("^" + problem.toLowerCase(), "i")
+	}).toArray(function(err, doc) {
+		if (err) {
+			res.send({
+				status: 0,
+				message: "Error"
+			});
+			return;
+		}
+		if (doc.length == 0) {
+			res.send({
+				status: 0,
+				message: "Problem not found"
+			});
+			return;
+		}
+		if (doc.length > 1) {
+			res.send({
+				status: 0,
+				message: "Error"
+			});
+			return;
+		}
+		var pid = doc[0].pid;
+		common.db.collection("submissions").find({
+			pid: pid,
+			correct: true
+		}).toArray(function(err2, doc2) {
+			if (err2) {
+				res.send({
+					status: 0,
+					message: "Error"
+				});
+				return;
+			}
+			res.send({
+				status: 1,
+				nTeams: doc2.length - 1
+			});
+		});
 	});
 };
 

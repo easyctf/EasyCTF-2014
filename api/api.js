@@ -7,6 +7,7 @@ var forgot = require("./forgot");
 var feedback = require("./feedback");
 var moment = require("moment");
 var common = require("./common");
+var stats = require("./stats");
 
 var problems = [
 	"python-basic-1",
@@ -179,4 +180,6 @@ module.exports = function(app) {
 	app.post("/api/passreset", function(req, res) {
 		forgot.verify_code(req, res);
 	});
+
+	stats(app);
 };

@@ -50,7 +50,7 @@ var get_top_n = function(req, res) {
 						});
 
 						var teamJson = [];
-						for(var i=0; i<num; i++) {
+						for(var i=0; i<Math.min(num, teams.length); i++) {
 							teamJson.push({
 								tid: teams[i].tid,
 								teamname: teams[i].teamname,

@@ -1,4 +1,5 @@
 var common = require("./common");
+var moment = require("moment");
 
 module.exports = function(app) {
 	app.get("/api/stats/solved", function(req, res) {

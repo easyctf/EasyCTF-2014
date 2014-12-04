@@ -1,11 +1,11 @@
 from random import randint;
 
-N = 800;
+N = 1200;
 
 def gen(a, b):
 	return randint(10**a, 10**b);
 
-file = open("accounts.csv", "w");
+file = open("moar_accts.csv", "w");
 
 for i in range(N):
 	u = "user" + str(gen(4, 5));

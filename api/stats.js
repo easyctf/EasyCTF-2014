@@ -109,7 +109,7 @@ var get_top_n = function(req, res) {
 							if (a.points < b.points) {
 								return 1;
 							}
-							return b.lastUpdated - a.lastUpdated;
+							return a.lastUpdated - b.lastUpdated;
 						});
 
 						var teamJson = [];

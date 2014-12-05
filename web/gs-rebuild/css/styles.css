@@ -20,28 +20,25 @@ height:100%
 
 
 
-::selection {
-  background:   grey; /* WebKit/Blink Browsers */
-  color: #FFF;
-}
-::-moz-selection {
-  background:   grey; /* Gecko Browsers */
-  color: #FFF;
-}
-    
-
-
 
 
 
 #consolcontain{
-    width:800px;
+    width:40%;
     height:auto;
     margin-left:auto;
     margin-right:auto;
         background:  rgba(67,67,67,0.8);  
     border-radius: 6px;
     padding-bottom: 0.5%;
+
+}
+#consolcontaincontain{
+    width:auto;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+
 
 }
     
@@ -60,7 +57,7 @@ height:100%
 #fakeconsol{
  background-color: black;
     height:350px;
-    width:98%;
+    width:96%;
     margin-left: auto;
     margin-right: auto;
     border-bottom-left-radius: 0px;

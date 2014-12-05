@@ -1,0 +1,526 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"get_",
+				"get_solved_p"
+			],
+			[
+				"rand",
+				"random_secret"
+			],
+			[
+				"data",
+				"database"
+			],
+			[
+				"qu",
+				"queryString"
+			],
+			[
+				"db",
+				"db_mysql"
+			],
+			[
+				"time",
+				"timestamp"
+			],
+			[
+				"generate_",
+				"generate_scoreboard_graph"
+			],
+			[
+				"shel",
+				"shell_acc"
+			],
+			[
+				"che",
+				"checkTeam"
+			],
+			[
+				"img",
+				"imgURLList"
+			],
+			[
+				"im",
+				"imgURLList"
+			],
+			[
+				"imgLo",
+				"imgLoader"
+			],
+			[
+				"image",
+				"imageURLs"
+			],
+			[
+				"ima",
+				"imageURLs"
+			],
+			[
+				"canv",
+				"canvasClick"
+			],
+			[
+				"imag",
+				"imageLoaded"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"select",
+				"selectpicker"
+			],
+			[
+				"con",
+				"convert_json_to_csv"
+			],
+			[
+				"in",
+				"insert"
+			],
+			[
+				"probl",
+				"problems_holder"
+			],
+			[
+				"prob",
+				"prob_msg"
+			],
+			[
+				"pro",
+				"prob_msg"
+			],
+			[
+				"subm",
+				"submissions"
+			],
+			[
+				"submi",
+				"submit_problem_result"
+			],
+			[
+				"weig",
+				"weightsum"
+			],
+			[
+				"corr",
+				"correctPIDs"
+			],
+			[
+				"re",
+				"remove-group-button"
+			],
+			[
+				"aler",
+				"alert_class"
+			],
+			[
+				"get",
+				"get	Get Elements"
+			],
+			[
+				"team",
+				"teamCurr"
+			],
+			[
+				"al",
+				"alert_class"
+			],
+			[
+				"tea",
+				"teamCurr"
+			],
+			[
+				"pos",
+				"Position"
+			],
+			[
+				"Tile",
+				"TileSize"
+			],
+			[
+				"w",
+				"w"
+			],
+			[
+				"enc",
+				"encrypt"
+			],
+			[
+				"clas",
+				"className"
+			],
+			[
+				"getSolv",
+				"getSolvedFor"
+			],
+			[
+				"error",
+				"errors"
+			],
+			[
+				"chan",
+				"changePassword"
+			],
+			[
+				"cor",
+				"correct_answer"
+			],
+			[
+				"pas",
+				"password"
+			],
+			[
+				"salt",
+				"saltAndHash"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"command_palette":
+	{
+		"height": 196.0,
+		"selected_items":
+		[
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"add ",
+				"Project: Add Folder"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 118.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Michael/Cloud/GitHub/viva/dist/viva.css",
+		"/C/Users/Michael/Cloud/GitHub/viva/viva.sublime-project",
+		"/C/Users/Michael/Cloud/GitHub/viva/index.html",
+		"/C/Users/Michael/AppData/Roaming/Sublime Text 2/Packages/Less2Css/README.md",
+		"/C/Users/Michael/Cloud/GitHub/viva/less/viva.less",
+		"/C/Users/Michael/Cloud/GitHub/viva/less/viva.css",
+		"/C/Users/Michael/Cloud/GitHub/viva/viva.sublime-workspace",
+		"/C/Users/Michael/Cloud/GitHub/viva.sublime-project",
+		"/C/Users/Michael/Cloud/GitHub/viva/.sublime-project",
+		"/C/Users/Michael/Cloud/GitHub/viva/less/colors.less",
+		"/C/Users/Michael/Cloud/GitHub/viva/less/colors.css",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/pages/sponsors.html",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/css/main.css",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/pages/updates.html",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/scripts/during/accounts.csv",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/scripts/during/accounts.json",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/pages/scoreboard.html",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/pages/about.html",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/scoreboard.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/stats.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/problem.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/api.js",
+		"/C/Users/Michael/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Michael/AppData/Roaming/Sublime Text 2/Packages/User/less2css.sublime-settings",
+		"/C/Users/Michael/Cloud/GitHub/viva/less/page.less",
+		"/C/Users/Michael/AppData/Roaming/Sublime Text 2/Packages/Less2Css/Default (Windows).sublime-keymap",
+		"/C/Users/Michael/AppData/Roaming/Sublime Text 2/Packages/Less2Css/less2css.sublime-settings",
+		"/C/Users/Michael/AppData/Roaming/Sublime Text 2/Packages/LESS/README.md",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/problem_data/guessing-is-hard/guessing-is-hard.py",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/problem_data/mild_guess/guess.py",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/app/server/hack-site.js",
+		"/C/Users/Michael/Downloads/Temporary/hash1.py",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/img/sponsors/guess.py",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/staticscoreboardgraph.json",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/img/twinkle_twinkle.png",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/mild.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/door.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/guessing-is-hard.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/css/index.css",
+		"/C/Users/Michael/AppData/Roaming/OBS/crashDumps/OBSCrashLog2014-12-01_1.txt",
+		"/C/Users/Michael/Downloads/Temporary/erkBot 12-10-2008/erkSystem.py",
+		"/C/Users/Michael/Downloads/Temporary/erkBot 12-10-2008/erkbot.py",
+		"/C/Users/Michael/Downloads/Temporary/guessing-is-hard.py",
+		"/C/Users/Michael/Downloads/Temporary/guess.py",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/problem_data/guess/guess.c",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/PROBLEMS.md",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/injection-1.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/account.js",
+		"/C/Users/Michael/Documents/CTF-Platform-master/CTF-Platform-master/api/api.py",
+		"/C/Users/Michael/Documents/CTF-Platform-master/CTF-Platform-master/web/scoreboard.html",
+		"/C/Users/Michael/Documents/CTF-Platform-master/CTF-Platform-master/web/js/scoreboard.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/index.html",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/js/scoreboard.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/common.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/failedxyz.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/GRO.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/js/login.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/js/dependencies.js",
+		"/C/Users/Michael/Downloads/Temporary/project-eratosthenes.py"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"C:\\Users\\Michael\\Cloud\\Heroku\\easyctf\\",
+			"C:\\Users\\Michael\\Cloud\\Heroku\\easyctf\\api\\graders",
+			"C:\\Users\\Michael\\Cloud\\Heroku\\easyctf",
+			"C:\\Users\\Michael\\Google Drive\\2014-2015\\CTF\\PicoCTF\\solved\\massive-fail",
+			"C:\\Users\\Michael\\Google Drive\\2014-2015\\CTF\\PicoCTF\\steves-list\\handout",
+			"C:\\Users\\Michael\\Google Drive\\2014-2015\\CTF\\PicoCTF\\ssh-backdoor\\openssh-6.7p1-evil\\openssh-6.7p1",
+			"C:\\Users\\Michael\\Google Drive\\2014-2015\\CTF\\PicoCTF\\ssh-backdoor",
+			"C:\\Users\\Michael\\Google Drive\\2014-2015\\CTF\\PicoCTF\\steves-list\\handout,C:\\Users\\Michael\\Google Drive\\2014-2015\\CTF\\PicoCTF\\steves-list\\handout\\steves_list_backup,C:\\Users\\Michael\\Google Drive\\2014-2015\\CTF\\PicoCTF\\steves-list\\handout\\steves_list_backup\\includes,C:\\Users\\Michael\\Google Drive\\2014-2015\\CTF\\PicoCTF\\steves-list\\handout\\steves_list_backup\\posts,C:\\Users\\Michael\\Google Drive\\2014-2015\\CTF\\PicoCTF\\steves-list\\handout\\steves_list_backup\\templates",
+			"C:\\Users\\Michael\\Google Drive\\2014-2015\\CTF\\PicoCTF\\massive-fail",
+			"C:\\Users\\Michael\\Cloud\\Heroku\\easyctf\\app\\server",
+			"C:\\Users\\Michael\\Cloud\\Heroku\\easyctf"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"col-lg-3 col-md-6 col-sm-12",
+			"is_logged_in",
+			"pi(e)",
+			"        ",
+			"    ",
+			"shell_user",
+			".png",
+			"Python Basics 3",
+			"Python Basics 2",
+			"Python Basics 4",
+			"Python Basics 3",
+			"Python Basics",
+			"Python Basic",
+			"triangle",
+			"303",
+			"problems",
+			"iframe",
+			"/api/data",
+			"data",
+			"header",
+			"large-12",
+			"password",
+			"user",
+			"load_unlocked_problems",
+			"foundation.min.js",
+			"accordion",
+			".accordion",
+			"accordion",
+			"display_navbar",
+			"return {",
+			"foundation.min.css",
+			"homepage.ejs",
+			"1337",
+			"64",
+			"rewards",
+			"flag",
+			"admin",
+			"file_get_contents",
+			"read(",
+			"file_get_contents",
+			"thing",
+			"evil",
+			"this flag is",
+			"flag is",
+			"the flag is",
+			"flag is",
+			"flag",
+			"root_data.php",
+			"not an administrator",
+			"fopen",
+			"getchar",
+			"play",
+			"boss_cash",
+			"grantFlag",
+			"boss_cash",
+			"grantFlag",
+			"floppy_ok",
+			"read_root_dir",
+			"Sides",
+			"fatal_disk_error",
+			"  ",
+			":active",
+			"transform:p",
+			"transition:all",
+			"decodeEntities",
+			"jsdom",
+			"thing",
+			"    ",
+			"init",
+			"Game.",
+			"#maze",
+			"problems",
+			"[0].scrollHeight",
+			"    ",
+			"B9e.g2.o2",
+			"o2",
+			"q2",
+			"t2",
+			"manuallogin",
+			"solved.ind",
+			"ObjectID",
+			"getProblems",
+			"failed.down@gmail.com",
+			"text:",
+			"text:'",
+			"text:\"",
+			"text: \"",
+			"text: '",
+			"forgot-",
+			"getScores",
+			"problem-create",
+			" 451",
+			"451",
+			"fgt",
+			"zhang",
+			"did i miss anything",
+			"shit",
+			"logged",
+			"this.start",
+			"space",
+			"tab",
+			"&quot;",
+			"&#39;"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"col-lg-6 col-md-12",
+			"	",
+			"",
+			"	",
+			"",
+			"col-lg-12",
+			"bootstrap.min.js",
+			"displayNavbar",
+			"res.send({",
+			"main.css",
+			"	",
+			"transform: p",
+			"transition: all",
+			"	",
+			"Init",
+			"Simulator.",
+			"#simulator",
+			".prop('scrollHeight')",
+			"	",
+			"1023bytes@gmail.com",
+			"verify-",
+			"getUsers",
+			"this.pos",
+			"\"",
+			"'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 260.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 246.0,
+	"status_bar_visible": true
+}

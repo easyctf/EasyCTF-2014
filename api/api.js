@@ -168,9 +168,16 @@ module.exports = function(app) {
 	});
 
 	app.post("/api/submit", function(req, res) {
-		problem.submit_problem(req.session.tid, req, function(result) {
-			res.send(result);
-		});
+		if (auth.is_logged_in(req) && auth.is_authorized(req).success === 1) {
+			problem.submit_problem(req.session.tid, req, function(result) {
+				res.send(result);
+			});
+		} else {
+			res.send({
+				success: 0,
+				message: "You can't view this page!"
+			});
+		}
 	});
 
 	app.post("/api/forgot", function(req, res) {

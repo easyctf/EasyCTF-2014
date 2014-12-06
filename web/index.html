@@ -69,7 +69,18 @@
 					$("#countdown").html("<b>" + diff.days() + "</b> days, <b>" + diff.hours() + "</b> hours, <b>" + diff.minutes() + "</b> minutes, <b>" + diff.seconds() + "</b> seconds left!");
 					requestAnimationFrame(refreshTimer);
 				};
-				refreshTimer();
+				if (moment().isBefore(endDate)) {
+					refreshTimer();
+				} else {
+					$.ajax({
+						url: "/api/stats/top",
+						dataType: "json",
+						type: "GET",
+						num: 1
+					}).done(function(data) {
+						$("#countdown").html("Congratulations to team <b>" + _(data[0].teamname) + "</b> for winning EasyCTF 2014!");
+					});
+				}
 			});
 		</script>
 	</body>

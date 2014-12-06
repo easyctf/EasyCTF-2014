@@ -30,6 +30,13 @@ function show_site_down_error() {
 	// do something here later
 }
 
+function _(str) {
+	if (str.length > 13) {
+		return str.substring(0, 10) + "...";
+	}
+	return str;
+}
+
 function build_navbar (set) {
 	var ohtml = "";
 	switch (set) {

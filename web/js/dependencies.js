@@ -68,7 +68,7 @@ function check_certs_link_necessary() {
 }
 
 function display_navbar () {
-	var during = (new Date("November 29, 2014 19:00:00") < new Date());
+	var during = (new Date("November 29, 2014 19:00:00") < new Date()) && (new Date("December 6, 2014 19:00:00") > new Date());
 	$.ajax({
 		url: "/api/isauthorized",
 		method: "GET",

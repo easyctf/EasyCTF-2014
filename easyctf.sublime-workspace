@@ -187,7 +187,7 @@
 			"file": "pages/updates.html",
 			"settings":
 			{
-				"buffer_size": 8544,
+				"buffer_size": 8870,
 				"line_ending": "Windows"
 			}
 		}
@@ -232,6 +232,8 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Michael/Documents/adt/sdk/sources/android-18/android/media/MediaScanner.java",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/easyctf.sublime-project",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/router.js",
 		"/C/Users/Michael/Cloud/GitHub/viva/dist/viva.css",
 		"/C/Users/Michael/Cloud/GitHub/viva/viva.sublime-project",
@@ -320,6 +322,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"porn",
 			"col-lg-3 col-md-6 col-sm-12",
 			"is_logged_in",
 			"pi(e)",
@@ -473,15 +476,15 @@
 					"file": "pages/updates.html",
 					"settings":
 					{
-						"buffer_size": 8544,
+						"buffer_size": 8870,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1772,
-								1772
+								1789,
+								1789
 							]
 						],
 						"settings":
@@ -490,7 +493,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 290.0,
+						"translation.y": 178.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

@@ -22,7 +22,7 @@ var tabsBoth = [
 	[ "updates", "Updates"],
 	[ "scoreboard", "Scoreboard" ],
 	[ "sponsors", "Sponsors" ],
-	[ "learn", "Learn" ],
+	(new Date("Sat Dec 06 2014 22:00:00 GMT-0600 (Central Standard Time)") > new Date()) ? [ "writeups", "Writeups" ] : [ "learn", "Learn" ],
 	[ "feedback", "Feedback" ],
 ];
 
@@ -75,7 +75,7 @@ function check_certs_link_necessary() {
 }
 
 function display_navbar () {
-	var during = (new Date("November 29, 2014 19:00:00") < new Date()) && (new Date("December 6, 2014 19:00:00") > new Date());
+	var during = (new Date("Sat Dec 06 2014 22:00:00 GMT-0600 (Central Standard Time)") > new Date());
 	$.ajax({
 		url: "/api/isauthorized",
 		method: "GET",

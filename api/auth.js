@@ -152,7 +152,7 @@ exports.is_admin = function(req) {
 };
 
 exports.is_authorized = function(req) {
-	if (exports.is_logged_in(req) && ((moment().isAfter(common.startDate) && moment().isBefore(common.endDate)) || (req.session.group && req.session.group == 3))) {
+	if (exports.is_logged_in(req) && ((moment().isAfter(common.startDate)/* && moment().isBefore(common.endDate)*/) || (req.session.group && req.session.group == 3))) {
 		return {
 			success: 1,
 			message: "You are authorized!"

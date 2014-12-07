@@ -9,7 +9,7 @@ exports.get_group_scoreboards = function(tid) {
 };
 
 exports.get_public_scoreboard = function() {
-	// generate_scoreboard_page();
+	generate_scoreboard_page();
 	return {
 		path: "/staticscoreboard.html",
 		group: "Public"
@@ -17,7 +17,7 @@ exports.get_public_scoreboard = function() {
 };
 
 exports.scoreboard_graph = function(req, res) {
-	// generate_scoreboard_graph();
+	generate_scoreboard_graph();
 	res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
 	res.header('Expires', '-1');
 	res.header('Pragma', 'no-cache');

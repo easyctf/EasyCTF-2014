@@ -14,7 +14,8 @@ exports.db.open(function(err, db) {
 		console.dir(err);
 	} else {
 		console.log("[api/common.js] connected to mongo db");
-		db.authenticate("github_user", "__temporarypassword__", function(err, res) {
+		// db.authenticate("github_user", "__temporarypassword__", function(err, res) {
+		db.authenticate("asdf__asdf__asdf_user", "@'switching to a new secure password now ||$", function(err, res) {
 			if (err) {
 				console.dir(err);
 			} else {

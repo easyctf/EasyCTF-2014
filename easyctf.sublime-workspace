@@ -184,26 +184,10 @@
 	"buffers":
 	[
 		{
-			"file": "web/index.html",
+			"file": "api/common.js",
 			"settings":
 			{
-				"buffer_size": 3598,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "web/js/bootstrap.min.js",
-			"settings":
-			{
-				"buffer_size": 35601,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "web/js/dependencies.js",
-			"settings":
-			{
-				"buffer_size": 4749,
+				"buffer_size": 2686,
 				"line_ending": "Windows"
 			}
 		}
@@ -252,8 +236,23 @@
 	},
 	"file_history":
 	[
-		"/C/Users/Michael/Cloud/Heroku/easyctf/router.js",
+		"/C/Users/Michael/Google Drive/2014-2015/CTF/Advent CTF/rotate/rotate/rotate.py",
+		"/C/Users/Michael/Downloads/Temporary/index.phps",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/injection-1.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/pages/writeups.html",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/web/js/dependencies.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/backup/duplicates.json",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/scripts/backup.sh",
+		"/C/Users/Michael/Pictures/Temporary/sh58",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/scoreboard.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/staticscoreboard.html",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/staticscoreboardgraph.json",
+		"/C/Users/Michael/Pictures/Temporary/Readit",
+		"/C/Users/Michael/Downloads/Temporary/sh58",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/router.js",
+		"/C/Users/Michael/Downloads/Temporary/easyctf.com.zone.txt",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/js/bootstrap.min.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/index.html",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/feedback.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/auth.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/api.js",
@@ -278,7 +277,6 @@
 		"/C/Users/Michael/Cloud/Heroku/easyctf/scripts/during/accounts.json",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/pages/scoreboard.html",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/pages/about.html",
-		"/C/Users/Michael/Cloud/Heroku/easyctf/api/scoreboard.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/stats.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/problem.js",
 		"/C/Users/Michael/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
@@ -292,7 +290,6 @@
 		"/C/Users/Michael/Cloud/Heroku/easyctf/app/server/hack-site.js",
 		"/C/Users/Michael/Downloads/Temporary/hash1.py",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/web/img/sponsors/guess.py",
-		"/C/Users/Michael/Cloud/Heroku/easyctf/web/staticscoreboardgraph.json",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/web/img/twinkle_twinkle.png",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/mild.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/door.js",
@@ -305,12 +302,10 @@
 		"/C/Users/Michael/Downloads/Temporary/guess.py",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/web/problem_data/guess/guess.c",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/PROBLEMS.md",
-		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/injection-1.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/account.js",
 		"/C/Users/Michael/Documents/CTF-Platform-master/CTF-Platform-master/api/api.py",
 		"/C/Users/Michael/Documents/CTF-Platform-master/CTF-Platform-master/web/scoreboard.html",
 		"/C/Users/Michael/Documents/CTF-Platform-master/CTF-Platform-master/web/js/scoreboard.js",
-		"/C/Users/Michael/Cloud/Heroku/easyctf/web/index.html",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/web/js/scoreboard.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/failedxyz.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/GRO.js",
@@ -495,71 +490,18 @@
 			[
 				{
 					"buffer": 0,
-					"file": "web/index.html",
+					"file": "api/common.js",
 					"settings":
 					{
-						"buffer_size": 3598,
+						"buffer_size": 2686,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2472,
-								2472
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 556.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "web/js/bootstrap.min.js",
-					"settings":
-					{
-						"buffer_size": 35601,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "web/js/dependencies.js",
-					"settings":
-					{
-						"buffer_size": 4749,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								710,
-								710
+								778,
+								778
 							]
 						],
 						"settings":

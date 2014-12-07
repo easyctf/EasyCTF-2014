@@ -188,5 +188,5 @@ module.exports = function(app) {
 		forgot.verify_code(req, res);
 	});
 
-	stats(app);
+	// stats(app);
 };

@@ -184,58 +184,26 @@
 	"buffers":
 	[
 		{
-			"file": "pages/updates.html",
+			"file": "web/index.html",
 			"settings":
 			{
-				"buffer_size": 8870,
+				"buffer_size": 3598,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "api/api.js",
+			"file": "web/js/bootstrap.min.js",
 			"settings":
 			{
-				"buffer_size": 4544,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "api/common.js",
-			"settings":
-			{
-				"buffer_size": 2571,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "api/auth.js",
-			"settings":
-			{
-				"buffer_size": 3172,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "api/feedback.js",
-			"settings":
-			{
-				"buffer_size": 669,
-				"line_ending": "Windows"
+				"buffer_size": 35601,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "web/js/dependencies.js",
 			"settings":
 			{
-				"buffer_size": 4649,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "router.js",
-			"settings":
-			{
-				"buffer_size": 940,
+				"buffer_size": 4749,
 				"line_ending": "Windows"
 			}
 		}
@@ -243,9 +211,13 @@
 	"build_system": "Packages/Python/Python.sublime-build",
 	"command_palette":
 	{
-		"height": 196.0,
+		"height": 58.0,
 		"selected_items":
 		[
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
 			[
 				"save",
 				"Project: Save As"
@@ -263,7 +235,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 400.0
+		"width": 416.0
 	},
 	"console":
 	{
@@ -280,9 +252,15 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Michael/Cloud/Heroku/easyctf/router.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/js/dependencies.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/feedback.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/auth.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/api.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/pages/updates.html",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/common.js",
 		"/C/Users/Michael/Documents/adt/sdk/sources/android-18/android/media/MediaScanner.java",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/easyctf.sublime-project",
-		"/C/Users/Michael/Cloud/Heroku/easyctf/router.js",
 		"/C/Users/Michael/Cloud/GitHub/viva/dist/viva.css",
 		"/C/Users/Michael/Cloud/GitHub/viva/viva.sublime-project",
 		"/C/Users/Michael/Cloud/GitHub/viva/index.html",
@@ -296,7 +274,6 @@
 		"/C/Users/Michael/Cloud/GitHub/viva/less/colors.css",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/pages/sponsors.html",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/web/css/main.css",
-		"/C/Users/Michael/Cloud/Heroku/easyctf/pages/updates.html",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/scripts/during/accounts.csv",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/scripts/during/accounts.json",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/pages/scoreboard.html",
@@ -304,7 +281,6 @@
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/scoreboard.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/stats.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/problem.js",
-		"/C/Users/Michael/Cloud/Heroku/easyctf/api/api.js",
 		"/C/Users/Michael/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
 		"/C/Users/Michael/AppData/Roaming/Sublime Text 2/Packages/User/less2css.sublime-settings",
 		"/C/Users/Michael/Cloud/GitHub/viva/less/page.less",
@@ -336,11 +312,9 @@
 		"/C/Users/Michael/Documents/CTF-Platform-master/CTF-Platform-master/web/js/scoreboard.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/web/index.html",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/web/js/scoreboard.js",
-		"/C/Users/Michael/Cloud/Heroku/easyctf/api/common.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/failedxyz.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/GRO.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/web/js/login.js",
-		"/C/Users/Michael/Cloud/Heroku/easyctf/web/js/dependencies.js",
 		"/C/Users/Michael/Downloads/Temporary/project-eratosthenes.py"
 	],
 	"find":
@@ -516,23 +490,23 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "pages/updates.html",
+					"file": "web/index.html",
 					"settings":
 					{
-						"buffer_size": 8870,
+						"buffer_size": 3598,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1789,
-								1789
+								2472,
+								2472
 							]
 						],
 						"settings":
@@ -541,98 +515,17 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 122.0,
+						"translation.y": 556.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "api/api.js",
+					"file": "web/js/bootstrap.min.js",
 					"settings":
 					{
-						"buffer_size": 4544,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4252,
-								4252
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1668.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "api/common.js",
-					"settings":
-					{
-						"buffer_size": 2571,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								333,
-								333
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "api/auth.js",
-					"settings":
-					{
-						"buffer_size": 3172,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2565,
-								2565
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "api/feedback.js",
-					"settings":
-					{
-						"buffer_size": 669,
+						"buffer_size": 35601,
 						"regions":
 						{
 						},
@@ -645,8 +538,7 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -655,46 +547,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 2,
 					"file": "web/js/dependencies.js",
 					"settings":
 					{
-						"buffer_size": 4649,
+						"buffer_size": 4749,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2022,
-								2022
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 808.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "router.js",
-					"settings":
-					{
-						"buffer_size": 940,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								728,
-								728
+								710,
+								710
 							]
 						],
 						"settings":

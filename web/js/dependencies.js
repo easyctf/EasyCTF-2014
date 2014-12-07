@@ -22,7 +22,7 @@ var tabsBoth = [
 	[ "updates", "Updates"],
 	[ "scoreboard", "Scoreboard" ],
 	[ "sponsors", "Sponsors" ],
-	(new Date("Sat Dec 06 2014 22:00:00 GMT-0600 (Central Standard Time)") > new Date()) ? [ "writeups", "Writeups" ] : [ "learn", "Learn" ],
+	(new Date("Sat Dec 06 2014 22:00:00 GMT-0600 (Central Standard Time)") < new Date()) ? [ "writeups", "Writeups" ] : [ "learn", "Learn" ],
 	[ "feedback", "Feedback" ],
 ];
 
@@ -73,7 +73,7 @@ function build_navbar (set) {
 function check_certs_link_necessary() {
 
 }
-
+	
 function display_navbar () {
 	var during = (new Date("Sat Dec 06 2014 22:00:00 GMT-0600 (Central Standard Time)") > new Date());
 	$.ajax({

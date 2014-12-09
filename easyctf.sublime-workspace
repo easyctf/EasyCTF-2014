@@ -228,6 +228,10 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Michael/Cloud/Heroku/easyctf/web/index.html",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/format1.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/python-basic-6.js",
+		"/C/Users/Michael/Cloud/Heroku/easyctf/api/graders/python-basic-2.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/api.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/auth.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/scoreboard.js",
@@ -253,7 +257,6 @@
 		"/C/Users/Michael/Cloud/Heroku/easyctf/router.js",
 		"/C/Users/Michael/Downloads/Temporary/easyctf.com.zone.txt",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/web/js/bootstrap.min.js",
-		"/C/Users/Michael/Cloud/Heroku/easyctf/web/index.html",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/api/feedback.js",
 		"/C/Users/Michael/Cloud/Heroku/easyctf/pages/updates.html",
 		"/C/Users/Michael/Documents/adt/sdk/sources/android-18/android/media/MediaScanner.java",
@@ -313,7 +316,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 90.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"C:\\Users\\Michael\\Cloud\\Heroku\\easyctf\\",

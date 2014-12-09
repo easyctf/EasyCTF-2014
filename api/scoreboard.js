@@ -103,6 +103,11 @@ var generate_scoreboard_graph = function() {
 									}).sort({
 										timestamp: 1
 									}).toArray(function(err, data) {
+										for(var i=data.length-1; i>=0; i--) {
+											if (moment(data[i].timestamp).isAfter(common.endDate)) {
+												data.splice(i, 1);
+											}
+										}
 										team.submissions = data;
 										team.p = 0;
 										nTeamJson.push(team);

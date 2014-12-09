@@ -22,7 +22,8 @@ var tabsBoth = [
 	[ "updates", "Updates"],
 	[ "scoreboard", "Scoreboard" ],
 	[ "sponsors", "Sponsors" ],
-	(new Date("Sat Dec 06 2014 22:00:00 GMT-0600 (Central Standard Time)") < new Date()) ? [ "writeups", "Writeups" ] : [ "learn", "Learn" ],
+	[ "writeups", "Writeups" ],
+	[ "learn", "Learn" ],
 	[ "feedback", "Feedback" ],
 ];
 

@@ -48,7 +48,12 @@ var get_solved_p = function(req, res) {
 		common.db.collection("submissions").find({
 			pid: pid,
 			correct: true
-		}).toArray(function(err2, doc2) {
+		}).toArray(function(err2, submissions) {
+			for(var i=submissions.length-1; i>=0; i--) {
+				if (moment(submissions[i].timestamp).isAfter(common.endDate)) {
+					submissions.splice(i, 1);
+				}
+			}
 			if (err2) {
 				res.send({
 					status: 0,
@@ -58,7 +63,7 @@ var get_solved_p = function(req, res) {
 			}
 			res.send({
 				status: 1,
-				nTeams: doc2.length - 1
+				nTeams: submissions.length - 1
 			});
 		});
 	});
@@ -75,6 +80,11 @@ var get_top_n = function(req, res) {
 			common.db.collection("submissions").find({
 				correct: true,
 			}).toArray(function(err2, submissions) {
+				for(var i=submissions.length-1; i>=0; i--) {
+					if (moment(submissions[i].timestamp).isAfter(common.endDate)) {
+						submissions.splice(i, 1);
+					}
+				}
 				common.db.collection("problems").find({
 				}).toArray(function(err3, problems) {
 					if (err3) {

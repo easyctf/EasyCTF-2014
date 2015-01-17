@@ -2,20 +2,20 @@ var MongoDB = require("mongodb").Db;
 var Server = require("mongodb").Server;
 var crypto = require("crypto");
 var moment = require("moment");
+require("dotenv").load();
 
 exports.startDate = moment("2014-11-29 11:00:00.000-06:00");
 // exports.startDate = moment("2014-11-28 01:45:00.000-06:00"); //2014-11-28T1:45:00-06:00");
 exports.endDate = moment("2014-12-06 22:00:00.000-06:00");
 
-exports.db = new MongoDB("app29067833", new Server("kahana.mongohq.com", 10071, { auto_reconnect: true }), {w: 1});
+exports.db = new MongoDB(process.env.MONGO_DB, new Server(process.env.MONGO_HOST, 10071, { auto_reconnect: true }), {w: 1});
 
 exports.db.open(function(err, db) {
 	if (err) {
 		console.dir(err);
 	} else {
 		console.log("[api/common.js] connected to mongo db");
-		// db.authenticate("github_user", "__temporarypassword__", function(err, res) {
-		db.authenticate("asdf__asdf__asdf_user", "@'switching to a new secure password now ||$", function(err, res) {
+		db.authenticate(process.env.MONGO_USER, process.env.MONGO_PASS, function(err, res) {
 			if (err) {
 				console.dir(err);
 			} else {
